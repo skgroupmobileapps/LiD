@@ -1,0 +1,123 @@
+package de.skabs.skgroup.feature.learn
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import de.skabs.skgroup.core.model.FederalState
+import de.skabs.skgroup.core.model.Question
+import de.skabs.skgroup.core.model.Topic
+import de.skabs.skgroup.core.model.TopicProgress
+import de.skabs.skgroup.domain.usecase.AnswerFeedback
+import de.skabs.skgroup.domain.usecase.BookmarkUseCase
+import de.skabs.skgroup.domain.usecase.LearningUseCase
+import de.skabs.skgroup.domain.usecase.StatisticsUseCase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+
+data class LearnUiState(
+    val topicProgressList: List<TopicProgress> = emptyList(),
+    val currentQuestions: List<Question> = emptyList(),
+    val currentQuestionIndex: Int = 0,
+    val selectedAnswerIndex: Int? = null,
+    val feedback: AnswerFeedback? = null,
+    val bookmarkedQuestions: List<Question> = emptyList(),
+    val bookmarkCount: Int = 0,
+    val isLoading: Boolean = true
+)
+
+class LearnViewModel(
+    private val learningUseCase: LearningUseCase,
+    private val bookmarkUseCase: BookmarkUseCase,
+    private val statisticsUseCase: StatisticsUseCase
+) : ViewModel() {
+
+    private val _uiState = MutableStateFlow(LearnUiState())
+    val uiState: StateFlow<LearnUiState> = _uiState.asStateFlow()
+
+    init {
+        loadTopics()
+    }
+
+    fun loadTopics() {
+        viewModelScope.launch(Dispatchers.Default) {
+            val topicProgress = statisticsUseCase.getTopicProgressList()
+            val bookmarks = bookmarkUseCase.getBookmarkedQuestions()
+            _uiState.update {
+                it.copy(
+                    topicProgressList = topicProgress,
+                    bookmarkedQuestions = bookmarks,
+                    bookmarkCount = bookmarks.size,
+                    isLoading = false
+                )
+            }
+        }
+    }
+
+    fun loadQuestionsForTopic(topic: Topic) {
+        viewModelScope.launch(Dispatchers.Default) {
+            val questions = learningUseCase.getQuestionsForTopic(topic)
+            _uiState.update {
+                it.copy(
+                    currentQuestions = questions,
+                    currentQuestionIndex = 0,
+                    selectedAnswerIndex = null,
+                    feedback = null
+                )
+            }
+        }
+    }
+
+    fun loadAllQuestions() {
+        viewModelScope.launch(Dispatchers.Default) {
+            val questions = learningUseCase.getAllQuestions()
+            _uiState.update {
+                it.copy(currentQuestions = questions)
+            }
+        }
+    }
+
+    /**
+     * Submit answer in learn mode — immediate checking with feedback.
+     */
+    fun submitAnswer(question: Question, selectedIndex: Int) {
+        viewModelScope.launch(Dispatchers.Default) {
+            val feedback = learningUseCase.submitLearningAnswer(question, selectedIndex)
+            _uiState.update {
+                it.copy(
+                    selectedAnswerIndex = selectedIndex,
+                    feedback = feedback
+                )
+            }
+        }
+    }
+
+    fun nextQuestion() {
+        _uiState.update {
+            it.copy(
+                currentQuestionIndex = (it.currentQuestionIndex + 1).coerceAtMost(it.currentQuestions.size - 1),
+                selectedAnswerIndex = null,
+                feedback = null
+            )
+        }
+    }
+
+    fun toggleBookmark(questionId: Int) {
+        viewModelScope.launch(Dispatchers.Default) {
+            bookmarkUseCase.toggleBookmark(questionId)
+            val bookmarks = bookmarkUseCase.getBookmarkedQuestions()
+            _uiState.update {
+                it.copy(
+                    bookmarkedQuestions = bookmarks,
+                    bookmarkCount = bookmarks.size
+                )
+            }
+        }
+    }
+
+    fun isBookmarked(questionId: Int): Boolean {
+        return bookmarkUseCase.isBookmarked(questionId)
+    }
+}

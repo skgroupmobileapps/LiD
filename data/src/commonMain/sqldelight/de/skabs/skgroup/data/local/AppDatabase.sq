@@ -1,0 +1,159 @@
+-- Questions table
+CREATE TABLE QuestionEntity (
+    id INTEGER NOT NULL PRIMARY KEY,
+    text TEXT NOT NULL,
+    answerA TEXT NOT NULL,
+    answerB TEXT NOT NULL,
+    answerC TEXT NOT NULL,
+    answerD TEXT NOT NULL,
+    correctIndex INTEGER NOT NULL,
+    topic TEXT NOT NULL,
+    explanation TEXT NOT NULL,
+    federalState TEXT
+);
+
+-- User answers for progress tracking
+CREATE TABLE UserAnswerEntity (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    questionId INTEGER NOT NULL,
+    selectedIndex INTEGER NOT NULL,
+    isCorrect INTEGER NOT NULL,
+    timestampMs INTEGER NOT NULL,
+    mode TEXT NOT NULL DEFAULT 'learn',
+    FOREIGN KEY (questionId) REFERENCES QuestionEntity(id)
+);
+
+-- Bookmarks
+CREATE TABLE BookmarkEntity (
+    questionId INTEGER NOT NULL PRIMARY KEY,
+    timestampMs INTEGER NOT NULL,
+    FOREIGN KEY (questionId) REFERENCES QuestionEntity(id)
+);
+
+-- Exam history
+CREATE TABLE ExamHistoryEntity (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    totalQuestions INTEGER NOT NULL,
+    correctCount INTEGER NOT NULL,
+    wrongCount INTEGER NOT NULL,
+    passed INTEGER NOT NULL,
+    scorePercent REAL NOT NULL,
+    timeSpentMs INTEGER NOT NULL,
+    federalState TEXT NOT NULL,
+    timestampMs INTEGER NOT NULL
+);
+
+-- App settings
+CREATE TABLE SettingsEntity (
+    key TEXT NOT NULL PRIMARY KEY,
+    value TEXT NOT NULL
+);
+
+-- Question queries
+getAllQuestions:
+SELECT * FROM QuestionEntity ORDER BY id;
+
+getQuestionById:
+SELECT * FROM QuestionEntity WHERE id = ?;
+
+getQuestionsByTopic:
+SELECT * FROM QuestionEntity WHERE topic = ? ORDER BY id;
+
+getQuestionsByFederalState:
+SELECT * FROM QuestionEntity WHERE federalState = ? ORDER BY id;
+
+getGeneralQuestions:
+SELECT * FROM QuestionEntity WHERE federalState IS NULL ORDER BY id;
+
+getCandidateQuestions:
+SELECT * FROM QuestionEntity WHERE federalState IS NULL OR federalState = ? ORDER BY id;
+
+getQuestionCount:
+SELECT COUNT(*) FROM QuestionEntity;
+
+insertQuestion:
+INSERT OR REPLACE INTO QuestionEntity(id, text, answerA, answerB, answerC, answerD, correctIndex, topic, explanation, federalState)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+-- Answer queries
+insertAnswer:
+INSERT INTO UserAnswerEntity(questionId, selectedIndex, isCorrect, timestampMs, mode)
+VALUES (?, ?, ?, ?, ?);
+
+getAnswersForQuestion:
+SELECT * FROM UserAnswerEntity WHERE questionId = ? ORDER BY timestampMs DESC;
+
+getCorrectAnswerCount:
+SELECT COUNT(*) FROM UserAnswerEntity WHERE isCorrect = 1;
+
+getTotalAnswerCount:
+SELECT COUNT(*) FROM UserAnswerEntity;
+
+getCorrectCountByTopic:
+SELECT COUNT(*) FROM UserAnswerEntity ua
+JOIN QuestionEntity q ON ua.questionId = q.id
+WHERE q.topic = ? AND ua.isCorrect = 1;
+
+getTotalCountByTopic:
+SELECT COUNT(*) FROM UserAnswerEntity ua
+JOIN QuestionEntity q ON ua.questionId = q.id
+WHERE q.topic = ?;
+
+getDistinctCorrectQuestionIds:
+SELECT DISTINCT questionId FROM UserAnswerEntity WHERE isCorrect = 1;
+
+getLatestAnswerTimestamp:
+SELECT MAX(timestampMs) FROM UserAnswerEntity;
+
+getAnswersByDate:
+SELECT DISTINCT CAST(timestampMs / 86400000 AS INTEGER) AS daysSinceEpoch
+FROM UserAnswerEntity
+ORDER BY daysSinceEpoch DESC;
+
+-- Bookmark queries
+insertBookmark:
+INSERT OR REPLACE INTO BookmarkEntity(questionId, timestampMs) VALUES (?, ?);
+
+deleteBookmark:
+DELETE FROM BookmarkEntity WHERE questionId = ?;
+
+isBookmarked:
+SELECT COUNT(*) FROM BookmarkEntity WHERE questionId = ?;
+
+getAllBookmarks:
+SELECT * FROM BookmarkEntity ORDER BY timestampMs DESC;
+
+getBookmarkCount:
+SELECT COUNT(*) FROM BookmarkEntity;
+
+getBookmarkedQuestions:
+SELECT q.* FROM QuestionEntity q
+JOIN BookmarkEntity b ON q.id = b.questionId
+ORDER BY b.timestampMs DESC;
+
+-- Exam history queries
+insertExamHistory:
+INSERT INTO ExamHistoryEntity(totalQuestions, correctCount, wrongCount, passed, scorePercent, timeSpentMs, federalState, timestampMs)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+getExamHistory:
+SELECT * FROM ExamHistoryEntity ORDER BY timestampMs DESC;
+
+getExamCount:
+SELECT COUNT(*) FROM ExamHistoryEntity;
+
+getPassedExamCount:
+SELECT COUNT(*) FROM ExamHistoryEntity WHERE passed = 1;
+
+getAverageScore:
+SELECT AVG(scorePercent) FROM ExamHistoryEntity;
+
+-- Settings queries
+insertSetting:
+INSERT OR REPLACE INTO SettingsEntity(key, value) VALUES (?, ?);
+
+getSetting:
+SELECT value FROM SettingsEntity WHERE key = ?;
+
+getAllSettings:
+SELECT * FROM SettingsEntity;

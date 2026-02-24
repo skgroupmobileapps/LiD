@@ -1,0 +1,66 @@
+package de.skabs.skgroup.data.repository
+
+import de.skabs.skgroup.core.model.FederalState
+import de.skabs.skgroup.core.model.Language
+import de.skabs.skgroup.core.model.UserSettings
+import de.skabs.skgroup.data.local.AppDatabase
+
+/**
+ * Repository for app settings persistence.
+ */
+class SettingsRepository(private val database: AppDatabase) {
+
+    companion object {
+        private const val KEY_LANGUAGE = "language"
+        private const val KEY_FEDERAL_STATE = "federal_state"
+        private const val KEY_DARK_MODE = "dark_mode"
+        private const val KEY_NOTIFICATIONS = "notifications_enabled"
+        private const val KEY_ONBOARDING_COMPLETED = "onboarding_completed"
+        private const val KEY_IS_GUEST = "is_guest"
+    }
+
+    fun saveSettings(settings: UserSettings) {
+        database.appDatabaseQueries.insertSetting(KEY_LANGUAGE, settings.language.name)
+        database.appDatabaseQueries.insertSetting(KEY_FEDERAL_STATE, settings.federalState.name)
+        database.appDatabaseQueries.insertSetting(KEY_DARK_MODE, settings.darkMode.toString())
+        database.appDatabaseQueries.insertSetting(KEY_NOTIFICATIONS, settings.notificationsEnabled.toString())
+        database.appDatabaseQueries.insertSetting(KEY_ONBOARDING_COMPLETED, settings.hasCompletedOnboarding.toString())
+        database.appDatabaseQueries.insertSetting(KEY_IS_GUEST, settings.isGuest.toString())
+    }
+
+    fun loadSettings(): UserSettings {
+        val language = getSetting(KEY_LANGUAGE)?.let {
+            try { Language.valueOf(it) } catch (_: Exception) { null }
+        } ?: Language.GERMAN
+
+        val federalState = getSetting(KEY_FEDERAL_STATE)?.let {
+            try { FederalState.valueOf(it) } catch (_: Exception) { null }
+        } ?: FederalState.BERLIN
+
+        val darkMode = getSetting(KEY_DARK_MODE)?.toBooleanStrictOrNull() ?: false
+        val notifications = getSetting(KEY_NOTIFICATIONS)?.toBooleanStrictOrNull() ?: true
+        val onboarding = getSetting(KEY_ONBOARDING_COMPLETED)?.toBooleanStrictOrNull() ?: false
+        val isGuest = getSetting(KEY_IS_GUEST)?.toBooleanStrictOrNull() ?: true
+
+        return UserSettings(
+            language = language,
+            federalState = federalState,
+            darkMode = darkMode,
+            notificationsEnabled = notifications,
+            hasCompletedOnboarding = onboarding,
+            isGuest = isGuest
+        )
+    }
+
+    fun hasCompletedOnboarding(): Boolean {
+        return getSetting(KEY_ONBOARDING_COMPLETED)?.toBooleanStrictOrNull() ?: false
+    }
+
+    fun setOnboardingCompleted() {
+        database.appDatabaseQueries.insertSetting(KEY_ONBOARDING_COMPLETED, "true")
+    }
+
+    private fun getSetting(key: String): String? {
+        return database.appDatabaseQueries.getSetting(key).executeAsOneOrNull()
+    }
+}
