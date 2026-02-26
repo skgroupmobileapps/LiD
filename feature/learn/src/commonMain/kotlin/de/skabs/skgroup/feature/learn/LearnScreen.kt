@@ -13,8 +13,8 @@ import androidx.compose.ui.unit.dp
 import de.skabs.skgroup.core.model.Topic
 import de.skabs.skgroup.designsystem.components.*
 import de.skabs.skgroup.designsystem.theme.*
-
-
+import kmpexam.resources.generated.resources.*
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun LearnScreen(
@@ -25,7 +25,7 @@ fun LearnScreen(
     modifier: Modifier = Modifier
 ) {
     val uiState by viewModel.uiState.collectAsState()
-    
+
     LearnScreenContent(
         uiState = uiState,
         onTopicSelected = onTopicSelected,
@@ -53,13 +53,13 @@ fun LearnScreenContent(
 
         // Header
         Text(
-            text = "Learn",
+            text = stringResource(Res.string.learn_title),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.onBackground
         )
         Text(
-            text = "Study by topic or browse all questions",
+            text = stringResource(Res.string.learn_subtitle),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -76,14 +76,14 @@ fun LearnScreenContent(
                 shape = de.skabs.skgroup.designsystem.theme.ButtonShape,
                 border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
             ) {
-                Text("🔖 Bookmarks (${uiState.bookmarkCount})")
+                Text(stringResource(Res.string.learn_bookmarks_count, uiState.bookmarkCount))
             }
             OutlinedButton(
                 onClick = onAllQuestionsClick,
                 shape = de.skabs.skgroup.designsystem.theme.ButtonShape,
                 border = androidx.compose.foundation.BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
             ) {
-                Text("📋 All Questions")
+                Text(stringResource(Res.string.learn_all_questions))
             }
         }
 
@@ -91,7 +91,7 @@ fun LearnScreenContent(
 
         // Topics header
         Text(
-            text = "Topics",
+            text = stringResource(Res.string.learn_topics),
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold
         )

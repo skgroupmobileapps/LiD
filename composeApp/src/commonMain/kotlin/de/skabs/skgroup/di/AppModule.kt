@@ -29,11 +29,14 @@ import org.koin.dsl.module
  * - Repositories
  * - Use Cases
  * - ViewModels
+ *
+ * @param questionsJsonProvider Lambda that returns the JSON string of the question catalogue.
+ *   This is provided by the app layer which has access to Compose Resources.
  */
-val appModule = module {
+fun appModule(questionsJsonProvider: () -> String) = module {
     // Database
     single<AppDatabase> { createDatabase(get()) }
-    single { QuestionSeeder(get()) }
+    single { QuestionSeeder(get(), questionsJsonProvider) }
 
     // Repositories
     singleOf(::QuestionRepository)
@@ -55,3 +58,4 @@ val appModule = module {
     viewModelOf(::ExamViewModel)
     viewModelOf(::ProfileViewModel)
 }
+

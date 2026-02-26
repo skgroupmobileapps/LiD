@@ -16,6 +16,8 @@ import de.skabs.skgroup.core.model.Language
 import de.skabs.skgroup.designsystem.components.AppButton
 import de.skabs.skgroup.designsystem.components.GermanFlagBar
 import de.skabs.skgroup.designsystem.theme.PrimaryGreen
+import kmpexam.resources.generated.resources.*
+import org.jetbrains.compose.resources.stringResource
 
 
 /**
@@ -80,7 +82,7 @@ private fun WelcomeStep(onNext: () -> Unit) {
         Spacer(Modifier.height(24.dp))
 
         Text(
-            text = "Leben in Deutschland",
+            text = stringResource(Res.string.onboarding_welcome_title),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center
@@ -89,7 +91,7 @@ private fun WelcomeStep(onNext: () -> Unit) {
         Spacer(Modifier.height(12.dp))
 
         Text(
-            text = "Your personal preparation for the\nGerman citizenship test",
+            text = stringResource(Res.string.onboarding_welcome_subtitle),
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
@@ -97,7 +99,7 @@ private fun WelcomeStep(onNext: () -> Unit) {
 
         Spacer(Modifier.height(48.dp))
 
-        AppButton(text = "Get Started", trailingIcon = "›", onClick = onNext)
+        AppButton(text = stringResource(Res.string.onboarding_get_started), trailingIcon = "›", onClick = onNext)
     }
 }
 
@@ -112,7 +114,7 @@ private fun LanguageStep(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Choose your language",
+            text = stringResource(Res.string.onboarding_language_title),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center
@@ -121,7 +123,7 @@ private fun LanguageStep(
         Spacer(Modifier.height(8.dp))
 
         Text(
-            text = "Questions will be shown in this language",
+            text = stringResource(Res.string.onboarding_language_subtitle),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
@@ -161,7 +163,7 @@ private fun LanguageStep(
 
         Spacer(Modifier.weight(1f))
 
-        AppButton(text = "Continue", trailingIcon = "›", onClick = onNext)
+        AppButton(text = stringResource(Res.string.onboarding_continue), trailingIcon = "›", onClick = onNext)
         Spacer(Modifier.height(24.dp))
     }
 }
@@ -177,7 +179,7 @@ private fun StateStep(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Select your Bundesland",
+            text = stringResource(Res.string.onboarding_state_title),
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center
@@ -186,7 +188,7 @@ private fun StateStep(
         Spacer(Modifier.height(8.dp))
 
         Text(
-            text = "3 exam questions will be specific to your state",
+            text = stringResource(Res.string.onboarding_state_subtitle),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
@@ -230,7 +232,7 @@ private fun StateStep(
 
         Spacer(Modifier.height(16.dp))
 
-        AppButton(text = "Start Learning", trailingIcon = "🚀", onClick = onComplete)
+        AppButton(text = stringResource(Res.string.onboarding_finish), trailingIcon = "🚀", onClick = onComplete)
         Spacer(Modifier.height(24.dp))
     }
 }

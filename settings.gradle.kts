@@ -28,10 +28,12 @@ dependencyResolutionManagement {
     }
 }
 
+include(":resources")
 include(":core")
 include(":data")
 include(":domain")
 include(":designsystem")
+include(":analytics")
 include(":feature:onboarding")
 include(":feature:home")
 include(":feature:learn")

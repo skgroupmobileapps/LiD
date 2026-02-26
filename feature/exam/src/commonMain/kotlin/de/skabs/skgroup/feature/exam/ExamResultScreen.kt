@@ -15,6 +15,8 @@ import de.skabs.skgroup.core.model.ExamResult
 import de.skabs.skgroup.core.util.Timer
 import de.skabs.skgroup.designsystem.components.*
 import de.skabs.skgroup.designsystem.theme.*
+import kmpexam.resources.generated.resources.*
+import org.jetbrains.compose.resources.stringResource
 
 
 
@@ -40,7 +42,6 @@ fun ExamResultScreen(
 
         // Pass/Fail icon
         val resultEmoji = if (result.passed) "🎉" else "😔"
-        val resultText = if (result.passed) "Congratulations!" else "Not Passed"
         val resultColor = if (result.passed) SuccessGreen else ErrorRed
 
         Surface(
@@ -56,7 +57,7 @@ fun ExamResultScreen(
         Spacer(Modifier.height(16.dp))
 
         Text(
-            text = resultText,
+            text = if (result.passed) stringResource(Res.string.exam_result_passed) else stringResource(Res.string.exam_result_failed),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             color = resultColor
@@ -66,9 +67,9 @@ fun ExamResultScreen(
 
         Text(
             text = if (result.passed)
-                "You passed the Einbürgerungstest simulation!"
+                stringResource(Res.string.exam_result_passed_message)
             else
-                "You need ${ExamResult.PASS_THRESHOLD - result.correctCount} more correct answers to pass.",
+                stringResource(Res.string.exam_result_failed_message, ExamResult.PASS_THRESHOLD - result.correctCount),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
@@ -84,21 +85,21 @@ fun ExamResultScreen(
             StatCard(
                 icon = "✅",
                 value = "${result.correctCount}/${result.totalQuestions}",
-                label = "Correct",
+                label = stringResource(Res.string.profile_correct),
                 iconBackground = SuccessGreen,
                 modifier = Modifier.weight(1f)
             )
             StatCard(
                 icon = "📊",
                 value = "${result.scorePercent.toInt()}%",
-                label = "Score",
+                label = stringResource(Res.string.home_progress),
                 iconBackground = AccentGold,
                 modifier = Modifier.weight(1f)
             )
             StatCard(
                 icon = "⏱",
                 value = Timer.formatTime(result.timeSpentMs),
-                label = "Time",
+                label = stringResource(Res.string.exam_result_time),
                 iconBackground = AccentPurple,
                 modifier = Modifier.weight(1f)
             )
@@ -153,7 +154,7 @@ fun ExamResultScreen(
             Spacer(Modifier.height(16.dp))
 
             AppOutlinedButton(
-                text = "Review Wrong Answers",
+                text = stringResource(Res.string.exam_review_wrong),
                 onClick = onReviewWrongAnswers
             )
         }
@@ -161,7 +162,7 @@ fun ExamResultScreen(
         Spacer(Modifier.height(12.dp))
 
         AppButton(
-            text = "Back to Home",
+            text = stringResource(Res.string.exam_back_home),
             trailingIcon = "🏠",
             onClick = onBackToHome
         )

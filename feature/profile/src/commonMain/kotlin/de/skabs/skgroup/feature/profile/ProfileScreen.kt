@@ -1,6 +1,7 @@
 package de.skabs.skgroup.feature.profile
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -10,13 +11,25 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import de.skabs.skgroup.core.model.UserSettings
+import de.skabs.skgroup.core.util.PlatformUtil
 import de.skabs.skgroup.designsystem.components.*
 import de.skabs.skgroup.designsystem.theme.*
+import kmpexam.resources.generated.resources.*
+import org.jetbrains.compose.resources.stringResource
+
+// App metadata constants
+private const val APP_VERSION = "1.0.0"
+private const val CATALOGUE_DATE = "February 2026"
+private const val CONTACT_EMAIL = "support@einbuergerungstest-app.de"
 
 @Composable
 fun ProfileScreen(
@@ -43,6 +56,20 @@ fun ProfileScreenContent(
     val settings = uiState.settings
     val progress = uiState.progress
     val examStats = uiState.examStats
+    
+    // Language picker dialog state
+    var showLanguageDialog by remember { mutableStateOf(false) }
+    
+    // Language picker dialog
+    if (showLanguageDialog) {
+        LanguagePickerDialog(
+            currentLanguage = settings.language,
+            onLanguageSelected = { language ->
+                onUpdateSettings(settings.copy(language = language))
+            },
+            onDismiss = { showLanguageDialog = false }
+        )
+    }
 
     Column(
         modifier = modifier
@@ -53,7 +80,7 @@ fun ProfileScreenContent(
         Spacer(Modifier.height(16.dp))
 
         Text(
-            text = "Profile",
+            text = stringResource(Res.string.profile_title),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold
         )
@@ -84,7 +111,7 @@ fun ProfileScreenContent(
                 }
                 Column {
                     Text(
-                        text = if (settings.isGuest) "Guest User" else "Student",
+                        text = if (settings.isGuest) stringResource(Res.string.profile_guest) else stringResource(Res.string.profile_student),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.SemiBold
                     )
@@ -100,7 +127,7 @@ fun ProfileScreenContent(
         Spacer(Modifier.height(20.dp))
 
         // Stats
-        Text("Progress", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
+        Text(stringResource(Res.string.profile_progress), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(12.dp))
 
         Row(
@@ -110,21 +137,21 @@ fun ProfileScreenContent(
             StatCard(
                 icon = "🎯",
                 value = "${progress.totalCorrect}",
-                label = "Correct",
+                label = stringResource(Res.string.profile_correct),
                 iconBackground = SuccessGreen,
                 modifier = Modifier.weight(1f)
             )
             StatCard(
                 icon = "📈",
                 value = "${progress.accuracy.toInt()}%",
-                label = "Accuracy",
+                label = stringResource(Res.string.profile_accuracy),
                 iconBackground = AccentGold,
                 modifier = Modifier.weight(1f)
             )
             StatCard(
                 icon = "🔥",
                 value = "${progress.dayStreak}",
-                label = "Streak",
+                label = stringResource(Res.string.profile_streak),
                 iconBackground = AccentPink,
                 modifier = Modifier.weight(1f)
             )
@@ -133,7 +160,7 @@ fun ProfileScreenContent(
         Spacer(Modifier.height(20.dp))
 
         // Exam history summary
-        Text("Exams", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
+        Text(stringResource(Res.string.profile_exams), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(12.dp))
 
         Card(
@@ -148,15 +175,15 @@ fun ProfileScreenContent(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Column {
-                        Text("Attempts", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(stringResource(Res.string.profile_attempts), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                         Text("${examStats.totalAttempts}", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                     }
                     Column {
-                        Text("Passed", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(stringResource(Res.string.profile_passed), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                         Text("${examStats.totalPassed}", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = SuccessGreen)
                     }
                     Column {
-                        Text("Avg Score", style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(stringResource(Res.string.profile_avg_score), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
                         Text("${examStats.averageScore.toInt()}%", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = AccentGold)
                     }
                 }
@@ -167,7 +194,7 @@ fun ProfileScreenContent(
 
         // Recent exam history
         if (uiState.examHistory.isNotEmpty()) {
-            Text("Exam History", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+            Text(stringResource(Res.string.profile_exam_history), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
             Spacer(Modifier.height(10.dp))
 
             uiState.examHistory.take(5).forEach { entry ->
@@ -207,7 +234,7 @@ fun ProfileScreenContent(
         Spacer(Modifier.height(20.dp))
 
         // Settings Section
-        Text("Settings", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
+        Text(stringResource(Res.string.profile_settings), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(12.dp))
 
         Card(
@@ -218,6 +245,28 @@ fun ProfileScreenContent(
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
                 
+                // App Language
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { showLanguageDialog = true },
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column {
+                        Text(stringResource(Res.string.profile_app_language), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                        Text(stringResource(Res.string.profile_app_language_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    }
+                    Text(
+                        text = settings.language.displayName,
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
+                
+                HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
+                
                 // Dark Mode Switch
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -225,8 +274,8 @@ fun ProfileScreenContent(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Column {
-                        Text("Dark Mode", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
-                        Text("Toggle app theme", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(stringResource(Res.string.profile_dark_mode), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                        Text(stringResource(Res.string.profile_dark_mode_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                     Switch(
                         checked = settings.darkMode,
@@ -245,16 +294,74 @@ fun ProfileScreenContent(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                      Column {
-                        Text("Reset Statistics", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
-                        Text("Clear all progress and history", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(stringResource(Res.string.profile_reset_stats), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                        Text(stringResource(Res.string.profile_reset_stats_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                     Button(
                         onClick = onResetStatistics,
                         colors = ButtonDefaults.buttonColors(containerColor = ErrorRed.copy(alpha = 0.1f), contentColor = ErrorRed),
                         elevation = ButtonDefaults.buttonElevation(0.dp)
                     ) {
-                        Text("Reset")
+                        Text(stringResource(Res.string.profile_reset))
                     }
+                }
+            }
+        }
+
+        Spacer(Modifier.height(20.dp))
+
+        // About Section
+        Text(stringResource(Res.string.profile_about), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
+        Spacer(Modifier.height(12.dp))
+
+        Card(
+            modifier = Modifier.fillMaxWidth(),
+            shape = RoundedCornerShape(12.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
+                // App Version
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(stringResource(Res.string.profile_app_version), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(APP_VERSION, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
+                }
+
+                Spacer(Modifier.height(12.dp))
+
+                // Catalogue Date
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(stringResource(Res.string.profile_catalogue_date), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(CATALOGUE_DATE, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
+                }
+
+                Spacer(Modifier.height(12.dp))
+
+                // Contact Email
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(stringResource(Res.string.profile_contact), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text(
+                        text = CONTACT_EMAIL,
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.primary,
+                        textDecoration = TextDecoration.Underline,
+                        modifier = Modifier.clickable {
+                            PlatformUtil.openUrl("mailto:$CONTACT_EMAIL")
+                        }
+                    )
                 }
             }
         }
@@ -262,5 +369,3 @@ fun ProfileScreenContent(
         Spacer(Modifier.height(24.dp))
     }
 }
-
-
