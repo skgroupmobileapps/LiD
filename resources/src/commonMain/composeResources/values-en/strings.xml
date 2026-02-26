@@ -132,4 +132,13 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="submit">Submit</string>
+    
+    <!-- Widget -->
+    <string name="widget_name">Learning Stats</string>
+    <string name="widget_description">Shows your learning progress with quick access to Learn and Exam</string>
+    <string name="widget_correct">Correct</string>
+    <string name="widget_accuracy">Accuracy</string>
+    <string name="widget_streak">Streak</string>
+    <string name="widget_learn_button">Learn</string>
+    <string name="widget_exam_button">Exam</string>
 </resources>

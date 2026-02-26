@@ -132,4 +132,13 @@
     <string name="next">Weiter</string>
     <string name="previous">Zurück</string>
     <string name="submit">Absenden</string>
+    
+    <!-- Widget -->
+    <string name="widget_name">Lernstatistik</string>
+    <string name="widget_description">Zeigt Ihren Lernfortschritt mit Schnellzugriff auf Lernen und Prüfung</string>
+    <string name="widget_correct">Richtig</string>
+    <string name="widget_accuracy">Genauigkeit</string>
+    <string name="widget_streak">Streak</string>
+    <string name="widget_learn_button">Lernen</string>
+    <string name="widget_exam_button">Prüfung</string>
 </resources>

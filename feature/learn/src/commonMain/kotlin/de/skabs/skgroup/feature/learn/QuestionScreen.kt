@@ -59,6 +59,18 @@ fun QuestionScreenContent(
 ) {
     val questions = uiState.currentQuestions
     val currentIndex = uiState.currentQuestionIndex
+    
+    // Show loading indicator while questions are being loaded
+    if (uiState.isLoading || questions.isEmpty()) {
+        Box(
+            modifier = modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            CircularProgressIndicator(color = PrimaryGreen)
+        }
+        return
+    }
+    
     val currentQuestion = questions.getOrNull(currentIndex) ?: return
     val feedback = uiState.feedback
     val hasAnswered = feedback != null

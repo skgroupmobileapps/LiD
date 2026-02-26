@@ -58,13 +58,15 @@ class LearnViewModel(
 
     fun loadQuestionsForTopic(topic: Topic) {
         viewModelScope.launch(Dispatchers.Default) {
+            _uiState.update { it.copy(isLoading = true) }
             val questions = learningUseCase.getQuestionsForTopic(topic)
             _uiState.update {
                 it.copy(
                     currentQuestions = questions,
                     currentQuestionIndex = 0,
                     selectedAnswerIndex = null,
-                    feedback = null
+                    feedback = null,
+                    isLoading = false
                 )
             }
         }
@@ -72,9 +74,16 @@ class LearnViewModel(
 
     fun loadAllQuestions() {
         viewModelScope.launch(Dispatchers.Default) {
+            _uiState.update { it.copy(isLoading = true) }
             val questions = learningUseCase.getAllQuestions()
             _uiState.update {
-                it.copy(currentQuestions = questions)
+                it.copy(
+                    currentQuestions = questions,
+                    currentQuestionIndex = 0,
+                    selectedAnswerIndex = null,
+                    feedback = null,
+                    isLoading = false
+                )
             }
         }
     }

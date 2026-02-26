@@ -22,7 +22,7 @@ fun initKoinIos() {
                 // Read bundled questions JSON from Compose Resources in iOS bundle
                 try {
                     val path = NSBundle.mainBundle.pathForResource(
-                        "compose-resources/kmpexam.composeapp.generated.resources/files/questions_de",
+                        "compose-resources/kmpexam.resources.generated.resources/files/questions_de",
                         "json"
                     )
                     path?.let {

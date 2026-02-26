@@ -18,9 +18,9 @@ class EinbuergerungApp : Application() {
             modules(
                 appModule(questionsJsonProvider = {
                     // Read bundled questions JSON from compose resources
-                    // The file is bundled by Compose Multiplatform resources in the assets
+                    // The file is in the resources module which has compose resources configured
                     try {
-                        context.assets.open("composeResources/kmpexam.composeapp.generated.resources/files/questions_de.json")
+                        context.assets.open("composeResources/kmpexam.resources.generated.resources/files/questions_de.json")
                             .bufferedReader()
                             .use { it.readText() }
                     } catch (_: Exception) {

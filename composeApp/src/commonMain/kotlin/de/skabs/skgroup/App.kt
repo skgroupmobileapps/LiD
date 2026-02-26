@@ -43,13 +43,28 @@ data class LearnQuestionRoute(
 )
 
 @Composable
-fun App() {
+fun App(initialDeeplinkRoute: String? = null) {
     val settingsRepository: SettingsRepository = koinInject()
     val questionSeeder: QuestionSeeder = koinInject()
+    val progressUseCase: de.skabs.skgroup.domain.usecase.ProgressUseCase = koinInject()
+    val widgetSyncManager: de.skabs.skgroup.widget.WidgetSyncManager = koinInject()
 
-    // Seed questions on first launch
+    // Seed questions on first launch and sync widget stats
     LaunchedEffect(Unit) {
         questionSeeder.seedIfNeeded()
+        
+        // Sync widget stats after seeding completes
+        try {
+            val progress = progressUseCase.getUserProgress()
+            val widgetStats = de.skabs.skgroup.core.model.WidgetStats(
+                correctAnswers = progress.totalCorrect,
+                accuracyPercent = progress.accuracy,
+                dayStreak = progress.dayStreak
+            )
+            widgetSyncManager.syncStats(widgetStats)
+        } catch (_: Exception) {
+            // Silently ignore if stats aren't available yet
+        }
     }
 
     // Observe settings reactively so dark mode toggle takes effect immediately
@@ -62,6 +77,19 @@ fun App() {
             val navController = rememberNavController()
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val currentRoute = navBackStackEntry?.destination?.route
+
+            // Handle deeplink navigation
+            LaunchedEffect(initialDeeplinkRoute) {
+                initialDeeplinkRoute?.let { route ->
+                    // Only navigate if onboarding is complete
+                    if (hasCompletedOnboarding && route in listOf("home", "learn", "exam_intro")) {
+                        navController.navigate(route) {
+                            popUpTo("home") { saveState = true }
+                            launchSingleTop = true
+                        }
+                    }
+                }
+            }
 
             // Determine if bottom nav should be shown
             val showBottomNav = currentRoute in listOf("home", "learn", "exam_intro", "profile")

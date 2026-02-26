@@ -17,6 +17,7 @@ import de.skabs.skgroup.feature.exam.ExamViewModel
 import de.skabs.skgroup.feature.home.HomeViewModel
 import de.skabs.skgroup.feature.learn.LearnViewModel
 import de.skabs.skgroup.feature.profile.ProfileViewModel
+import de.skabs.skgroup.widget.WidgetSyncManager
 import org.koin.core.module.dsl.singleOf
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
@@ -44,6 +45,9 @@ fun appModule(questionsJsonProvider: () -> String) = module {
     singleOf(::ProgressRepository)
     singleOf(::BookmarkRepository)
     singleOf(::SettingsRepository)
+
+    // Widget
+    single { WidgetSyncManager() }
 
     // Use Cases
     singleOf(::ExamFlowUseCase)
