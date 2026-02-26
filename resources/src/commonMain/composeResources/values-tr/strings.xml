@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Leben in Deutschland</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Ana Sayfa</string>
+    <string name="nav_learn">Öğren</string>
+    <string name="nav_exam">Sınav</string>
+    <string name="nav_profile">Profil</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Leben in Deutschland</string>
+    <string name="onboarding_welcome_subtitle">Alman vatandaşlık sınavı için kişisel hazırlığınız</string>
+    <string name="onboarding_get_started">Başla</string>
+    <string name="onboarding_language_title">Uygulama Dili</string>
+    <string name="onboarding_language_subtitle">Uygulama arayüzü için dil seçin</string>
+    <string name="onboarding_language_footer">Sorular her zaman Almancadır. Seçtiğiniz dilde çevirisini görmek için herhangi bir kelimeye uzun basabilirsiniz.</string>
+    <string name="onboarding_state_title">Eyaletiniz</string>
+    <string name="onboarding_state_subtitle">Eyalete özgü sorular için Bundesland\'ınızı seçin</string>
+    <string name="onboarding_continue">Devam</string>
+    <string name="onboarding_finish">Bitir</string>
+    
+    <!-- Home -->
+    <string name="home_welcome">Tekrar hoş geldiniz</string>
+    <string name="home_title">Leben in Deutschland</string>
+    <string name="home_subtitle">Alman vatandaşlığına giden yolunuz</string>
+    <string name="home_continue_learning">Öğrenmeye Devam Et</string>
+    <string name="home_continue_subtitle">Kaldığınız yerden devam edin</string>
+    <string name="home_exam_mode">Sınav Modu</string>
+    <string name="home_exam_subtitle">Sınavı simüle et</string>
+    <string name="home_by_topic">Konuya Göre</string>
+    <string name="home_by_topic_subtitle">Kategori çalış</string>
+    <string name="home_bookmarks">Yer İşaretleri</string>
+    <string name="home_bookmarks_saved">%d kaydedildi</string>
+    <string name="home_all_questions">Tüm 300</string>
+    <string name="home_all_questions_subtitle">Tümüne göz at</string>
+    <string name="home_progress">İlerleme</string>
+    <string name="home_overall_progress">Genel İlerleme</string>
+    <string name="home_questions_completed">%2$d sorudan %1$d tamamlandı</string>
+    <string name="home_questions_answered">Cevaplanan sorular</string>
+    <string name="home_accuracy">Doğruluk</string>
+    <string name="home_day_streak">Gün Serisi</string>
+    <string name="home_quick_actions">Hızlı Eylemler</string>
+    <string name="home_questions">Sorular</string>
+    
+    <!-- Learn -->
+    <string name="learn_title">Öğren</string>
+    <string name="learn_subtitle">Konuya göre çalış veya tüm sorulara göz at</string>
+    <string name="learn_topics">Konular</string>
+    <string name="learn_bookmarks_count">🔖 Yer İşaretleri (%d)</string>
+    <string name="learn_all_questions">📋 Tüm Sorular</string>
+    <string name="learn_question_count">%d soru</string>
+    <string name="learn_correct">Doğru!</string>
+    <string name="learn_wrong">Yanlış!</string>
+    <string name="learn_next_question">Sonraki Soru</string>
+    
+    <!-- Exam -->
+    <string name="exam_title">Sınav</string>
+    <string name="exam_intro_title">Sınav Modu</string>
+    <string name="exam_intro_subtitle">Resmi Einbürgerungstest\'i simüle edin</string>
+    <string name="exam_33_questions">33 Soru</string>
+    <string name="exam_33_questions_subtitle">30 genel + 3 %s\'den</string>
+    <string name="exam_60_minutes">60 Dakika</string>
+    <string name="exam_60_minutes_subtitle">Sınav sırasında süre geri sayım yapar</string>
+    <string name="exam_17_to_pass">Geçmek için 17</string>
+    <string name="exam_17_to_pass_subtitle">En az 17 doğru cevap gerekli (%%51)</string>
+    <string name="exam_no_feedback">Geri Bildirim Yok</string>
+    <string name="exam_no_feedback_subtitle">Cevaplar sona kadar kontrol edilmez</string>
+    <string name="exam_start">Sınava Başla</string>
+    <string name="exam_question_of">Soru %1$d / %2$d</string>
+    <string name="exam_time_remaining">Kalan süre</string>
+    <string name="exam_finish">Sınavı Bitir</string>
+    <string name="exam_next">Sonraki ›</string>
+    <string name="exam_previous">‹ Önceki</string>
+    <string name="exam_result_title">Sınav Sonucu</string>
+    <string name="exam_result_passed">Geçtiniz!</string>
+    <string name="exam_result_failed">Geçemediniz</string>
+    <string name="exam_result_passed_message">Einbürgerungstest simülasyonunu geçtiniz!</string>
+    <string name="exam_result_failed_message">Geçmek için %d doğru cevaba daha ihtiyacınız var.</string>
+    <string name="exam_result_score">Puan: %1$d/%2$d</string>
+    <string name="exam_result_percentage">%%%d</string>
+    <string name="exam_result_time">Süre</string>
+    <string name="exam_review_wrong">Yanlış Cevapları İncele</string>
+    <string name="exam_try_again">Tekrar Dene</string>
+    <string name="exam_back_home">Ana Sayfaya Dön</string>
+    
+    <!-- Profile -->
+    <string name="profile_title">Profil</string>
+    <string name="profile_guest">Misafir</string>
+    <string name="profile_student">Öğrenci</string>
+    <string name="profile_progress">İlerleme</string>
+    <string name="profile_correct">Doğru</string>
+    <string name="profile_accuracy">Doğruluk</string>
+    <string name="profile_streak">Seri</string>
+    <string name="profile_exams">Sınavlar</string>
+    <string name="profile_attempts">Denemeler</string>
+    <string name="profile_passed">Geçilen</string>
+    <string name="profile_avg_score">Ort. Puan</string>
+    <string name="profile_exam_history">Sınav Geçmişi</string>
+    <string name="profile_settings">Ayarlar</string>
+    <string name="profile_app_language">Uygulama Dili</string>
+    <string name="profile_app_language_subtitle">Uygulama arayüzü dilini değiştirin</string>
+    <string name="profile_dark_mode">Karanlık Mod</string>
+    <string name="profile_dark_mode_subtitle">Uygulama temasını değiştir</string>
+    <string name="profile_reset_stats">İstatistikleri Sıfırla</string>
+    <string name="profile_reset_stats_subtitle">Tüm ilerleme ve geçmişi temizle</string>
+    <string name="profile_reset">Sıfırla</string>
+    <string name="profile_about">Hakkında</string>
+    <string name="profile_app_version">Uygulama Sürümü</string>
+    <string name="profile_catalogue_date">Katalog Tarihi</string>
+    <string name="profile_contact">İletişim</string>
+    
+    <!-- Dialogs -->
+    <string name="dialog_leave_exam_title">Sınavdan Çık?</string>
+    <string name="dialog_leave_exam_message">Çıkmak istediğinizden emin misiniz? Sınav ilerlemeniz kaybolacak.</string>
+    <string name="dialog_leave">Çık</string>
+    <string name="dialog_stay">Kal</string>
+    <string name="dialog_confirm">Onayla</string>
+    <string name="dialog_cancel">İptal</string>
+    <string name="dialog_language_title">Uygulama Dili</string>
+    
+    <!-- Topics -->
+    <string name="topic_democracy_and_state">Demokrasi ve Devlet</string>
+    <string name="topic_rights_and_duties">Haklar ve Görevler</string>
+    <string name="topic_history_and_responsibility">Tarih ve Sorumluluk</string>
+    <string name="topic_society_and_culture">Toplum ve Kültür</string>
+    <string name="topic_federal_state">Federal Eyalet</string>
+    
+    <!-- Common -->
+    <string name="close">Kapat</string>
+    <string name="next">İleri</string>
+    <string name="previous">Geri</string>
+    <string name="submit">Gönder</string>
+</resources>

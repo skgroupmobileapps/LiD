@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Leben in Deutschland</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_learn">تعلم</string>
+    <string name="nav_exam">اختبار</string>
+    <string name="nav_profile">الملف الشخصي</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Leben in Deutschland</string>
+    <string name="onboarding_welcome_subtitle">استعدادك الشخصي لاختبار الجنسية الألمانية</string>
+    <string name="onboarding_get_started">ابدأ</string>
+    <string name="onboarding_language_title">لغة التطبيق</string>
+    <string name="onboarding_language_subtitle">اختر لغة واجهة التطبيق</string>
+    <string name="onboarding_language_footer">الأسئلة دائمًا باللغة الألمانية. يمكنك الضغط لفترة طويلة على أي كلمة لرؤية ترجمتها بلغتك المختارة.</string>
+    <string name="onboarding_state_title">ولايتك</string>
+    <string name="onboarding_state_subtitle">اختر ولايتك الاتحادية للأسئلة الخاصة بالولاية</string>
+    <string name="onboarding_continue">متابعة</string>
+    <string name="onboarding_finish">إنهاء</string>
+    
+    <!-- Home -->
+    <string name="home_welcome">مرحبًا بعودتك</string>
+    <string name="home_title">Leben in Deutschland</string>
+    <string name="home_subtitle">طريقك إلى الجنسية الألمانية</string>
+    <string name="home_continue_learning">متابعة التعلم</string>
+    <string name="home_continue_subtitle">استكمل من حيث توقفت</string>
+    <string name="home_exam_mode">وضع الاختبار</string>
+    <string name="home_exam_subtitle">محاكاة الاختبار</string>
+    <string name="home_by_topic">حسب الموضوع</string>
+    <string name="home_by_topic_subtitle">دراسة الفئات</string>
+    <string name="home_bookmarks">المفضلة</string>
+    <string name="home_bookmarks_saved">%d محفوظ</string>
+    <string name="home_all_questions">جميع الـ 300</string>
+    <string name="home_all_questions_subtitle">تصفح الكل</string>
+    <string name="home_progress">التقدم</string>
+    <string name="home_overall_progress">التقدم الكلي</string>
+    <string name="home_questions_completed">%1$d من %2$d سؤال مكتمل</string>
+    <string name="home_questions_answered">الأسئلة المُجابة</string>
+    <string name="home_accuracy">الدقة</string>
+    <string name="home_day_streak">سلسلة الأيام</string>
+    <string name="home_quick_actions">إجراءات سريعة</string>
+    <string name="home_questions">أسئلة</string>
+    
+    <!-- Learn -->
+    <string name="learn_title">تعلم</string>
+    <string name="learn_subtitle">ادرس حسب الموضوع أو تصفح جميع الأسئلة</string>
+    <string name="learn_topics">المواضيع</string>
+    <string name="learn_bookmarks_count">🔖 المفضلة (%d)</string>
+    <string name="learn_all_questions">📋 جميع الأسئلة</string>
+    <string name="learn_question_count">%d سؤال</string>
+    <string name="learn_correct">صحيح!</string>
+    <string name="learn_wrong">خطأ!</string>
+    <string name="learn_next_question">السؤال التالي</string>
+    
+    <!-- Exam -->
+    <string name="exam_title">اختبار</string>
+    <string name="exam_intro_title">وضع الاختبار</string>
+    <string name="exam_intro_subtitle">محاكاة اختبار Einbürgerungstest الرسمي</string>
+    <string name="exam_33_questions">33 سؤال</string>
+    <string name="exam_33_questions_subtitle">30 عام + 3 من %s</string>
+    <string name="exam_60_minutes">60 دقيقة</string>
+    <string name="exam_60_minutes_subtitle">يعد المؤقت تنازلياً أثناء الاختبار</string>
+    <string name="exam_17_to_pass">17 للنجاح</string>
+    <string name="exam_17_to_pass_subtitle">تحتاج 17 إجابة صحيحة على الأقل (%%51)</string>
+    <string name="exam_no_feedback">بدون تعليقات</string>
+    <string name="exam_no_feedback_subtitle">لا يتم فحص الإجابات حتى النهاية</string>
+    <string name="exam_start">بدء الاختبار</string>
+    <string name="exam_question_of">السؤال %1$d من %2$d</string>
+    <string name="exam_time_remaining">الوقت المتبقي</string>
+    <string name="exam_finish">إنهاء الاختبار</string>
+    <string name="exam_next">التالي ›</string>
+    <string name="exam_previous">‹ السابق</string>
+    <string name="exam_result_title">نتيجة الاختبار</string>
+    <string name="exam_result_passed">ناجح!</string>
+    <string name="exam_result_failed">غير ناجح</string>
+    <string name="exam_result_passed_message">لقد نجحت في محاكاة اختبار الجنسية!</string>
+    <string name="exam_result_failed_message">تحتاج إلى %d إجابات صحيحة إضافية للنجاح.</string>
+    <string name="exam_result_score">الدرجة: %1$d/%2$d</string>
+    <string name="exam_result_percentage">%d%%</string>
+    <string name="exam_result_time">الوقت</string>
+    <string name="exam_review_wrong">مراجعة الإجابات الخاطئة</string>
+    <string name="exam_try_again">حاول مرة أخرى</string>
+    <string name="exam_back_home">العودة للرئيسية</string>
+    
+    <!-- Profile -->
+    <string name="profile_title">الملف الشخصي</string>
+    <string name="profile_guest">زائر</string>
+    <string name="profile_student">طالب</string>
+    <string name="profile_progress">التقدم</string>
+    <string name="profile_correct">صحيح</string>
+    <string name="profile_accuracy">الدقة</string>
+    <string name="profile_streak">السلسلة</string>
+    <string name="profile_exams">الاختبارات</string>
+    <string name="profile_attempts">المحاولات</string>
+    <string name="profile_passed">ناجح</string>
+    <string name="profile_avg_score">متوسط الدرجة</string>
+    <string name="profile_exam_history">سجل الاختبارات</string>
+    <string name="profile_settings">الإعدادات</string>
+    <string name="profile_app_language">لغة التطبيق</string>
+    <string name="profile_app_language_subtitle">تغيير لغة واجهة التطبيق</string>
+    <string name="profile_dark_mode">الوضع الداكن</string>
+    <string name="profile_dark_mode_subtitle">تبديل مظهر التطبيق</string>
+    <string name="profile_reset_stats">إعادة تعيين الإحصائيات</string>
+    <string name="profile_reset_stats_subtitle">مسح جميع التقدم والسجل</string>
+    <string name="profile_reset">إعادة تعيين</string>
+    <string name="profile_about">حول</string>
+    <string name="profile_app_version">إصدار التطبيق</string>
+    <string name="profile_catalogue_date">تاريخ الكتالوج</string>
+    <string name="profile_contact">اتصل بنا</string>
+    
+    <!-- Dialogs -->
+    <string name="dialog_leave_exam_title">مغادرة الاختبار؟</string>
+    <string name="dialog_leave_exam_message">هل أنت متأكد أنك تريد المغادرة؟ سيتم فقدان تقدمك في الاختبار.</string>
+    <string name="dialog_leave">مغادرة</string>
+    <string name="dialog_stay">البقاء</string>
+    <string name="dialog_confirm">تأكيد</string>
+    <string name="dialog_cancel">إلغاء</string>
+    <string name="dialog_language_title">لغة التطبيق</string>
+    
+    <!-- Topics -->
+    <string name="topic_democracy_and_state">الديمقراطية والدولة</string>
+    <string name="topic_rights_and_duties">الحقوق والواجبات</string>
+    <string name="topic_history_and_responsibility">التاريخ والمسؤولية</string>
+    <string name="topic_society_and_culture">المجتمع والثقافة</string>
+    <string name="topic_federal_state">الولاية الاتحادية</string>
+    
+    <!-- Common -->
+    <string name="close">إغلاق</string>
+    <string name="next">التالي</string>
+    <string name="previous">السابق</string>
+    <string name="submit">إرسال</string>
+</resources>

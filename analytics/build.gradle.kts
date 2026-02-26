@@ -1,0 +1,35 @@
+plugins {
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidLibrary)
+}
+
+kotlin {
+    androidTarget {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11)
+        }
+    }
+
+    iosArm64()
+    iosSimulatorArm64()
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.koin.core)
+            implementation(libs.firebase.analytics)
+        }
+    }
+}
+
+android {
+    namespace = "de.skabs.skgroup.analytics"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    defaultConfig {
+        minSdk = libs.versions.android.minSdk.get().toInt()
+    }
+}

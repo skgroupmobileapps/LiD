@@ -14,6 +14,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import de.skabs.skgroup.designsystem.components.*
 import de.skabs.skgroup.designsystem.theme.PrimaryGreen
+import kmpexam.resources.generated.resources.*
+import org.jetbrains.compose.resources.stringResource
 
 /**
  * Learn mode question screen — immediate answer checking with feedback.
@@ -29,6 +31,7 @@ import de.skabs.skgroup.core.model.Topic
 fun QuestionScreen(
     viewModel: LearnViewModel,
     onBack: () -> Unit = {},
+    onClose: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -39,6 +42,7 @@ fun QuestionScreen(
         onSubmitAnswer = { q, i -> viewModel.submitAnswer(q, i) },
         onNextQuestion = { viewModel.nextQuestion() },
         onBack = onBack,
+        onClose = onClose,
         modifier = modifier
     )
 }
@@ -50,6 +54,7 @@ fun QuestionScreenContent(
     onSubmitAnswer: (Question, Int) -> Unit = { _, _ -> },
     onNextQuestion: () -> Unit = {},
     onBack: () -> Unit = {},
+    onClose: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val questions = uiState.currentQuestions
@@ -65,24 +70,36 @@ fun QuestionScreenContent(
     ) {
         Spacer(Modifier.height(16.dp))
 
-        // Progress indicator
+        // Progress indicator with bookmark and close
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "Question ${currentIndex + 1}/${questions.size}",
+                text = stringResource(Res.string.exam_question_of, currentIndex + 1, questions.size),
                 style = MaterialTheme.typography.titleSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
-            // Bookmark toggle
-            val isBookmarked = uiState.bookmarkedQuestions.any { it.id == currentQuestion.id }
-            IconButton(onClick = { onToggleBookmark(currentQuestion.id) }) {
-                Text(
-                    text = if (isBookmarked) "🔖" else "📑",
-                    style = MaterialTheme.typography.titleLarge
-                )
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                // Bookmark toggle
+                val isBookmarked = uiState.bookmarkedQuestions.any { it.id == currentQuestion.id }
+                IconButton(onClick = { onToggleBookmark(currentQuestion.id) }) {
+                    Text(
+                        text = if (isBookmarked) "🔖" else "📑",
+                        style = MaterialTheme.typography.titleLarge
+                    )
+                }
+                // Close button
+                IconButton(onClick = onClose) {
+                    Text(
+                        text = "✕",
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
             }
         }
 
@@ -155,7 +172,7 @@ fun QuestionScreenContent(
         if (hasAnswered) {
             val isLast = currentIndex >= questions.size - 1
             AppButton(
-                text = if (isLast) "Finish" else "Next Question",
+                text = if (isLast) stringResource(Res.string.exam_finish) else stringResource(Res.string.learn_next_question),
                 trailingIcon = if (isLast) "✓" else "›",
                 onClick = {
                     if (isLast) onBack() else onNextQuestion()
@@ -165,5 +182,3 @@ fun QuestionScreenContent(
         Spacer(Modifier.height(16.dp))
     }
 }
-
-

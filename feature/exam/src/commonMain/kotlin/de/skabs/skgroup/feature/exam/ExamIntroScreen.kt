@@ -13,7 +13,8 @@ import androidx.compose.ui.unit.dp
 import de.skabs.skgroup.core.model.FederalState
 import de.skabs.skgroup.designsystem.components.AppButton
 import de.skabs.skgroup.designsystem.theme.*
-
+import kmpexam.resources.generated.resources.*
+import org.jetbrains.compose.resources.stringResource
 
 
 /**
@@ -49,14 +50,14 @@ fun ExamIntroScreen(
         Spacer(Modifier.height(20.dp))
 
         Text(
-            text = "Exam Mode",
+            text = stringResource(Res.string.exam_intro_title),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center
         )
         Spacer(Modifier.height(8.dp))
         Text(
-            text = "Simulate the official Einbürgerungstest",
+            text = stringResource(Res.string.exam_intro_subtitle),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
@@ -65,19 +66,19 @@ fun ExamIntroScreen(
         Spacer(Modifier.height(28.dp))
 
         // Info cards
-        ExamInfoItem(icon = "📝", title = "33 Questions", subtitle = "30 general + 3 from ${federalState.displayName}")
+        ExamInfoItem(icon = "📝", title = stringResource(Res.string.exam_33_questions), subtitle = stringResource(Res.string.exam_33_questions_subtitle, federalState.displayName))
         Spacer(Modifier.height(10.dp))
-        ExamInfoItem(icon = "⏱", title = "60 Minutes", subtitle = "Timer counts down during the exam")
+        ExamInfoItem(icon = "⏱", title = stringResource(Res.string.exam_60_minutes), subtitle = stringResource(Res.string.exam_60_minutes_subtitle))
         Spacer(Modifier.height(10.dp))
-        ExamInfoItem(icon = "✅", title = "17 to Pass", subtitle = "You need at least 17 correct answers (51%)")
+        ExamInfoItem(icon = "✅", title = stringResource(Res.string.exam_17_to_pass), subtitle = stringResource(Res.string.exam_17_to_pass_subtitle))
         Spacer(Modifier.height(10.dp))
-        ExamInfoItem(icon = "🔇", title = "No Feedback", subtitle = "Answers are not checked until the end")
+        ExamInfoItem(icon = "🔇", title = stringResource(Res.string.exam_no_feedback), subtitle = stringResource(Res.string.exam_no_feedback_subtitle))
 
         Spacer(Modifier.weight(1f))
 
         // Start Exam button at the bottom
         AppButton(
-            text = "Start Exam",
+            text = stringResource(Res.string.exam_start),
             trailingIcon = "🚀",
             onClick = onStartExam
         )

@@ -8,6 +8,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
+import de.skabs.skgroup.core.util.AppLocaleProvider
 import de.skabs.skgroup.data.local.QuestionSeeder
 import de.skabs.skgroup.data.repository.SettingsRepository
 import de.skabs.skgroup.designsystem.theme.EinbuergerungTheme
@@ -25,8 +27,20 @@ import de.skabs.skgroup.feature.onboarding.OnboardingScreen
 import de.skabs.skgroup.feature.profile.ProfileScreen
 import de.skabs.skgroup.feature.profile.ProfileViewModel
 import de.skabs.skgroup.navigation.BottomNavTab
+import kmpexam.resources.generated.resources.*
+import kotlinx.serialization.Serializable
+import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.compose.koinInject
+
+/**
+ * Route for learn question screen.
+ */
+@Serializable
+data class LearnQuestionRoute(
+    val mode: String = "ALL",
+    val topicId: String? = null
+)
 
 @Composable
 fun App() {
@@ -38,16 +52,19 @@ fun App() {
         questionSeeder.seedIfNeeded()
     }
 
+    // Observe settings reactively so dark mode toggle takes effect immediately
+    val settings by settingsRepository.settingsFlow.collectAsState()
     val hasCompletedOnboarding = remember { settingsRepository.hasCompletedOnboarding() }
     val startDestination = if (hasCompletedOnboarding) "home" else "onboarding"
 
-    EinbuergerungTheme {
-        val navController = rememberNavController()
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentRoute = navBackStackEntry?.destination?.route
+    AppLocaleProvider(language = settings.language) {
+        EinbuergerungTheme(darkTheme = settings.darkMode) {
+            val navController = rememberNavController()
+            val navBackStackEntry by navController.currentBackStackEntryAsState()
+            val currentRoute = navBackStackEntry?.destination?.route
 
-        // Determine if bottom nav should be shown
-        val showBottomNav = currentRoute in listOf("home", "learn", "exam_intro", "profile")
+            // Determine if bottom nav should be shown
+            val showBottomNav = currentRoute in listOf("home", "learn", "exam_intro", "profile")
 
         Scaffold(
             bottomBar = {
@@ -62,6 +79,12 @@ fun App() {
                                 BottomNavTab.EXAM -> "exam_intro"
                                 BottomNavTab.PROFILE -> "profile"
                             }
+                            val localizedLabel = when (tab) {
+                                BottomNavTab.HOME -> stringResource(Res.string.nav_home)
+                                BottomNavTab.LEARN -> stringResource(Res.string.nav_learn)
+                                BottomNavTab.EXAM -> stringResource(Res.string.nav_exam)
+                                BottomNavTab.PROFILE -> stringResource(Res.string.nav_profile)
+                            }
                             NavigationBarItem(
                                 selected = currentRoute == route,
                                 onClick = {
@@ -72,7 +95,7 @@ fun App() {
                                     }
                                 },
                                 icon = { Text(tab.icon) },
-                                label = { Text(tab.label, style = MaterialTheme.typography.labelSmall) }
+                                label = { Text(localizedLabel, style = MaterialTheme.typography.labelSmall) }
                             )
                         }
                     }
@@ -87,12 +110,12 @@ fun App() {
                 composable("onboarding") {
                     OnboardingScreen(
                         onComplete = { language, state ->
-                            val settings = settingsRepository.loadSettings().copy(
+                            val currentSettings = settingsRepository.loadSettings().copy(
                                 language = language,
                                 federalState = state,
                                 hasCompletedOnboarding = true
                             )
-                            settingsRepository.saveSettings(settings)
+                            settingsRepository.saveSettings(currentSettings)
                             navController.navigate("home") {
                                 popUpTo("onboarding") { inclusive = true }
                             }
@@ -104,11 +127,11 @@ fun App() {
                     val viewModel: HomeViewModel = koinViewModel()
                     HomeScreen(
                         viewModel = viewModel,
-                        onContinueLearning = { navController.navigate("learn_question/ALL/NONE") },
+                        onContinueLearning = { navController.navigate(LearnQuestionRoute(mode = "ALL", topicId = null)) },
                         onExamMode = { navController.navigate("exam_intro") },
                         onByTopic = { navController.navigate("learn") },
                         onBookmarks = { navController.navigate("learn") },
-                        onAllQuestions = { navController.navigate("learn_question/ALL/NONE") }
+                        onAllQuestions = { navController.navigate(LearnQuestionRoute(mode = "ALL", topicId = null)) }
                     )
                 }
 
@@ -117,20 +140,20 @@ fun App() {
                     LearnScreen(
                         viewModel = viewModel,
                         onTopicSelected = { topic ->
-                            navController.navigate("learn_question/TOPIC/${topic.name}")
+                            navController.navigate(LearnQuestionRoute(mode = "TOPIC", topicId = topic.name))
                         },
                         onBookmarksClick = { /* Navigate to bookmarked questions */ },
                         onAllQuestionsClick = {
-                            navController.navigate("learn_question/ALL/NONE")
+                            navController.navigate(LearnQuestionRoute(mode = "ALL", topicId = null))
                         }
                     )
                 }
 
-                composable(
-                    route = "learn_question/{mode}/{topicId}",
-                ) { backStackEntry ->
-                    val mode = backStackEntry.arguments?.getString("mode") ?: "ALL"
-                    val topicId = backStackEntry.arguments?.getString("topicId")
+                composable<LearnQuestionRoute> { backStackEntry ->
+                    // Extract arguments from the route using toRoute
+                    val route: LearnQuestionRoute = backStackEntry.toRoute()
+                    val mode: String = route.mode
+                    val topicId: String? = route.topicId
                     
                     val viewModel: LearnViewModel = koinViewModel()
                     
@@ -149,7 +172,8 @@ fun App() {
 
                     QuestionScreen(
                         viewModel = viewModel,
-                        onBack = { navController.popBackStack() }
+                        onBack = { navController.popBackStack() },
+                        onClose = { navController.popBackStack() }
                     )
                 }
 
@@ -163,7 +187,15 @@ fun App() {
                             onStartExam = { viewModel.startExam() },
                             onBack = { navController.popBackStack() }
                         )
-                        ExamPhase.IN_PROGRESS -> ExamQuestionScreen(viewModel = viewModel)
+                        ExamPhase.IN_PROGRESS -> ExamQuestionScreen(
+                            viewModel = viewModel,
+                            onExitExam = {
+                                viewModel.resetExam()
+                                navController.navigate("home") {
+                                    popUpTo("home") { inclusive = true }
+                                }
+                            }
+                        )
                         ExamPhase.RESULT -> {
                             uiState.result?.let { result ->
                                 ExamResultScreen(
@@ -186,6 +218,7 @@ fun App() {
                     ProfileScreen(viewModel = viewModel)
                 }
             }
+        }
         }
     }
 }

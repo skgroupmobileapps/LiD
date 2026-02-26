@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Leben in Deutschland</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_learn">Learn</string>
+    <string name="nav_exam">Exam</string>
+    <string name="nav_profile">Profile</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Leben in Deutschland</string>
+    <string name="onboarding_welcome_subtitle">Your personal preparation for the German citizenship test</string>
+    <string name="onboarding_get_started">Get Started</string>
+    <string name="onboarding_language_title">App Language</string>
+    <string name="onboarding_language_subtitle">Choose the language for the app interface</string>
+    <string name="onboarding_language_footer">Questions are always in German. You can long-press any word to see its translation in your selected language.</string>
+    <string name="onboarding_state_title">Your Federal State</string>
+    <string name="onboarding_state_subtitle">Select your Bundesland for state-specific questions</string>
+    <string name="onboarding_continue">Continue</string>
+    <string name="onboarding_finish">Finish</string>
+    
+    <!-- Home -->
+    <string name="home_welcome">Welcome back</string>
+    <string name="home_title">Leben in Deutschland</string>
+    <string name="home_subtitle">Your path to German citizenship</string>
+    <string name="home_continue_learning">Continue Learning</string>
+    <string name="home_continue_subtitle">Pick up where you left off</string>
+    <string name="home_exam_mode">Exam Mode</string>
+    <string name="home_exam_subtitle">Simulate the test</string>
+    <string name="home_by_topic">By Topic</string>
+    <string name="home_by_topic_subtitle">Study categories</string>
+    <string name="home_bookmarks">Bookmarks</string>
+    <string name="home_bookmarks_saved">%d saved</string>
+    <string name="home_all_questions">All 300</string>
+    <string name="home_all_questions_subtitle">Browse all</string>
+    <string name="home_progress">Progress</string>
+    <string name="home_overall_progress">Overall Progress</string>
+    <string name="home_questions_completed">%1$d of %2$d questions completed</string>
+    <string name="home_questions_answered">Questions answered</string>
+    <string name="home_accuracy">Accuracy</string>
+    <string name="home_day_streak">Day Streak</string>
+    <string name="home_quick_actions">Quick Actions</string>
+    <string name="home_questions">Questions</string>
+    
+    <!-- Learn -->
+    <string name="learn_title">Learn</string>
+    <string name="learn_subtitle">Study by topic or browse all questions</string>
+    <string name="learn_topics">Topics</string>
+    <string name="learn_bookmarks_count">🔖 Bookmarks (%d)</string>
+    <string name="learn_all_questions">📋 All Questions</string>
+    <string name="learn_question_count">%d questions</string>
+    <string name="learn_correct">Correct!</string>
+    <string name="learn_wrong">Wrong!</string>
+    <string name="learn_next_question">Next Question</string>
+    
+    <!-- Exam -->
+    <string name="exam_title">Exam</string>
+    <string name="exam_intro_title">Exam Mode</string>
+    <string name="exam_intro_subtitle">Simulate the official Einbürgerungstest</string>
+    <string name="exam_33_questions">33 Questions</string>
+    <string name="exam_33_questions_subtitle">30 general + 3 from %s</string>
+    <string name="exam_60_minutes">60 Minutes</string>
+    <string name="exam_60_minutes_subtitle">Timer counts down during the exam</string>
+    <string name="exam_17_to_pass">17 to Pass</string>
+    <string name="exam_17_to_pass_subtitle">You need at least 17 correct answers (51%%)</string>
+    <string name="exam_no_feedback">No Feedback</string>
+    <string name="exam_no_feedback_subtitle">Answers are not checked until the end</string>
+    <string name="exam_start">Start Exam</string>
+    <string name="exam_question_of">Question %1$d of %2$d</string>
+    <string name="exam_time_remaining">Time remaining</string>
+    <string name="exam_finish">Finish Exam</string>
+    <string name="exam_next">Next ›</string>
+    <string name="exam_previous">‹ Previous</string>
+    <string name="exam_result_title">Exam Result</string>
+    <string name="exam_result_passed">Passed!</string>
+    <string name="exam_result_failed">Not Passed</string>
+    <string name="exam_result_passed_message">You passed the Einbürgerungstest simulation!</string>
+    <string name="exam_result_failed_message">You need %d more correct answers to pass.</string>
+    <string name="exam_result_score">Score: %1$d/%2$d</string>
+    <string name="exam_result_percentage">%d%%</string>
+    <string name="exam_result_time">Time</string>
+    <string name="exam_review_wrong">Review Wrong Answers</string>
+    <string name="exam_try_again">Try Again</string>
+    <string name="exam_back_home">Back to Home</string>
+    
+    <!-- Profile -->
+    <string name="profile_title">Profile</string>
+    <string name="profile_guest">Guest User</string>
+    <string name="profile_student">Student</string>
+    <string name="profile_progress">Progress</string>
+    <string name="profile_correct">Correct</string>
+    <string name="profile_accuracy">Accuracy</string>
+    <string name="profile_streak">Streak</string>
+    <string name="profile_exams">Exams</string>
+    <string name="profile_attempts">Attempts</string>
+    <string name="profile_passed">Passed</string>
+    <string name="profile_avg_score">Avg Score</string>
+    <string name="profile_exam_history">Exam History</string>
+    <string name="profile_settings">Settings</string>
+    <string name="profile_app_language">App Language</string>
+    <string name="profile_app_language_subtitle">Change the app interface language</string>
+    <string name="profile_dark_mode">Dark Mode</string>
+    <string name="profile_dark_mode_subtitle">Toggle app theme</string>
+    <string name="profile_reset_stats">Reset Statistics</string>
+    <string name="profile_reset_stats_subtitle">Clear all progress and history</string>
+    <string name="profile_reset">Reset</string>
+    <string name="profile_about">About</string>
+    <string name="profile_app_version">App Version</string>
+    <string name="profile_catalogue_date">Catalogue Date</string>
+    <string name="profile_contact">Contact</string>
+    
+    <!-- Dialogs -->
+    <string name="dialog_leave_exam_title">Leave Exam?</string>
+    <string name="dialog_leave_exam_message">Are you sure you want to leave? Your exam progress will be lost.</string>
+    <string name="dialog_leave">Leave</string>
+    <string name="dialog_stay">Stay</string>
+    <string name="dialog_confirm">Confirm</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_language_title">App Language</string>
+    
+    <!-- Topics -->
+    <string name="topic_democracy_and_state">Democracy and State</string>
+    <string name="topic_rights_and_duties">Rights and Duties</string>
+    <string name="topic_history_and_responsibility">History and Responsibility</string>
+    <string name="topic_society_and_culture">Society and Culture</string>
+    <string name="topic_federal_state">Federal State</string>
+    
+    <!-- Common -->
+    <string name="close">Close</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="submit">Submit</string>
+</resources>

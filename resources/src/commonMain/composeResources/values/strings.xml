@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Leben in Deutschland</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Startseite</string>
+    <string name="nav_learn">Lernen</string>
+    <string name="nav_exam">Prüfung</string>
+    <string name="nav_profile">Profil</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Leben in Deutschland</string>
+    <string name="onboarding_welcome_subtitle">Ihr persönlicher Vorbereitung für den deutschen Einbürgerungstest</string>
+    <string name="onboarding_get_started">Los geht\'s</string>
+    <string name="onboarding_language_title">App-Sprache</string>
+    <string name="onboarding_language_subtitle">Wählen Sie die Sprache für die App-Oberfläche</string>
+    <string name="onboarding_language_footer">Die Fragen sind immer auf Deutsch. Sie können ein Wort lange drücken, um seine Übersetzung in Ihrer ausgewählten Sprache zu sehen.</string>
+    <string name="onboarding_state_title">Ihr Bundesland</string>
+    <string name="onboarding_state_subtitle">Wählen Sie Ihr Bundesland für landesspezifische Fragen</string>
+    <string name="onboarding_continue">Weiter</string>
+    <string name="onboarding_finish">Fertig</string>
+    
+    <!-- Home -->
+    <string name="home_welcome">Willkommen zurück</string>
+    <string name="home_title">Leben in Deutschland</string>
+    <string name="home_subtitle">Ihr Weg zur deutschen Staatsbürgerschaft</string>
+    <string name="home_continue_learning">Lernen fortsetzen</string>
+    <string name="home_continue_subtitle">Dort weitermachen, wo Sie aufgehört haben</string>
+    <string name="home_exam_mode">Prüfungsmodus</string>
+    <string name="home_exam_subtitle">Prüfung simulieren</string>
+    <string name="home_by_topic">Nach Thema</string>
+    <string name="home_by_topic_subtitle">Kategorien lernen</string>
+    <string name="home_bookmarks">Lesezeichen</string>
+    <string name="home_bookmarks_saved">%d gespeichert</string>
+    <string name="home_all_questions">Alle 300</string>
+    <string name="home_all_questions_subtitle">Alle durchsuchen</string>
+    <string name="home_progress">Fortschritt</string>
+    <string name="home_overall_progress">Gesamtfortschritt</string>
+    <string name="home_questions_completed">%1$d von %2$d Fragen abgeschlossen</string>
+    <string name="home_questions_answered">Fragen beantwortet</string>
+    <string name="home_accuracy">Genauigkeit</string>
+    <string name="home_day_streak">Tagessträhne</string>
+    <string name="home_quick_actions">Schnellaktionen</string>
+    <string name="home_questions">Fragen</string>
+    
+    <!-- Learn -->
+    <string name="learn_title">Lernen</string>
+    <string name="learn_subtitle">Nach Thema lernen oder alle Fragen durchsuchen</string>
+    <string name="learn_topics">Themenbereiche</string>
+    <string name="learn_bookmarks_count">🔖 Lesezeichen (%d)</string>
+    <string name="learn_all_questions">📋 Alle Fragen</string>
+    <string name="learn_question_count">%d Fragen</string>
+    <string name="learn_correct">Richtig!</string>
+    <string name="learn_wrong">Falsch!</string>
+    <string name="learn_next_question">Nächste Frage</string>
+    
+    <!-- Exam -->
+    <string name="exam_title">Prüfung</string>
+    <string name="exam_intro_title">Prüfungsmodus</string>
+    <string name="exam_intro_subtitle">Simulieren Sie den offiziellen Einbürgerungstest</string>
+    <string name="exam_33_questions">33 Fragen</string>
+    <string name="exam_33_questions_subtitle">30 allgemeine + 3 aus %s</string>
+    <string name="exam_60_minutes">60 Minuten</string>
+    <string name="exam_60_minutes_subtitle">Der Timer läuft während der Prüfung</string>
+    <string name="exam_17_to_pass">17 zum Bestehen</string>
+    <string name="exam_17_to_pass_subtitle">Sie benötigen mindestens 17 richtige Antworten (51%%)</string>
+    <string name="exam_no_feedback">Kein Feedback</string>
+    <string name="exam_no_feedback_subtitle">Antworten werden erst am Ende überprüft</string>
+    <string name="exam_start">Prüfung starten</string>
+    <string name="exam_question_of">Frage %1$d von %2$d</string>
+    <string name="exam_time_remaining">Zeit verbleibend</string>
+    <string name="exam_finish">Prüfung beenden</string>
+    <string name="exam_next">Weiter ›</string>
+    <string name="exam_previous">‹ Zurück</string>
+    <string name="exam_result_title">Prüfungsergebnis</string>
+    <string name="exam_result_passed">Bestanden!</string>
+    <string name="exam_result_failed">Nicht bestanden</string>
+    <string name="exam_result_passed_message">Sie haben die Einbürgerungstest-Simulation bestanden!</string>
+    <string name="exam_result_failed_message">Sie benötigen noch %d richtige Antworten zum Bestehen.</string>
+    <string name="exam_result_score">Punktzahl: %1$d/%2$d</string>
+    <string name="exam_result_percentage">%d%%</string>
+    <string name="exam_result_time">Zeit</string>
+    <string name="exam_review_wrong">Falsche Antworten überprüfen</string>
+    <string name="exam_try_again">Erneut versuchen</string>
+    <string name="exam_back_home">Zurück zur Startseite</string>
+    
+    <!-- Profile -->
+    <string name="profile_title">Profil</string>
+    <string name="profile_guest">Gast</string>
+    <string name="profile_student">Nutzer</string>
+    <string name="profile_progress">Fortschritt</string>
+    <string name="profile_correct">Richtig</string>
+    <string name="profile_accuracy">Genauigkeit</string>
+    <string name="profile_streak">Tagessträhne</string>
+    <string name="profile_exams">Prüfungen</string>
+    <string name="profile_attempts">Versuche</string>
+    <string name="profile_passed">Bestanden</string>
+    <string name="profile_avg_score">Durchschn.</string>
+    <string name="profile_exam_history">Prüfungshistorie</string>
+    <string name="profile_settings">Einstellungen</string>
+    <string name="profile_app_language">App-Sprache</string>
+    <string name="profile_app_language_subtitle">Sprache der App-Oberfläche ändern</string>
+    <string name="profile_dark_mode">Dunkelmodus</string>
+    <string name="profile_dark_mode_subtitle">App-Design umschalten</string>
+    <string name="profile_reset_stats">Statistiken zurücksetzen</string>
+    <string name="profile_reset_stats_subtitle">Fortschritt und Verlauf löschen</string>
+    <string name="profile_reset">Zurücksetzen</string>
+    <string name="profile_about">Über</string>
+    <string name="profile_app_version">App-Version</string>
+    <string name="profile_catalogue_date">Katalogdatum</string>
+    <string name="profile_contact">Kontakt</string>
+    
+    <!-- Dialogs -->
+    <string name="dialog_leave_exam_title">Prüfung verlassen?</string>
+    <string name="dialog_leave_exam_message">Möchten Sie die Prüfung wirklich verlassen? Ihr Fortschritt geht verloren.</string>
+    <string name="dialog_leave">Verlassen</string>
+    <string name="dialog_stay">Bleiben</string>
+    <string name="dialog_confirm">Bestätigen</string>
+    <string name="dialog_cancel">Abbrechen</string>
+    <string name="dialog_language_title">App-Sprache</string>
+    
+    <!-- Topics -->
+    <string name="topic_democracy_and_state">Demokratie und Staat</string>
+    <string name="topic_rights_and_duties">Rechte und Pflichten</string>
+    <string name="topic_history_and_responsibility">Geschichte und Verantwortung</string>
+    <string name="topic_society_and_culture">Gesellschaft und Kultur</string>
+    <string name="topic_federal_state">Bundesland</string>
+    
+    <!-- Common -->
+    <string name="close">Schließen</string>
+    <string name="next">Weiter</string>
+    <string name="previous">Zurück</string>
+    <string name="submit">Absenden</string>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "125480903978",
+    "project_id": "einburgerungstest-e4e47",
+    "storage_bucket": "einburgerungstest-e4e47.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125480903978:android:c10b13fca9c0b365152a53",
+        "android_client_info": {
+          "package_name": "de.skabs.skgroup"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1Q266hanv747813HIjKqsvqoi0-a2BuI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Leben in Deutschland</string>
+    
+    <!-- Navigation -->
+    <string name="nav_home">Главная</string>
+    <string name="nav_learn">Учить</string>
+    <string name="nav_exam">Экзамен</string>
+    <string name="nav_profile">Профиль</string>
+    
+    <!-- Onboarding -->
+    <string name="onboarding_welcome_title">Leben in Deutschland</string>
+    <string name="onboarding_welcome_subtitle">Ваша личная подготовка к тесту на гражданство Германии</string>
+    <string name="onboarding_get_started">Начать</string>
+    <string name="onboarding_language_title">Язык приложения</string>
+    <string name="onboarding_language_subtitle">Выберите язык интерфейса приложения</string>
+    <string name="onboarding_language_footer">Вопросы всегда на немецком языке. Вы можете долго нажать на любое слово, чтобы увидеть его перевод на выбранном языке.</string>
+    <string name="onboarding_state_title">Ваша федеральная земля</string>
+    <string name="onboarding_state_subtitle">Выберите вашу федеральную землю для вопросов по региону</string>
+    <string name="onboarding_continue">Продолжить</string>
+    <string name="onboarding_finish">Завершить</string>
+    
+    <!-- Home -->
+    <string name="home_welcome">С возвращением</string>
+    <string name="home_title">Leben in Deutschland</string>
+    <string name="home_subtitle">Ваш путь к немецкому гражданству</string>
+    <string name="home_continue_learning">Продолжить обучение</string>
+    <string name="home_continue_subtitle">Продолжите с того места, где остановились</string>
+    <string name="home_exam_mode">Режим экзамена</string>
+    <string name="home_exam_subtitle">Симуляция теста</string>
+    <string name="home_by_topic">По темам</string>
+    <string name="home_by_topic_subtitle">Изучение категорий</string>
+    <string name="home_bookmarks">Закладки</string>
+    <string name="home_bookmarks_saved">%d сохранено</string>
+    <string name="home_all_questions">Все 300</string>
+    <string name="home_all_questions_subtitle">Просмотреть все</string>
+    <string name="home_progress">Прогресс</string>
+    <string name="home_overall_progress">Общий прогресс</string>
+    <string name="home_questions_completed">%1$d из %2$d вопросов выполнено</string>
+    <string name="home_questions_answered">Отвеченных вопросов</string>
+    <string name="home_accuracy">Точность</string>
+    <string name="home_day_streak">Дневная серия</string>
+    <string name="home_quick_actions">Быстрые действия</string>
+    <string name="home_questions">Вопросы</string>
+    
+    <!-- Learn -->
+    <string name="learn_title">Учить</string>
+    <string name="learn_subtitle">Изучайте по темам или просматривайте все вопросы</string>
+    <string name="learn_topics">Темы</string>
+    <string name="learn_bookmarks_count">🔖 Закладки (%d)</string>
+    <string name="learn_all_questions">📋 Все вопросы</string>
+    <string name="learn_question_count">%d вопросов</string>
+    <string name="learn_correct">Правильно!</string>
+    <string name="learn_wrong">Неправильно!</string>
+    <string name="learn_next_question">Следующий вопрос</string>
+    
+    <!-- Exam -->
+    <string name="exam_title">Экзамен</string>
+    <string name="exam_intro_title">Режим экзамена</string>
+    <string name="exam_intro_subtitle">Симуляция официального Einbürgerungstest</string>
+    <string name="exam_33_questions">33 вопроса</string>
+    <string name="exam_33_questions_subtitle">30 общих + 3 из %s</string>
+    <string name="exam_60_minutes">60 минут</string>
+    <string name="exam_60_minutes_subtitle">Таймер отсчитывает время экзамена</string>
+    <string name="exam_17_to_pass">17 для сдачи</string>
+    <string name="exam_17_to_pass_subtitle">Необходимо минимум 17 правильных ответов (51%%)</string>
+    <string name="exam_no_feedback">Без обратной связи</string>
+    <string name="exam_no_feedback_subtitle">Ответы проверяются только в конце</string>
+    <string name="exam_start">Начать экзамен</string>
+    <string name="exam_question_of">Вопрос %1$d из %2$d</string>
+    <string name="exam_time_remaining">Оставшееся время</string>
+    <string name="exam_finish">Завершить экзамен</string>
+    <string name="exam_next">Далее ›</string>
+    <string name="exam_previous">‹ Назад</string>
+    <string name="exam_result_title">Результат экзамена</string>
+    <string name="exam_result_passed">Сдано!</string>
+    <string name="exam_result_failed">Не сдано</string>
+    <string name="exam_result_passed_message">Вы успешно прошли симуляцию теста на гражданство!</string>
+    <string name="exam_result_failed_message">Вам нужно ещё %d правильных ответов для сдачи.</string>
+    <string name="exam_result_score">Баллы: %1$d/%2$d</string>
+    <string name="exam_result_percentage">%d%%</string>
+    <string name="exam_result_time">Время</string>
+    <string name="exam_review_wrong">Просмотреть ошибки</string>
+    <string name="exam_try_again">Попробовать снова</string>
+    <string name="exam_back_home">На главную</string>
+    
+    <!-- Profile -->
+    <string name="profile_title">Профиль</string>
+    <string name="profile_guest">Гость</string>
+    <string name="profile_student">Студент</string>
+    <string name="profile_progress">Прогресс</string>
+    <string name="profile_correct">Правильно</string>
+    <string name="profile_accuracy">Точность</string>
+    <string name="profile_streak">Серия</string>
+    <string name="profile_exams">Экзамены</string>
+    <string name="profile_attempts">Попытки</string>
+    <string name="profile_passed">Сдано</string>
+    <string name="profile_avg_score">Средний балл</string>
+    <string name="profile_exam_history">История экзаменов</string>
+    <string name="profile_settings">Настройки</string>
+    <string name="profile_app_language">Язык приложения</string>
+    <string name="profile_app_language_subtitle">Изменить язык интерфейса</string>
+    <string name="profile_dark_mode">Тёмная тема</string>
+    <string name="profile_dark_mode_subtitle">Переключить тему приложения</string>
+    <string name="profile_reset_stats">Сбросить статистику</string>
+    <string name="profile_reset_stats_subtitle">Очистить весь прогресс и историю</string>
+    <string name="profile_reset">Сбросить</string>
+    <string name="profile_about">О приложении</string>
+    <string name="profile_app_version">Версия приложения</string>
+    <string name="profile_catalogue_date">Дата каталога</string>
+    <string name="profile_contact">Контакты</string>
+    
+    <!-- Dialogs -->
+    <string name="dialog_leave_exam_title">Покинуть экзамен?</string>
+    <string name="dialog_leave_exam_message">Вы уверены, что хотите выйти? Ваш прогресс по экзамену будет потерян.</string>
+    <string name="dialog_leave">Выйти</string>
+    <string name="dialog_stay">Остаться</string>
+    <string name="dialog_confirm">Подтвердить</string>
+    <string name="dialog_cancel">Отмена</string>
+    <string name="dialog_language_title">Язык приложения</string>
+    
+    <!-- Topics -->
+    <string name="topic_democracy_and_state">Демократия и государство</string>
+    <string name="topic_rights_and_duties">Права и обязанности</string>
+    <string name="topic_history_and_responsibility">История и ответственность</string>
+    <string name="topic_society_and_culture">Общество и культура</string>
+    <string name="topic_federal_state">Федеральная земля</string>
+    
+    <!-- Common -->
+    <string name="close">Закрыть</string>
+    <string name="next">Далее</string>
+    <string name="previous">Назад</string>
+    <string name="submit">Отправить</string>
+</resources>

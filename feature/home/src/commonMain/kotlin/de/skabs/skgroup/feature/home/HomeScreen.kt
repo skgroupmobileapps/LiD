@@ -13,6 +13,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import de.skabs.skgroup.designsystem.components.*
 import de.skabs.skgroup.designsystem.theme.*
+import kmpexam.resources.generated.resources.*
+import org.jetbrains.compose.resources.stringResource
 
 
 @Composable
@@ -63,13 +65,13 @@ fun HomeScreenContent(
 
             // Title
             Text(
-                text = "Leben in Deutschland",
+                text = stringResource(Res.string.home_title),
                 style = MaterialTheme.typography.headlineLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onBackground
             )
             Text(
-                text = "Your path to German citizenship",
+                text = stringResource(Res.string.home_subtitle),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -84,21 +86,21 @@ fun HomeScreenContent(
                 StatCard(
                     icon = "🎯",
                     value = "${progress.totalCorrect}/${progress.totalQuestionsAvailable}",
-                    label = "Questions",
+                    label = stringResource(Res.string.home_questions),
                     iconBackground = SuccessGreen,
                     modifier = Modifier.weight(1f)
                 )
                 StatCard(
                     icon = "📈",
                     value = "${progress.accuracy.toInt()}%",
-                    label = "Accuracy",
+                    label = stringResource(Res.string.home_accuracy),
                     iconBackground = AccentGold,
                     modifier = Modifier.weight(1f)
                 )
                 StatCard(
                     icon = "🔥",
                     value = "${progress.dayStreak}",
-                    label = "Day Streak",
+                    label = stringResource(Res.string.home_day_streak),
                     iconBackground = AccentPink,
                     modifier = Modifier.weight(1f)
                 )
@@ -121,7 +123,7 @@ fun HomeScreenContent(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            "Overall Progress",
+                            stringResource(Res.string.home_overall_progress),
                             style = MaterialTheme.typography.titleSmall,
                             fontWeight = FontWeight.SemiBold
                         )
@@ -139,7 +141,7 @@ fun HomeScreenContent(
                     )
                     Spacer(Modifier.height(6.dp))
                     Text(
-                        "${progress.totalCorrect} of ${progress.totalQuestionsAvailable} questions completed",
+                        stringResource(Res.string.home_questions_completed, progress.totalCorrect, progress.totalQuestionsAvailable),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -150,7 +152,7 @@ fun HomeScreenContent(
 
             // Quick Actions
             Text(
-                "Quick Actions",
+                stringResource(Res.string.home_quick_actions),
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold
             )
@@ -159,8 +161,8 @@ fun HomeScreenContent(
 
             // Continue Learning (primary)
             QuickActionCardPrimary(
-                title = "Continue Learning",
-                subtitle = "Pick up where you left off",
+                title = stringResource(Res.string.home_continue_learning),
+                subtitle = stringResource(Res.string.home_continue_subtitle),
                 onClick = onContinueLearning
             )
 
@@ -172,16 +174,16 @@ fun HomeScreenContent(
                 horizontalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 QuickActionCardSecondary(
-                    title = "Exam Mode",
-                    subtitle = "Simulate the test",
+                    title = stringResource(Res.string.home_exam_mode),
+                    subtitle = stringResource(Res.string.home_exam_subtitle),
                     icon = "🎓",
                     iconColor = AccentPurple,
                     onClick = onExamMode,
                     modifier = Modifier.weight(1f)
                 )
                 QuickActionCardSecondary(
-                    title = "By Topic",
-                    subtitle = "Study categories",
+                    title = stringResource(Res.string.home_by_topic),
+                    subtitle = stringResource(Res.string.home_by_topic_subtitle),
                     icon = "📊",
                     iconColor = AccentOrange,
                     onClick = onByTopic,
@@ -196,16 +198,16 @@ fun HomeScreenContent(
                 horizontalArrangement = Arrangement.spacedBy(10.dp)
             ) {
                 QuickActionCardSecondary(
-                    title = "Bookmarks",
-                    subtitle = "${progress.bookmarkCount} saved",
+                    title = stringResource(Res.string.home_bookmarks),
+                    subtitle = stringResource(Res.string.home_bookmarks_saved, progress.bookmarkCount),
                     icon = "🔖",
                     iconColor = AccentGold,
                     onClick = onBookmarks,
                     modifier = Modifier.weight(1f)
                 )
                 QuickActionCardSecondary(
-                    title = "All 300",
-                    subtitle = "Browse all",
+                    title = stringResource(Res.string.home_all_questions),
+                    subtitle = stringResource(Res.string.home_all_questions_subtitle),
                     icon = "📚",
                     iconColor = PrimaryGreen,
                     onClick = onAllQuestions,

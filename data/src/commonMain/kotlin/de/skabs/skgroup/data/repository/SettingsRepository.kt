@@ -4,11 +4,25 @@ import de.skabs.skgroup.core.model.FederalState
 import de.skabs.skgroup.core.model.Language
 import de.skabs.skgroup.core.model.UserSettings
 import de.skabs.skgroup.data.local.AppDatabase
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
 /**
  * Repository for app settings persistence.
+ *
+ * Exposes [settingsFlow] so the UI (e.g. theme) can reactively observe
+ * changes like dark-mode toggle without restarting the app.
  */
 class SettingsRepository(private val database: AppDatabase) {
+
+    private val _settingsFlow = MutableStateFlow(UserSettings())
+    val settingsFlow: StateFlow<UserSettings> = _settingsFlow.asStateFlow()
+
+    init {
+        // Load persisted settings into the flow on creation
+        _settingsFlow.value = loadSettings()
+    }
 
     companion object {
         private const val KEY_LANGUAGE = "language"
@@ -26,6 +40,8 @@ class SettingsRepository(private val database: AppDatabase) {
         database.appDatabaseQueries.insertSetting(KEY_NOTIFICATIONS, settings.notificationsEnabled.toString())
         database.appDatabaseQueries.insertSetting(KEY_ONBOARDING_COMPLETED, settings.hasCompletedOnboarding.toString())
         database.appDatabaseQueries.insertSetting(KEY_IS_GUEST, settings.isGuest.toString())
+        // Immediately push to flow so observers (theme, UI) react
+        _settingsFlow.value = settings
     }
 
     fun loadSettings(): UserSettings {
