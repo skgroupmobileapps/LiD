@@ -1,5 +1,6 @@
 package de.skabs.skgroup.domain.usecase
 
+import de.skabs.skgroup.core.model.FederalState
 import de.skabs.skgroup.core.model.Topic
 import de.skabs.skgroup.core.model.TopicProgress
 import de.skabs.skgroup.core.util.Scoring
@@ -32,7 +33,8 @@ class StatisticsUseCase(
     }
 
     /**
-     * Get progress for each topic, identifying weak areas.
+     * Get progress for each topic (unfiltered - includes all 460 questions).
+     * @deprecated Use getTopicProgressListForUser(federalState) for correct Land-based filtering.
      */
     fun getTopicProgressList(): List<TopicProgress> {
         return Topic.entries.map { topic ->
@@ -42,10 +44,33 @@ class StatisticsUseCase(
     }
 
     /**
+     * Get progress for each topic, filtered for the user's federal state.
+     * For FEDERAL_STATE topic, counts only the 10 questions for the user's Land.
+     * For other topics, counts all general questions in that topic.
+     */
+    fun getTopicProgressListForUser(federalState: FederalState): List<TopicProgress> {
+        return Topic.entries.map { topic ->
+            val questionsInTopic = questionRepository.getQuestionsByTopicForUser(topic, federalState).size
+            progressRepository.getTopicProgress(topic, questionsInTopic)
+        }
+    }
+
+    /**
      * Get the weakest topics (lowest accuracy), useful for focused study.
+     * @deprecated Use getWeakTopicsForUser(federalState, limit) for correct Land-based filtering.
      */
     fun getWeakTopics(limit: Int = 3): List<TopicProgress> {
         return getTopicProgressList()
+            .filter { it.totalAnswered > 0 }
+            .sortedBy { it.accuracyPercent }
+            .take(limit)
+    }
+
+    /**
+     * Get the weakest topics (lowest accuracy) for the user's federal state.
+     */
+    fun getWeakTopicsForUser(federalState: FederalState, limit: Int = 3): List<TopicProgress> {
+        return getTopicProgressListForUser(federalState)
             .filter { it.totalAnswered > 0 }
             .sortedBy { it.accuracyPercent }
             .take(limit)

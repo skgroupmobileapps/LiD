@@ -117,9 +117,12 @@ fun App(initialDeeplinkRoute: String? = null) {
                                 selected = currentRoute == route,
                                 onClick = {
                                     navController.navigate(route) {
-                                        popUpTo("home") { saveState = true }
-                                        launchSingleTop = true
-                                        restoreState = true
+                                        popUpTo("home") {
+                                            saveState = true
+                                            inclusive = true
+                                        }
+                                        launchSingleTop = false
+                                        restoreState = false
                                     }
                                 },
                                 icon = { Text(tab.icon) },

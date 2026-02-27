@@ -2,7 +2,9 @@ package de.skabs.skgroup.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import de.skabs.skgroup.core.model.FederalState
 import de.skabs.skgroup.core.model.UserProgress
+import de.skabs.skgroup.data.repository.SettingsRepository
 import de.skabs.skgroup.domain.usecase.ProgressUseCase
 import de.skabs.skgroup.domain.usecase.StatisticsUseCase
 import kotlinx.coroutines.Dispatchers
@@ -18,11 +20,15 @@ data class HomeUiState(
 
 class HomeViewModel(
     private val progressUseCase: ProgressUseCase,
-    private val statisticsUseCase: StatisticsUseCase
+    private val statisticsUseCase: StatisticsUseCase,
+    private val settingsRepository: SettingsRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(HomeUiState())
     val uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
+
+    private val federalState: FederalState
+        get() = settingsRepository.loadSettings().federalState
 
     init {
         loadProgress()
@@ -30,7 +36,7 @@ class HomeViewModel(
 
     fun loadProgress() {
         viewModelScope.launch(Dispatchers.Default) {
-            val progress = progressUseCase.getUserProgress()
+            val progress = progressUseCase.getUserProgressForState(federalState)
             _uiState.value = HomeUiState(
                 progress = progress,
                 isLoading = false

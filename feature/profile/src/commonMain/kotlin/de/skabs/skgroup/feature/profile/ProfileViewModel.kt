@@ -42,7 +42,7 @@ class ProfileViewModel(
     fun loadProfile() {
         viewModelScope.launch(Dispatchers.Default) {
             val settings = settingsRepository.loadSettings()
-            val progress = progressUseCase.getUserProgress()
+            val progress = progressUseCase.getUserProgressForState(settings.federalState)
             val examStats = statisticsUseCase.getExamStats()
             val examHistory = examRepository.getExamHistory()
 

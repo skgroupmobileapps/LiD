@@ -23,6 +23,16 @@ class QuestionRepository(private val database: AppDatabase) {
         return database.appDatabaseQueries.getQuestionsByTopic(topic.name).executeAsList().map { it.toQuestion() }
     }
 
+    /**
+     * Get questions by topic, filtered for the user's federal state.
+     * For FEDERAL_STATE topic, returns only the 10 questions for the user's Land.
+     * For other topics, returns all general questions in that topic.
+     */
+    fun getQuestionsByTopicForUser(topic: Topic, federalState: FederalState): List<Question> {
+        return database.appDatabaseQueries.getQuestionsByTopicForUser(topic.name, federalState.name)
+            .executeAsList().map { it.toQuestion() }
+    }
+
     fun getGeneralQuestions(): List<Question> {
         return database.appDatabaseQueries.getGeneralQuestions().executeAsList().map { it.toQuestion() }
     }
@@ -37,6 +47,13 @@ class QuestionRepository(private val database: AppDatabase) {
 
     fun getQuestionCount(): Long {
         return database.appDatabaseQueries.getQuestionCount().executeAsOne()
+    }
+
+    /**
+     * Get question count for a user (300 general + 10 for their Land = 310).
+     */
+    fun getCandidateQuestionCount(federalState: FederalState): Long {
+        return database.appDatabaseQueries.getCandidateQuestionCount(federalState.name).executeAsOne()
     }
 
     fun insertQuestion(question: Question) {

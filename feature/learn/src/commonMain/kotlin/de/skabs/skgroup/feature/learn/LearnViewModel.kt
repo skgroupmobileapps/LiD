@@ -6,6 +6,7 @@ import de.skabs.skgroup.core.model.FederalState
 import de.skabs.skgroup.core.model.Question
 import de.skabs.skgroup.core.model.Topic
 import de.skabs.skgroup.core.model.TopicProgress
+import de.skabs.skgroup.data.repository.SettingsRepository
 import de.skabs.skgroup.domain.usecase.AnswerFeedback
 import de.skabs.skgroup.domain.usecase.BookmarkUseCase
 import de.skabs.skgroup.domain.usecase.LearningUseCase
@@ -31,11 +32,15 @@ data class LearnUiState(
 class LearnViewModel(
     private val learningUseCase: LearningUseCase,
     private val bookmarkUseCase: BookmarkUseCase,
-    private val statisticsUseCase: StatisticsUseCase
+    private val statisticsUseCase: StatisticsUseCase,
+    private val settingsRepository: SettingsRepository
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LearnUiState())
     val uiState: StateFlow<LearnUiState> = _uiState.asStateFlow()
+
+    private val federalState: FederalState
+        get() = settingsRepository.loadSettings().federalState
 
     init {
         loadTopics()
@@ -43,7 +48,7 @@ class LearnViewModel(
 
     fun loadTopics() {
         viewModelScope.launch(Dispatchers.Default) {
-            val topicProgress = statisticsUseCase.getTopicProgressList()
+            val topicProgress = statisticsUseCase.getTopicProgressListForUser(federalState)
             val bookmarks = bookmarkUseCase.getBookmarkedQuestions()
             _uiState.update {
                 it.copy(
@@ -59,7 +64,7 @@ class LearnViewModel(
     fun loadQuestionsForTopic(topic: Topic) {
         viewModelScope.launch(Dispatchers.Default) {
             _uiState.update { it.copy(isLoading = true) }
-            val questions = learningUseCase.getQuestionsForTopic(topic)
+            val questions = learningUseCase.getQuestionsForTopicAndState(topic, federalState)
             _uiState.update {
                 it.copy(
                     currentQuestions = questions,
@@ -75,7 +80,7 @@ class LearnViewModel(
     fun loadAllQuestions() {
         viewModelScope.launch(Dispatchers.Default) {
             _uiState.update { it.copy(isLoading = true) }
-            val questions = learningUseCase.getAllQuestions()
+            val questions = learningUseCase.getCandidateQuestions(federalState)
             _uiState.update {
                 it.copy(
                     currentQuestions = questions,

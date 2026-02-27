@@ -68,6 +68,14 @@ SELECT * FROM QuestionEntity WHERE federalState IS NULL ORDER BY id;
 getCandidateQuestions:
 SELECT * FROM QuestionEntity WHERE federalState IS NULL OR federalState = ? ORDER BY id;
 
+getQuestionsByTopicForUser:
+SELECT * FROM QuestionEntity 
+WHERE topic = ? AND (federalState IS NULL OR federalState = ?)
+ORDER BY id;
+
+getCandidateQuestionCount:
+SELECT COUNT(*) FROM QuestionEntity WHERE federalState IS NULL OR federalState = ?;
+
 getQuestionCount:
 SELECT COUNT(*) FROM QuestionEntity;
 

@@ -30,10 +30,19 @@ class LearningUseCase(
     private val progressRepository: ProgressRepository
 ) {
     /**
-     * Get all questions for a specific topic.
+     * Get all questions for a specific topic (unfiltered by federal state).
      */
     fun getQuestionsForTopic(topic: Topic): List<Question> {
         return questionRepository.getQuestionsByTopic(topic)
+    }
+
+    /**
+     * Get questions for a specific topic, filtered for the user's federal state.
+     * For FEDERAL_STATE topic, returns only the 10 questions for the user's Land.
+     * For other topics, returns all general questions in that topic.
+     */
+    fun getQuestionsForTopicAndState(topic: Topic, federalState: FederalState): List<Question> {
+        return questionRepository.getQuestionsByTopicForUser(topic, federalState)
     }
 
     /**
@@ -44,7 +53,8 @@ class LearningUseCase(
     }
 
     /**
-     * Get all general questions.
+     * Get all general questions (unfiltered - for backwards compatibility).
+     * @deprecated Use getCandidateQuestions(federalState) instead for proper Land filtering.
      */
     fun getAllQuestions(): List<Question> {
         return questionRepository.getAllQuestions()

@@ -20,6 +20,7 @@ kotlin {
             implementation(projects.core)
             implementation(projects.resources)
             implementation(projects.domain)
+            implementation(projects.data)
             implementation(projects.designsystem)
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
