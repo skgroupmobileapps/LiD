@@ -48,7 +48,7 @@
     <string name="learn_title">Öğren</string>
     <string name="learn_subtitle">Konuya göre çalış veya tüm sorulara göz at</string>
     <string name="learn_topics">Konular</string>
-    <string name="learn_bookmarks_count">🔖 Yer İşaretleri (%d)</string>
+    <string name="learn_bookmarks_count">🔖 Yer İşaretleri %1$d</string>
     <string name="learn_all_questions">📋 Tüm Sorular</string>
     <string name="learn_question_count">%d soru</string>
     <string name="learn_correct">Doğru!</string>

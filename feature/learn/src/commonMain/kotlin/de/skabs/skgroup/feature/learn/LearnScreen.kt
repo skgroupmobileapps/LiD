@@ -7,10 +7,14 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import de.skabs.skgroup.core.model.Topic
+import de.skabs.skgroup.core.util.BackHandler
 import de.skabs.skgroup.designsystem.components.*
 import de.skabs.skgroup.designsystem.theme.*
 import kmpexam.resources.generated.resources.*
@@ -22,9 +26,31 @@ fun LearnScreen(
     onTopicSelected: (Topic) -> Unit = {},
     onBookmarksClick: () -> Unit = {},
     onAllQuestionsClick: () -> Unit = {},
+    onBack: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val uiState by viewModel.uiState.collectAsState()
+    var showExitDialog by remember { mutableStateOf(false) }
+
+
+    BackHandler(enabled = true) {
+        showExitDialog = true
+    }
+
+    // Exit confirmation dialog
+    if (showExitDialog) {
+        ConfirmationDialog(
+            title = stringResource(Res.string.dialog_leave_exam_title),
+            message = stringResource(Res.string.dialog_leave_exam_message),
+            confirmText = stringResource(Res.string.dialog_leave),
+            dismissText = stringResource(Res.string.dialog_stay),
+            onConfirm = {
+                showExitDialog = false
+                onBack()
+            },
+            onDismiss = { showExitDialog = false }
+        )
+    }
 
     LearnScreenContent(
         uiState = uiState,

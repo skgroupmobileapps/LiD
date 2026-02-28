@@ -48,7 +48,7 @@
     <string name="learn_title">Учить</string>
     <string name="learn_subtitle">Изучайте по темам или просматривайте все вопросы</string>
     <string name="learn_topics">Темы</string>
-    <string name="learn_bookmarks_count">🔖 Закладки (%d)</string>
+    <string name="learn_bookmarks_count">🔖 Закладки %1$d</string>
     <string name="learn_all_questions">📋 Все вопросы</string>
     <string name="learn_question_count">%d вопросов</string>
     <string name="learn_correct">Правильно!</string>

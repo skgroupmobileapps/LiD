@@ -48,7 +48,7 @@
     <string name="learn_title">Learn</string>
     <string name="learn_subtitle">Study by topic or browse all questions</string>
     <string name="learn_topics">Topics</string>
-    <string name="learn_bookmarks_count">🔖 Bookmarks (%d)</string>
+    <string name="learn_bookmarks_count">🔖 Bookmarks %1$d</string>
     <string name="learn_all_questions">📋 All Questions</string>
     <string name="learn_question_count">%d questions</string>
     <string name="learn_correct">Correct!</string>

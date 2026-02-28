@@ -48,7 +48,7 @@
     <string name="learn_title">Lernen</string>
     <string name="learn_subtitle">Nach Thema lernen oder alle Fragen durchsuchen</string>
     <string name="learn_topics">Themenbereiche</string>
-    <string name="learn_bookmarks_count">🔖 Lesezeichen (%d)</string>
+    <string name="learn_bookmarks_count">🔖 Lesezeichen %1$d</string>
     <string name="learn_all_questions">📋 Alle Fragen</string>
     <string name="learn_question_count">%d Fragen</string>
     <string name="learn_correct">Richtig!</string>

@@ -176,7 +176,8 @@ fun App(initialDeeplinkRoute: String? = null) {
                         onBookmarksClick = { /* Navigate to bookmarked questions */ },
                         onAllQuestionsClick = {
                             navController.navigate(LearnQuestionRoute(mode = "ALL", topicId = null))
-                        }
+                        },
+                        onBack = { navController.popBackStack("home", inclusive = false)}
                     )
                 }
 
