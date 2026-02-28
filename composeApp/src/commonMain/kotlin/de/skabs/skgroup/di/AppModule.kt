@@ -19,7 +19,6 @@ import de.skabs.skgroup.feature.learn.LearnViewModel
 import de.skabs.skgroup.feature.profile.ProfileViewModel
 import de.skabs.skgroup.widget.WidgetSyncManager
 import org.koin.core.module.dsl.singleOf
-import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
 
 /**
@@ -56,10 +55,10 @@ fun appModule(questionsJsonProvider: () -> String) = module {
     singleOf(::StatisticsUseCase)
     singleOf(::ProgressUseCase)
 
-    // ViewModels
-    viewModelOf(::HomeViewModel)
-    viewModelOf(::LearnViewModel)
-    viewModelOf(::ExamViewModel)
-    viewModelOf(::ProfileViewModel)
+    // ViewModels - use single() for manual lifecycle management with iOS compatibility
+    single { HomeViewModel(get(), get(), get()) }
+    single { LearnViewModel(get(), get(), get(), get()) }
+    single { ExamViewModel(get(), get()) }
+    single { ProfileViewModel(get(), get(), get(), get()) }
 }
 

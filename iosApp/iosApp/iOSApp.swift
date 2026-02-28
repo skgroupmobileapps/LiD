@@ -1,8 +1,14 @@
 import SwiftUI
+import ComposeApp
 
 @main
 struct iOSApp: App {
     @State private var initialDeeplinkRoute: String? = nil
+    
+    init() {
+        // Initialize Koin DI before any Kotlin composables are invoked
+        KoinInitKt.doInitKoinIos()
+    }
     
     var body: some Scene {
         WindowGroup {

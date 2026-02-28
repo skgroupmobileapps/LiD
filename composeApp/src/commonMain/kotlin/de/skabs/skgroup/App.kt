@@ -30,8 +30,41 @@ import de.skabs.skgroup.navigation.BottomNavTab
 import kmpexam.resources.generated.resources.*
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.stringResource
-import org.koin.compose.viewmodel.koinViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.CreationExtras
+import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
+import androidx.lifecycle.viewmodel.compose.viewModel
 import org.koin.compose.koinInject
+
+/**
+ * Manual ViewModel injection pattern that works on iOS with Kotlin 2.3.0+ IR backend.
+ * Combines Koin injection with Compose's ViewModel lifecycle management.
+ */
+@Composable
+inline fun <reified T : ViewModel> koinInjectViewModel(): T {
+    val viewModelStoreOwner = checkNotNull(LocalViewModelStoreOwner.current) {
+        "No ViewModelStoreOwner was provided via LocalViewModelStoreOwner"
+    }
+    
+    // Get ViewModel instance from Koin
+    val viewModelInstance: T = koinInject()
+    
+    // Create a factory that returns the Koin-injected instance
+    val factory = object : ViewModelProvider.Factory {
+        @Suppress("UNCHECKED_CAST")
+        override fun <V : ViewModel> create(modelClass: kotlin.reflect.KClass<V>, extras: CreationExtras): V {
+            return viewModelInstance as V
+        }
+    }
+    
+    // Use viewModel with the factory
+    return viewModel(
+        viewModelStoreOwner = viewModelStoreOwner,
+        key = T::class.simpleName,
+        factory = factory
+    )
+}
 
 /**
  * Route for learn question screen.
@@ -155,7 +188,7 @@ fun App(initialDeeplinkRoute: String? = null) {
                 }
 
                 composable("home") {
-                    val viewModel: HomeViewModel = koinViewModel()
+                    val viewModel: HomeViewModel = koinInjectViewModel()
                     HomeScreen(
                         viewModel = viewModel,
                         onContinueLearning = { navController.navigate(LearnQuestionRoute(mode = "ALL", topicId = null)) },
@@ -167,7 +200,7 @@ fun App(initialDeeplinkRoute: String? = null) {
                 }
 
                 composable("learn") {
-                    val viewModel: LearnViewModel = koinViewModel()
+                    val viewModel: LearnViewModel = koinInjectViewModel()
                     LearnScreen(
                         viewModel = viewModel,
                         onTopicSelected = { topic ->
@@ -187,7 +220,7 @@ fun App(initialDeeplinkRoute: String? = null) {
                     val mode: String = route.mode
                     val topicId: String? = route.topicId
                     
-                    val viewModel: LearnViewModel = koinViewModel()
+                    val viewModel: LearnViewModel = koinInjectViewModel()
                     
                     LaunchedEffect(mode, topicId) {
                         if (mode == "TOPIC" && topicId != null) {
@@ -210,7 +243,7 @@ fun App(initialDeeplinkRoute: String? = null) {
                 }
 
                 composable("exam_intro") {
-                    val viewModel: ExamViewModel = koinViewModel()
+                    val viewModel: ExamViewModel = koinInjectViewModel()
                     val uiState by viewModel.uiState.collectAsState()
 
                     when (uiState.phase) {
@@ -246,7 +279,7 @@ fun App(initialDeeplinkRoute: String? = null) {
                 }
 
                 composable("profile") {
-                    val viewModel: ProfileViewModel = koinViewModel()
+                    val viewModel: ProfileViewModel = koinInjectViewModel()
                     ProfileScreen(viewModel = viewModel)
                 }
             }
