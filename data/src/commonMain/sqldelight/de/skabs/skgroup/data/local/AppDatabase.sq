@@ -110,6 +110,9 @@ WHERE q.topic = ?;
 getDistinctCorrectQuestionIds:
 SELECT DISTINCT questionId FROM UserAnswerEntity WHERE isCorrect = 1;
 
+getAnsweredQuestionIds:
+SELECT DISTINCT questionId FROM UserAnswerEntity;
+
 getLatestAnswerTimestamp:
 SELECT MAX(timestampMs) FROM UserAnswerEntity;
 

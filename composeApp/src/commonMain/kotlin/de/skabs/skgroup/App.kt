@@ -225,9 +225,11 @@ fun App(initialDeeplinkRoute: String? = null) {
                     LaunchedEffect(mode, topicId) {
                         if (mode == "TOPIC" && topicId != null) {
                             try {
-                                val topic = de.skabs.skgroup.core.model.Topic.valueOf(topicId)
+                                val cleanTopicId = topicId.trim('"', '{', '}').trim()
+                                val topic = de.skabs.skgroup.core.model.Topic.valueOf(cleanTopicId)
                                 viewModel.loadQuestionsForTopic(topic)
-                            } catch (_: Exception) {
+                            } catch (e: Exception) {
+                                println("Failed to parse topic: $topicId, error: $e")
                                 viewModel.loadAllQuestions()
                             }
                         } else {

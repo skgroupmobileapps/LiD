@@ -33,6 +33,13 @@ class StatisticsUseCase(
     }
 
     /**
+     * Get the set of IDs of all questions the user has answered.
+     */
+    fun getAnsweredQuestionIds(): Set<Int> {
+        return progressRepository.getAnsweredQuestionIds()
+    }
+
+    /**
      * Get progress for each topic (unfiltered - includes all 460 questions).
      * @deprecated Use getTopicProgressListForUser(federalState) for correct Land-based filtering.
      */

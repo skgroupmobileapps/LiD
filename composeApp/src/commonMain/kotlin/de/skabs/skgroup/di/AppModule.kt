@@ -18,6 +18,8 @@ import de.skabs.skgroup.feature.home.HomeViewModel
 import de.skabs.skgroup.feature.learn.LearnViewModel
 import de.skabs.skgroup.feature.profile.ProfileViewModel
 import de.skabs.skgroup.widget.WidgetSyncManager
+import kmpexam.resources.generated.resources.Res
+import kotlinx.coroutines.runBlocking
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
@@ -30,13 +32,17 @@ import org.koin.dsl.module
  * - Use Cases
  * - ViewModels
  *
- * @param questionsJsonProvider Lambda that returns the JSON string of the question catalogue.
- *   This is provided by the app layer which has access to Compose Resources.
+ * Questions JSON is loaded from Compose Resources (cross-platform).
  */
-fun appModule(questionsJsonProvider: () -> String) = module {
+fun appModule() = module {
     // Database
     single<AppDatabase> { createDatabase(get()) }
-    single { QuestionSeeder(get(), questionsJsonProvider) }
+    single {
+        val questionsJson = runBlocking {
+            Res.readBytes("files/questions_de.json").decodeToString()
+        }
+        QuestionSeeder(get()) { questionsJson }
+    }
 
     // Repositories
     singleOf(::QuestionRepository)
@@ -55,10 +61,10 @@ fun appModule(questionsJsonProvider: () -> String) = module {
     singleOf(::StatisticsUseCase)
     singleOf(::ProgressUseCase)
 
-    // ViewModels - use single() for manual lifecycle management with iOS compatibility
-    single { HomeViewModel(get(), get(), get()) }
-    single { LearnViewModel(get(), get(), get(), get()) }
-    single { ExamViewModel(get(), get()) }
-    single { ProfileViewModel(get(), get(), get(), get()) }
+    // ViewModels - use factory() so that each screen gets a fresh instance that Compose can clear.
+    factory { HomeViewModel(get(), get(), get()) }
+    factory { LearnViewModel(get(), get(), get(), get()) }
+    factory { ExamViewModel(get(), get()) }
+    factory { ProfileViewModel(get(), get(), get(), get()) }
 }
 

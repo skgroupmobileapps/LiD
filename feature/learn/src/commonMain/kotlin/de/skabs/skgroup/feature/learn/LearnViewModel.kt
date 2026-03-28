@@ -65,10 +65,13 @@ class LearnViewModel(
         viewModelScope.launch(Dispatchers.Default) {
             _uiState.update { it.copy(isLoading = true) }
             val questions = learningUseCase.getQuestionsForTopicAndState(topic, federalState)
+            val answeredIds = statisticsUseCase.getAnsweredQuestionIds()
+            val firstUnansweredIndex = questions.indexOfFirst { !answeredIds.contains(it.id) }.coerceAtLeast(0)
+            
             _uiState.update {
                 it.copy(
                     currentQuestions = questions,
-                    currentQuestionIndex = 0,
+                    currentQuestionIndex = firstUnansweredIndex,
                     selectedAnswerIndex = null,
                     feedback = null,
                     isLoading = false
@@ -81,10 +84,13 @@ class LearnViewModel(
         viewModelScope.launch(Dispatchers.Default) {
             _uiState.update { it.copy(isLoading = true) }
             val questions = learningUseCase.getCandidateQuestions(federalState)
+            val answeredIds = statisticsUseCase.getAnsweredQuestionIds()
+            val firstUnansweredIndex = questions.indexOfFirst { !answeredIds.contains(it.id) }.coerceAtLeast(0)
+
             _uiState.update {
                 it.copy(
                     currentQuestions = questions,
-                    currentQuestionIndex = 0,
+                    currentQuestionIndex = firstUnansweredIndex,
                     selectedAnswerIndex = null,
                     feedback = null,
                     isLoading = false

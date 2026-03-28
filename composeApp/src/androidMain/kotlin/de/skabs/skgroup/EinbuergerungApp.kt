@@ -16,18 +16,7 @@ class EinbuergerungApp : Application() {
         ContextProvider.init(context)
         startKoin {
             modules(
-                appModule(questionsJsonProvider = {
-                    // Read bundled questions JSON from compose resources
-                    // The file is in the resources module which has compose resources configured
-                    try {
-                        context.assets.open("composeResources/kmpexam.resources.generated.resources/files/questions_de.json")
-                            .bufferedReader()
-                            .use { it.readText() }
-                    } catch (_: Exception) {
-                        // Fallback: empty catalogue (seeder will produce 0 questions)
-                        """{"catalogDate":"","totalGeneral":0,"totalState":0,"questions":[]}"""
-                    }
-                }),
+                appModule(),
                 module {
                     single { DatabaseDriverFactory(context) }
                 }

@@ -36,6 +36,10 @@ class ProgressRepository(private val database: AppDatabase) {
         return database.appDatabaseQueries.getDistinctCorrectQuestionIds().executeAsList().size
     }
 
+    fun getAnsweredQuestionIds(): Set<Int> {
+        return database.appDatabaseQueries.getAnsweredQuestionIds().executeAsList().map { it.toInt() }.toSet()
+    }
+
     fun getTopicProgress(topic: Topic, totalQuestionsInTopic: Int): TopicProgress {
         val correct = database.appDatabaseQueries.getCorrectCountByTopic(topic.name).executeAsOne()
         val total = database.appDatabaseQueries.getTotalCountByTopic(topic.name).executeAsOne()

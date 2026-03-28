@@ -22,6 +22,10 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+            export(libs.kotlinx.datetime)
+            export(projects.core)
+            export(projects.data)
+            export(projects.domain)
         }
     }
 
@@ -57,12 +61,13 @@ kotlin {
             // KotlinX
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization.json)
+            api(libs.kotlinx.datetime)
 
             // Project modules
-            implementation(projects.core)
+            api(projects.core)
             implementation(projects.resources)
-            implementation(projects.data)
-            implementation(projects.domain)
+            api(projects.data)
+            api(projects.domain)
             implementation(projects.designsystem)
             implementation(projects.feature.onboarding)
             implementation(projects.feature.home)
