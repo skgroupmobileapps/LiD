@@ -116,6 +116,8 @@
     <string name="dialog_leave_exam_message">Çıkmak istediğinizden emin misiniz? Sınav ilerlemeniz kaybolacak.</string>
     <string name="dialog_leave">Çık</string>
     <string name="dialog_stay">Kal</string>
+    <string name="dialog_reset_stats_title">İstatistikler sıfırlansın mı?</string>
+    <string name="dialog_reset_stats_message">Devam ederseniz tüm öğrenme ilerlemeniz ve sınav geçmişiniz kalıcı olarak silinecektir.</string>
     <string name="dialog_confirm">Onayla</string>
     <string name="dialog_cancel">İptal</string>
     <string name="dialog_language_title">Uygulama Dili</string>

@@ -59,6 +59,7 @@ fun ProfileScreenContent(
     
     // Language picker dialog state
     var showLanguageDialog by remember { mutableStateOf(false) }
+    var showResetDialog by remember { mutableStateOf(false) }
     
     // Language picker dialog
     if (showLanguageDialog) {
@@ -66,8 +67,23 @@ fun ProfileScreenContent(
             currentLanguage = settings.language,
             onLanguageSelected = { language ->
                 onUpdateSettings(settings.copy(language = language))
+                showLanguageDialog = false
             },
             onDismiss = { showLanguageDialog = false }
+        )
+    }
+
+    if (showResetDialog) {
+        ConfirmationDialog(
+            title = stringResource(Res.string.dialog_reset_stats_title),
+            message = stringResource(Res.string.dialog_reset_stats_message),
+            confirmText = stringResource(Res.string.profile_reset),
+            dismissText = stringResource(Res.string.dialog_cancel),
+            onConfirm = {
+                showResetDialog = false
+                onResetStatistics()
+            },
+            onDismiss = { showResetDialog = false }
         )
     }
 
@@ -298,7 +314,7 @@ fun ProfileScreenContent(
                         Text(stringResource(Res.string.profile_reset_stats_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                     Button(
-                        onClick = onResetStatistics,
+                        onClick = { showResetDialog = true },
                         colors = ButtonDefaults.buttonColors(containerColor = ErrorRed.copy(alpha = 0.1f), contentColor = ErrorRed),
                         elevation = ButtonDefaults.buttonElevation(0.dp)
                     ) {

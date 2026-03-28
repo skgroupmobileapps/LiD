@@ -75,4 +75,8 @@ class ProgressRepository(private val database: AppDatabase) {
         }
         return streak
     }
+
+    fun clearAllAnswers() {
+        database.appDatabaseQueries.clearAllAnswers()
+    }
 }

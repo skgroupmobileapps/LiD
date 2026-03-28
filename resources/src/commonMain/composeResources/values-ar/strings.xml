@@ -116,6 +116,8 @@
     <string name="dialog_leave_exam_message">هل أنت متأكد أنك تريد المغادرة؟ سيتم فقدان تقدمك في الاختبار.</string>
     <string name="dialog_leave">مغادرة</string>
     <string name="dialog_stay">البقاء</string>
+    <string name="dialog_reset_stats_title">إعادة تعيين الإحصائيات؟</string>
+    <string name="dialog_reset_stats_message">إذا تابعت، سيتم حذف كل تقدم التعلم وسجل الاختبارات نهائيا.</string>
     <string name="dialog_confirm">تأكيد</string>
     <string name="dialog_cancel">إلغاء</string>
     <string name="dialog_language_title">لغة التطبيق</string>

@@ -67,11 +67,8 @@ class ProfileViewModel(
     
     fun resetStatistics() {
         viewModelScope.launch(Dispatchers.Default) {
-             // Future: Implement reset logic in repositories
-             // examRepository.clearHistory()
-             // progressRepository.resetProgress()
-             // For now, just reload to refresh
-             loadProfile()
+            statisticsUseCase.resetStatistics()
+            loadProfile()
         }
     }
 }

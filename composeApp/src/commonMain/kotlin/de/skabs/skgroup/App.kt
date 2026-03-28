@@ -102,7 +102,7 @@ fun App(initialDeeplinkRoute: String? = null) {
 
     // Observe settings reactively so dark mode toggle takes effect immediately
     val settings by settingsRepository.settingsFlow.collectAsState()
-    val hasCompletedOnboarding = remember { settingsRepository.hasCompletedOnboarding() }
+    val hasCompletedOnboarding = settings.hasCompletedOnboarding
     val startDestination = if (hasCompletedOnboarding) "home" else "onboarding"
 
     AppLocaleProvider(language = settings.language) {
@@ -173,8 +173,12 @@ fun App(initialDeeplinkRoute: String? = null) {
             ) {
                 composable("onboarding") {
                     OnboardingScreen(
+                        onLanguageChanged = { language ->
+                            val updatedSettings = settings.copy(language = language)
+                            settingsRepository.saveSettings(updatedSettings)
+                        },
                         onComplete = { language, state ->
-                            val currentSettings = settingsRepository.loadSettings().copy(
+                            val currentSettings = settings.copy(
                                 language = language,
                                 federalState = state,
                                 hasCompletedOnboarding = true

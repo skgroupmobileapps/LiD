@@ -48,4 +48,8 @@ class ExamRepository(private val database: AppDatabase) {
     fun getAverageScore(): Double? {
         return database.appDatabaseQueries.getAverageScore().executeAsOneOrNull()?.AVG
     }
+
+    fun clearExamHistory() {
+        database.appDatabaseQueries.clearExamHistory()
+    }
 }

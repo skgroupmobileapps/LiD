@@ -116,6 +116,8 @@
     <string name="dialog_leave_exam_message">Möchten Sie die Prüfung wirklich verlassen? Ihr Fortschritt geht verloren.</string>
     <string name="dialog_leave">Verlassen</string>
     <string name="dialog_stay">Bleiben</string>
+    <string name="dialog_reset_stats_title">Statistiken zurücksetzen?</string>
+    <string name="dialog_reset_stats_message">Wenn Sie fortfahren, werden Ihr gesamter Fortschritt und Ihre Prüfungshistorie dauerhaft gelöscht.</string>
     <string name="dialog_confirm">Bestätigen</string>
     <string name="dialog_cancel">Abbrechen</string>
     <string name="dialog_language_title">App-Sprache</string>

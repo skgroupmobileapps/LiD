@@ -116,6 +116,8 @@
     <string name="dialog_leave_exam_message">Вы уверены, что хотите выйти? Ваш прогресс по экзамену будет потерян.</string>
     <string name="dialog_leave">Выйти</string>
     <string name="dialog_stay">Остаться</string>
+    <string name="dialog_reset_stats_title">Сбросить статистику?</string>
+    <string name="dialog_reset_stats_message">Если продолжить, весь ваш прогресс в обучении и история экзаменов будут удалены безвозвратно.</string>
     <string name="dialog_confirm">Подтвердить</string>
     <string name="dialog_cancel">Отмена</string>
     <string name="dialog_language_title">Язык приложения</string>

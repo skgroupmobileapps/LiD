@@ -116,6 +116,8 @@
     <string name="dialog_leave_exam_message">Are you sure you want to leave? Your exam progress will be lost.</string>
     <string name="dialog_leave">Leave</string>
     <string name="dialog_stay">Stay</string>
+    <string name="dialog_reset_stats_title">Reset statistics?</string>
+    <string name="dialog_reset_stats_message">If you continue, all your learning progress and exam history will be permanently deleted.</string>
     <string name="dialog_confirm">Confirm</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_language_title">App Language</string>

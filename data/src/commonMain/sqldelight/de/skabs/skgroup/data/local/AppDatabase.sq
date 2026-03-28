@@ -121,6 +121,9 @@ SELECT DISTINCT CAST(timestampMs / 86400000 AS INTEGER) AS daysSinceEpoch
 FROM UserAnswerEntity
 ORDER BY daysSinceEpoch DESC;
 
+clearAllAnswers:
+DELETE FROM UserAnswerEntity;
+
 -- Bookmark queries
 insertBookmark:
 INSERT OR REPLACE INTO BookmarkEntity(questionId, timestampMs) VALUES (?, ?);
@@ -158,6 +161,9 @@ SELECT COUNT(*) FROM ExamHistoryEntity WHERE passed = 1;
 
 getAverageScore:
 SELECT AVG(scorePercent) FROM ExamHistoryEntity;
+
+clearExamHistory:
+DELETE FROM ExamHistoryEntity;
 
 -- Settings queries
 insertSetting:

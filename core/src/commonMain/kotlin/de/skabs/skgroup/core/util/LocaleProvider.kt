@@ -2,7 +2,9 @@ package de.skabs.skgroup.core.util
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ProvidedValue
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.key
 import androidx.compose.runtime.remember
 import de.skabs.skgroup.core.model.Language
 
@@ -30,23 +32,26 @@ fun AppLocaleProvider(
     language: Language,
     content: @Composable () -> Unit
 ) {
-    val localeCode = remember(language) { language.toLocaleCode() }
+    val localeCode = remember(language) { language.code }
     
     CompositionLocalProvider(
-        LocalAppLanguage provides language
+        LocalAppLanguage provides language,
+        LocalAppLocale provides localeCode
     ) {
-        // Configure the locale for compose resources
-        PlatformLocaleConfiguration(localeCode) {
+        // Recreate subtree on locale change so string resources are re-resolved.
+        key(localeCode) {
             content()
         }
     }
 }
 
 /**
- * Platform-specific locale configuration.
+ * Platform-specific app locale configuration for compose resources.
  */
-@Composable
-expect fun PlatformLocaleConfiguration(
-    localeCode: String,
-    content: @Composable () -> Unit
-)
+expect object LocalAppLocale {
+    val current: String
+        @Composable get
+
+    @Composable
+    infix fun provides(value: String?): ProvidedValue<*>
+}

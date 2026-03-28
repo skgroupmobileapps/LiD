@@ -96,6 +96,11 @@ class StatisticsUseCase(
             averageScore = avg.toFloat()
         )
     }
+
+    fun resetStatistics() {
+        progressRepository.clearAllAnswers()
+        examRepository.clearExamHistory()
+    }
 }
 
 data class ExamStats(
