@@ -8,6 +8,8 @@ import de.skabs.skgroup.core.model.FederalState
 import de.skabs.skgroup.core.util.Timer
 import de.skabs.skgroup.domain.usecase.ExamFlowUseCase
 import de.skabs.skgroup.data.repository.SettingsRepository
+import de.skabs.skgroup.tracking.TrackingClient
+import de.skabs.skgroup.tracking.TrackingEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
@@ -36,7 +38,8 @@ data class ExamUiState(
 
 class ExamViewModel(
     private val examFlowUseCase: ExamFlowUseCase,
-    private val settingsRepository: SettingsRepository
+    private val settingsRepository: SettingsRepository,
+    private val trackingClient: TrackingClient
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ExamUiState())
@@ -72,6 +75,7 @@ class ExamViewModel(
                     isLoading = false
                 )
             }
+            trackingClient.track(TrackingEvent.ExamStarted(_uiState.value.federalState.name))
             startTimer(session.timeLimitMs)
         }
     }
@@ -82,6 +86,15 @@ class ExamViewModel(
             Timer.countdown(totalTimeMs).collect { remaining ->
                 _uiState.update { it.copy(remainingTimeMs = remaining) }
                 if (remaining <= 0L) {
+                    val session = _uiState.value.session
+                    if (session != null) {
+                        trackingClient.track(
+                            TrackingEvent.TimerExpired(
+                                answeredQuestions = session.answeredCount,
+                                totalQuestions = session.totalQuestions
+                            )
+                        )
+                    }
                     finishExam()
                 }
             }
@@ -94,6 +107,17 @@ class ExamViewModel(
     fun selectAnswer(questionId: Int, selectedIndex: Int) {
         val session = _uiState.value.session ?: return
         examFlowUseCase.submitAnswer(session, questionId, selectedIndex)
+        val question = session.questions.find { it.id == questionId }
+        if (question != null) {
+            trackingClient.track(
+                TrackingEvent.QuestionAnswered(
+                    questionId = questionId,
+                    isCorrect = selectedIndex == question.correctAnswerIndex,
+                    mode = "exam",
+                    topic = question.topic.name
+                )
+            )
+        }
         _uiState.update { it.copy(selectedAnswerIndex = selectedIndex) }
     }
 
@@ -139,6 +163,14 @@ class ExamViewModel(
         viewModelScope.launch(Dispatchers.Default) {
             val session = _uiState.value.session ?: return@launch
             val result = examFlowUseCase.finishExam(session)
+            trackingClient.track(
+                TrackingEvent.ExamCompleted(
+                    score = result.correctCount,
+                    passed = result.passed,
+                    timeSpentSeconds = result.timeSpentMs / 1000,
+                    federalState = result.federalState.name
+                )
+            )
             _uiState.update {
                 it.copy(
                     phase = ExamPhase.RESULT,
@@ -146,6 +178,21 @@ class ExamViewModel(
                 )
             }
         }
+    }
+
+    fun abandonExam() {
+        val session = _uiState.value.session
+        if (session != null) {
+            val elapsedSeconds = (session.timeLimitMs - _uiState.value.remainingTimeMs).coerceAtLeast(0L) / 1000
+            trackingClient.track(
+                TrackingEvent.ExamAbandoned(
+                    currentQuestionIndex = _uiState.value.currentQuestionIndex,
+                    totalQuestions = session.totalQuestions,
+                    timeSpentSeconds = elapsedSeconds
+                )
+            )
+        }
+        resetExam()
     }
 
     fun resetExam() {

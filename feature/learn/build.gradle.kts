@@ -22,6 +22,7 @@ kotlin {
             implementation(projects.domain)
             implementation(projects.data)
             implementation(projects.designsystem)
+            implementation(projects.tracking)
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)

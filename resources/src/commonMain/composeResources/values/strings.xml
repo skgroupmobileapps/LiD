@@ -103,6 +103,8 @@
     <string name="profile_app_language_subtitle">Sprache der App-Oberfläche ändern</string>
     <string name="profile_dark_mode">Dunkelmodus</string>
     <string name="profile_dark_mode_subtitle">App-Design umschalten</string>
+    <string name="profile_analytics">Analysen erlauben</string>
+    <string name="profile_analytics_subtitle">Nutzungsdaten für Produktverbesserungen teilen</string>
     <string name="profile_reset_stats">Statistiken zurücksetzen</string>
     <string name="profile_reset_stats_subtitle">Fortschritt und Verlauf löschen</string>
     <string name="profile_reset">Zurücksetzen</string>

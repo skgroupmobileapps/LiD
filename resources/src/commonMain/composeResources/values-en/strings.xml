@@ -103,6 +103,8 @@
     <string name="profile_app_language_subtitle">Change the app interface language</string>
     <string name="profile_dark_mode">Dark Mode</string>
     <string name="profile_dark_mode_subtitle">Toggle app theme</string>
+    <string name="profile_analytics">Enable Analytics</string>
+    <string name="profile_analytics_subtitle">Share usage data to improve the app</string>
     <string name="profile_reset_stats">Reset Statistics</string>
     <string name="profile_reset_stats_subtitle">Clear all progress and history</string>
     <string name="profile_reset">Reset</string>

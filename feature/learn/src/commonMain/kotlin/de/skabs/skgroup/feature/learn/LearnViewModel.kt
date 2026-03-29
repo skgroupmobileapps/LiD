@@ -11,6 +11,8 @@ import de.skabs.skgroup.domain.usecase.AnswerFeedback
 import de.skabs.skgroup.domain.usecase.BookmarkUseCase
 import de.skabs.skgroup.domain.usecase.LearningUseCase
 import de.skabs.skgroup.domain.usecase.StatisticsUseCase
+import de.skabs.skgroup.tracking.TrackingClient
+import de.skabs.skgroup.tracking.TrackingEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -33,7 +35,8 @@ class LearnViewModel(
     private val learningUseCase: LearningUseCase,
     private val bookmarkUseCase: BookmarkUseCase,
     private val statisticsUseCase: StatisticsUseCase,
-    private val settingsRepository: SettingsRepository
+    private val settingsRepository: SettingsRepository,
+    private val trackingClient: TrackingClient
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LearnUiState())
@@ -105,6 +108,14 @@ class LearnViewModel(
     fun submitAnswer(question: Question, selectedIndex: Int) {
         viewModelScope.launch(Dispatchers.Default) {
             val feedback = learningUseCase.submitLearningAnswer(question, selectedIndex)
+            trackingClient.track(
+                TrackingEvent.QuestionAnswered(
+                    questionId = question.id,
+                    isCorrect = feedback.isCorrect,
+                    mode = "learn",
+                    topic = question.topic.name
+                )
+            )
             _uiState.update {
                 it.copy(
                     selectedAnswerIndex = selectedIndex,
@@ -127,6 +138,13 @@ class LearnViewModel(
     fun toggleBookmark(questionId: Int) {
         viewModelScope.launch(Dispatchers.Default) {
             bookmarkUseCase.toggleBookmark(questionId)
+            val isBookmarked = bookmarkUseCase.isBookmarked(questionId)
+            trackingClient.track(
+                TrackingEvent.BookmarkToggled(
+                    questionId = questionId,
+                    isBookmarked = isBookmarked
+                )
+            )
             val bookmarks = bookmarkUseCase.getBookmarkedQuestions()
             _uiState.update {
                 it.copy(

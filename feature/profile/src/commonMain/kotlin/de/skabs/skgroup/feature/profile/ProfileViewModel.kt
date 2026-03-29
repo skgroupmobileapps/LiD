@@ -10,6 +10,8 @@ import de.skabs.skgroup.data.repository.SettingsRepository
 import de.skabs.skgroup.domain.usecase.ExamStats
 import de.skabs.skgroup.domain.usecase.ProgressUseCase
 import de.skabs.skgroup.domain.usecase.StatisticsUseCase
+import de.skabs.skgroup.tracking.TrackingClient
+import de.skabs.skgroup.tracking.TrackingEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -29,7 +31,8 @@ class ProfileViewModel(
     private val progressUseCase: ProgressUseCase,
     private val statisticsUseCase: StatisticsUseCase,
     private val settingsRepository: SettingsRepository,
-    private val examRepository: ExamRepository
+    private val examRepository: ExamRepository,
+    private val trackingClient: TrackingClient
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(ProfileUiState())
@@ -60,14 +63,31 @@ class ProfileViewModel(
 
     fun updateSettings(settings: UserSettings) {
         viewModelScope.launch(Dispatchers.Default) {
+            val previous = _uiState.value.settings
+
+            if (previous.analyticsEnabled && !settings.analyticsEnabled) {
+                trackingClient.track(TrackingEvent.ConsentChanged(analyticsEnabled = false))
+            }
+
             settingsRepository.saveSettings(settings)
             _uiState.update { it.copy(settings = settings) }
+
+            if (previous.language != settings.language) {
+                trackingClient.track(TrackingEvent.LanguageChanged(settings.language.code))
+            }
+            if (previous.darkMode != settings.darkMode) {
+                trackingClient.track(TrackingEvent.ThemeChanged(settings.darkMode))
+            }
+            if (!previous.analyticsEnabled && settings.analyticsEnabled) {
+                trackingClient.track(TrackingEvent.ConsentChanged(analyticsEnabled = true))
+            }
         }
     }
     
     fun resetStatistics() {
         viewModelScope.launch(Dispatchers.Default) {
             statisticsUseCase.resetStatistics()
+            trackingClient.track(TrackingEvent.SettingsReset)
             loadProfile()
         }
     }

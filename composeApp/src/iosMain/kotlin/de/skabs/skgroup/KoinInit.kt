@@ -1,5 +1,6 @@
 package de.skabs.skgroup
 
+import de.skabs.skgroup.analytics.analyticsModule
 import de.skabs.skgroup.data.local.DatabaseDriverFactory
 import de.skabs.skgroup.di.appModule
 import org.koin.core.context.startKoin
@@ -13,6 +14,7 @@ fun initKoinIos() {
     startKoin {
         modules(
             appModule(),
+            analyticsModule(),
             module {
                 single { DatabaseDriverFactory() }
             }

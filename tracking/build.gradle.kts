@@ -15,15 +15,16 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(projects.tracking)
             implementation(libs.koin.core)
-            implementation(libs.firebase.analytics)
+        }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
         }
     }
 }
 
 android {
-    namespace = "de.skabs.skgroup.analytics"
+    namespace = "de.skabs.skgroup.tracking"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

@@ -103,6 +103,8 @@
     <string name="profile_app_language_subtitle">تغيير لغة واجهة التطبيق</string>
     <string name="profile_dark_mode">الوضع الداكن</string>
     <string name="profile_dark_mode_subtitle">تبديل مظهر التطبيق</string>
+    <string name="profile_analytics">تفعيل التحليلات</string>
+    <string name="profile_analytics_subtitle">مشاركة بيانات الاستخدام لتحسين التطبيق</string>
     <string name="profile_reset_stats">إعادة تعيين الإحصائيات</string>
     <string name="profile_reset_stats_subtitle">مسح جميع التقدم والسجل</string>
     <string name="profile_reset">إعادة تعيين</string>

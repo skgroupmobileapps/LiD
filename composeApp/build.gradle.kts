@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.googleServices)
 }
 
 kotlin {
@@ -74,6 +75,8 @@ kotlin {
             implementation(projects.feature.learn)
             implementation(projects.feature.exam)
             implementation(projects.feature.profile)
+            implementation(projects.tracking)
+            implementation(projects.analytics)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

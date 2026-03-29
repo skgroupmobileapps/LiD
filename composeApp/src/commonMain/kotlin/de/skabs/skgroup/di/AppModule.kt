@@ -17,6 +17,9 @@ import de.skabs.skgroup.feature.exam.ExamViewModel
 import de.skabs.skgroup.feature.home.HomeViewModel
 import de.skabs.skgroup.feature.learn.LearnViewModel
 import de.skabs.skgroup.feature.profile.ProfileViewModel
+import de.skabs.skgroup.tracking.DefaultTrackingClient
+import de.skabs.skgroup.tracking.TrackingClient
+import de.skabs.skgroup.tracking.TrackingConsentProvider
 import de.skabs.skgroup.widget.WidgetSyncManager
 import kmpexam.resources.generated.resources.Res
 import kotlinx.coroutines.runBlocking
@@ -51,6 +54,10 @@ fun appModule() = module {
     singleOf(::BookmarkRepository)
     singleOf(::SettingsRepository)
 
+    // Tracking
+    single<TrackingConsentProvider> { SettingsTrackingConsentProvider(get()) }
+    single<TrackingClient> { DefaultTrackingClient(get(), getAll()) }
+
     // Widget
     single { WidgetSyncManager() }
 
@@ -63,8 +70,8 @@ fun appModule() = module {
 
     // ViewModels - use factory() so that each screen gets a fresh instance that Compose can clear.
     factory { HomeViewModel(get(), get(), get(), get()) }
-    factory { LearnViewModel(get(), get(), get(), get()) }
-    factory { ExamViewModel(get(), get()) }
-    factory { ProfileViewModel(get(), get(), get(), get()) }
+    factory { LearnViewModel(get(), get(), get(), get(), get()) }
+    factory { ExamViewModel(get(), get(), get()) }
+    factory { ProfileViewModel(get(), get(), get(), get(), get()) }
 }
 

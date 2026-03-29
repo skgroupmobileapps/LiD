@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$/feature/onboarding" />
             <option value="$PROJECT_DIR$/feature/profile" />
             <option value="$PROJECT_DIR$/resources" />
+            <option value="$PROJECT_DIR$/tracking" />
           </set>
         </option>
       </GradleProjectSettings>

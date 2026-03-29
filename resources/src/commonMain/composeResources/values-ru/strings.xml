@@ -103,6 +103,8 @@
     <string name="profile_app_language_subtitle">Изменить язык интерфейса</string>
     <string name="profile_dark_mode">Тёмная тема</string>
     <string name="profile_dark_mode_subtitle">Переключить тему приложения</string>
+    <string name="profile_analytics">Включить аналитику</string>
+    <string name="profile_analytics_subtitle">Поделиться данными использования для улучшения приложения</string>
     <string name="profile_reset_stats">Сбросить статистику</string>
     <string name="profile_reset_stats_subtitle">Очистить весь прогресс и историю</string>
     <string name="profile_reset">Сбросить</string>

@@ -300,6 +300,27 @@ fun ProfileScreenContent(
                         }
                     )
                 }
+
+                HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
+
+                // Analytics consent
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column {
+                        Text(stringResource(Res.string.profile_analytics), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                        Text(stringResource(Res.string.profile_analytics_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    }
+                    Switch(
+                        modifier = Modifier.weight(1f),
+                        checked = settings.analyticsEnabled,
+                        onCheckedChange = { isChecked ->
+                            onUpdateSettings(settings.copy(analyticsEnabled = isChecked))
+                        }
+                    )
+                }
                 
                 HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
 

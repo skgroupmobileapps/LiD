@@ -27,6 +27,8 @@ import de.skabs.skgroup.feature.onboarding.OnboardingScreen
 import de.skabs.skgroup.feature.profile.ProfileScreen
 import de.skabs.skgroup.feature.profile.ProfileViewModel
 import de.skabs.skgroup.navigation.BottomNavTab
+import de.skabs.skgroup.tracking.TrackingClient
+import de.skabs.skgroup.tracking.TrackingEvent
 import kmpexam.resources.generated.resources.*
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.stringResource
@@ -81,6 +83,7 @@ fun App(initialDeeplinkRoute: String? = null) {
     val questionSeeder: QuestionSeeder = koinInject()
     val progressUseCase: de.skabs.skgroup.domain.usecase.ProgressUseCase = koinInject()
     val widgetSyncManager: de.skabs.skgroup.widget.WidgetSyncManager = koinInject()
+    val trackingClient: TrackingClient = koinInject()
 
     // Seed questions on first launch and sync widget stats
     LaunchedEffect(Unit) {
@@ -171,10 +174,18 @@ fun App(initialDeeplinkRoute: String? = null) {
                 modifier = Modifier.padding(paddingValues)
             ) {
                 composable("onboarding") {
+                    LaunchedEffect(Unit) {
+                        trackingClient.track(TrackingEvent.OnboardingStarted)
+                        trackingClient.track(TrackingEvent.ScreenView("onboarding"))
+                    }
                     OnboardingScreen(
                         onLanguageChanged = { language ->
+                            trackingClient.track(TrackingEvent.LanguageSelected(language.code))
                             val updatedSettings = settings.copy(language = language)
                             settingsRepository.saveSettings(updatedSettings)
+                        },
+                        onFederalStateChanged = { state ->
+                            trackingClient.track(TrackingEvent.FederalStateSelected(state.name))
                         },
                         onComplete = { language, state ->
                             val currentSettings = settings.copy(
@@ -183,6 +194,12 @@ fun App(initialDeeplinkRoute: String? = null) {
                                 hasCompletedOnboarding = true
                             )
                             settingsRepository.saveSettings(currentSettings)
+                            trackingClient.track(
+                                TrackingEvent.OnboardingCompleted(
+                                    language = language.code,
+                                    federalState = state.name
+                                )
+                            )
                             navController.navigate("home") {
                                 popUpTo("onboarding") { inclusive = true }
                             }
@@ -191,22 +208,35 @@ fun App(initialDeeplinkRoute: String? = null) {
                 }
 
                 composable("home") {
+                    LaunchedEffect(Unit) {
+                        trackingClient.track(TrackingEvent.ScreenView("home"))
+                    }
                     val viewModel: HomeViewModel = koinInjectViewModel()
                     HomeScreen(
                         viewModel = viewModel,
-                        onContinueLearning = { navController.navigate(LearnQuestionRoute(mode = "ALL", topicId = null)) },
-                        onExamMode = { navController.navigate("exam_intro") },
+                        onContinueLearning = {
+                            navController.navigate(LearnQuestionRoute(mode = "ALL", topicId = null))
+                        },
+                        onExamMode = {
+                            navController.navigate("exam_intro")
+                        },
                         onByTopic = { navController.navigate("learn") },
                         onBookmarks = { navController.navigate("learn") },
-                        onAllQuestions = { navController.navigate(LearnQuestionRoute(mode = "ALL", topicId = null)) }
+                        onAllQuestions = {
+                            navController.navigate(LearnQuestionRoute(mode = "ALL", topicId = null))
+                        }
                     )
                 }
 
                 composable("learn") {
+                    LaunchedEffect(Unit) {
+                        trackingClient.track(TrackingEvent.ScreenView("learn"))
+                    }
                     val viewModel: LearnViewModel = koinInjectViewModel()
                     LearnScreen(
                         viewModel = viewModel,
                         onTopicSelected = { topic ->
+                            trackingClient.track(TrackingEvent.TopicSelected(topic.name))
                             navController.navigate(LearnQuestionRoute(mode = "TOPIC", topicId = topic.name))
                         },
                         onBookmarksClick = { /* Navigate to bookmarked questions */ },
@@ -224,6 +254,15 @@ fun App(initialDeeplinkRoute: String? = null) {
                     val topicId: String? = route.topicId
                     
                     val viewModel: LearnViewModel = koinInjectViewModel()
+
+                    LaunchedEffect(mode, topicId) {
+                        val screenName = if (mode == "TOPIC" && topicId != null) {
+                            "learn_questions_topic"
+                        } else {
+                            "learn_questions_all"
+                        }
+                        trackingClient.track(TrackingEvent.ScreenView(screenName))
+                    }
                     
                     LaunchedEffect(mode, topicId) {
                         if (mode == "TOPIC" && topicId != null) {
@@ -251,6 +290,15 @@ fun App(initialDeeplinkRoute: String? = null) {
                     val viewModel: ExamViewModel = koinInjectViewModel()
                     val uiState by viewModel.uiState.collectAsState()
 
+                    LaunchedEffect(uiState.phase) {
+                        val screenName = when (uiState.phase) {
+                            ExamPhase.INTRO -> "exam_intro"
+                            ExamPhase.IN_PROGRESS -> "exam_questions"
+                            ExamPhase.RESULT -> "exam_result"
+                        }
+                        trackingClient.track(TrackingEvent.ScreenView(screenName))
+                    }
+
                     when (uiState.phase) {
                         ExamPhase.INTRO -> ExamIntroScreen(
                             federalState = uiState.federalState,
@@ -260,7 +308,7 @@ fun App(initialDeeplinkRoute: String? = null) {
                         ExamPhase.IN_PROGRESS -> ExamQuestionScreen(
                             viewModel = viewModel,
                             onExitExam = {
-                                viewModel.resetExam()
+                                viewModel.abandonExam()
                                 navController.navigate("home") {
                                     popUpTo("home") { inclusive = true }
                                 }
@@ -284,6 +332,9 @@ fun App(initialDeeplinkRoute: String? = null) {
                 }
 
                 composable("profile") {
+                    LaunchedEffect(Unit) {
+                        trackingClient.track(TrackingEvent.ScreenView("profile"))
+                    }
                     val viewModel: ProfileViewModel = koinInjectViewModel()
                     ProfileScreen(viewModel = viewModel)
                 }

@@ -103,6 +103,8 @@
     <string name="profile_app_language_subtitle">Uygulama arayüzü dilini değiştirin</string>
     <string name="profile_dark_mode">Karanlık Mod</string>
     <string name="profile_dark_mode_subtitle">Uygulama temasını değiştir</string>
+    <string name="profile_analytics">Analitiği etkinleştir</string>
+    <string name="profile_analytics_subtitle">Uygulamayı geliştirmek için kullanım verilerini paylaş</string>
     <string name="profile_reset_stats">İstatistikleri Sıfırla</string>
     <string name="profile_reset_stats_subtitle">Tüm ilerleme ve geçmişi temizle</string>
     <string name="profile_reset">Sıfırla</string>

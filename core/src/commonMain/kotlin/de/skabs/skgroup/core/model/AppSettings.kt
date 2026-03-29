@@ -22,6 +22,7 @@ data class UserSettings(
     val language: Language = Language.GERMAN,
     val federalState: FederalState = FederalState.BERLIN,
     val darkMode: Boolean = false,
+    val analyticsEnabled: Boolean = false,
     val notificationsEnabled: Boolean = true,
     val hasCompletedOnboarding: Boolean = false,
     val isGuest: Boolean = true

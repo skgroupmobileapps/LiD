@@ -2,13 +2,15 @@ package de.skabs.skgroup.analytics
 
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.analytics.analytics
+import de.skabs.skgroup.tracking.TrackingEvent
+import de.skabs.skgroup.tracking.TrackingSink
 
 /**
- * Android implementation of [AnalyticsTracker] using Firebase Analytics via GitLive SDK.
+ * Android implementation of [TrackingSink] using Firebase Analytics via GitLive SDK.
  *
  * Requires Firebase to be initialized via google-services.json.
  */
-class FirebaseAnalyticsTracker : AnalyticsTracker {
+class FirebaseAnalyticsSink : TrackingSink {
     
     private val firebaseAnalytics = try {
         Firebase.analytics
@@ -17,7 +19,7 @@ class FirebaseAnalyticsTracker : AnalyticsTracker {
         null
     }
     
-    override fun track(event: AnalyticsEvent) {
+    override fun track(event: TrackingEvent) {
         val analytics = firebaseAnalytics ?: return
         
         analytics.logEvent(event.name, event.params.mapValues { (_, value) ->

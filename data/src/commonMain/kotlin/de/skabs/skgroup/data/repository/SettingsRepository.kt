@@ -28,6 +28,7 @@ class SettingsRepository(private val database: AppDatabase) {
         private const val KEY_LANGUAGE = "language"
         private const val KEY_FEDERAL_STATE = "federal_state"
         private const val KEY_DARK_MODE = "dark_mode"
+        private const val KEY_ANALYTICS_ENABLED = "analytics_enabled"
         private const val KEY_NOTIFICATIONS = "notifications_enabled"
         private const val KEY_ONBOARDING_COMPLETED = "onboarding_completed"
         private const val KEY_IS_GUEST = "is_guest"
@@ -37,6 +38,7 @@ class SettingsRepository(private val database: AppDatabase) {
         database.appDatabaseQueries.insertSetting(KEY_LANGUAGE, settings.language.name)
         database.appDatabaseQueries.insertSetting(KEY_FEDERAL_STATE, settings.federalState.name)
         database.appDatabaseQueries.insertSetting(KEY_DARK_MODE, settings.darkMode.toString())
+        database.appDatabaseQueries.insertSetting(KEY_ANALYTICS_ENABLED, settings.analyticsEnabled.toString())
         database.appDatabaseQueries.insertSetting(KEY_NOTIFICATIONS, settings.notificationsEnabled.toString())
         database.appDatabaseQueries.insertSetting(KEY_ONBOARDING_COMPLETED, settings.hasCompletedOnboarding.toString())
         database.appDatabaseQueries.insertSetting(KEY_IS_GUEST, settings.isGuest.toString())
@@ -54,6 +56,7 @@ class SettingsRepository(private val database: AppDatabase) {
         } ?: FederalState.BERLIN
 
         val darkMode = getSetting(KEY_DARK_MODE)?.toBooleanStrictOrNull() ?: false
+        val analyticsEnabled = getSetting(KEY_ANALYTICS_ENABLED)?.toBooleanStrictOrNull() ?: false
         val notifications = getSetting(KEY_NOTIFICATIONS)?.toBooleanStrictOrNull() ?: true
         val onboarding = getSetting(KEY_ONBOARDING_COMPLETED)?.toBooleanStrictOrNull() ?: false
         val isGuest = getSetting(KEY_IS_GUEST)?.toBooleanStrictOrNull() ?: true
@@ -62,6 +65,7 @@ class SettingsRepository(private val database: AppDatabase) {
             language = language,
             federalState = federalState,
             darkMode = darkMode,
+            analyticsEnabled = analyticsEnabled,
             notificationsEnabled = notifications,
             hasCompletedOnboarding = onboarding,
             isGuest = isGuest

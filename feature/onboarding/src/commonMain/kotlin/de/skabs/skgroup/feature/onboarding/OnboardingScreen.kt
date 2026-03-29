@@ -29,6 +29,7 @@ import org.jetbrains.compose.resources.stringResource
 fun OnboardingScreen(
     onComplete: (Language, FederalState) -> Unit = { _, _ -> },
     onLanguageChanged: (Language) -> Unit = {},
+    onFederalStateChanged: (FederalState) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     var currentStep by remember { mutableIntStateOf(0) }
@@ -59,7 +60,10 @@ fun OnboardingScreen(
             )
             2 -> StateStep(
                 selectedState = selectedState,
-                onStateSelected = { selectedState = it },
+                onStateSelected = {
+                    selectedState = it
+                    onFederalStateChanged(it)
+                },
                 onComplete = { onComplete(selectedLanguage, selectedState) }
             )
         }

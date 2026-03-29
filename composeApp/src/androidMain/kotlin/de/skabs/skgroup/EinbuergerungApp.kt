@@ -1,6 +1,7 @@
 package de.skabs.skgroup
 
 import android.app.Application
+import de.skabs.skgroup.analytics.analyticsModule
 import de.skabs.skgroup.core.ContextProvider
 import de.skabs.skgroup.data.local.DatabaseDriverFactory
 import de.skabs.skgroup.di.appModule
@@ -17,6 +18,7 @@ class EinbuergerungApp : Application() {
         startKoin {
             modules(
                 appModule(),
+                analyticsModule(),
                 module {
                     single { DatabaseDriverFactory(context) }
                 }
