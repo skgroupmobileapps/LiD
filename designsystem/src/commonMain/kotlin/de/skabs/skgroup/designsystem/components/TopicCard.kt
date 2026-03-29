@@ -12,7 +12,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import de.skabs.skgroup.designsystem.theme.PreviewSurface
+import de.skabs.skgroup.designsystem.theme.PrimaryGreen
 import de.skabs.skgroup.designsystem.theme.TopicCardShape
+import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Topic list card showing topic name, description, icon, progress bar, and question count.
@@ -99,5 +102,21 @@ fun TopicCard(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun TopicCardPreview() {
+    PreviewSurface {
+        TopicCard(
+            title = "Democracy & State",
+            description = "German political system, constitution, and democratic principles",
+            icon = "🏛",
+            accentColor = PrimaryGreen,
+            progress = 0.42f,
+            answeredCount = 18,
+            totalCount = 43
+        )
     }
 }

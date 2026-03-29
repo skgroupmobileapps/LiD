@@ -10,7 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import de.skabs.skgroup.designsystem.theme.PreviewSurface
 import de.skabs.skgroup.designsystem.theme.StatCardShape
+import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Statistics display card used on Home screen (Questions, Accuracy, Day Streak)
@@ -63,5 +65,17 @@ fun StatCard(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun StatCardPreview() {
+    PreviewSurface {
+        StatCard(
+            icon = "🔥",
+            value = "12",
+            label = "Day streak"
+        )
     }
 }

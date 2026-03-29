@@ -14,6 +14,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import de.skabs.skgroup.designsystem.theme.PrimaryGreen
 import de.skabs.skgroup.designsystem.theme.ProgressBarShape
+import de.skabs.skgroup.designsystem.theme.PreviewSurface
+import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Custom animated linear progress bar.
@@ -50,5 +52,17 @@ fun AppProgressBar(
                 .clip(ProgressBarShape)
                 .background(color)
         )
+    }
+}
+
+@Preview
+@Composable
+private fun AppProgressBarPreview() {
+    PreviewSurface {
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            AppProgressBar(progress = 0.25f)
+            AppProgressBar(progress = 0.68f)
+            AppProgressBar(progress = 1f)
+        }
     }
 }

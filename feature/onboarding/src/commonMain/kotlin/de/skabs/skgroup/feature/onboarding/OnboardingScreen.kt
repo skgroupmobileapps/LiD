@@ -16,8 +16,10 @@ import de.skabs.skgroup.core.model.Language
 import de.skabs.skgroup.designsystem.components.AppButton
 import de.skabs.skgroup.designsystem.components.GermanFlagBar
 import de.skabs.skgroup.designsystem.theme.PrimaryGreen
+import de.skabs.skgroup.designsystem.theme.PreviewSurface
 import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 
 
 /**
@@ -242,5 +244,45 @@ private fun StateStep(
 
         AppButton(text = stringResource(Res.string.onboarding_finish), trailingIcon = "🚀", onClick = onComplete)
         Spacer(Modifier.height(24.dp))
+    }
+}
+
+@Preview
+@Composable
+private fun OnboardingScreenPreview() {
+    PreviewSurface {
+        OnboardingScreen()
+    }
+}
+
+@Preview
+@Composable
+private fun WelcomeStepPreview() {
+    PreviewSurface {
+        WelcomeStep(onNext = {})
+    }
+}
+
+@Preview
+@Composable
+private fun LanguageStepPreview() {
+    PreviewSurface {
+        LanguageStep(
+            selectedLanguage = Language.ENGLISH,
+            onLanguageSelected = {},
+            onNext = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun StateStepPreview() {
+    PreviewSurface {
+        StateStep(
+            selectedState = FederalState.HAMBURG,
+            onStateSelected = {},
+            onComplete = {}
+        )
     }
 }

@@ -11,6 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import de.skabs.skgroup.designsystem.theme.PrimaryGreen
+import de.skabs.skgroup.designsystem.theme.PreviewSurface
+import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Quick action card for the Home screen grid.
@@ -104,5 +106,28 @@ fun QuickActionCardSecondary(
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
+    }
+}
+
+@Preview
+@Composable
+private fun QuickActionCardPrimaryPreview() {
+    PreviewSurface {
+        QuickActionCardPrimary(
+            title = "Continue learning",
+            subtitle = "Resume with the next unanswered question"
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun QuickActionCardSecondaryPreview() {
+    PreviewSurface {
+        QuickActionCardSecondary(
+            title = "Exam mode",
+            subtitle = "Simulate the full test",
+            icon = "🎓"
+        )
     }
 }

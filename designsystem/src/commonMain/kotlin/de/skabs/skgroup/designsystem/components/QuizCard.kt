@@ -15,6 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import de.skabs.skgroup.designsystem.theme.*
+import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * State of a quiz answer card.
@@ -115,6 +116,19 @@ fun QuizCard(
                 color = MaterialTheme.colorScheme.onSurface,
                 modifier = Modifier.weight(1f)
             )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun QuizCardPreview() {
+    PreviewSurface {
+        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            QuizCard(label = "A", text = "Default answer option")
+            QuizCard(label = "B", text = "Selected answer option", state = QuizCardState.SELECTED)
+            QuizCard(label = "C", text = "Correct answer option", state = QuizCardState.CORRECT)
+            QuizCard(label = "D", text = "Wrong answer option", state = QuizCardState.WRONG)
         }
     }
 }

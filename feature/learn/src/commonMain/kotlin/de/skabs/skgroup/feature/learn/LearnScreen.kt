@@ -13,12 +13,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import de.skabs.skgroup.core.model.TopicProgress
 import de.skabs.skgroup.core.model.Topic
 import de.skabs.skgroup.core.util.BackHandler
 import de.skabs.skgroup.designsystem.components.*
 import de.skabs.skgroup.designsystem.theme.*
 import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun LearnScreen(
@@ -130,5 +132,43 @@ fun LearnScreenContent(
         Spacer(Modifier.height(24.dp))
     }
 }
+
+@Preview
+@Composable
+private fun LearnScreenContentPreview() {
+    PreviewSurface {
+        LearnScreenContent(
+            uiState = LearnUiState(
+                topicProgressList = previewTopicProgressList(),
+                bookmarkCount = 7,
+                isLoading = false
+            )
+        )
+    }
+}
+
+private fun previewTopicProgressList() = listOf(
+    TopicProgress(
+        topic = Topic.DEMOCRACY_AND_STATE,
+        totalQuestions = 43,
+        answeredCorrectly = 18,
+        answeredWrong = 5,
+        totalAnswered = 23
+    ),
+    TopicProgress(
+        topic = Topic.RIGHTS_AND_DUTIES,
+        totalQuestions = 38,
+        answeredCorrectly = 22,
+        answeredWrong = 4,
+        totalAnswered = 26
+    ),
+    TopicProgress(
+        topic = Topic.HISTORY,
+        totalQuestions = 52,
+        answeredCorrectly = 13,
+        answeredWrong = 6,
+        totalAnswered = 19
+    )
+)
 
 

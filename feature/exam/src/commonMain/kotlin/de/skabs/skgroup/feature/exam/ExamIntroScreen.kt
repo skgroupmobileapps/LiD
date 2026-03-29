@@ -12,9 +12,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import de.skabs.skgroup.core.model.FederalState
 import de.skabs.skgroup.designsystem.components.AppButton
+import de.skabs.skgroup.designsystem.theme.PreviewSurface
 import de.skabs.skgroup.designsystem.theme.*
 import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 
 
 /**
@@ -118,5 +120,25 @@ private fun ExamInfoItem(
                 )
             }
         }
+    }
+}
+
+@Preview
+@Composable
+private fun ExamIntroScreenPreview() {
+    PreviewSurface {
+        ExamIntroScreen(federalState = FederalState.BERLIN)
+    }
+}
+
+@Preview
+@Composable
+private fun ExamInfoItemPreview() {
+    PreviewSurface {
+        ExamInfoItem(
+            icon = "📝",
+            title = "33 questions",
+            subtitle = "30 general questions plus 3 for Berlin"
+        )
     }
 }

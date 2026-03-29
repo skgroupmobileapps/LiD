@@ -1,10 +1,18 @@
 package de.skabs.skgroup.designsystem.theme
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 
 private val LightColorScheme = lightColorScheme(
     primary = PrimaryGreen,
@@ -69,4 +77,26 @@ fun EinbuergerungTheme(
         shapes = AppShapes,
         content = content
     )
+}
+
+@Composable
+fun PreviewSurface(
+    modifier: Modifier = Modifier,
+    darkTheme: Boolean = false,
+    contentPadding: PaddingValues = PaddingValues(16.dp),
+    content: @Composable BoxScope.() -> Unit
+) {
+    EinbuergerungTheme(darkTheme = darkTheme) {
+        Surface(
+            modifier = modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(contentPadding),
+                content = content
+            )
+        }
+    }
 }

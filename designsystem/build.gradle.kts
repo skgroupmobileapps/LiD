@@ -23,6 +23,7 @@ kotlin {
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
             implementation(libs.compose.ui)
+            implementation(libs.compose.uiToolingPreview)
             implementation(libs.compose.components.resources)
         }
         commonTest.dependencies {
@@ -41,4 +42,8 @@ android {
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
+}
+
+dependencies {
+    debugImplementation(libs.compose.uiTooling)
 }

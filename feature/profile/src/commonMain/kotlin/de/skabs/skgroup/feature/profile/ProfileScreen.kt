@@ -19,12 +19,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import de.skabs.skgroup.core.model.ExamHistoryEntry
+import de.skabs.skgroup.core.model.FederalState
+import de.skabs.skgroup.core.model.Language
+import de.skabs.skgroup.core.model.UserProgress
 import de.skabs.skgroup.core.model.UserSettings
 import de.skabs.skgroup.core.util.PlatformUtil
 import de.skabs.skgroup.designsystem.components.*
 import de.skabs.skgroup.designsystem.theme.*
+import de.skabs.skgroup.domain.usecase.ExamStats
 import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 
 // App metadata constants
 private const val APP_VERSION = "1.0.0"
@@ -104,41 +110,7 @@ fun ProfileScreenContent(
         Spacer(Modifier.height(20.dp))
 
         // Profile card
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(14.dp),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
-        ) {
-            Row(
-                modifier = Modifier.padding(16.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(14.dp)
-            ) {
-                // Avatar
-                Surface(
-                    modifier = Modifier.size(56.dp),
-                    shape = CircleShape,
-                    color = PrimaryGreen.copy(alpha = 0.15f)
-                ) {
-                    Box(contentAlignment = Alignment.Center) {
-                        Text("👤", style = MaterialTheme.typography.headlineMedium)
-                    }
-                }
-                Column {
-                    Text(
-                        text = if (settings.isGuest) stringResource(Res.string.profile_guest) else stringResource(Res.string.profile_student),
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold
-                    )
-                    Text(
-                        text = "${settings.federalState.displayName} • ${settings.language.displayName}",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                    )
-                }
-            }
-        }
+        ProfileIdentityCard(settings = settings)
 
         Spacer(Modifier.height(20.dp))
 
@@ -179,32 +151,7 @@ fun ProfileScreenContent(
         Text(stringResource(Res.string.profile_exams), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(12.dp))
 
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
-        ) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Column {
-                        Text(stringResource(Res.string.profile_attempts), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                        Text("${examStats.totalAttempts}", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                    }
-                    Column {
-                        Text(stringResource(Res.string.profile_passed), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                        Text("${examStats.totalPassed}", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = SuccessGreen)
-                    }
-                    Column {
-                        Text(stringResource(Res.string.profile_avg_score), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                        Text("${examStats.averageScore.toInt()}%", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = AccentGold)
-                    }
-                }
-            }
-        }
+        ProfileExamStatsCard(examStats = examStats)
 
         Spacer(Modifier.height(20.dp))
 
@@ -213,38 +160,7 @@ fun ProfileScreenContent(
             Text(stringResource(Res.string.profile_exam_history), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
             Spacer(Modifier.height(10.dp))
 
-            uiState.examHistory.take(5).forEach { entry ->
-                Card(
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
-                    shape = RoundedCornerShape(10.dp),
-                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
-                ) {
-                    Row(
-                        modifier = Modifier.padding(12.dp).fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Row(
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text(if (entry.passed) "✅" else "❌")
-                            Text(
-                                "${entry.correctCount}/${entry.totalQuestions}",
-                                style = MaterialTheme.typography.titleSmall,
-                                fontWeight = FontWeight.SemiBold
-                            )
-                        }
-                        Text(
-                            "${entry.scorePercent.toInt()}%",
-                            style = MaterialTheme.typography.titleSmall,
-                            fontWeight = FontWeight.Bold,
-                            color = if (entry.passed) SuccessGreen else ErrorRed
-                        )
-                    }
-                }
-            }
+            RecentExamHistorySection(examHistory = uiState.examHistory)
         }
 
         Spacer(Modifier.height(20.dp))
@@ -253,97 +169,12 @@ fun ProfileScreenContent(
         Text(stringResource(Res.string.profile_settings), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(12.dp))
 
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
-        ) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                
-                // App Language
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clickable { showLanguageDialog = true },
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column {
-                        Text(stringResource(Res.string.profile_app_language), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
-                        Text(stringResource(Res.string.profile_app_language_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    }
-                    Text(
-                        text = settings.language.displayName,
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-                }
-                
-                HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
-                
-                // Dark Mode Switch
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column {
-                        Text(stringResource(Res.string.profile_dark_mode), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
-                        Text(stringResource(Res.string.profile_dark_mode_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    }
-                    Switch(
-                        checked = settings.darkMode,
-                        onCheckedChange = { isChecked ->
-                             onUpdateSettings(settings.copy(darkMode = isChecked))
-                        }
-                    )
-                }
-
-                HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
-
-                // Analytics consent
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Column {
-                        Text(stringResource(Res.string.profile_analytics), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
-                        Text(stringResource(Res.string.profile_analytics_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    }
-                    Switch(
-                        modifier = Modifier.weight(1f),
-                        checked = settings.analyticsEnabled,
-                        onCheckedChange = { isChecked ->
-                            onUpdateSettings(settings.copy(analyticsEnabled = isChecked))
-                        }
-                    )
-                }
-                
-                HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
-
-                // Reset Stats
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                     Column {
-                        Text(stringResource(Res.string.profile_reset_stats), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
-                        Text(stringResource(Res.string.profile_reset_stats_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    }
-                    Button(
-                        onClick = { showResetDialog = true },
-                        colors = ButtonDefaults.buttonColors(containerColor = ErrorRed.copy(alpha = 0.1f), contentColor = ErrorRed),
-                        elevation = ButtonDefaults.buttonElevation(0.dp)
-                    ) {
-                        Text(stringResource(Res.string.profile_reset))
-                    }
-                }
-            }
-        }
+        ProfileSettingsCard(
+            settings = settings,
+            onOpenLanguageDialog = { showLanguageDialog = true },
+            onUpdateSettings = onUpdateSettings,
+            onResetStatistics = { showResetDialog = true }
+        )
 
         Spacer(Modifier.height(20.dp))
 
@@ -351,58 +182,337 @@ fun ProfileScreenContent(
         Text(stringResource(Res.string.profile_about), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(12.dp))
 
-        Card(
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(12.dp),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
-        ) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                // App Version
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(stringResource(Res.string.profile_app_version), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    Text(APP_VERSION, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
-                }
-
-                Spacer(Modifier.height(12.dp))
-
-                // Catalogue Date
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(stringResource(Res.string.profile_catalogue_date), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    Text(CATALOGUE_DATE, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
-                }
-
-                Spacer(Modifier.height(12.dp))
-
-                // Contact Email
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(stringResource(Res.string.profile_contact), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    Text(
-                        text = CONTACT_EMAIL,
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colorScheme.primary,
-                        textDecoration = TextDecoration.Underline,
-                        modifier = Modifier.clickable {
-                            PlatformUtil.openUrl("mailto:$CONTACT_EMAIL")
-                        }
-                    )
-                }
-            }
-        }
+        ProfileAboutCard()
 
         Spacer(Modifier.height(24.dp))
     }
 }
+
+@Composable
+private fun ProfileIdentityCard(settings: UserSettings) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(14.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(14.dp)
+        ) {
+            Surface(
+                modifier = Modifier.size(56.dp),
+                shape = CircleShape,
+                color = PrimaryGreen.copy(alpha = 0.15f)
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    Text("👤", style = MaterialTheme.typography.headlineMedium)
+                }
+            }
+            Column {
+                Text(
+                    text = if (settings.isGuest) stringResource(Res.string.profile_guest) else stringResource(Res.string.profile_student),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold
+                )
+                Text(
+                    text = "${settings.federalState.displayName} • ${settings.language.displayName}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun ProfileExamStatsCard(examStats: ExamStats) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Column {
+                    Text(stringResource(Res.string.profile_attempts), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text("${examStats.totalAttempts}", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                }
+                Column {
+                    Text(stringResource(Res.string.profile_passed), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text("${examStats.totalPassed}", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = SuccessGreen)
+                }
+                Column {
+                    Text(stringResource(Res.string.profile_avg_score), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    Text("${examStats.averageScore.toInt()}%", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = AccentGold)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun RecentExamHistorySection(examHistory: List<ExamHistoryEntry>) {
+    examHistory.take(5).forEach { entry ->
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 4.dp),
+            shape = RoundedCornerShape(10.dp),
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+            border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+        ) {
+            Row(
+                modifier = Modifier
+                    .padding(12.dp)
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(if (entry.passed) "✅" else "❌")
+                    Text(
+                        "${entry.correctCount}/${entry.totalQuestions}",
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = FontWeight.SemiBold
+                    )
+                }
+                Text(
+                    "${entry.scorePercent.toInt()}%",
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = if (entry.passed) SuccessGreen else ErrorRed
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun ProfileSettingsCard(
+    settings: UserSettings,
+    onOpenLanguageDialog: () -> Unit,
+    onUpdateSettings: (UserSettings) -> Unit,
+    onResetStatistics: () -> Unit
+) {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onOpenLanguageDialog() },
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column {
+                    Text(stringResource(Res.string.profile_app_language), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(Res.string.profile_app_language_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+                Text(
+                    text = settings.language.displayName,
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.primary
+                )
+            }
+
+            HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column {
+                    Text(stringResource(Res.string.profile_dark_mode), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(Res.string.profile_dark_mode_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+                Switch(
+                    checked = settings.darkMode,
+                    onCheckedChange = { isChecked ->
+                        onUpdateSettings(settings.copy(darkMode = isChecked))
+                    }
+                )
+            }
+
+            HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column {
+                    Text(stringResource(Res.string.profile_analytics), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(Res.string.profile_analytics_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+                Switch(
+                    checked = settings.analyticsEnabled,
+                    onCheckedChange = { isChecked ->
+                        onUpdateSettings(settings.copy(analyticsEnabled = isChecked))
+                    }
+                )
+            }
+
+            HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column {
+                    Text(stringResource(Res.string.profile_reset_stats), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(Res.string.profile_reset_stats_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+                Button(
+                    onClick = onResetStatistics,
+                    colors = ButtonDefaults.buttonColors(containerColor = ErrorRed.copy(alpha = 0.1f), contentColor = ErrorRed),
+                    elevation = ButtonDefaults.buttonElevation(0.dp)
+                ) {
+                    Text(stringResource(Res.string.profile_reset))
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ProfileAboutCard() {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(12.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(stringResource(Res.string.profile_app_version), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(APP_VERSION, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
+            }
+
+            Spacer(Modifier.height(12.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(stringResource(Res.string.profile_catalogue_date), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(CATALOGUE_DATE, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
+            }
+
+            Spacer(Modifier.height(12.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(stringResource(Res.string.profile_contact), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(
+                    text = CONTACT_EMAIL,
+                    style = MaterialTheme.typography.bodyMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.primary,
+                    textDecoration = TextDecoration.Underline,
+                    modifier = Modifier.clickable {
+                        PlatformUtil.openUrl("mailto:$CONTACT_EMAIL")
+                    }
+                )
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun ProfileScreenContentPreview() {
+    PreviewSurface {
+        ProfileScreenContent(uiState = previewProfileUiState())
+    }
+}
+
+@Preview
+@Composable
+private fun ProfileSettingsCardPreview() {
+    PreviewSurface {
+        ProfileSettingsCard(
+            settings = previewProfileUiState().settings,
+            onOpenLanguageDialog = {},
+            onUpdateSettings = {},
+            onResetStatistics = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ProfileAboutCardPreview() {
+    PreviewSurface {
+        ProfileAboutCard()
+    }
+}
+
+private fun previewProfileUiState() = ProfileUiState(
+    settings = UserSettings(
+        language = Language.ENGLISH,
+        federalState = FederalState.HAMBURG,
+        darkMode = false,
+        analyticsEnabled = true,
+        hasCompletedOnboarding = true,
+        isGuest = true
+    ),
+    progress = UserProgress(
+        totalAnswered = 142,
+        totalCorrect = 103,
+        accuracy = 72.5f,
+        bookmarkCount = 12,
+        dayStreak = 11,
+        overallProgressPercent = 46.1f,
+        totalQuestionsAvailable = 310
+    ),
+    examStats = ExamStats(
+        totalAttempts = 8,
+        totalPassed = 6,
+        averageScore = 74.8f
+    ),
+    examHistory = listOf(
+        ExamHistoryEntry(
+            id = 1,
+            totalQuestions = 33,
+            correctCount = 25,
+            passed = true,
+            scorePercent = 75.8f,
+            timestampMs = 0L,
+            federalState = FederalState.HAMBURG
+        ),
+        ExamHistoryEntry(
+            id = 2,
+            totalQuestions = 33,
+            correctCount = 16,
+            passed = false,
+            scorePercent = 48.5f,
+            timestampMs = 0L,
+            federalState = FederalState.HAMBURG
+        )
+    ),
+    isLoading = false
+)

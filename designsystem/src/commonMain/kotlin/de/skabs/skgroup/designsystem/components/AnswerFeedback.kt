@@ -15,8 +15,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import de.skabs.skgroup.designsystem.theme.ErrorRed
 import de.skabs.skgroup.designsystem.theme.ErrorRedLight
+import de.skabs.skgroup.designsystem.theme.PreviewSurface
 import de.skabs.skgroup.designsystem.theme.SuccessGreen
 import de.skabs.skgroup.designsystem.theme.SuccessGreenLight
+import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Feedback display shown after answering a question in learn mode.
@@ -55,5 +57,27 @@ fun AnswerFeedback(
                 )
             }
         }
+    }
+}
+
+@Preview
+@Composable
+private fun AnswerFeedbackCorrectPreview() {
+    PreviewSurface {
+        AnswerFeedback(
+            isCorrect = true,
+            explanation = "This answer matches the constitutional principle being tested."
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun AnswerFeedbackWrongPreview() {
+    PreviewSurface {
+        AnswerFeedback(
+            isCorrect = false,
+            explanation = "The Basic Law protects freedom of expression, but it does not remove all legal limits."
+        )
     }
 }

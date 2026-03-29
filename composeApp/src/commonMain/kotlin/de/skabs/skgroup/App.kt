@@ -1,5 +1,6 @@
 package de.skabs.skgroup
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -32,11 +33,13 @@ import de.skabs.skgroup.tracking.TrackingEvent
 import kmpexam.resources.generated.resources.*
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
+import de.skabs.skgroup.designsystem.theme.PreviewSurface
 import org.koin.compose.koinInject
 
 /**
@@ -133,38 +136,18 @@ fun App(initialDeeplinkRoute: String? = null) {
         Scaffold(
             bottomBar = {
                 if (showBottomNav) {
-                    NavigationBar(
-                        containerColor = MaterialTheme.colorScheme.surface
-                    ) {
-                        BottomNavTab.entries.forEach { tab ->
-                            val route = when (tab) {
-                                BottomNavTab.HOME -> "home"
-                                BottomNavTab.LEARN -> "learn"
-                                BottomNavTab.EXAM -> "exam_intro"
-                                BottomNavTab.PROFILE -> "profile"
+                    AppBottomNavigationBar(
+                        currentRoute = currentRoute,
+                        onNavigate = { route ->
+                            navController.navigate(route) {
+                                popUpTo("home") {
+                                    saveState = true
+                                }
+                                launchSingleTop = true
+                                restoreState = true
                             }
-                            val localizedLabel = when (tab) {
-                                BottomNavTab.HOME -> stringResource(Res.string.nav_home)
-                                BottomNavTab.LEARN -> stringResource(Res.string.nav_learn)
-                                BottomNavTab.EXAM -> stringResource(Res.string.nav_exam)
-                                BottomNavTab.PROFILE -> stringResource(Res.string.nav_profile)
-                            }
-                            NavigationBarItem(
-                                selected = currentRoute == route,
-                                onClick = {
-                                    navController.navigate(route) {
-                                        popUpTo("home") {
-                                            saveState = true
-                                        }
-                                        launchSingleTop = true
-                                        restoreState = true
-                                    }
-                                },
-                                icon = { Text(tab.icon) },
-                                label = { Text(localizedLabel, style = MaterialTheme.typography.labelSmall) }
-                            )
                         }
-                    }
+                    )
                 }
             }
         ) { paddingValues ->
@@ -340,6 +323,63 @@ fun App(initialDeeplinkRoute: String? = null) {
                 }
             }
         }
+        }
+    }
+}
+
+@Composable
+private fun AppBottomNavigationBar(
+    currentRoute: String?,
+    onNavigate: (String) -> Unit
+) {
+    NavigationBar(
+        containerColor = MaterialTheme.colorScheme.surface
+    ) {
+        BottomNavTab.entries.forEach { tab ->
+            val route = bottomNavRoute(tab)
+            NavigationBarItem(
+                selected = currentRoute == route,
+                onClick = { onNavigate(route) },
+                icon = { Text(tab.icon) },
+                label = {
+                    Text(
+                        text = bottomNavLabel(tab),
+                        style = MaterialTheme.typography.labelSmall
+                    )
+                }
+            )
+        }
+    }
+}
+
+@Composable
+private fun bottomNavLabel(tab: BottomNavTab): String = when (tab) {
+    BottomNavTab.HOME -> stringResource(Res.string.nav_home)
+    BottomNavTab.LEARN -> stringResource(Res.string.nav_learn)
+    BottomNavTab.EXAM -> stringResource(Res.string.nav_exam)
+    BottomNavTab.PROFILE -> stringResource(Res.string.nav_profile)
+}
+
+private fun bottomNavRoute(tab: BottomNavTab): String = when (tab) {
+    BottomNavTab.HOME -> "home"
+    BottomNavTab.LEARN -> "learn"
+    BottomNavTab.EXAM -> "exam_intro"
+    BottomNavTab.PROFILE -> "profile"
+}
+
+@Preview
+@Composable
+private fun AppBottomNavigationBarPreview() {
+    PreviewSurface(contentPadding = PaddingValues()) {
+        Scaffold(
+            bottomBar = {
+                AppBottomNavigationBar(
+                    currentRoute = "learn",
+                    onNavigate = {}
+                )
+            }
+        ) { paddingValues ->
+            Surface(modifier = Modifier.padding(paddingValues)) {}
         }
     }
 }

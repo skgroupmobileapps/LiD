@@ -7,7 +7,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import de.skabs.skgroup.designsystem.theme.PrimaryGreen
+import de.skabs.skgroup.designsystem.theme.PreviewSurface
 import de.skabs.skgroup.designsystem.theme.ButtonShape
+import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Primary app button — filled green, rounded, full width.
@@ -69,6 +71,29 @@ fun AppOutlinedButton(
             style = MaterialTheme.typography.labelLarge,
             fontWeight = FontWeight.SemiBold,
             color = PrimaryGreen
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun AppButtonPreview() {
+    PreviewSurface {
+        AppButton(
+            text = "Start learning",
+            trailingIcon = "›",
+            onClick = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun AppOutlinedButtonPreview() {
+    PreviewSurface {
+        AppOutlinedButton(
+            text = "Review mistakes",
+            onClick = {}
         )
     }
 }

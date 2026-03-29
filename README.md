@@ -30,6 +30,19 @@ in your IDE’s toolbar or build it directly from the terminal:
 To build and run the development version of the iOS app, use the run configuration from the run widget
 in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
 
+### Compose Preview Notes
+
+This project uses Compose Multiplatform previews for shared UI in `commonMain`.
+
+- For `commonMain` composables, use:
+  - import: `androidx.compose.ui.tooling.preview.Preview`
+  - dependency alias: `libs.compose.uiToolingPreview`
+- For Android-only composables in `androidMain`, use Android Studio preview:
+  - import: `androidx.compose.ui.tooling.preview.Preview`
+
+Using the AndroidX preview annotation in `commonMain` can cause IDE rendering issues in Android Studio
+(for example `ClassNotFoundException` with `androidx.compose.ui.tooling.ComposeViewAdapter`).
+
 ---
 
 Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
