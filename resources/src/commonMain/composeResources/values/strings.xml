@@ -32,7 +32,7 @@
     <string name="home_by_topic">Nach Thema</string>
     <string name="home_by_topic_subtitle">Kategorien lernen</string>
     <string name="home_bookmarks">Lesezeichen</string>
-    <string name="home_bookmarks_saved">%d gespeichert</string>
+    <string name="home_bookmarks_saved">%1$d gespeichert</string>
     <string name="home_all_questions">Alle 300</string>
     <string name="home_all_questions_subtitle">Alle durchsuchen</string>
     <string name="home_progress">Fortschritt</string>

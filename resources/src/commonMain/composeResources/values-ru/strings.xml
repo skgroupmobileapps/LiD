@@ -32,7 +32,7 @@
     <string name="home_by_topic">По темам</string>
     <string name="home_by_topic_subtitle">Изучение категорий</string>
     <string name="home_bookmarks">Закладки</string>
-    <string name="home_bookmarks_saved">%d сохранено</string>
+    <string name="home_bookmarks_saved">%1$d сохранено</string>
     <string name="home_all_questions">Все 300</string>
     <string name="home_all_questions_subtitle">Просмотреть все</string>
     <string name="home_progress">Прогресс</string>

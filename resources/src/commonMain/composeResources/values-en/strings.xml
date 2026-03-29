@@ -32,7 +32,7 @@
     <string name="home_by_topic">By Topic</string>
     <string name="home_by_topic_subtitle">Study categories</string>
     <string name="home_bookmarks">Bookmarks</string>
-    <string name="home_bookmarks_saved">%d saved</string>
+    <string name="home_bookmarks_saved">%1$d saved</string>
     <string name="home_all_questions">All 300</string>
     <string name="home_all_questions_subtitle">Browse all</string>
     <string name="home_progress">Progress</string>

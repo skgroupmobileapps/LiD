@@ -30,27 +30,6 @@ fun LearnScreen(
     modifier: Modifier = Modifier
 ) {
     val uiState by viewModel.uiState.collectAsState()
-    var showExitDialog by remember { mutableStateOf(false) }
-
-
-    BackHandler(enabled = true) {
-        showExitDialog = true
-    }
-
-    // Exit confirmation dialog
-    if (showExitDialog) {
-        ConfirmationDialog(
-            title = stringResource(Res.string.dialog_leave_exam_title),
-            message = stringResource(Res.string.dialog_leave_exam_message),
-            confirmText = stringResource(Res.string.dialog_leave),
-            dismissText = stringResource(Res.string.dialog_stay),
-            onConfirm = {
-                showExitDialog = false
-                onBack()
-            },
-            onDismiss = { showExitDialog = false }
-        )
-    }
 
     LearnScreenContent(
         uiState = uiState,

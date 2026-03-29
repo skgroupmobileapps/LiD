@@ -32,7 +32,7 @@
     <string name="home_by_topic">Konuya Göre</string>
     <string name="home_by_topic_subtitle">Kategori çalış</string>
     <string name="home_bookmarks">Yer İşaretleri</string>
-    <string name="home_bookmarks_saved">%d kaydedildi</string>
+    <string name="home_bookmarks_saved">%1$d kaydedildi</string>
     <string name="home_all_questions">Tüm 300</string>
     <string name="home_all_questions_subtitle">Tümüne göz at</string>
     <string name="home_progress">İlerleme</string>

@@ -62,7 +62,7 @@ fun appModule() = module {
     singleOf(::ProgressUseCase)
 
     // ViewModels - use factory() so that each screen gets a fresh instance that Compose can clear.
-    factory { HomeViewModel(get(), get(), get()) }
+    factory { HomeViewModel(get(), get(), get(), get()) }
     factory { LearnViewModel(get(), get(), get(), get()) }
     factory { ExamViewModel(get(), get()) }
     factory { ProfileViewModel(get(), get(), get(), get()) }

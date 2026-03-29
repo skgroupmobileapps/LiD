@@ -152,10 +152,9 @@ fun App(initialDeeplinkRoute: String? = null) {
                                     navController.navigate(route) {
                                         popUpTo("home") {
                                             saveState = true
-                                            inclusive = true
                                         }
-                                        launchSingleTop = false
-                                        restoreState = false
+                                        launchSingleTop = true
+                                        restoreState = true
                                     }
                                 },
                                 icon = { Text(tab.icon) },
@@ -214,7 +213,7 @@ fun App(initialDeeplinkRoute: String? = null) {
                         onAllQuestionsClick = {
                             navController.navigate(LearnQuestionRoute(mode = "ALL", topicId = null))
                         },
-                        onBack = { navController.popBackStack("home", inclusive = false)}
+                        onBack = { navController.popBackStack() }
                     )
                 }
 
