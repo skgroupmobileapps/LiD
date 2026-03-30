@@ -75,6 +75,7 @@ kotlin {
             implementation(projects.feature.learn)
             implementation(projects.feature.exam)
             implementation(projects.feature.profile)
+            implementation(projects.feature.feedback)
             implementation(projects.tracking)
             implementation(projects.analytics)
         }

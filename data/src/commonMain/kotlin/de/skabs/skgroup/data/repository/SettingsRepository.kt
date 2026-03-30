@@ -32,6 +32,9 @@ class SettingsRepository(private val database: AppDatabase) {
         private const val KEY_NOTIFICATIONS = "notifications_enabled"
         private const val KEY_ONBOARDING_COMPLETED = "onboarding_completed"
         private const val KEY_IS_GUEST = "is_guest"
+        private const val KEY_LAST_FEEDBACK_TIMESTAMP = "last_feedback_timestamp"
+        private const val KEY_LAST_FEEDBACK_RATING = "last_feedback_rating"
+        private const val KEY_SUCCESSFUL_LEARN_SESSIONS = "successful_learn_sessions"
     }
 
     fun saveSettings(settings: UserSettings) {
@@ -78,6 +81,31 @@ class SettingsRepository(private val database: AppDatabase) {
 
     fun setOnboardingCompleted() {
         database.appDatabaseQueries.insertSetting(KEY_ONBOARDING_COMPLETED, "true")
+    }
+
+    // --- Feedback cooldown helpers ---
+
+    fun getLastFeedbackTimestamp(): Long {
+        return getSetting(KEY_LAST_FEEDBACK_TIMESTAMP)?.toLongOrNull() ?: 0L
+    }
+
+    fun getLastFeedbackRating(): Int {
+        return getSetting(KEY_LAST_FEEDBACK_RATING)?.toIntOrNull() ?: 0
+    }
+
+    fun setFeedbackSubmitted(rating: Int, timestampMs: Long) {
+        database.appDatabaseQueries.insertSetting(KEY_LAST_FEEDBACK_TIMESTAMP, timestampMs.toString())
+        database.appDatabaseQueries.insertSetting(KEY_LAST_FEEDBACK_RATING, rating.toString())
+        database.appDatabaseQueries.insertSetting(KEY_SUCCESSFUL_LEARN_SESSIONS, "0")
+    }
+
+    fun getSuccessfulLearnSessionCount(): Int {
+        return getSetting(KEY_SUCCESSFUL_LEARN_SESSIONS)?.toIntOrNull() ?: 0
+    }
+
+    fun incrementSuccessfulLearnSessions() {
+        val current = getSuccessfulLearnSessionCount()
+        database.appDatabaseQueries.insertSetting(KEY_SUCCESSFUL_LEARN_SESSIONS, (current + 1).toString())
     }
 
     private fun getSetting(key: String): String? {

@@ -136,4 +136,19 @@
     <string name="next">التالي</string>
     <string name="previous">السابق</string>
     <string name="submit">إرسال</string>
+
+    <!-- Feedback -->
+    <string name="feedback_dialog_title">كيف يعجبك التطبيق؟</string>
+    <string name="feedback_dialog_subtitle">ملاحظاتك تساعدنا على التحسين</string>
+    <string name="feedback_comment_hint">أخبرنا المزيد… (اختياري)</string>
+    <string name="feedback_submit">إرسال</string>
+    <string name="feedback_cancel">إلغاء</string>
+    <string name="feedback_store_title">شكراً لك! 🎉</string>
+    <string name="feedback_store_message">هل تترك أيضاً تقييماً في المتجر؟ هذا يساعد المتعلمين الآخرين كثيراً!</string>
+    <string name="feedback_rate_store">قيّم الآن</string>
+    <string name="feedback_not_now">ليس الآن</string>
+    <string name="feedback_thank_you">شكراً على ملاحظاتك!</string>
+    <string name="feedback_thank_you_message">نحن نعمل على تحسين التطبيق من أجلك.</string>
+    <string name="profile_leave_feedback">اترك ملاحظات</string>
+    <string name="profile_leave_feedback_subtitle">ساعدنا في تحسين التطبيق</string>
 </resources>

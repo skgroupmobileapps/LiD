@@ -21,7 +21,8 @@ KMPExam/
 │   ├── home/            # Dashboard/home screen
 │   ├── learn/           # Topic learning and question flow
 │   ├── exam/            # Exam intro, in-progress, result flow
-│   └── profile/         # Profile, settings, statistics
+│   ├── profile/         # Profile, settings, statistics
+│   └── feedback/        # Star rating dialog, store redirect, Firestore persistence
 └── iosApp/              # Native iOS Swift entry point and Xcode project
 ```
 
@@ -52,6 +53,7 @@ Feature and UI code must depend on `:tracking`, never directly on Firebase or `:
 - SQLDelight
 - Compose Resources
 - Firebase Analytics via GitLive SDK
+- Firebase Firestore via GitLive SDK (feedback collection)
 
 ## Source Set Rules
 
@@ -135,3 +137,16 @@ When adding settings or new user-facing flows, update all existing locales unles
 - For analytics changes, think in terms of canonical event names and meaningful parameters, and keep call sites decoupled from Firebase.
 - For settings changes, inspect both `UserSettings` and `SettingsRepository` so persistence and reactive UI updates stay aligned.
 - For profile/settings UI, verify current file content before editing because it changes often.
+
+## Feedback Architecture
+
+- The `:feature:feedback` module contains `FeedbackDialog`, `StoreRedirectDialog`, and `FeedbackViewModel`.
+- `FeedbackRepository` (in `:data`) writes ratings and comments to Firebase Firestore collection `feedback`.
+- `FeedbackUseCase` (in `:domain`) encapsulates trigger logic and cooldown enforcement.
+- Cooldown state is persisted in `SettingsEntity` via `SettingsRepository` (keys: `last_feedback_timestamp`, `last_feedback_rating`, `successful_learn_sessions`).
+- **Trigger points**: (1) After passed exam — 3-second delay, (2) After 3 completed learn topics, (3) Manual via Profile "Leave Feedback" button.
+- **Cooldown rules**: 3 months after positive feedback (rating ≥ 4), 1 month after negative/dismissed. Manual trigger bypasses cooldown.
+- **Engagement gate**: Requires ≥50 answered questions or ≥3 activity days before auto-triggers.
+- **Store redirect**: Only offered for ratings 4–5. Ratings 1–3 go to Firestore only (no store redirect).
+- Tracking events: `feedback_dialog_shown`, `feedback_submitted`, `feedback_dismissed`, `store_redirect_accepted`, `store_redirect_declined`.
+- Firestore requires setup in Firebase console: enable Firestore, set security rules (`allow create: if true; allow read: if false;` for `feedback` collection).

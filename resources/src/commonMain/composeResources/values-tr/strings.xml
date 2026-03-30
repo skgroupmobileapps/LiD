@@ -136,4 +136,19 @@
     <string name="next">İleri</string>
     <string name="previous">Geri</string>
     <string name="submit">Gönder</string>
+
+    <!-- Feedback -->
+    <string name="feedback_dialog_title">Uygulamayı nasıl buluyorsunuz?</string>
+    <string name="feedback_dialog_subtitle">Geri bildiriminiz iyileştirmemize yardımcı olur</string>
+    <string name="feedback_comment_hint">Bize daha fazlasını anlatın… (isteğe bağlı)</string>
+    <string name="feedback_submit">Gönder</string>
+    <string name="feedback_cancel">İptal</string>
+    <string name="feedback_store_title">Teşekkürler! 🎉</string>
+    <string name="feedback_store_message">Mağazada da bir değerlendirme bırakır mısınız? Diğer öğrencilere çok yardımcı olur!</string>
+    <string name="feedback_rate_store">Şimdi değerlendir</string>
+    <string name="feedback_not_now">Şimdi değil</string>
+    <string name="feedback_thank_you">Geri bildiriminiz için teşekkürler!</string>
+    <string name="feedback_thank_you_message">Uygulamayı sizin için daha iyi hale getirmek için çalışıyoruz.</string>
+    <string name="profile_leave_feedback">Geri bildirim bırak</string>
+    <string name="profile_leave_feedback_subtitle">Uygulamayı geliştirmemize yardımcı olun</string>
 </resources>

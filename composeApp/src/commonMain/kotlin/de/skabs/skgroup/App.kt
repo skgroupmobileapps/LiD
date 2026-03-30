@@ -19,6 +19,10 @@ import de.skabs.skgroup.feature.exam.ExamPhase
 import de.skabs.skgroup.feature.exam.ExamQuestionScreen
 import de.skabs.skgroup.feature.exam.ExamResultScreen
 import de.skabs.skgroup.feature.exam.ExamViewModel
+import de.skabs.skgroup.feature.feedback.FeedbackDialog
+import de.skabs.skgroup.feature.feedback.FeedbackPhase
+import de.skabs.skgroup.feature.feedback.FeedbackViewModel
+import de.skabs.skgroup.feature.feedback.StoreRedirectDialog
 import de.skabs.skgroup.feature.home.HomeScreen
 import de.skabs.skgroup.feature.home.HomeViewModel
 import de.skabs.skgroup.feature.learn.LearnScreen
@@ -267,6 +271,30 @@ fun App(initialDeeplinkRoute: String? = null) {
                         onBack = { navController.popBackStack() },
                         onClose = { navController.popBackStack() }
                     )
+
+                    // Learning feedback trigger
+                    val learnState by viewModel.uiState.collectAsState()
+                    if (learnState.showFeedbackTrigger) {
+                        val feedbackViewModel: FeedbackViewModel = koinInjectViewModel()
+                        val feedbackState by feedbackViewModel.uiState.collectAsState()
+
+                        LaunchedEffect(Unit) {
+                            feedbackViewModel.checkAndShowFeedbackAfterLearning()
+                            viewModel.clearFeedbackTrigger()
+                        }
+
+                        when (feedbackState.phase) {
+                            FeedbackPhase.FEEDBACK_DIALOG -> FeedbackDialog(
+                                onSubmit = { rating, comment -> feedbackViewModel.submitFeedback(rating, comment) },
+                                onDismiss = { feedbackViewModel.dismissFeedback() }
+                            )
+                            FeedbackPhase.STORE_REDIRECT -> StoreRedirectDialog(
+                                onRateInStore = { feedbackViewModel.openStoreReview() },
+                                onDismiss = { feedbackViewModel.declineStoreReview() }
+                            )
+                            else -> {}
+                        }
+                    }
                 }
 
                 composable("exam_intro") {
@@ -299,6 +327,15 @@ fun App(initialDeeplinkRoute: String? = null) {
                         )
                         ExamPhase.RESULT -> {
                             uiState.result?.let { result ->
+                                val feedbackViewModel: FeedbackViewModel = koinInjectViewModel()
+                                val feedbackState by feedbackViewModel.uiState.collectAsState()
+
+                                // Show feedback dialog 3 seconds after result appears
+                                LaunchedEffect(result) {
+                                    kotlinx.coroutines.delay(3000)
+                                    feedbackViewModel.checkAndShowFeedbackAfterExam(result.passed)
+                                }
+
                                 ExamResultScreen(
                                     result = result,
                                     onReviewWrongAnswers = { /* Navigate to review */ },
@@ -309,6 +346,18 @@ fun App(initialDeeplinkRoute: String? = null) {
                                         }
                                     }
                                 )
+
+                                when (feedbackState.phase) {
+                                    FeedbackPhase.FEEDBACK_DIALOG -> FeedbackDialog(
+                                        onSubmit = { rating, comment -> feedbackViewModel.submitFeedback(rating, comment) },
+                                        onDismiss = { feedbackViewModel.dismissFeedback() }
+                                    )
+                                    FeedbackPhase.STORE_REDIRECT -> StoreRedirectDialog(
+                                        onRateInStore = { feedbackViewModel.openStoreReview() },
+                                        onDismiss = { feedbackViewModel.declineStoreReview() }
+                                    )
+                                    else -> {}
+                                }
                             }
                         }
                     }
@@ -319,7 +368,25 @@ fun App(initialDeeplinkRoute: String? = null) {
                         trackingClient.track(TrackingEvent.ScreenView("profile"))
                     }
                     val viewModel: ProfileViewModel = koinInjectViewModel()
-                    ProfileScreen(viewModel = viewModel)
+                    val feedbackViewModel: FeedbackViewModel = koinInjectViewModel()
+                    val feedbackState by feedbackViewModel.uiState.collectAsState()
+
+                    ProfileScreen(
+                        viewModel = viewModel,
+                        onLeaveFeedback = { feedbackViewModel.showManualFeedback() }
+                    )
+
+                    when (feedbackState.phase) {
+                        FeedbackPhase.FEEDBACK_DIALOG -> FeedbackDialog(
+                            onSubmit = { rating, comment -> feedbackViewModel.submitFeedback(rating, comment) },
+                            onDismiss = { feedbackViewModel.dismissFeedback() }
+                        )
+                        FeedbackPhase.STORE_REDIRECT -> StoreRedirectDialog(
+                            onRateInStore = { feedbackViewModel.openStoreReview() },
+                            onDismiss = { feedbackViewModel.declineStoreReview() }
+                        )
+                        else -> {}
+                    }
                 }
             }
         }

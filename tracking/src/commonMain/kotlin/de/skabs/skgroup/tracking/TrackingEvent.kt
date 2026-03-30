@@ -120,4 +120,26 @@ sealed class TrackingEvent(val name: String, val params: Map<String, Any> = empt
         name = "consent_changed",
         params = mapOf("analytics_enabled" to analyticsEnabled)
     )
+
+    data class FeedbackDialogShown(val trigger: String) : TrackingEvent(
+        name = "feedback_dialog_shown",
+        params = mapOf("trigger" to trigger)
+    )
+
+    data class FeedbackSubmitted(val rating: Int, val trigger: String) : TrackingEvent(
+        name = "feedback_submitted",
+        params = mapOf("rating" to rating, "trigger" to trigger)
+    )
+
+    data class FeedbackDismissed(val trigger: String) : TrackingEvent(
+        name = "feedback_dismissed",
+        params = mapOf("trigger" to trigger)
+    )
+
+    data class StoreRedirectAccepted(val platform: String) : TrackingEvent(
+        name = "store_redirect_accepted",
+        params = mapOf("platform" to platform)
+    )
+
+    data object StoreRedirectDeclined : TrackingEvent(name = "store_redirect_declined")
 }

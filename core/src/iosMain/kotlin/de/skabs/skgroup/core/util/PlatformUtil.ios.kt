@@ -8,4 +8,6 @@ actual object PlatformUtil {
         val nsUrl = NSURL.URLWithString(url) ?: return
         UIApplication.sharedApplication.openURL(nsUrl)
     }
+
+    actual fun getPlatformName(): String = "ios"
 }

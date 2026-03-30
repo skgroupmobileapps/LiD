@@ -136,4 +136,19 @@
     <string name="next">Далее</string>
     <string name="previous">Назад</string>
     <string name="submit">Отправить</string>
+
+    <!-- Feedback -->
+    <string name="feedback_dialog_title">Как вам приложение?</string>
+    <string name="feedback_dialog_subtitle">Ваш отзыв поможет нам стать лучше</string>
+    <string name="feedback_comment_hint">Расскажите подробнее… (необязательно)</string>
+    <string name="feedback_submit">Отправить</string>
+    <string name="feedback_cancel">Отмена</string>
+    <string name="feedback_store_title">Спасибо! 🎉</string>
+    <string name="feedback_store_message">Не могли бы вы также оставить отзыв в магазине? Это очень поможет другим ученикам!</string>
+    <string name="feedback_rate_store">Оценить сейчас</string>
+    <string name="feedback_not_now">Не сейчас</string>
+    <string name="feedback_thank_you">Спасибо за ваш отзыв!</string>
+    <string name="feedback_thank_you_message">Мы работаем над улучшением приложения для вас.</string>
+    <string name="profile_leave_feedback">Оставить отзыв</string>
+    <string name="profile_leave_feedback_subtitle">Помогите нам улучшить приложение</string>
 </resources>

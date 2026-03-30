@@ -101,6 +101,14 @@ class StatisticsUseCase(
         progressRepository.clearAllAnswers()
         examRepository.clearExamHistory()
     }
+
+    fun getTotalAnswerCount(): Int {
+        return progressRepository.getTotalAnswered().toInt()
+    }
+
+    fun getActivityDayCount(): Int {
+        return progressRepository.getDayStreak()
+    }
 }
 
 data class ExamStats(

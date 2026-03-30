@@ -5,15 +5,18 @@ import de.skabs.skgroup.data.local.QuestionSeeder
 import de.skabs.skgroup.data.local.createDatabase
 import de.skabs.skgroup.data.repository.BookmarkRepository
 import de.skabs.skgroup.data.repository.ExamRepository
+import de.skabs.skgroup.data.repository.FeedbackRepository
 import de.skabs.skgroup.data.repository.ProgressRepository
 import de.skabs.skgroup.data.repository.QuestionRepository
 import de.skabs.skgroup.data.repository.SettingsRepository
 import de.skabs.skgroup.domain.usecase.BookmarkUseCase
 import de.skabs.skgroup.domain.usecase.ExamFlowUseCase
+import de.skabs.skgroup.domain.usecase.FeedbackUseCase
 import de.skabs.skgroup.domain.usecase.LearningUseCase
 import de.skabs.skgroup.domain.usecase.ProgressUseCase
 import de.skabs.skgroup.domain.usecase.StatisticsUseCase
 import de.skabs.skgroup.feature.exam.ExamViewModel
+import de.skabs.skgroup.feature.feedback.FeedbackViewModel
 import de.skabs.skgroup.feature.home.HomeViewModel
 import de.skabs.skgroup.feature.learn.LearnViewModel
 import de.skabs.skgroup.feature.profile.ProfileViewModel
@@ -53,6 +56,7 @@ fun appModule() = module {
     singleOf(::ProgressRepository)
     singleOf(::BookmarkRepository)
     singleOf(::SettingsRepository)
+    single { FeedbackRepository() }
 
     // Tracking
     single<TrackingConsentProvider> { SettingsTrackingConsentProvider(get()) }
@@ -67,11 +71,13 @@ fun appModule() = module {
     singleOf(::BookmarkUseCase)
     singleOf(::StatisticsUseCase)
     singleOf(::ProgressUseCase)
+    singleOf(::FeedbackUseCase)
 
     // ViewModels - use factory() so that each screen gets a fresh instance that Compose can clear.
     factory { HomeViewModel(get(), get(), get(), get()) }
-    factory { LearnViewModel(get(), get(), get(), get(), get()) }
+    factory { LearnViewModel(get(), get(), get(), get(), get(), get()) }
     factory { ExamViewModel(get(), get(), get()) }
     factory { ProfileViewModel(get(), get(), get(), get(), get()) }
+    factory { FeedbackViewModel(get(), get(), get(), get()) }
 }
 

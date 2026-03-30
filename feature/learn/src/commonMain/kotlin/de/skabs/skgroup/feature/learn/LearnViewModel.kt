@@ -9,6 +9,7 @@ import de.skabs.skgroup.core.model.TopicProgress
 import de.skabs.skgroup.data.repository.SettingsRepository
 import de.skabs.skgroup.domain.usecase.AnswerFeedback
 import de.skabs.skgroup.domain.usecase.BookmarkUseCase
+import de.skabs.skgroup.domain.usecase.FeedbackUseCase
 import de.skabs.skgroup.domain.usecase.LearningUseCase
 import de.skabs.skgroup.domain.usecase.StatisticsUseCase
 import de.skabs.skgroup.tracking.TrackingClient
@@ -28,7 +29,8 @@ data class LearnUiState(
     val feedback: AnswerFeedback? = null,
     val bookmarkedQuestions: List<Question> = emptyList(),
     val bookmarkCount: Int = 0,
-    val isLoading: Boolean = true
+    val isLoading: Boolean = true,
+    val showFeedbackTrigger: Boolean = false
 )
 
 class LearnViewModel(
@@ -36,7 +38,8 @@ class LearnViewModel(
     private val bookmarkUseCase: BookmarkUseCase,
     private val statisticsUseCase: StatisticsUseCase,
     private val settingsRepository: SettingsRepository,
-    private val trackingClient: TrackingClient
+    private val trackingClient: TrackingClient,
+    private val feedbackUseCase: FeedbackUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LearnUiState())
@@ -116,6 +119,18 @@ class LearnViewModel(
                     topic = question.topic.name
                 )
             )
+
+            val state = _uiState.value
+            val isLastQuestion = state.currentQuestionIndex >= state.currentQuestions.size - 1
+
+            // Track topic completion for feedback trigger
+            if (isLastQuestion && feedback.isCorrect) {
+                feedbackUseCase.recordSuccessfulLearnSession()
+                if (feedbackUseCase.shouldShowFeedbackAfterLearning()) {
+                    _uiState.update { it.copy(showFeedbackTrigger = true) }
+                }
+            }
+
             _uiState.update {
                 it.copy(
                     selectedAnswerIndex = selectedIndex,
@@ -157,5 +172,9 @@ class LearnViewModel(
 
     fun isBookmarked(questionId: Int): Boolean {
         return bookmarkUseCase.isBookmarked(questionId)
+    }
+
+    fun clearFeedbackTrigger() {
+        _uiState.update { it.copy(showFeedbackTrigger = false) }
     }
 }

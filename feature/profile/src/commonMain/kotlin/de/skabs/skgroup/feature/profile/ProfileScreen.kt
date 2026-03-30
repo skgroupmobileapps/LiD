@@ -40,6 +40,7 @@ private const val CONTACT_EMAIL = "support@einbuergerungstest-app.de"
 @Composable
 fun ProfileScreen(
     viewModel: ProfileViewModel,
+    onLeaveFeedback: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val uiState by viewModel.uiState.collectAsState()
@@ -48,6 +49,7 @@ fun ProfileScreen(
         uiState = uiState,
         onUpdateSettings = { viewModel.updateSettings(it) },
         onResetStatistics = { viewModel.resetStatistics() },
+        onLeaveFeedback = onLeaveFeedback,
         modifier = modifier
     )
 }
@@ -57,6 +59,7 @@ fun ProfileScreenContent(
     uiState: ProfileUiState,
     onUpdateSettings: (UserSettings) -> Unit = {},
     onResetStatistics: () -> Unit = {},
+    onLeaveFeedback: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val settings = uiState.settings
@@ -173,7 +176,8 @@ fun ProfileScreenContent(
             settings = settings,
             onOpenLanguageDialog = { showLanguageDialog = true },
             onUpdateSettings = onUpdateSettings,
-            onResetStatistics = { showResetDialog = true }
+            onResetStatistics = { showResetDialog = true },
+            onLeaveFeedback = onLeaveFeedback
         )
 
         Spacer(Modifier.height(20.dp))
@@ -301,7 +305,8 @@ private fun ProfileSettingsCard(
     settings: UserSettings,
     onOpenLanguageDialog: () -> Unit,
     onUpdateSettings: (UserSettings) -> Unit,
-    onResetStatistics: () -> Unit
+    onResetStatistics: () -> Unit,
+    onLeaveFeedback: () -> Unit = {}
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -365,6 +370,22 @@ private fun ProfileSettingsCard(
                         onUpdateSettings(settings.copy(analyticsEnabled = isChecked))
                     }
                 )
+            }
+
+            HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onLeaveFeedback() },
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column {
+                    Text(stringResource(Res.string.profile_leave_feedback), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                    Text(stringResource(Res.string.profile_leave_feedback_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                }
+                Text("💬", style = MaterialTheme.typography.titleLarge)
             }
 
             HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))

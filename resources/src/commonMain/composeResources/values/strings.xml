@@ -145,4 +145,19 @@
     <string name="widget_streak">Streak</string>
     <string name="widget_learn_button">Lernen</string>
     <string name="widget_exam_button">Prüfung</string>
+
+    <!-- Feedback -->
+    <string name="feedback_dialog_title">Wie gefällt Ihnen die App?</string>
+    <string name="feedback_dialog_subtitle">Ihre Meinung hilft uns, die App zu verbessern</string>
+    <string name="feedback_comment_hint">Erzählen Sie uns mehr… (optional)</string>
+    <string name="feedback_submit">Absenden</string>
+    <string name="feedback_cancel">Abbrechen</string>
+    <string name="feedback_store_title">Vielen Dank! 🎉</string>
+    <string name="feedback_store_message">Würden Sie uns auch eine Bewertung im Store hinterlassen? Das hilft anderen Lernenden sehr!</string>
+    <string name="feedback_rate_store">Jetzt bewerten</string>
+    <string name="feedback_not_now">Nicht jetzt</string>
+    <string name="feedback_thank_you">Danke für Ihr Feedback!</string>
+    <string name="feedback_thank_you_message">Wir arbeiten daran, die App für Sie zu verbessern.</string>
+    <string name="profile_leave_feedback">Feedback geben</string>
+    <string name="profile_leave_feedback_subtitle">Helfen Sie uns, die App zu verbessern</string>
 </resources>

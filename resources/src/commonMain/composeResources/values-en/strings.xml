@@ -145,4 +145,19 @@
     <string name="widget_streak">Streak</string>
     <string name="widget_learn_button">Learn</string>
     <string name="widget_exam_button">Exam</string>
+
+    <!-- Feedback -->
+    <string name="feedback_dialog_title">How do you like the app?</string>
+    <string name="feedback_dialog_subtitle">Your feedback helps us improve</string>
+    <string name="feedback_comment_hint">Tell us more… (optional)</string>
+    <string name="feedback_submit">Submit</string>
+    <string name="feedback_cancel">Cancel</string>
+    <string name="feedback_store_title">Thank you! 🎉</string>
+    <string name="feedback_store_message">Would you also leave a review in the store? It helps other learners a lot!</string>
+    <string name="feedback_rate_store">Rate now</string>
+    <string name="feedback_not_now">Not now</string>
+    <string name="feedback_thank_you">Thanks for your feedback!</string>
+    <string name="feedback_thank_you_message">We\'re working to make the app better for you.</string>
+    <string name="profile_leave_feedback">Leave feedback</string>
+    <string name="profile_leave_feedback_subtitle">Help us improve the app</string>
 </resources>

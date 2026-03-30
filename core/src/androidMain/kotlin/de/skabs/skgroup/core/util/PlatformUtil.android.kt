@@ -12,4 +12,6 @@ actual object PlatformUtil {
         }
         context.startActivity(intent)
     }
+
+    actual fun getPlatformName(): String = "android"
 }
