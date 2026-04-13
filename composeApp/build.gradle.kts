@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -85,16 +86,31 @@ kotlin {
     }
 }
 
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) {
+        load(file.inputStream())
+    }
+}
+
 android {
-    namespace = "de.skabs.skgroup"
+    namespace = "de.skgroup.einburgerungstest"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "de.skabs.skgroup"
+        applicationId = "de.skgroup.einburgerungstest"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
+    }
+    signingConfigs {
+        create("release") {
+            storeFile = file(localProperties.getProperty("MYAPP_UPLOAD_STORE_FILE")!!)
+            storePassword = localProperties.getProperty("MYAPP_UPLOAD_STORE_PASSWORD") as String?
+            keyAlias = localProperties.getProperty("MYAPP_UPLOAD_KEY_ALIAS") as String?
+            keyPassword = localProperties.getProperty("MYAPP_UPLOAD_KEY_PASSWORD") as String?
+        }
     }
     packaging {
         resources {
@@ -102,8 +118,9 @@ android {
         }
     }
     buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
+        release {
+            isMinifyEnabled = true
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {

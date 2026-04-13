@@ -42,7 +42,7 @@ kotlin {
 }
 
 android {
-    namespace = "de.skabs.skgroup.feature.feedback"
+    namespace = "de.skgroup.einburgerungstest.feature.feedback"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

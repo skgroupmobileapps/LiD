@@ -40,7 +40,7 @@ kotlin {
 }
 
 android {
-    namespace = "de.skabs.skgroup.feature.onboarding"
+    namespace = "de.skgroup.einburgerungstest.feature.onboarding"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

@@ -23,7 +23,7 @@ kotlin {
 }
 
 android {
-    namespace = "de.skabs.skgroup.analytics"
+    namespace = "de.skgroup.einburgerungstest.analytics"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

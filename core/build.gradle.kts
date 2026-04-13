@@ -33,7 +33,7 @@ kotlin {
 }
 
 android {
-    namespace = "de.skabs.skgroup.core"
+    namespace = "de.skgroup.einburgerungstest.core"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

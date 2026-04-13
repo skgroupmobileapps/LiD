@@ -43,7 +43,7 @@ kotlin {
 }
 
 android {
-    namespace = "de.skabs.skgroup.feature.exam"
+    namespace = "de.skgroup.einburgerungstest.feature.exam"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

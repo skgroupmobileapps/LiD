@@ -1,0 +1,18 @@
+package de.skgroup.einburgerungstest.data.local
+
+import app.cash.sqldelight.db.SqlDriver
+
+/**
+ * Expect declaration for creating platform-specific SQLite drivers.
+ */
+expect class DatabaseDriverFactory {
+    fun createDriver(): SqlDriver
+}
+
+/**
+ * Create or get the AppDatabase instance.
+ */
+fun createDatabase(driverFactory: DatabaseDriverFactory): AppDatabase {
+    val driver = driverFactory.createDriver()
+    return AppDatabase(driver)
+}

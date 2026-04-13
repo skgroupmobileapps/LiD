@@ -27,7 +27,7 @@ kotlin {
 }
 
 android {
-    namespace = "de.skabs.skgroup.domain"
+    namespace = "de.skgroup.einburgerungstest.domain"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

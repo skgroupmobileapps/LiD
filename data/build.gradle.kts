@@ -40,13 +40,13 @@ kotlin {
 sqldelight {
     databases {
         create("AppDatabase") {
-            packageName.set("de.skabs.skgroup.data.local")
+            packageName.set("de.skgroup.einburgerungstest.data.local")
         }
     }
 }
 
 android {
-    namespace = "de.skabs.skgroup.data"
+    namespace = "de.skgroup.einburgerungstest.data"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

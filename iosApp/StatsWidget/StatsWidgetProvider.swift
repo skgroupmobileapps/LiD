@@ -4,7 +4,7 @@ import Foundation
 struct StatsWidgetProvider: TimelineProvider {
     
     // App Group identifier - must match the one in Kotlin code
-    private let appGroupId = "group.de.skabs.skgroup.kmpexam"
+    private let appGroupId = "group.de.skgroup.einburgerungstest.kmpexam"
     
     // Keys matching Kotlin WidgetDataKeys
     private let keyCorrect = "widget_correct"

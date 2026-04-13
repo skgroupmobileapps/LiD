@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/exam" />
+            <option value="$PROJECT_DIR$/feature/feedback" />
             <option value="$PROJECT_DIR$/feature/home" />
             <option value="$PROJECT_DIR$/feature/learn" />
             <option value="$PROJECT_DIR$/feature/onboarding" />
