@@ -33,12 +33,24 @@ val AccentOrange = Color(0xFFFF8C42)
 val AccentPink = Color(0xFFFF6B9D)
 val AccentTeal = Color(0xFF38B2AC)
 
-// Semantic
+// Semantic — light-mode state surfaces
 val SuccessGreen = Color(0xFF38A169)
 val SuccessGreenLight = Color(0xFFE6F7ED)
 val ErrorRed = Color(0xFFE53E3E)
 val ErrorRedLight = Color(0xFFFFF0F0)
 val WarningYellow = Color(0xFFECC94B)
+
+// Semantic — dark-mode state surfaces (opaque dark tints, readable with white text)
+val SuccessGreenSurfaceDark = Color(0xFF1B3A2E) // white text: ~16:1
+val ErrorRedSurfaceDark = Color(0xFF3D1515)     // white text: ~17:1
+val PrimaryGreenSurfaceDark = Color(0xFF0D2E1A) // white text: ~17:1
+
+// Semantic — readable accent text on dark surfaces
+val SuccessGreenTextDark = Color(0xFF68D391)    // on SurfaceDark: ~7.3:1
+
+// Accents — darker gold variant for readable text on light backgrounds
+// AccentGold (#FFB800) on white = 1.70:1 (fails WCAG); this passes 4.5:1
+val AccentGoldDark = Color(0xFFB7860B)
 
 // German flag
 val GermanBlack = Color(0xFF000000)

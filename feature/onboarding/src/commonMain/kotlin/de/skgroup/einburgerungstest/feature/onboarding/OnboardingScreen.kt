@@ -165,7 +165,7 @@ private fun LanguageStep(
                 ) {
                     Text(text = lang.displayName, style = MaterialTheme.typography.titleMedium, modifier = Modifier.weight(1f))
                     if (isSelected) {
-                        Text("✓", style = MaterialTheme.typography.titleMedium, color = PrimaryGreen, fontWeight = FontWeight.Bold)
+                        Text("✓", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
                     }
                 }
             }
@@ -233,7 +233,7 @@ private fun StateStep(
                     ) {
                         Text(state.displayName, style = MaterialTheme.typography.bodyLarge, modifier = Modifier.weight(1f))
                         if (isSelected) {
-                            Text("✓", color = PrimaryGreen, fontWeight = FontWeight.Bold)
+                            Text("✓", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
                         }
                     }
                 }

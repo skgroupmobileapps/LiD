@@ -12,8 +12,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.isSystemInDarkTheme
 import de.skgroup.einburgerungstest.designsystem.theme.*
 import androidx.compose.ui.tooling.preview.Preview
 
@@ -42,12 +44,14 @@ fun QuizCard(
     onClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
+    val isDark = isSystemInDarkTheme()
+
     val backgroundColor by animateColorAsState(
         targetValue = when (state) {
             QuizCardState.DEFAULT -> MaterialTheme.colorScheme.surface
-            QuizCardState.SELECTED -> PrimaryGreenSurface
-            QuizCardState.CORRECT -> SuccessGreenLight
-            QuizCardState.WRONG -> ErrorRedLight
+            QuizCardState.SELECTED -> if (isDark) PrimaryGreenSurfaceDark else PrimaryGreenSurface
+            QuizCardState.CORRECT -> if (isDark) SuccessGreenSurfaceDark else SuccessGreenLight
+            QuizCardState.WRONG -> if (isDark) ErrorRedSurfaceDark else ErrorRedLight
             QuizCardState.DISABLED -> MaterialTheme.colorScheme.surface
         },
         animationSpec = tween(300)
@@ -66,7 +70,8 @@ fun QuizCard(
 
     val labelBgColor by animateColorAsState(
         targetValue = when (state) {
-            QuizCardState.SELECTED -> PrimaryGreen
+            // Use theme primary so it's PrimaryGreenLight (#2D8F5E) in dark, PrimaryGreen in light
+            QuizCardState.SELECTED -> MaterialTheme.colorScheme.primary
             QuizCardState.CORRECT -> SuccessGreen
             QuizCardState.WRONG -> ErrorRed
             else -> MaterialTheme.colorScheme.surfaceVariant
@@ -74,9 +79,9 @@ fun QuizCard(
         animationSpec = tween(300)
     )
 
+    // Colored circles always use white text: contrast ratios are 5.8–15:1 across all states/themes
     val labelTextColor = when (state) {
-        QuizCardState.SELECTED, QuizCardState.CORRECT, QuizCardState.WRONG ->
-            MaterialTheme.colorScheme.onPrimary
+        QuizCardState.SELECTED, QuizCardState.CORRECT, QuizCardState.WRONG -> Color.White
         else -> MaterialTheme.colorScheme.onSurface
     }
 

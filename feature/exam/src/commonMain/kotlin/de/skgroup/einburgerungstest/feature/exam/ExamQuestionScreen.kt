@@ -21,7 +21,6 @@ import de.skgroup.einburgerungstest.core.model.Topic
 import de.skgroup.einburgerungstest.core.util.BackHandler
 import de.skgroup.einburgerungstest.core.util.Timer
 import de.skgroup.einburgerungstest.designsystem.components.*
-import de.skgroup.einburgerungstest.designsystem.theme.PrimaryGreen
 import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
@@ -113,7 +112,6 @@ fun ExamQuestionScreenContent(
         // Progress bar
         AppProgressBar(
             progress = (currentIndex + 1).toFloat() / questions.size,
-            color = PrimaryGreen
         )
 
         Spacer(Modifier.height(20.dp))

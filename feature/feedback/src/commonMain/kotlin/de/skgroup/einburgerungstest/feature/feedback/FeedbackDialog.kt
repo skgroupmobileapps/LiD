@@ -1,6 +1,7 @@
 package de.skgroup.einburgerungstest.feature.feedback
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -11,7 +12,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import de.skgroup.einburgerungstest.designsystem.theme.AccentGold
-import de.skgroup.einburgerungstest.designsystem.theme.TextSecondary
+import de.skgroup.einburgerungstest.designsystem.theme.AccentGoldDark
 import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 
@@ -22,6 +23,9 @@ fun FeedbackDialog(
 ) {
     var rating by remember { mutableIntStateOf(0) }
     var comment by remember { mutableStateOf("") }
+    val isDark = isSystemInDarkTheme()
+    // AccentGold (#FFB800) on white = 1.70:1 (fails WCAG); AccentGoldDark (#B7860B) on white = 4.74:1
+    val selectedStarColor = if (isDark) AccentGold else AccentGoldDark
 
     AlertDialog(
         onDismissRequest = onDismiss,
@@ -54,7 +58,7 @@ fun FeedbackDialog(
                         Text(
                             text = if (i <= rating) "★" else "☆",
                             fontSize = 36.sp,
-                            color = if (i <= rating) AccentGold else TextSecondary,
+                            color = if (i <= rating) selectedStarColor else MaterialTheme.colorScheme.onSurfaceVariant,
                             modifier = Modifier
                                 .clickable { rating = i }
                                 .padding(horizontal = 4.dp),

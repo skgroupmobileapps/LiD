@@ -2,6 +2,7 @@ package de.skgroup.einburgerungstest.feature.profile
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -232,6 +233,12 @@ private fun ProfileIdentityCard(settings: UserSettings) {
 
 @Composable
 private fun ProfileExamStatsCard(examStats: ExamStats) {
+    val isDark = isSystemInDarkTheme()
+    // SuccessGreen (#38A169) on dark surface = 2.18:1 (failing); SuccessGreenTextDark (#68D391) = 7.3:1
+    val successTextColor = if (isDark) SuccessGreenTextDark else SuccessGreen
+    // AccentGold (#FFB800) on white = 1.70:1 (failing); AccentGoldDark (#B7860B) on white = 4.74:1
+    // AccentGold on dark is fine (9.95:1), so only swap in light mode
+    val goldTextColor = if (isDark) AccentGold else AccentGoldDark
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
@@ -249,11 +256,11 @@ private fun ProfileExamStatsCard(examStats: ExamStats) {
                 }
                 Column {
                     Text(stringResource(Res.string.profile_passed), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    Text("${examStats.totalPassed}", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = SuccessGreen)
+                    Text("${examStats.totalPassed}", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = successTextColor)
                 }
                 Column {
                     Text(stringResource(Res.string.profile_avg_score), style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                    Text("${examStats.averageScore.toInt()}%", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = AccentGold)
+                    Text("${examStats.averageScore.toInt()}%", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold, color = goldTextColor)
                 }
             }
         }
@@ -262,6 +269,9 @@ private fun ProfileExamStatsCard(examStats: ExamStats) {
 
 @Composable
 private fun RecentExamHistorySection(examHistory: List<ExamHistoryEntry>) {
+    val isDark = isSystemInDarkTheme()
+    val passColor = if (isDark) SuccessGreenTextDark else SuccessGreen
+    val failColor = if (isDark) androidx.compose.ui.graphics.Color(0xFFFF8A80) else ErrorRed
     examHistory.take(5).forEach { entry ->
         Card(
             modifier = Modifier
@@ -293,7 +303,7 @@ private fun RecentExamHistorySection(examHistory: List<ExamHistoryEntry>) {
                     "${entry.scorePercent.toInt()}%",
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.Bold,
-                    color = if (entry.passed) SuccessGreen else ErrorRed
+                    color = if (entry.passed) passColor else failColor
                 )
             }
         }

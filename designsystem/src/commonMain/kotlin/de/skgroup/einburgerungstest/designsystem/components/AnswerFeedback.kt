@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -15,9 +16,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import de.skgroup.einburgerungstest.designsystem.theme.ErrorRed
 import de.skgroup.einburgerungstest.designsystem.theme.ErrorRedLight
+import de.skgroup.einburgerungstest.designsystem.theme.ErrorRedSurfaceDark
 import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import de.skgroup.einburgerungstest.designsystem.theme.SuccessGreen
 import de.skgroup.einburgerungstest.designsystem.theme.SuccessGreenLight
+import de.skgroup.einburgerungstest.designsystem.theme.SuccessGreenSurfaceDark
+import de.skgroup.einburgerungstest.designsystem.theme.SuccessGreenTextDark
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 
 /**
@@ -30,8 +35,22 @@ fun AnswerFeedback(
     explanation: String,
     modifier: Modifier = Modifier
 ) {
-    val bgColor = if (isCorrect) SuccessGreenLight else ErrorRedLight
-    val textColor = if (isCorrect) SuccessGreen else ErrorRed
+    val isDark = isSystemInDarkTheme()
+    val bgColor = if (isCorrect) {
+        if (isDark) SuccessGreenSurfaceDark else SuccessGreenLight
+    } else {
+        if (isDark) ErrorRedSurfaceDark else ErrorRedLight
+    }
+    // Title text: use lighter variants in dark mode for sufficient contrast on dark surfaces
+    // SuccessGreen (#38A169) on SuccessGreenSurfaceDark (#1B3A2E) = ~2:1 (fails); use SuccessGreenTextDark (#68D391) = ~8.9:1
+    // ErrorRed (#E53E3E) on ErrorRedSurfaceDark (#3D1515) = ~3:1 (marginal); use #FF8A80 = ~7.7:1
+    val textColor = if (isCorrect) {
+        if (isDark) SuccessGreenTextDark else SuccessGreen
+    } else {
+        if (isDark) Color(0xFFFF8A80) else ErrorRed
+    }
+    // Explanation text must contrast with our custom bg, not the generic surface
+    val explanationTextColor = if (isDark) MaterialTheme.colorScheme.onBackground else MaterialTheme.colorScheme.onSurface
     val title = if (isCorrect) "✅ Correct!" else "❌ Wrong!"
 
     Box(
@@ -52,7 +71,7 @@ fun AnswerFeedback(
                 Text(
                     text = explanation,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface,
+                    color = explanationTextColor,
                     modifier = Modifier.padding(top = 8.dp)
                 )
             }

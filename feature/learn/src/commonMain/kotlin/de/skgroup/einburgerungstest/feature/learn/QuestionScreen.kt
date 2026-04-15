@@ -14,7 +14,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import de.skgroup.einburgerungstest.core.model.Answer
 import de.skgroup.einburgerungstest.designsystem.components.*
-import de.skgroup.einburgerungstest.designsystem.theme.PrimaryGreen
 import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
@@ -69,7 +68,7 @@ fun QuestionScreenContent(
             modifier = modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            CircularProgressIndicator(color = PrimaryGreen)
+            CircularProgressIndicator(color = MaterialTheme.colorScheme.primary)
         }
         return
     }
@@ -123,7 +122,6 @@ fun QuestionScreenContent(
         // Progress bar
         AppProgressBar(
             progress = (currentIndex + 1).toFloat() / questions.size,
-            color = PrimaryGreen
         )
 
         Spacer(Modifier.height(20.dp))

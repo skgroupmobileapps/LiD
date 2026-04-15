@@ -12,7 +12,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import de.skgroup.einburgerungstest.designsystem.theme.PrimaryGreen
 import de.skgroup.einburgerungstest.designsystem.theme.ProgressBarShape
 import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
  * Custom animated linear progress bar.
  *
  * @param progress Value between 0f and 1f
- * @param color Fill color
+ * @param color Fill color (defaults to theme primary for automatic dark/light adaptation)
  * @param trackColor Background track color
  * @param height Height of the progress bar
  */
@@ -29,10 +28,11 @@ import androidx.compose.ui.tooling.preview.Preview
 fun AppProgressBar(
     progress: Float,
     modifier: Modifier = Modifier,
-    color: Color = PrimaryGreen,
+    color: Color = Color.Unspecified,
     trackColor: Color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
     height: Dp = 6.dp
 ) {
+    val resolvedColor = if (color == Color.Unspecified) MaterialTheme.colorScheme.primary else color
     val animatedProgress by animateFloatAsState(
         targetValue = progress.coerceIn(0f, 1f),
         animationSpec = tween(600)
@@ -50,7 +50,7 @@ fun AppProgressBar(
                 .fillMaxHeight()
                 .fillMaxWidth(animatedProgress)
                 .clip(ProgressBarShape)
-                .background(color)
+                .background(resolvedColor)
         )
     }
 }

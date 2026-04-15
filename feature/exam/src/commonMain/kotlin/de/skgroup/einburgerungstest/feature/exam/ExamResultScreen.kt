@@ -1,6 +1,7 @@
 package de.skgroup.einburgerungstest.feature.exam
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -47,8 +48,15 @@ fun ExamResultScreen(
         Spacer(Modifier.height(32.dp))
 
         // Pass/Fail icon
+        val isDark = isSystemInDarkTheme()
         val resultEmoji = if (result.passed) "🎉" else "😔"
-        val resultColor = if (result.passed) SuccessGreen else ErrorRed
+        // headlineLarge is large text (28sp bold) → 3:1 ratio required; both colors meet it
+        // In dark mode use lighter variants for better readability on dark surfaces
+        val resultColor = if (result.passed) {
+            if (isDark) SuccessGreenTextDark else SuccessGreen
+        } else {
+            if (isDark) androidx.compose.ui.graphics.Color(0xFFFF8A80) else ErrorRed
+        }
 
         Surface(
             modifier = Modifier.size(80.dp),
@@ -144,10 +152,13 @@ private fun ExamResultStatsRow(result: ExamResult) {
 
 @Composable
 private fun WrongAnswersSummaryCard(result: ExamResult) {
+    val isDark = isSystemInDarkTheme()
+    val cardBg = if (isDark) ErrorRedSurfaceDark else ErrorRedLight
+    val titleColor = if (isDark) androidx.compose.ui.graphics.Color(0xFFFF8A80) else ErrorRed
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = ErrorRedLight),
+        colors = CardDefaults.cardColors(containerColor = cardBg),
         border = androidx.compose.foundation.BorderStroke(1.dp, ErrorRed.copy(alpha = 0.3f))
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
@@ -160,7 +171,7 @@ private fun WrongAnswersSummaryCard(result: ExamResult) {
                     text = "${result.wrongCount} Wrong Answers",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
-                    color = ErrorRed
+                    color = titleColor
                 )
             }
             Spacer(Modifier.height(12.dp))
@@ -169,7 +180,7 @@ private fun WrongAnswersSummaryCard(result: ExamResult) {
                 Text(
                     text = "• Q${wrong.question.id}: ${wrong.question.text.take(60)}...",
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurface,
+                    color = if (isDark) MaterialTheme.colorScheme.onBackground else MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.padding(vertical = 2.dp)
                 )
             }
@@ -178,7 +189,7 @@ private fun WrongAnswersSummaryCard(result: ExamResult) {
                     text = "... and ${result.wrongAnswers.size - 5} more",
                     style = MaterialTheme.typography.bodySmall,
                     fontWeight = FontWeight.SemiBold,
-                    color = ErrorRed,
+                    color = titleColor,
                     modifier = Modifier.padding(top = 4.dp)
                 )
             }

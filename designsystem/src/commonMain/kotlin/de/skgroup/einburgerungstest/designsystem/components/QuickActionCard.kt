@@ -33,7 +33,7 @@ fun QuickActionCardPrimary(
             .fillMaxWidth()
             .clickable { onClick() },
         shape = RoundedCornerShape(14.dp),
-        colors = CardDefaults.cardColors(containerColor = PrimaryGreen)
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
     ) {
         Row(
             modifier = Modifier.padding(20.dp),
@@ -45,22 +45,22 @@ fun QuickActionCardPrimary(
                 horizontalArrangement = Arrangement.spacedBy(14.dp),
                 modifier = Modifier.weight(1f)
             ) {
-                Text(text = "▶", style = MaterialTheme.typography.headlineMedium, color = Color.White)
+                Text(text = "▶", style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.onPrimary)
                 Column {
                     Text(
                         text = title,
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
-                        color = Color.White
+                        color = MaterialTheme.colorScheme.onPrimary
                     )
                     Text(
                         text = subtitle,
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color.White.copy(alpha = 0.8f)
+                        color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.8f)
                     )
                 }
             }
-            Text(text = "›", style = MaterialTheme.typography.headlineMedium, color = Color.White)
+            Text(text = "›", style = MaterialTheme.typography.headlineMedium, color = MaterialTheme.colorScheme.onPrimary)
         }
     }
 }

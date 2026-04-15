@@ -184,13 +184,12 @@ private fun HomeOverallProgressCard(progress: UserProgress) {
                     text = "${progress.overallProgressPercent.toInt()}%",
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.Bold,
-                    color = PrimaryGreen
+                    color = MaterialTheme.colorScheme.primary
                 )
             }
             Spacer(Modifier.height(10.dp))
             AppProgressBar(
                 progress = progress.overallProgressPercent / 100f,
-                color = PrimaryGreen
             )
             Spacer(Modifier.height(6.dp))
             Text(

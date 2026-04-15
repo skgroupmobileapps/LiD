@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import de.skgroup.einburgerungstest.designsystem.theme.PrimaryGreen
 import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import de.skgroup.einburgerungstest.designsystem.theme.ButtonShape
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,8 +29,10 @@ fun AppButton(
         enabled = enabled,
         shape = ButtonShape,
         colors = ButtonDefaults.buttonColors(
-            containerColor = PrimaryGreen,
-            disabledContainerColor = PrimaryGreen.copy(alpha = 0.4f)
+            containerColor = MaterialTheme.colorScheme.primary,
+            contentColor = MaterialTheme.colorScheme.onPrimary,
+            disabledContainerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.4f),
+            disabledContentColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.6f)
         )
     ) {
         Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -64,13 +65,13 @@ fun AppOutlinedButton(
             .height(56.dp),
         enabled = enabled,
         shape = ButtonShape,
-        border = androidx.compose.foundation.BorderStroke(1.5.dp, PrimaryGreen)
+        border = androidx.compose.foundation.BorderStroke(1.5.dp, MaterialTheme.colorScheme.primary)
     ) {
         Text(
             text = text,
             style = MaterialTheme.typography.labelLarge,
             fontWeight = FontWeight.SemiBold,
-            color = PrimaryGreen
+            color = MaterialTheme.colorScheme.primary
         )
     }
 }
