@@ -124,6 +124,11 @@ fun ExamQuestionScreenContent(
             color = MaterialTheme.colorScheme.onBackground
         )
 
+        Spacer(Modifier.height(16.dp))
+
+        // Question image (if available)
+        QuestionImage(imageName = currentQuestion.imageName)
+
         Spacer(Modifier.height(24.dp))
 
         // Answer options (NO correct/wrong, just SELECTED or DEFAULT)
@@ -247,6 +252,14 @@ private fun ExamQuestionScreenContentPreview() {
 
 @Preview
 @Composable
+private fun ExamQuestionScreenContentDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        ExamQuestionScreenContent(uiState = previewExamUiState())
+    }
+}
+
+@Preview
+@Composable
 private fun ExamQuestionTopBarPreview() {
     PreviewSurface {
         ExamQuestionTopBar(
@@ -260,8 +273,35 @@ private fun ExamQuestionTopBarPreview() {
 
 @Preview
 @Composable
+private fun ExamQuestionTopBarDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        ExamQuestionTopBar(
+            currentIndex = 4,
+            totalQuestions = 33,
+            remainingTimeMs = 47 * 60 * 1000L,
+            onClose = {}
+        )
+    }
+}
+
+@Preview
+@Composable
 private fun ExamQuestionNavigationRowPreview() {
     PreviewSurface {
+        ExamQuestionNavigationRow(
+            currentIndex = 32,
+            totalQuestions = 33,
+            onPreviousQuestion = {},
+            onNextQuestion = {},
+            onFinishExam = {}
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ExamQuestionNavigationRowDarkPreview() {
+    PreviewSurface(darkTheme = true) {
         ExamQuestionNavigationRow(
             currentIndex = 32,
             totalQuestions = 33,

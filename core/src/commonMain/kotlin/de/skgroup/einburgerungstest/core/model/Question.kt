@@ -90,5 +90,6 @@ data class Question(
     val correctAnswerIndex: Int,
     val topic: Topic,
     val explanation: String,
-    val federalState: FederalState? = null
+    val federalState: FederalState? = null,
+    val imageName: String? = null
 )

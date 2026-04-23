@@ -147,6 +147,20 @@ private fun LearnScreenContentPreview() {
     }
 }
 
+@Preview
+@Composable
+private fun LearnScreenContentDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        LearnScreenContent(
+            uiState = LearnUiState(
+                topicProgressList = previewTopicProgressList(),
+                bookmarkCount = 7,
+                isLoading = false
+            )
+        )
+    }
+}
+
 private fun previewTopicProgressList() = listOf(
     TopicProgress(
         topic = Topic.DEMOCRACY_AND_STATE,

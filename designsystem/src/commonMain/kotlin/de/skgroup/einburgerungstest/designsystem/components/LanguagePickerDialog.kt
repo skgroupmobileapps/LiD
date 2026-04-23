@@ -108,3 +108,15 @@ private fun LanguagePickerDialogPreview() {
         )
     }
 }
+
+@Preview
+@Composable
+private fun LanguagePickerDialogDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        LanguagePickerDialog(
+            currentLanguage = Language.ENGLISH,
+            onLanguageSelected = {},
+            onDismiss = {}
+        )
+    }
+}

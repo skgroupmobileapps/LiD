@@ -9,7 +9,8 @@ CREATE TABLE QuestionEntity (
     correctIndex INTEGER NOT NULL,
     topic TEXT NOT NULL,
     explanation TEXT NOT NULL,
-    federalState TEXT
+    federalState TEXT,
+    imageName TEXT
 );
 
 -- User answers for progress tracking
@@ -80,8 +81,8 @@ getQuestionCount:
 SELECT COUNT(*) FROM QuestionEntity;
 
 insertQuestion:
-INSERT OR REPLACE INTO QuestionEntity(id, text, answerA, answerB, answerC, answerD, correctIndex, topic, explanation, federalState)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+INSERT OR REPLACE INTO QuestionEntity(id, text, answerA, answerB, answerC, answerD, correctIndex, topic, explanation, federalState, imageName)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 -- Answer queries
 insertAnswer:

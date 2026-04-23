@@ -34,3 +34,11 @@ private fun GermanFlagBarPreview() {
         GermanFlagBar(height = 8)
     }
 }
+
+@Preview
+@Composable
+private fun GermanFlagBarDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        GermanFlagBar(height = 8)
+    }
+}

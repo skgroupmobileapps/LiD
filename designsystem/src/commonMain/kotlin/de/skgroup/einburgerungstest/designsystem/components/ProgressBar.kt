@@ -66,3 +66,15 @@ private fun AppProgressBarPreview() {
         }
     }
 }
+
+@Preview
+@Composable
+private fun AppProgressBarDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            AppProgressBar(progress = 0.25f)
+            AppProgressBar(progress = 0.68f)
+            AppProgressBar(progress = 1f)
+        }
+    }
+}

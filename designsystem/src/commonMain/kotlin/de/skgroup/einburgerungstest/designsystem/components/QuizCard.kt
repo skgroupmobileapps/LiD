@@ -137,3 +137,16 @@ private fun QuizCardPreview() {
         }
     }
 }
+
+@Preview
+@Composable
+private fun QuizCardDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+            QuizCard(label = "A", text = "Default answer option")
+            QuizCard(label = "B", text = "Selected answer option", state = QuizCardState.SELECTED)
+            QuizCard(label = "C", text = "Correct answer option", state = QuizCardState.CORRECT)
+            QuizCard(label = "D", text = "Wrong answer option", state = QuizCardState.WRONG)
+        }
+    }
+}

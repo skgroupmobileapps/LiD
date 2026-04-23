@@ -133,8 +133,28 @@ private fun ExamIntroScreenPreview() {
 
 @Preview
 @Composable
+private fun ExamIntroScreenDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        ExamIntroScreen(federalState = FederalState.BERLIN)
+    }
+}
+
+@Preview
+@Composable
 private fun ExamInfoItemPreview() {
     PreviewSurface {
+        ExamInfoItem(
+            icon = "📝",
+            title = "33 questions",
+            subtitle = "30 general questions plus 3 for Berlin"
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun ExamInfoItemDarkPreview() {
+    PreviewSurface(darkTheme = true) {
         ExamInfoItem(
             icon = "📝",
             title = "33 questions",

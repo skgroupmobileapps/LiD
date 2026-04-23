@@ -26,7 +26,8 @@ private data class JsonQuestion(
     val correctAnswerIndex: Int? = null,
     val topic: String,
     val explanation: String = "",
-    val federalState: String? = null
+    val federalState: String? = null,
+    val imageName: String? = null
 )
 
 /**
@@ -63,7 +64,8 @@ class QuestionSeeder(
                     correctIndex = q.correctAnswerIndex.toLong(),
                     topic = q.topic.name,
                     explanation = q.explanation,
-                    federalState = q.federalState?.name
+                    federalState = q.federalState?.name,
+                    imageName = q.imageName
                 )
             }
         }
@@ -100,7 +102,8 @@ class QuestionSeeder(
                     correctAnswerIndex = jq.correctAnswerIndex ?: -1,
                     topic = topic,
                     explanation = jq.explanation,
-                    federalState = federalState
+                    federalState = federalState,
+                    imageName = jq.imageName
                 )
             }
         }

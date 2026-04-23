@@ -67,7 +67,8 @@ class QuestionRepository(private val database: AppDatabase) {
             correctIndex = question.correctAnswerIndex.toLong(),
             topic = question.topic.name,
             explanation = question.explanation,
-            federalState = question.federalState?.name
+            federalState = question.federalState?.name,
+            imageName = question.imageName
         )
     }
 }
@@ -88,6 +89,7 @@ private fun de.skgroup.einburgerungstest.data.local.QuestionEntity.toQuestion():
         correctAnswerIndex = correctIndex.toInt(),
         topic = Topic.valueOf(topic),
         explanation = explanation,
-        federalState = federalState?.let { FederalState.valueOf(it) }
+        federalState = federalState?.let { FederalState.valueOf(it) },
+        imageName = imageName
     )
 }

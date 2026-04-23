@@ -274,7 +274,8 @@
       ],
       "correctAnswerIndex": 0,
       "topic": "SYMBOLS_AND_GEOGRAPHY",
-      "explanation": ""
+      "explanation": "",
+      "imageName": "q_21.png"
     },
     {
       "id": 22,
@@ -716,7 +717,8 @@
       ],
       "correctAnswerIndex": 0,
       "topic": "SOCIETY_AND_CULTURE",
-      "explanation": "Auf dem Bild zu sehen ist das Reichstagsgebäude am Platz der Republik in Berlin. Seit dem 8. September 1999 ist das Gebäude der Sitz des Deutschen Bundestages."
+      "explanation": "Auf dem Bild zu sehen ist das Reichstagsgebäude am Platz der Republik in Berlin. Seit dem 8. September 1999 ist das Gebäude der Sitz des Deutschen Bundestages.",
+      "imageName": "q_55.png"
     },
     {
       "id": 56,
@@ -911,7 +913,8 @@
       ],
       "correctAnswerIndex": 3,
       "topic": "DEMOCRACY_AND_STATE",
-      "explanation": ""
+      "explanation": "",
+      "imageName": "q_70.png"
     },
     {
       "id": 71,
@@ -1691,7 +1694,8 @@
       ],
       "correctAnswerIndex": 0,
       "topic": "DEMOCRACY_AND_STATE",
-      "explanation": ""
+      "explanation": "",
+      "imageName": "q_130.png"
     },
     {
       "id": 131,
@@ -2289,7 +2293,8 @@
       ],
       "correctAnswerIndex": 2,
       "topic": "HISTORY",
-      "explanation": ""
+      "explanation": "",
+      "imageName": "q_176.png"
     },
     {
       "id": 177,
@@ -2354,7 +2359,8 @@
       ],
       "correctAnswerIndex": 1,
       "topic": "HISTORY",
-      "explanation": ""
+      "explanation": "",
+      "imageName": "q_181.png"
     },
     {
       "id": 182,
@@ -2432,7 +2438,8 @@
       ],
       "correctAnswerIndex": 2,
       "topic": "SYMBOLS_AND_GEOGRAPHY",
-      "explanation": ""
+      "explanation": "",
+      "imageName": "q_187.png"
     },
     {
       "id": 188,
@@ -2718,7 +2725,8 @@
       ],
       "correctAnswerIndex": 3,
       "topic": "SYMBOLS_AND_GEOGRAPHY",
-      "explanation": ""
+      "explanation": "",
+      "imageName": "q_209.png"
     },
     {
       "id": 210,
@@ -2809,7 +2817,8 @@
       ],
       "correctAnswerIndex": 1,
       "topic": "DEMOCRACY_AND_STATE",
-      "explanation": ""
+      "explanation": "",
+      "imageName": "q_216.png"
     },
     {
       "id": 217,
@@ -2939,7 +2948,8 @@
       ],
       "correctAnswerIndex": 0,
       "topic": "SYMBOLS_AND_GEOGRAPHY",
-      "explanation": ""
+      "explanation": "",
+      "imageName": "q_226.png"
     },
     {
       "id": 227,
@@ -3056,7 +3066,8 @@
       ],
       "correctAnswerIndex": 2,
       "topic": "HISTORY",
-      "explanation": ""
+      "explanation": "",
+      "imageName": "q_235.png"
     },
     {
       "id": 236,
@@ -3915,7 +3926,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "BADEN_WUERTTEMBERG",
-      "id": 301
+      "id": 301,
+      "imageName": "q_301.png"
     },
     {
       "text": "Welches ist ein Landkreis in Baden-Württemberg?",
@@ -4013,7 +4025,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "BADEN_WUERTTEMBERG",
-      "id": 308
+      "id": 308,
+      "imageName": "q_308.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin in Baden-Württemberg?",
@@ -4055,7 +4068,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "BAVARIA",
-      "id": 311
+      "id": 311,
+      "imageName": "q_311.png"
     },
     {
       "text": "Welches ist ein Landkreis in Bayern?",
@@ -4153,7 +4167,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "BAVARIA",
-      "id": 318
+      "id": 318,
+      "imageName": "q_318.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin in Bayern?",
@@ -4195,7 +4210,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "BERLIN",
-      "id": 321
+      "id": 321,
+      "imageName": "q_321.png"
     },
     {
       "text": "Welches ist ein Bezirk von Berlin?",
@@ -4293,7 +4309,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "BERLIN",
-      "id": 328
+      "id": 328,
+      "imageName": "q_328.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin des Stadtstaates Berlin?",
@@ -4335,7 +4352,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "BRANDENBURG",
-      "id": 331
+      "id": 331,
+      "imageName": "q_331.png"
     },
     {
       "text": "Welches ist ein Landkreis in Brandenburg?",
@@ -4433,7 +4451,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "BRANDENBURG",
-      "id": 338
+      "id": 338,
+      "imageName": "q_338.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin in Brandenburg?",
@@ -4475,7 +4494,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "BREMEN",
-      "id": 341
+      "id": 341,
+      "imageName": "q_341.png"
     },
     {
       "text": "Welches ist ein Stadtteil von Bremen?",
@@ -4573,7 +4593,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "BREMEN",
-      "id": 348
+      "id": 348,
+      "imageName": "q_348.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin des Stadtstaates Bremen?",
@@ -4615,7 +4636,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "HAMBURG",
-      "id": 351
+      "id": 351,
+      "imageName": "q_351.png"
     },
     {
       "text": "Welches ist ein Bezirk von Hamburg?",
@@ -4713,7 +4735,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "HAMBURG",
-      "id": 358
+      "id": 358,
+      "imageName": "q_358.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin des Stadtstaates Hamburg?",
@@ -4755,7 +4778,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "HESSE",
-      "id": 361
+      "id": 361,
+      "imageName": "q_361.png"
     },
     {
       "text": "Welches ist ein Landkreis in Hessen?",
@@ -4853,7 +4877,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "HESSE",
-      "id": 368
+      "id": 368,
+      "imageName": "q_368.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin in Hessen?",
@@ -4895,7 +4920,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "MECKLENBURG_VORPOMMERN",
-      "id": 371
+      "id": 371,
+      "imageName": "q_371.png"
     },
     {
       "text": "Welches ist ein Landkreis in Mecklenburg-Vorpommern?",
@@ -4993,7 +5019,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "MECKLENBURG_VORPOMMERN",
-      "id": 378
+      "id": 378,
+      "imageName": "q_378.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin in Mecklenburg-Vorpommern?",
@@ -5035,7 +5062,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "LOWER_SAXONY",
-      "id": 381
+      "id": 381,
+      "imageName": "q_381.png"
     },
     {
       "text": "Welches ist ein Landkreis in Niedersachsen?",
@@ -5133,7 +5161,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "LOWER_SAXONY",
-      "id": 388
+      "id": 388,
+      "imageName": "q_388.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin in Niedersachsen?",
@@ -5175,7 +5204,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "NORTH_RHINE_WESTPHALIA",
-      "id": 391
+      "id": 391,
+      "imageName": "q_391.png"
     },
     {
       "text": "Welches ist ein Landkreis in Nordrhein-Westfalen?",
@@ -5273,7 +5303,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "NORTH_RHINE_WESTPHALIA",
-      "id": 398
+      "id": 398,
+      "imageName": "q_398.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin in Nordrhein-Westfalen?",
@@ -5315,7 +5346,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "RHINELAND_PALATINATE",
-      "id": 401
+      "id": 401,
+      "imageName": "q_401.png"
     },
     {
       "text": "Welches ist ein Landkreis in Rheinland-Pfalz?",
@@ -5413,7 +5445,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "RHINELAND_PALATINATE",
-      "id": 408
+      "id": 408,
+      "imageName": "q_408.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin in Rheinland-Pfalz?",
@@ -5455,7 +5488,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "SAARLAND",
-      "id": 411
+      "id": 411,
+      "imageName": "q_411.png"
     },
     {
       "text": "Welches ist ein Landkreis im Saarland?",
@@ -5553,7 +5587,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "SAARLAND",
-      "id": 418
+      "id": 418,
+      "imageName": "q_418.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin des Saarlandes?",
@@ -5595,7 +5630,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "SAXONY",
-      "id": 421
+      "id": 421,
+      "imageName": "q_421.png"
     },
     {
       "text": "Welches ist ein Landkreis in Sachsen?",
@@ -5693,7 +5729,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "SAXONY",
-      "id": 428
+      "id": 428,
+      "imageName": "q_428.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin in Sachsen?",
@@ -5735,7 +5772,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "SAXONY_ANHALT",
-      "id": 431
+      "id": 431,
+      "imageName": "q_431.png"
     },
     {
       "text": "Welches ist ein Landkreis in Sachsen-Anhalt?",
@@ -5833,7 +5871,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "SAXONY_ANHALT",
-      "id": 438
+      "id": 438,
+      "imageName": "q_438.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin in Sachsen-Anhalt?",
@@ -5875,7 +5914,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "SCHLESWIG_HOLSTEIN",
-      "id": 441
+      "id": 441,
+      "imageName": "q_441.png"
     },
     {
       "text": "Welches ist ein Landkreis in Schleswig-Holstein?",
@@ -5973,7 +6013,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "SCHLESWIG_HOLSTEIN",
-      "id": 448
+      "id": 448,
+      "imageName": "q_448.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin in Schleswig-Holstein?",
@@ -6015,7 +6056,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "THURINGIA",
-      "id": 451
+      "id": 451,
+      "imageName": "q_451.png"
     },
     {
       "text": "Welches ist ein Landkreis in Thüringen?",
@@ -6113,7 +6155,8 @@
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "THURINGIA",
-      "id": 458
+      "id": 458,
+      "imageName": "q_458.png"
     },
     {
       "text": "Wie nennt man den Regierungschef / die Regierungschefin in Thüringen?",

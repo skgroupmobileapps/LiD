@@ -207,8 +207,24 @@ private fun ExamResultScreenPreview() {
 
 @Preview
 @Composable
+private fun ExamResultScreenDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        ExamResultScreen(result = previewExamResult())
+    }
+}
+
+@Preview
+@Composable
 private fun WrongAnswersSummaryCardPreview() {
     PreviewSurface {
+        WrongAnswersSummaryCard(result = previewExamResult())
+    }
+}
+
+@Preview
+@Composable
+private fun WrongAnswersSummaryCardDarkPreview() {
+    PreviewSurface(darkTheme = true) {
         WrongAnswersSummaryCard(result = previewExamResult())
     }
 }

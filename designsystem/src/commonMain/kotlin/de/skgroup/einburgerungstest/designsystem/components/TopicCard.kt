@@ -120,3 +120,19 @@ private fun TopicCardPreview() {
         )
     }
 }
+
+@Preview
+@Composable
+private fun TopicCardDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        TopicCard(
+            title = "Democracy & State",
+            description = "German political system, constitution, and democratic principles",
+            icon = "🏛",
+            accentColor = PrimaryGreen,
+            progress = 0.42f,
+            answeredCount = 18,
+            totalCount = 43
+        )
+    }
+}

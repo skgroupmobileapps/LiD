@@ -287,6 +287,14 @@ private fun HomeScreenContentPreview() {
 
 @Preview
 @Composable
+private fun HomeScreenContentDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        HomeScreenContent(uiState = HomeUiState(progress = previewHomeProgress(), isLoading = false))
+    }
+}
+
+@Preview
+@Composable
 private fun HomeOverallProgressCardPreview() {
     PreviewSurface {
         HomeOverallProgressCard(progress = previewHomeProgress())
@@ -295,8 +303,33 @@ private fun HomeOverallProgressCardPreview() {
 
 @Preview
 @Composable
+private fun HomeOverallProgressCardDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        HomeOverallProgressCard(progress = previewHomeProgress())
+    }
+}
+
+@Preview
+@Composable
 private fun HomeQuickActionsSectionPreview() {
     PreviewSurface {
+        Column {
+            HomeQuickActionsSection(
+                progress = previewHomeProgress(),
+                onContinueLearning = {},
+                onExamMode = {},
+                onByTopic = {},
+                onBookmarks = {},
+                onAllQuestions = {}
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun HomeQuickActionsSectionDarkPreview() {
+    PreviewSurface(darkTheme = true) {
         Column {
             HomeQuickActionsSection(
                 progress = previewHomeProgress(),

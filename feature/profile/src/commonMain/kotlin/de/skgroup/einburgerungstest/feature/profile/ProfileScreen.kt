@@ -483,6 +483,14 @@ private fun ProfileScreenContentPreview() {
 
 @Preview
 @Composable
+private fun ProfileScreenContentDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        ProfileScreenContent(uiState = previewProfileUiState())
+    }
+}
+
+@Preview
+@Composable
 private fun ProfileSettingsCardPreview() {
     PreviewSurface {
         ProfileSettingsCard(
@@ -496,8 +504,29 @@ private fun ProfileSettingsCardPreview() {
 
 @Preview
 @Composable
+private fun ProfileSettingsCardDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        ProfileSettingsCard(
+            settings = previewProfileUiState().settings,
+            onOpenLanguageDialog = {},
+            onUpdateSettings = {},
+            onResetStatistics = {}
+        )
+    }
+}
+
+@Preview
+@Composable
 private fun ProfileAboutCardPreview() {
     PreviewSurface {
+        ProfileAboutCard()
+    }
+}
+
+@Preview
+@Composable
+private fun ProfileAboutCardDarkPreview() {
+    PreviewSurface(darkTheme = true) {
         ProfileAboutCard()
     }
 }

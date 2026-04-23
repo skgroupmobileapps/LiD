@@ -79,3 +79,15 @@ private fun StatCardPreview() {
         )
     }
 }
+
+@Preview
+@Composable
+private fun StatCardDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        StatCard(
+            icon = "🔥",
+            value = "12",
+            label = "Day streak"
+        )
+    }
+}

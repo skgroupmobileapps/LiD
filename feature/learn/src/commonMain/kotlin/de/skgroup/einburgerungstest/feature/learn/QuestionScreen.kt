@@ -134,6 +134,11 @@ fun QuestionScreenContent(
             color = MaterialTheme.colorScheme.onBackground
         )
 
+        Spacer(Modifier.height(16.dp))
+
+        // Question image (if available)
+        QuestionImage(imageName = currentQuestion.imageName)
+
         Spacer(Modifier.height(24.dp))
 
         // Answer options (scrollable area)
@@ -208,8 +213,28 @@ private fun QuestionScreenContentPreview() {
 
 @Preview
 @Composable
+private fun QuestionScreenContentDarkPreview() {
+    PreviewSurface(darkTheme = true) {
+        QuestionScreenContent(
+            uiState = previewQuestionUiState(answered = false)
+        )
+    }
+}
+
+@Preview
+@Composable
 private fun QuestionScreenAnsweredPreview() {
     PreviewSurface {
+        QuestionScreenContent(
+            uiState = previewQuestionUiState(answered = true)
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun QuestionScreenAnsweredDarkPreview() {
+    PreviewSurface(darkTheme = true) {
         QuestionScreenContent(
             uiState = previewQuestionUiState(answered = true)
         )
