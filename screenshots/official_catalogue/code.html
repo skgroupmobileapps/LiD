@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#313030",
+                    "surface-container-lowest": "#0e0e0e",
+                    "primary-fixed-dim": "#88d982",
+                    "on-tertiary-fixed": "#3f001c",
+                    "on-error-container": "#ffdad6",
+                    "surface-container-highest": "#353534",
+                    "outline-variant": "#40493d",
+                    "primary-container": "#2e7d32",
+                    "on-secondary": "#402d00",
+                    "tertiary": "#ffb1c7",
+                    "primary": "#88d982",
+                    "tertiary-fixed": "#ffd9e2",
+                    "background": "#131313",
+                    "inverse-primary": "#1b6d24",
+                    "on-secondary-fixed-variant": "#5c4300",
+                    "on-tertiary-container": "#ffedf0",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-variant": "#353534",
+                    "surface-container": "#201f1f",
+                    "outline": "#8a9485",
+                    "surface-dim": "#131313",
+                    "secondary-fixed-dim": "#f8bd2a",
+                    "on-tertiary-fixed-variant": "#7f2448",
+                    "secondary-fixed": "#ffdfa0",
+                    "on-primary-fixed-variant": "#005312",
+                    "on-primary-container": "#cbffc2",
+                    "surface-tint": "#88d982",
+                    "error": "#ffb4ab",
+                    "on-primary": "#003909",
+                    "on-secondary-fixed": "#261a00",
+                    "tertiary-fixed-dim": "#ffb1c7",
+                    "secondary-container": "#d9a200",
+                    "surface-bright": "#393939",
+                    "on-error": "#690005",
+                    "on-tertiary": "#610931",
+                    "error-container": "#93000a",
+                    "inverse-surface": "#e5e2e1",
+                    "secondary": "#f8bd2a",
+                    "surface-container-high": "#2a2a2a",
+                    "tertiary-container": "#b14b6f",
+                    "on-primary-fixed": "#002204",
+                    "on-surface": "#e5e2e1",
+                    "surface": "#131313",
+                    "on-surface-variant": "#bfcaba",
+                    "on-secondary-container": "#533c00",
+                    "primary-fixed": "#a3f69c",
+                    "on-background": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-grid": "1rem",
+                    "stack-lg": "1.5rem",
+                    "stack-sm": "0.5rem",
+                    "stack-md": "1rem",
+                    "margin-main": "1.25rem"
+            },
+            "fontFamily": {
+                    "label-lg": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "body-lg": ["Manrope"],
+                    "title-md": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "headline-md": ["Manrope"]
+            },
+            "fontSize": {
+                    "label-lg": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "label-sm": ["10px", {"lineHeight": "12px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .perspective-device {
+            perspective: 1000px;
+        }
+        .device-tilt {
+            transform: rotateX(5deg) rotateY(-10deg) rotateZ(2deg);
+            box-shadow: -20px 20px 50px rgba(0,0,0,0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden h-screen w-screen flex flex-col items-center justify-center relative">
+<!-- Background Decorative Elements -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/5 rounded-full blur-[120px]"></div>
+</div>
+<!-- Main Marketing Container (16:9 Aspect Ratio Simulation for Play Store) -->
+<div class="relative w-full max-w-[1200px] h-full flex flex-col md:flex-row items-center justify-between px-margin-main py-12 z-10">
+<!-- Copy Section -->
+<div class="flex flex-col gap-stack-lg max-w-xl text-center md:text-left">
+<div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1 rounded-full self-center md:self-start">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-lg text-label-lg text-primary tracking-widest">OFFIZIELL &amp; AKTUELL</span>
+</div>
+<h1 class="font-headline-lg text-5xl md:text-7xl leading-tight text-on-surface tracking-tighter">
+                300+ Official <br/>
+<span class="text-primary">Questions</span>
+</h1>
+<p class="font-title-md text-title-md text-on-surface-variant max-w-md">
+                Master the German citizenship test with the complete question catalog.
+                <span class="text-secondary font-bold block mt-2 underline decoration-secondary/30">100% up-to-date for 2026</span>
+</p>
+<!-- Social Proof / Stats -->
+</div>
+<!-- Mobile Device Mockup -->
+<div class="perspective-device relative mt-12 md:mt-0">
+<div class="device-tilt bg-surface-container-lowest border-[8px] border-neutral-800 rounded-[3rem] w-[320px] h-[640px] relative overflow-hidden ring-1 ring-white/10">
+<!-- Device Screen Content -->
+<div class="bg-background h-full flex flex-col">
+<!-- TopAppBar (Simulated from JSON) -->
+<header class="bg-[#121212]/80 backdrop-blur-lg border-b border-neutral-800 flex justify-between items-center w-full px-5 h-16 z-50">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-neutral-700">
+<img class="w-full h-full object-cover" data-alt="user profile avatar of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVaQK0LlwA99EXMnSGLcd8wmhneFU4AWVLLKvyINXlMaQ9Yg2J5BrImOItiXGjF3dH4uKwnZwCfisNvPhCyL0FZQe5yZ1uYx06_0-10aTIJSvxZYop1C8kr24FsxT75WRk_OG8uDcFAlJOpLgY830CygkXCxHCAWE2oBU6Fl7wZDC3rULFa3YhyYo83yQlyglFw7ZFOmKzerkwHW0XM4O1J6ippQVDBlISQ0nUrIF31aMgtbwOHvSsv9RLh30c6pyktB62AjH7SKk"/>
+</div>
+<h2 class="font-manrope font-bold text-base tracking-tight text-on-surface">Einbürgerung 2026</h2>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">settings</span>
+</header>
+<!-- App Content - Topic List (Mocking IMAGE_4 style) -->
+<main class="flex-1 overflow-y-auto p-gutter-grid space-y-stack-md pb-20">
+<!-- Progress Card -->
+<div class="bg-surface-container-high rounded-xl p-stack-md border border-outline-variant/30">
+<div class="flex justify-between items-center mb-stack-sm">
+<span class="font-title-md text-sm text-on-surface">Gesamtfortschritt</span>
+<span class="text-primary font-bold text-sm">64%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 64%"></div>
+</div>
+</div>
+<!-- Section Title -->
+<div class="flex items-center gap-2 pt-2">
+<span class="font-headline-md text-base text-on-surface">Themengebiete</span>
+</div>
+<!-- Topic List Items -->
+<div class="space-y-stack-sm">
+<!-- Item 1 -->
+<div class="bg-surface-container rounded-xl p-4 flex items-center justify-between border border-outline-variant/20 hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div>
+<h4 class="font-title-md text-sm text-on-surface">Politik &amp; Demokratie</h4>
+<p class="font-label-sm text-on-surface-variant">92 Fragen</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container rounded-xl p-4 flex items-center justify-between border border-outline-variant/20">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+</div>
+<div>
+<h4 class="font-title-md text-sm text-on-surface">Geschichte</h4>
+<p class="font-label-sm text-on-surface-variant">78 Fragen</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container rounded-xl p-4 flex items-center justify-between border border-outline-variant/20">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div>
+<h4 class="font-title-md text-sm text-on-surface">Mensch &amp; Gesellschaft</h4>
+<p class="font-label-sm text-on-surface-variant">114 Fragen</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+<!-- Item 4 (State specific) -->
+<div class="bg-surface-container rounded-xl p-4 flex items-center justify-between border border-outline-variant/20">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div>
+<h4 class="font-title-md text-sm text-on-surface">Bundesland Spezifisch</h4>
+<p class="font-label-sm text-on-surface-variant">10 Fragen</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</div>
+</div>
+<!-- Exam Simulation Callout -->
+<div class="mt-4 bg-primary-container/20 border border-primary/30 rounded-2xl p-5 text-center">
+<h5 class="font-title-md text-primary mb-1">Prüfungssimulation</h5>
+<p class="font-body-md text-xs text-on-surface-variant mb-4">Teste dein Wissen unter Realbedingungen</p>
+<button class="w-full bg-primary text-on-primary font-bold py-3 rounded-xl shadow-lg shadow-primary/20">JETZT STARTEN</button>
+</div>
+</main>
+<!-- BottomNavBar (Simulated from JSON) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pt-2 pb-6 bg-[#1E1E1E]/95 backdrop-blur-xl border-t border-neutral-800 rounded-t-xl z-50">
+<div class="flex flex-col items-center justify-center text-emerald-500 bg-emerald-500/10 rounded-xl px-3 py-1">
+<span class="material-symbols-outlined">home</span>
+<span class="font-manrope text-[11px] font-semibold">Lernen</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 px-3 py-1">
+<span class="material-symbols-outlined">model_training</span>
+<span class="font-manrope text-[11px] font-semibold">Training</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 px-3 py-1">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-manrope text-[11px] font-semibold">Erfolge</span>
+</div>
+<div class="flex flex-col items-center justify-center text-neutral-500 px-3 py-1">
+<span class="material-symbols-outlined">person</span>
+<span class="font-manrope text-[11px] font-semibold">Profil</span>
+</div>
+</nav>
+</div>
+<!-- Device Reflection Overlay -->
+<div class="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/5 to-transparent"></div>
+</div>
+<!-- Floating Label for emphasis -->
+</div>
+</div>
+<!-- Footer Tagline -->
+<div class="absolute bottom-10 left-0 w-full flex justify-center opacity-40">
+<div class="flex items-center gap-4">
+<div class="h-[1px] w-12 bg-on-surface"></div>
+<span class="font-label-lg tracking-widest text-on-surface">EINBÜRGERUNGSTEST 2026</span>
+<div class="h-[1px] w-12 bg-on-surface"></div>
+</div>
+</div>
+</body></html>

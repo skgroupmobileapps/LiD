@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leben in Deutschland – German Citizenship Test Prep</title>
+  <meta name="description" content="Prepare for the German citizenship test with 300+ official questions. Free, modern, and always up-to-date.">
+  <meta name="theme-color" content="#131313">
+  <meta property="og:title" content="Leben in Deutschland – German Citizenship Test Prep">
+  <meta property="og:description" content="Prepare for the German citizenship test with 300+ official questions. Free, modern, and always up-to-date.">
+  <meta property="og:type" content="website">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-lowest": "#0e0e0e",
+            "surface-container-low": "#1c1b1b",
+            "surface-container": "#201f1f",
+            "surface-container-high": "#2a2a2a",
+            "surface-container-highest": "#353534",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#bfcaba",
+            "outline": "#8a9485",
+            "outline-variant": "#40493d",
+            "primary": "#88d982",
+            "primary-container": "#2e7d32",
+            "on-primary": "#003909",
+            "secondary": "#f8bd2a",
+            "secondary-container": "#d9a200",
+            "tertiary": "#ffb1c7",
+            "background": "#131313",
+            "on-background": "#e5e2e1",
+            "surface": "#131313",
+            "surface-bright": "#393939",
+          },
+          fontFamily: {
+            sans: ["Manrope", "system-ui", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "0.75rem",
+            xl: "1rem",
+            "2xl": "1.5rem",
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-float-delayed { animation: float 6s ease-in-out 2s infinite; }
+    .animate-float-delayed-2 { animation: float 6s ease-in-out 4s infinite; }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1);
+    }
+    .fade-up.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #1c1b1b;
+      border: 1px solid #353534;
+      padding: 0.75rem 1.5rem;
+      border-radius: 1rem;
+      text-decoration: none;
+      color: #e5e2e1;
+      transition: border-color 0.3s, background 0.3s, transform 0.2s;
+    }
+    .store-btn:hover {
+      border-color: rgba(136,217,130,0.4);
+      background: #201f1f;
+      transform: translateY(-2px);
+    }
+
+    .feature-img-wrap {
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      background: #1c1b1b;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.4s;
+    }
+    .feature-img-wrap:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 2rem;
+      background: #353534;
+    }
+  </style>
+</head>
+
+<body class="bg-background text-on-background font-sans antialiased overflow-x-hidden">
+
+  <!-- German Flag Stripe -->
+  <div class="h-[3px] w-full flex fixed top-0 z-[60]">
+    <div class="flex-1 bg-black"></div>
+    <div class="flex-1 bg-red-600"></div>
+    <div class="flex-1 bg-yellow-500"></div>
+  </div>
+
+  <!-- Ambient Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute top-[-20%] left-[-15%] w-[50%] h-[50%] bg-primary/[0.07] rounded-full blur-[160px]"></div>
+    <div class="absolute bottom-[-20%] right-[-10%] w-[45%] h-[45%] bg-secondary/[0.04] rounded-full blur-[160px]"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-[3px] left-0 right-0 z-50 bg-background/80 backdrop-blur-2xl border-b border-white/[0.04]">
+    <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2.5 group">
+        <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">school</span>
+        <span class="font-bold text-base tracking-tight">Leben in Deutschland</span>
+      </a>
+      <div class="flex items-center gap-5">
+        <a href="#features" class="hidden md:inline text-sm text-on-surface-variant hover:text-on-surface transition-colors">Features</a>
+        <a href="privacy.html" class="hidden md:inline text-sm text-on-surface-variant hover:text-on-surface transition-colors">Privacy</a>
+        <a href="#download"
+           class="bg-primary-container text-white text-sm font-semibold px-5 py-2 rounded-xl hover:bg-primary-container/80 transition-all hover:scale-[1.02]">
+          Download
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative z-10 min-h-screen flex items-center justify-center px-5 pt-20 pb-12">
+    <div class="max-w-3xl text-center">
+      <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-4 py-1.5 rounded-full mb-8 fade-up">
+        <span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+        <span class="text-[11px] font-semibold tracking-[0.15em] text-primary uppercase">Einbürgerungstest 2026</span>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-[-0.03em] leading-[1.08] mb-6 fade-up">
+        Your Path to<br>
+        <span class="text-primary">German Citizenship</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-on-surface-variant max-w-xl mx-auto mb-10 leading-relaxed fade-up">
+        Master the Leben in Deutschland test with the complete official question catalog.
+        Free, modern, and always up&#8209;to&#8209;date.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 fade-up" id="download">
+        <a href="https://play.google.com/store/apps/details?id=de.skgroup.einburgerungstest.einbuergerungstest"
+           target="_blank" rel="noopener" class="store-btn">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3.61 1.81L13.79 12L3.61 22.19C3.24 21.95 3 21.54 3 21.09V2.91c0-.45.24-.86.61-1.1zm10.18 10.9l2.45 2.45L5.11 21.5 13.79 12.71zM20.4 10.8c.37.23.6.63.6 1.07 0 .44-.23.84-.6 1.07l-2.63 1.56-2.7-2.7 2.7-2.7 2.63 1.7zM5.11 2.5l11.13 6.34-2.45 2.45L5.11 2.5z"/>
+          </svg>
+          <div class="text-left">
+            <div class="text-[10px] text-outline leading-none uppercase tracking-wider">Get it on</div>
+            <div class="text-[15px] font-semibold leading-snug">Google Play</div>
+          </div>
+        </a>
+        <a href="https://apps.apple.com/app/leben-in-deutschland/id6740043866"
+           target="_blank" rel="noopener" class="store-btn">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.97 12.45 4.7 9.39 5.55 7.93 7.13 7 8.82 6.98c1.27-.02 2.47.89 3.23.89.76 0 2.21-1.1 3.73-.94.68.03 2.52.26 3.64 1.98-.09.07-2.28 1.28-2.25 3.95.03 3.18 2.74 4.19 2.77 4.2-.03.08-.48 1.59-1.23 2.44zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.71.85-1.84 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          <div class="text-left">
+            <div class="text-[10px] text-outline leading-none uppercase tracking-wider">Download on the</div>
+            <div class="text-[15px] font-semibold leading-snug">App Store</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="animate-bounce opacity-40">
+        <span class="material-symbols-outlined text-2xl">keyboard_arrow_down</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="relative z-10 border-y border-white/[0.04] bg-surface-container-low/50 backdrop-blur-sm">
+    <div class="max-w-4xl mx-auto px-5 py-6 flex flex-wrap items-center justify-center gap-6 md:gap-10">
+      <div class="text-center">
+        <div class="text-2xl font-bold text-primary">310</div>
+        <div class="text-xs text-outline mt-0.5">Official Questions</div>
+      </div>
+      <div class="stat-divider hidden md:block"></div>
+      <div class="text-center">
+        <div class="text-2xl font-bold text-secondary">2026</div>
+        <div class="text-xs text-outline mt-0.5">Up to Date</div>
+      </div>
+      <div class="stat-divider hidden md:block"></div>
+      <div class="text-center">
+        <div class="text-2xl font-bold text-on-surface">5</div>
+        <div class="text-xs text-outline mt-0.5">Languages</div>
+      </div>
+      <div class="stat-divider hidden md:block"></div>
+      <div class="text-center">
+        <div class="text-2xl font-bold text-primary">100%</div>
+        <div class="text-xs text-outline mt-0.5">Free</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Showcase -->
+  <section id="features" class="relative z-10 py-20 md:py-28 px-5">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-3">Everything you need to succeed</h2>
+        <p class="text-on-surface-variant">Three pillars of effective test preparation</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+
+        <!-- Feature 1: Smooth Learning Flow -->
+        <div class="flex flex-col items-center fade-up">
+          <div class="feature-img-wrap mb-6 animate-float">
+            <img src="screenshots/smooth_learning_flow_marketing_refined/screen.png"
+                 alt="Smooth Learning Flow – Dashboard showing progress tracking, quick actions, and study modes"
+                 class="w-full h-auto block" loading="lazy">
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-center">Smooth Learning Flow</h3>
+          <p class="text-sm text-on-surface-variant text-center leading-relaxed max-w-xs">
+            Track your progress and stay motivated with an intuitive interface designed for focused study sessions.
+          </p>
+        </div>
+
+        <!-- Feature 2: Official Catalogue (CSS Mockup) -->
+        <div class="flex flex-col items-center fade-up">
+          <div class="feature-img-wrap mb-6 animate-float-delayed">
+            <div class="bg-background p-5 flex flex-col items-center" style="aspect-ratio: 9/17.5;">
+              <!-- Badge -->
+              <div class="inline-flex items-center gap-1.5 bg-primary/10 border border-primary/20 px-3 py-1 rounded-full mb-5 mt-2">
+                <span class="material-symbols-outlined text-primary" style="font-size: 14px; font-variation-settings: 'FILL' 1;">verified</span>
+                <span class="text-[9px] font-semibold tracking-[0.12em] text-primary uppercase">Offiziell &amp; aktuell</span>
+              </div>
+              <!-- Headline -->
+              <div class="text-3xl font-extrabold tracking-tight text-on-surface mb-1 text-center leading-tight">300+ Official</div>
+              <div class="text-3xl font-extrabold tracking-tight text-primary mb-3 text-center leading-tight">Questions</div>
+              <p class="text-xs text-on-surface-variant text-center mb-5 max-w-[200px]">Master the complete question catalog, always up-to-date.</p>
+              <!-- Mini Phone Mockup -->
+              <div class="w-full max-w-[220px] bg-surface-container-lowest rounded-[1.5rem] border-[5px] border-neutral-800 overflow-hidden ring-1 ring-white/10 flex-1 flex flex-col">
+                <!-- Mini app bar -->
+                <div class="bg-background/80 px-3 py-2 flex items-center justify-between border-b border-neutral-800">
+                  <span class="text-[10px] font-bold text-on-surface">Einbürgerung 2026</span>
+                  <span class="material-symbols-outlined text-outline" style="font-size: 14px;">settings</span>
+                </div>
+                <!-- Content -->
+                <div class="p-2.5 space-y-1.5 flex-1">
+                  <!-- Progress -->
+                  <div class="bg-surface-container-high rounded-lg p-2.5 border border-outline-variant/20">
+                    <div class="flex justify-between items-center mb-1">
+                      <span class="text-[9px] font-semibold text-on-surface">Gesamtfortschritt</span>
+                      <span class="text-[9px] font-bold text-primary">64%</span>
+                    </div>
+                    <div class="h-1 w-full bg-surface-container-lowest rounded-full overflow-hidden">
+                      <div class="h-full bg-primary rounded-full" style="width: 64%"></div>
+                    </div>
+                  </div>
+                  <!-- Topic items -->
+                  <div class="flex items-center gap-2 bg-surface-container rounded-lg px-2.5 py-2 border border-outline-variant/15">
+                    <span class="material-symbols-outlined text-primary" style="font-size: 14px; font-variation-settings: 'FILL' 1;">account_balance</span>
+                    <span class="text-[9px] text-on-surface font-medium flex-1">Politik &amp; Demokratie</span>
+                    <span class="text-[8px] text-outline">92</span>
+                  </div>
+                  <div class="flex items-center gap-2 bg-surface-container rounded-lg px-2.5 py-2 border border-outline-variant/15">
+                    <span class="material-symbols-outlined text-secondary" style="font-size: 14px; font-variation-settings: 'FILL' 1;">history_edu</span>
+                    <span class="text-[9px] text-on-surface font-medium flex-1">Geschichte</span>
+                    <span class="text-[8px] text-outline">78</span>
+                  </div>
+                  <div class="flex items-center gap-2 bg-surface-container rounded-lg px-2.5 py-2 border border-outline-variant/15">
+                    <span class="material-symbols-outlined text-tertiary" style="font-size: 14px; font-variation-settings: 'FILL' 1;">groups</span>
+                    <span class="text-[9px] text-on-surface font-medium flex-1">Mensch &amp; Gesellschaft</span>
+                    <span class="text-[8px] text-outline">114</span>
+                  </div>
+                  <div class="flex items-center gap-2 bg-surface-container rounded-lg px-2.5 py-2 border border-outline-variant/15">
+                    <span class="material-symbols-outlined text-primary" style="font-size: 14px; font-variation-settings: 'FILL' 1;">location_on</span>
+                    <span class="text-[9px] text-on-surface font-medium flex-1">Bundesland</span>
+                    <span class="text-[8px] text-outline">10+</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Updated badge -->
+              <div class="mt-4 mb-1">
+                <span class="text-[10px] text-secondary font-bold tracking-wider">UPDATED FOR 2026</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-center">300+ Official Questions</h3>
+          <p class="text-sm text-on-surface-variant text-center leading-relaxed max-w-xs">
+            The complete, up-to-date official question catalog covering all topics and all 16 federal states.
+          </p>
+        </div>
+
+        <!-- Feature 3: Free & No Ads -->
+        <div class="flex flex-col items-center fade-up">
+          <div class="feature-img-wrap mb-6 animate-float-delayed-2">
+            <img src="screenshots/no_ads_free_marketing_refined/screen.png"
+                 alt="100% Free & No Ads – Profile and settings view showing a clean, ad-free interface"
+                 class="w-full h-auto block" loading="lazy">
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-center">100% Free &amp; No Ads</h3>
+          <p class="text-sm text-on-surface-variant text-center leading-relaxed max-w-xs">
+            Focus entirely on your success with a clean, uninterrupted experience. No paywalls, no distractions.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="relative z-10 py-20 px-5">
+    <div class="max-w-2xl mx-auto text-center bg-surface-container rounded-3xl p-10 md:p-14 border border-white/[0.04] relative overflow-hidden">
+      <!-- CTA ambient glow -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[200px] bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div class="relative">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3">Start Your Journey Today</h2>
+        <p class="text-on-surface-variant mb-8">Download now and begin your path to German citizenship.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://play.google.com/store/apps/details?id=de.skgroup.einburgerungstest.einbuergerungstest"
+             target="_blank" rel="noopener" class="store-btn">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.61 1.81L13.79 12L3.61 22.19C3.24 21.95 3 21.54 3 21.09V2.91c0-.45.24-.86.61-1.1zm10.18 10.9l2.45 2.45L5.11 21.5 13.79 12.71zM20.4 10.8c.37.23.6.63.6 1.07 0 .44-.23.84-.6 1.07l-2.63 1.56-2.7-2.7 2.7-2.7 2.63 1.7zM5.11 2.5l11.13 6.34-2.45 2.45L5.11 2.5z"/>
+            </svg>
+            <div class="text-left">
+              <div class="text-[10px] text-outline leading-none uppercase tracking-wider">Get it on</div>
+              <div class="text-[15px] font-semibold leading-snug">Google Play</div>
+            </div>
+          </a>
+          <a href="https://apps.apple.com/app/leben-in-deutschland/id6740043866"
+             target="_blank" rel="noopener" class="store-btn">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.97 12.45 4.7 9.39 5.55 7.93 7.13 7 8.82 6.98c1.27-.02 2.47.89 3.23.89.76 0 2.21-1.1 3.73-.94.68.03 2.52.26 3.64 1.98-.09.07-2.28 1.28-2.25 3.95.03 3.18 2.74 4.19 2.77 4.2-.03.08-.48 1.59-1.23 2.44zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.71.85-1.84 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <div class="text-left">
+              <div class="text-[10px] text-outline leading-none uppercase tracking-wider">Download on the</div>
+              <div class="text-[15px] font-semibold leading-snug">App Store</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative z-10 border-t border-white/[0.04] py-8 px-5">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 text-sm text-outline">
+        <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">school</span>
+        <span>&copy; 2026 Ainis Skabs</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="privacy.html" class="text-sm text-outline hover:text-on-surface transition-colors">Privacy Policy</a>
+        <a href="mailto:skgroup.mobileapps@gmail.com" class="text-sm text-outline hover:text-on-surface transition-colors">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.fade-up').forEach((el, i) => {
+        el.style.transitionDelay = `${i * 80}ms`;
+        observer.observe(el);
+      });
+    });
+  </script>
+
+</body>
+</html>

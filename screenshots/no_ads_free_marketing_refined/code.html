@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#313030",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed-dim": "#88d982",
+                        "on-tertiary-fixed": "#3f001c",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#353534",
+                        "outline-variant": "#40493d",
+                        "primary-container": "#2e7d32",
+                        "on-secondary": "#402d00",
+                        "tertiary": "#ffb1c7",
+                        "primary": "#88d982",
+                        "tertiary-fixed": "#ffd9e2",
+                        "background": "#131313",
+                        "inverse-primary": "#1b6d24",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "on-tertiary-container": "#ffedf0",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-variant": "#353534",
+                        "surface-container": "#201f1f",
+                        "outline": "#8a9485",
+                        "surface-dim": "#131313",
+                        "secondary-fixed-dim": "#f8bd2a",
+                        "on-tertiary-fixed-variant": "#7f2448",
+                        "secondary-fixed": "#ffdfa0",
+                        "on-primary-fixed-variant": "#005312",
+                        "on-primary-container": "#cbffc2",
+                        "surface-tint": "#88d982",
+                        "error": "#ffb4ab",
+                        "on-primary": "#003909",
+                        "on-secondary-fixed": "#261a00",
+                        "tertiary-fixed-dim": "#ffb1c7",
+                        "secondary-container": "#d9a200",
+                        "surface-bright": "#393939",
+                        "on-error": "#690005",
+                        "on-tertiary": "#610931",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary": "#f8bd2a",
+                        "surface-container-high": "#2a2a2a",
+                        "tertiary-container": "#b14b6f",
+                        "on-primary-fixed": "#002204",
+                        "on-surface": "#e5e2e1",
+                        "surface": "#131313",
+                        "on-surface-variant": "#bfcaba",
+                        "on-secondary-container": "#533c00",
+                        "primary-fixed": "#a3f69c",
+                        "on-background": "#e5e2e1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-grid": "1rem",
+                        "stack-lg": "1.5rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "margin-main": "1.25rem"
+                    },
+                    "fontFamily": {
+                        "label-lg": ["Manrope"],
+                        "label-sm": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "title-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "headline-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-lg": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "label-sm": ["10px", {"lineHeight": "12px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .perspective-device {
+            perspective: 1000px;
+        }
+        .device-tilt {
+            transform: rotateX(5deg) rotateY(-10deg) rotateZ(2deg);
+            box-shadow: -20px 20px 50px rgba(0,0,0,0.5);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden h-screen w-screen flex flex-col items-center justify-center relative">
+<!-- Background Decorative Elements -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary/5 rounded-full blur-[120px]"></div>
+</div>
+<!-- Main Marketing Container -->
+<div class="relative w-full max-w-[1200px] h-full flex flex-col md:flex-row items-center justify-between px-margin-main py-12 z-10">
+<!-- Copy Section -->
+<div class="flex flex-col gap-stack-lg max-w-xl text-center md:text-left">
+<div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-3 py-1 rounded-full self-center md:self-start">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-lg text-label-lg text-primary tracking-widest">UNTERBRECHUNGSFREI</span>
+</div>
+<h1 class="font-headline-lg text-5xl md:text-7xl leading-tight text-on-surface tracking-tighter">
+                100% Free &amp; <br/>
+<span class="text-primary">No Ads</span>
+</h1>
+<p class="font-title-md text-title-md text-on-surface-variant max-w-md">
+                Focus entirely on your success with a clean, uninterrupted experience.
+                
+</p>
+</div>
+<!-- Mobile Device Mockup -->
+<div class="perspective-device relative mt-12 md:mt-0">
+<div class="device-tilt bg-surface-container-lowest border-[8px] border-neutral-800 rounded-[3rem] w-[320px] h-[640px] relative overflow-hidden ring-1 ring-white/10">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0uh14CWjGngWMaqmzt-JRgKqbo1wOmGBoFeBw05BfN_iJ_xx9Smah4KiGf-wcaLKtwjVYcEgKaal5hhKQNdI4fP-FXGy3he4UBgi43IvAdWyv8FBsPJI0teiAc2XxO1DiIBxb7Jc0CBplMPWmCkBzJti2fdyiu5t_h3l-K9a1zkct8VfDkgHqbhFJowpsSbKxF_R0KDu3wxxPn82Lr84jJ379zobjB0TlrKcXCkp54fcMEB69kUjsoCIbC9w-KzFSFCcU8N8-gen"/>
+<!-- Device Reflection Overlay -->
+<div class="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/5 to-transparent"></div>
+</div>
+</div>
+</div>
+<!-- Footer Tagline -->
+<div class="absolute bottom-10 left-0 w-full flex justify-center opacity-40">
+<div class="flex items-center gap-4">
+<div class="h-[1px] w-12 bg-on-surface"></div>
+<span class="font-label-lg tracking-widest text-on-surface">EINBÜRGERUNGSTEST 2026</span>
+<div class="h-[1px] w-12 bg-on-surface"></div>
+</div>
+</div>
+</body></html>

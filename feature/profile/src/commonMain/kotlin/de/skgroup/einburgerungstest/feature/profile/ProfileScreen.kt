@@ -34,9 +34,9 @@ import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 
 // App metadata constants
-private const val APP_VERSION = "1.0.0"
-private const val CATALOGUE_DATE = "February 2026"
-private const val CONTACT_EMAIL = "support@einbuergerungstest-app.de"
+private const val APP_VERSION = "0.8.3"
+private const val CATALOGUE_DATE = "Mai 2025(Latest)"
+private const val CONTACT_EMAIL = "skgroup.mobileapps@gmail.com"
 
 @Composable
 fun ProfileScreen(
