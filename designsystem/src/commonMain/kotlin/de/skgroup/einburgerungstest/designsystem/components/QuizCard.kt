@@ -48,11 +48,13 @@ fun QuizCard(
 
     val backgroundColor by animateColorAsState(
         targetValue = when (state) {
-            QuizCardState.DEFAULT -> MaterialTheme.colorScheme.surface
+            // In dark mode, use SurfaceCardDark (#2C2C2C) for DEFAULT/DISABLED so cards
+            // are visually distinct from BackgroundDark (#121212) — was 1.14:1, now ~1.4:1.
+            QuizCardState.DEFAULT -> if (isDark) SurfaceCardDark else MaterialTheme.colorScheme.surface
             QuizCardState.SELECTED -> if (isDark) PrimaryGreenSurfaceDark else PrimaryGreenSurface
             QuizCardState.CORRECT -> if (isDark) SuccessGreenSurfaceDark else SuccessGreenLight
             QuizCardState.WRONG -> if (isDark) ErrorRedSurfaceDark else ErrorRedLight
-            QuizCardState.DISABLED -> MaterialTheme.colorScheme.surface
+            QuizCardState.DISABLED -> if (isDark) SurfaceCardDark else MaterialTheme.colorScheme.surface
         },
         animationSpec = tween(300)
     )

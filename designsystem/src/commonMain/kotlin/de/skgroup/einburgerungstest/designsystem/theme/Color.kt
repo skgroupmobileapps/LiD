@@ -52,6 +52,11 @@ val SuccessGreenTextDark = Color(0xFF68D391)    // on SurfaceDark: ~7.3:1
 // AccentGold (#FFB800) on white = 1.70:1 (fails WCAG); this passes 4.5:1
 val AccentGoldDark = Color(0xFFB7860B)
 
+// Semantic — readable error text on light error surfaces
+// ErrorRed (#E53E3E) on ErrorRedLight (#FFF0F0) = 3.56:1 (marginal for normal text)
+// ErrorRedDark on ErrorRedLight = 5.6:1 (passes WCAG AA)
+val ErrorRedDark = Color(0xFFB71C1C)
+
 // German flag
 val GermanBlack = Color(0xFF000000)
 val GermanRed = Color(0xFFDD0000)

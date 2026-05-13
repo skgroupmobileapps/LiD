@@ -59,7 +59,7 @@ class SettingsRepository(private val database: AppDatabase) {
         } ?: FederalState.BERLIN
 
         val darkMode = getSetting(KEY_DARK_MODE)?.toBooleanStrictOrNull() ?: false
-        val analyticsEnabled = getSetting(KEY_ANALYTICS_ENABLED)?.toBooleanStrictOrNull() ?: false
+        val analyticsEnabled = getSetting(KEY_ANALYTICS_ENABLED)?.toBooleanStrictOrNull() ?: true
         val notifications = getSetting(KEY_NOTIFICATIONS)?.toBooleanStrictOrNull() ?: true
         val onboarding = getSetting(KEY_ONBOARDING_COMPLETED)?.toBooleanStrictOrNull() ?: false
         val isGuest = getSetting(KEY_IS_GUEST)?.toBooleanStrictOrNull() ?: true

@@ -90,4 +90,12 @@ class LearningUseCase(
     fun getQuestionById(id: Int): Question? {
         return questionRepository.getQuestionById(id)
     }
+
+    /**
+     * Get multiple questions by their IDs, preserving order and skipping any not found.
+     * Used for reviewing wrong exam answers.
+     */
+    fun getQuestionsById(ids: List<Int>): List<Question> {
+        return ids.mapNotNull { getQuestionById(it) }
+    }
 }

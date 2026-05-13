@@ -115,9 +115,12 @@ fun App(initialDeeplinkRoute: String? = null) {
     val hasCompletedOnboarding = settings.hasCompletedOnboarding
     val startDestination = if (hasCompletedOnboarding) "home" else "onboarding"
 
+    // Bug 1 + 5 fix: navController lives outside AppLocaleProvider so key(localeCode) inside
+    // AppLocaleProvider never destroys or resets the navigation back stack on locale changes.
+    val navController = rememberNavController()
+
     AppLocaleProvider(language = settings.language) {
         EinbuergerungTheme(darkTheme = settings.darkMode) {
-            val navController = rememberNavController()
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val currentRoute = navBackStackEntry?.destination?.route
 
@@ -167,9 +170,11 @@ fun App(initialDeeplinkRoute: String? = null) {
                     }
                     OnboardingScreen(
                         onLanguageChanged = { language ->
+                            // Only track the event — the language is persisted together with
+                            // federalState in onComplete. Saving here would change settings.language,
+                            // which triggers key(localeCode) in AppLocaleProvider and would recreate
+                            // the NavHost, resetting currentStep back to 0 (Welcome screen).
                             trackingClient.track(TrackingEvent.LanguageSelected(language.code))
-                            val updatedSettings = settings.copy(language = language)
-                            settingsRepository.saveSettings(updatedSettings)
                         },
                         onFederalStateChanged = { state ->
                             trackingClient.track(TrackingEvent.FederalStateSelected(state.name))
@@ -216,10 +221,13 @@ fun App(initialDeeplinkRoute: String? = null) {
                 }
 
                 composable("learn") {
+                    val viewModel: LearnViewModel = koinInjectViewModel()
                     LaunchedEffect(Unit) {
                         trackingClient.track(TrackingEvent.ScreenView("learn"))
+                        // Refresh topic progress every time the Learn tab is opened so the
+                        // list is never stale and isLoading is guaranteed to be reset.
+                        viewModel.loadTopics()
                     }
-                    val viewModel: LearnViewModel = koinInjectViewModel()
                     LearnScreen(
                         viewModel = viewModel,
                         onTopicSelected = { topic ->
@@ -243,26 +251,36 @@ fun App(initialDeeplinkRoute: String? = null) {
                     val viewModel: LearnViewModel = koinInjectViewModel()
 
                     LaunchedEffect(mode, topicId) {
-                        val screenName = if (mode == "TOPIC" && topicId != null) {
-                            "learn_questions_topic"
-                        } else {
-                            "learn_questions_all"
+                        val screenName = when (mode) {
+                            "TOPIC" -> "learn_questions_topic"
+                            "REVIEW" -> "learn_questions_review"
+                            else -> "learn_questions_all"
                         }
                         trackingClient.track(TrackingEvent.ScreenView(screenName))
                     }
                     
                     LaunchedEffect(mode, topicId) {
-                        if (mode == "TOPIC" && topicId != null) {
-                            try {
-                                val cleanTopicId = topicId.trim('"', '{', '}').trim()
-                                val topic = de.skgroup.einburgerungstest.core.model.Topic.valueOf(cleanTopicId)
-                                viewModel.loadQuestionsForTopic(topic)
-                            } catch (e: Exception) {
-                                println("Failed to parse topic: $topicId, error: $e")
+                        when (mode) {
+                            "TOPIC" -> if (topicId != null) {
+                                try {
+                                    val cleanTopicId = topicId.trim('"', '{', '}').trim()
+                                    val topic = de.skgroup.einburgerungstest.core.model.Topic.valueOf(cleanTopicId)
+                                    viewModel.loadQuestionsForTopic(topic)
+                                } catch (e: Exception) {
+                                    println("Failed to parse topic: $topicId, error: $e")
+                                    viewModel.loadAllQuestions()
+                                }
+                            } else {
                                 viewModel.loadAllQuestions()
                             }
-                        } else {
-                            viewModel.loadAllQuestions()
+                            "REVIEW" -> {
+                                val ids = topicId
+                                    ?.split(",")
+                                    ?.mapNotNull { it.trim().toIntOrNull() }
+                                    ?: emptyList()
+                                viewModel.loadQuestionsForReview(ids)
+                            }
+                            else -> viewModel.loadAllQuestions()
                         }
                     }
 
@@ -338,7 +356,14 @@ fun App(initialDeeplinkRoute: String? = null) {
 
                                 ExamResultScreen(
                                     result = result,
-                                    onReviewWrongAnswers = { /* Navigate to review */ },
+                                    onReviewWrongAnswers = {
+                                        val ids = result.wrongAnswers
+                                            .map { it.question.id }
+                                            .joinToString(",")
+                                        navController.navigate(
+                                            LearnQuestionRoute(mode = "REVIEW", topicId = ids)
+                                        )
+                                    },
                                     onBackToHome = {
                                         viewModel.resetExam()
                                         navController.navigate("home") {

@@ -14,11 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import de.skgroup.einburgerungstest.designsystem.theme.ErrorRed
+import de.skgroup.einburgerungstest.designsystem.theme.ErrorRedDark
 import de.skgroup.einburgerungstest.designsystem.theme.ErrorRedLight
 import de.skgroup.einburgerungstest.designsystem.theme.ErrorRedSurfaceDark
 import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
-import de.skgroup.einburgerungstest.designsystem.theme.SuccessGreen
+import de.skgroup.einburgerungstest.designsystem.theme.PrimaryGreen
 import de.skgroup.einburgerungstest.designsystem.theme.SuccessGreenLight
 import de.skgroup.einburgerungstest.designsystem.theme.SuccessGreenSurfaceDark
 import de.skgroup.einburgerungstest.designsystem.theme.SuccessGreenTextDark
@@ -41,13 +41,17 @@ fun AnswerFeedback(
     } else {
         if (isDark) ErrorRedSurfaceDark else ErrorRedLight
     }
-    // Title text: use lighter variants in dark mode for sufficient contrast on dark surfaces
-    // SuccessGreen (#38A169) on SuccessGreenSurfaceDark (#1B3A2E) = ~2:1 (fails); use SuccessGreenTextDark (#68D391) = ~8.9:1
-    // ErrorRed (#E53E3E) on ErrorRedSurfaceDark (#3D1515) = ~3:1 (marginal); use #FF8A80 = ~7.7:1
+    // Title text: use lighter variants in dark mode for sufficient contrast on dark surfaces.
+    // Light mode:
+    //   PrimaryGreen (#1B5E3B) on SuccessGreenLight (#E6F7ED) = 6.6:1 ✅ (was SuccessGreen = 2.76:1 ❌)
+    //   ErrorRedDark (#B71C1C) on ErrorRedLight (#FFF0F0) = 5.6:1 ✅ (was ErrorRed = 3.56:1 marginal)
+    // Dark mode:
+    //   SuccessGreenTextDark (#68D391) on SuccessGreenSurfaceDark (#1B3A2E) = ~8.9:1 ✅
+    //   #FF8A80 on ErrorRedSurfaceDark (#3D1515) = ~7.7:1 ✅
     val textColor = if (isCorrect) {
-        if (isDark) SuccessGreenTextDark else SuccessGreen
+        if (isDark) SuccessGreenTextDark else PrimaryGreen
     } else {
-        if (isDark) Color(0xFFFF8A80) else ErrorRed
+        if (isDark) Color(0xFFFF8A80) else ErrorRedDark
     }
     // Explanation text must contrast with our custom bg, not the generic surface
     val explanationTextColor = if (isDark) MaterialTheme.colorScheme.onBackground else MaterialTheme.colorScheme.onSurface

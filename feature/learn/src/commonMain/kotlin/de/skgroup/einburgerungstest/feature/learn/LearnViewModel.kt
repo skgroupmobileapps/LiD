@@ -54,15 +54,19 @@ class LearnViewModel(
 
     fun loadTopics() {
         viewModelScope.launch(Dispatchers.Default) {
-            val topicProgress = statisticsUseCase.getTopicProgressListForUser(federalState)
-            val bookmarks = bookmarkUseCase.getBookmarkedQuestions()
-            _uiState.update {
-                it.copy(
-                    topicProgressList = topicProgress,
-                    bookmarkedQuestions = bookmarks,
-                    bookmarkCount = bookmarks.size,
-                    isLoading = false
-                )
+            try {
+                val topicProgress = statisticsUseCase.getTopicProgressListForUser(federalState)
+                val bookmarks = bookmarkUseCase.getBookmarkedQuestions()
+                _uiState.update {
+                    it.copy(
+                        topicProgressList = topicProgress,
+                        bookmarkedQuestions = bookmarks,
+                        bookmarkCount = bookmarks.size,
+                        isLoading = false
+                    )
+                }
+            } catch (e: Exception) {
+                _uiState.update { it.copy(isLoading = false) }
             }
         }
     }
@@ -176,5 +180,29 @@ class LearnViewModel(
 
     fun clearFeedbackTrigger() {
         _uiState.update { it.copy(showFeedbackTrigger = false) }
+    }
+
+    /**
+     * Load a specific set of questions by ID for reviewing wrong exam answers.
+     * No progress tracking is recorded for review sessions.
+     */
+    fun loadQuestionsForReview(questionIds: List<Int>) {
+        viewModelScope.launch(Dispatchers.Default) {
+            _uiState.update { it.copy(isLoading = true) }
+            try {
+                val questions = learningUseCase.getQuestionsById(questionIds)
+                _uiState.update {
+                    it.copy(
+                        currentQuestions = questions,
+                        currentQuestionIndex = 0,
+                        selectedAnswerIndex = null,
+                        feedback = null,
+                        isLoading = false
+                    )
+                }
+            } catch (e: Exception) {
+                _uiState.update { it.copy(isLoading = false) }
+            }
+        }
     }
 }
