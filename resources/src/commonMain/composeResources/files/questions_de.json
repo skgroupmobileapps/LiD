@@ -1,5 +1,5 @@
 {
-  "catalogDate": "February 2026 — BAMF Official Catalogue",
+  "catalogDate": "07.05.2025",
   "totalGeneral": 300,
   "totalState": 160,
   "questions": [
@@ -33,7 +33,7 @@
       "id": 3,
       "text": "Deutschland ist ein Rechtsstaat. Was ist damit gemeint?",
       "answers": [
-        "Alle Einwohner / Einwohnerinnen und der Staat müssen sich an die Gesetze halten.",
+        "Alle Einwohnerinnen/Einwohner und der Staat müssen sich an die Gesetze halten.",
         "Der Staat muss sich nicht an die Gesetze halten.",
         "Nur Deutsche müssen die Gesetze befolgen.",
         "Die Gerichte machen die Gesetze."
@@ -59,12 +59,12 @@
       "id": 5,
       "text": "Wahlen in Deutschland sind frei. Was bedeutet das?",
       "answers": [
-        "Man darf Geld annehmen, wenn man dafür einen bestimmten Kandidaten / eine bestimmte Kandidatin wählt.",
-        "Der Wähler darf bei der Wahl weder beeinflusst noch zu einer bestimmten Stimmabgabe gezwungen werden und keine Nachteile durch die Wahl haben.",
+        "Man darf Geld annehmen, wenn man dafür eine bestimmte Kandidatin/einen bestimmten Kandidaten wählt.",
         "Nur Personen, die noch nie im Gefängnis waren, dürfen wählen.",
+        "Die Wählerin/der Wähler darf bei der Wahl weder beeinflusst noch zu einer bestimmten Stimmabgabe gezwungen werden und keine Nachteile durch die Wahl haben.",
         "Alle wahlberechtigten Personen müssen wählen."
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 2,
       "topic": "DEMOCRACY_AND_STATE",
       "explanation": ""
     },
@@ -109,7 +109,7 @@
     },
     {
       "id": 9,
-      "text": "Welches Grundrecht gilt in Deutschland nur für Ausländer / Ausländerinnen? Das Grundrecht auf …",
+      "text": "Welches Grundrecht gilt in Deutschland nur für Ausländerinnen/Ausländer? Das Grundrecht auf …",
       "answers": [
         "Schutz der Familie",
         "Menschenwürde",
@@ -161,14 +161,14 @@
     },
     {
       "id": 13,
-      "text": "Im Parlament steht der Begriff „Opposition“ für…",
+      "text": "Im Parlament steht der Begriff \"Opposition\" für …",
       "answers": [
         "die regierenden Parteien.",
-        "alle Abgeordneten, die nicht zu der Regierungspartei/den Regierungsparteien gehören.",
         "die Fraktion mit den meisten Abgeordneten.",
-        "alle Parteien, die bei der letzten Wahl die 5%-Hürde erreichen konnten."
+        "alle Parteien, die bei der letzten Wahl die 5%-Hürde erreichen konnten.",
+        "alle Abgeordneten, die nicht zu der Regierungspartei/den Regierungsparteien gehören."
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 3,
       "topic": "DEMOCRACY_AND_STATE",
       "explanation": ""
     },
@@ -176,10 +176,10 @@
       "id": 14,
       "text": "Meinungsfreiheit in Deutschland heißt, dass ich …",
       "answers": [
-        "auf Flugblättern falsche Tatsachen behaupten darf.",
-        "meine Meinung in Leserbriefen äußern kann.",
-        "Nazi-Symbole tragen darf.",
-        "Meine Meinung sagen darf, solange ich der Regierung nicht widerspreche."
+        "Passanten auf der Straße beschimpfen darf.",
+        "meine Meinung im Internet äußern kann.",
+        "Nazi-, Hamas- oder Islamischer Staat-Symbole öffentlich tragen darf.",
+        "meine Meinung nur dann äußern darf, solange ich der Regierung nicht widerspreche."
       ],
       "correctAnswerIndex": 1,
       "topic": "RIGHTS_AND_DUTIES",
@@ -215,10 +215,10 @@
       "id": 17,
       "text": "Die deutschen Gesetze verbieten …",
       "answers": [
-        "Meinungsfreiheit der Einwohner und Einwohnerinnen.",
-        "Petitionen der Bürger und Bürgerinnen.",
-        "Versammlungsfreiheit der Einwohner und Einwohnerinnen.",
-        "Ungleichbehandlung der Bürger und Bürgerinnen durch den Staat."
+        "Meinungsfreiheit der Einwohnerinnen und Einwohner.",
+        "Petitionen der Bürgerinnen und Bürger.",
+        "Versammlungsfreiheit der Einwohnerinnen und Einwohner.",
+        "Ungleichbehandlung der Bürgerinnen und Bürger durch den Staat."
       ],
       "correctAnswerIndex": 3,
       "topic": "SOCIETY_AND_CULTURE",
@@ -239,7 +239,7 @@
     },
     {
       "id": 19,
-      "text": "Was versteht man unter dem Recht der „Freizügigkeit“ in Deutschland?",
+      "text": "Was versteht man unter dem Recht der \"Freizügigkeit\" in Deutschland?",
       "answers": [
         "Man darf sich seinen Wohnort selbst aussuchen.",
         "Man kann seinen Beruf wechseln.",
@@ -267,10 +267,10 @@
       "id": 21,
       "text": "Welches ist das Wappen der Bundesrepublik Deutschland?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 0,
       "topic": "SYMBOLS_AND_GEOGRAPHY",
@@ -292,14 +292,14 @@
     },
     {
       "id": 23,
-      "text": "In Deutschland sind die meisten Erwerbstätigen…",
+      "text": "In Deutschland sind die meisten Erwerbstätigen …",
       "answers": [
-        "bei einer Firma oder Behörde beschäftigt.",
         "in kleinen Familienunternehmen beschäftigt.",
         "ehrenamtlich für ein Bundesland tätig.",
-        "selbständig mit einer eigenen Firma tätig."
+        "selbstständig mit einer eigenen Firma tätig.",
+        "bei einer Firma oder Behörde beschäftigt."
       ],
-      "correctAnswerIndex": 0,
+      "correctAnswerIndex": 3,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
@@ -320,12 +320,12 @@
       "id": 25,
       "text": "Was ist kein Bundesland der Bundesrepublik Deutschland?",
       "answers": [
-        "Nordrhein-Westfalen",
         "Elsass-Lothringen",
+        "Nordrhein-Westfalen",
         "Mecklenburg-Vorpommern",
         "Sachsen-Anhalt"
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 0,
       "topic": "DEMOCRACY_AND_STATE",
       "explanation": ""
     },
@@ -450,7 +450,7 @@
       "id": 35,
       "text": "Womit finanziert der deutsche Staat die Sozialversicherung?",
       "answers": [
-        "Kirchensteuern",
+        "Kirchensteuer",
         "Sozialabgaben",
         "Spendengeldern",
         "Vereinsbeiträgen"
@@ -474,12 +474,12 @@
     },
     {
       "id": 37,
-      "text": "Wie werden die Regierungschefs / Regierungschefinnen der meisten Bundesländer in Deutschland genannt?",
+      "text": "Wie werden die Regierungschefinnen/Regierungschefs der meisten Bundesländer in Deutschland genannt?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Senator / Senatorin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Senatorin/Senator",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "DEMOCRACY_AND_STATE",
@@ -502,7 +502,7 @@
       "id": 39,
       "text": "Was hat jedes deutsche Bundesland?",
       "answers": [
-        "einen eigenen Außenminister / eine eigene Außenministerin",
+        "eine eigene Außenministerin/einen eigenen Außenminister",
         "eine eigene Währung",
         "eine eigene Armee",
         "eine eigene Regierung"
@@ -528,7 +528,7 @@
       "id": 41,
       "text": "Warum gibt es in einer Demokratie mehr als eine Partei?",
       "answers": [
-        "weil dadurch die unterschiedlichen Meinungen der Bürger und Bürgerinnen vertreten werden",
+        "weil dadurch die unterschiedlichen Meinungen der Bürgerinnen und Bürger vertreten werden",
         "damit Bestechung in der Politik begrenzt wird",
         "um politische Demonstrationen zu verhindern",
         "um wirtschaftlichen Wettbewerb anzuregen"
@@ -565,10 +565,10 @@
     },
     {
       "id": 44,
-      "text": "Wen kann man als Bürger / Bürgerin in Deutschland nicht direkt wählen?",
+      "text": "Wen kann man als Bürgerin/Bürger in Deutschland nicht direkt wählen?",
       "answers": [
         "Abgeordnete des EU-Parlaments",
-        "den Bundespräsidenten / die Bundespräsidentin",
+        "Die Bundespräsidentin/den Bundespräsidenten",
         "Landtagsabgeordnete",
         "Bundestagsabgeordnete"
       ],
@@ -582,7 +582,7 @@
       "answers": [
         "Sozialversicherung",
         "Unfallversicherung",
-        "Hausratversicherung",
+        "Hausratsversicherung",
         "Haftpflicht- und Feuerversicherung"
       ],
       "correctAnswerIndex": 0,
@@ -595,7 +595,7 @@
       "answers": [
         "Er baut Straßen und Schulen.",
         "Er verkauft Lebensmittel und Kleidung.",
-        "Er versorgt alle Einwohner und Einwohnerinnen kostenlos mit Zeitungen.",
+        "Er versorgt alle Einwohnerinnen und Einwohner kostenlos mit Zeitungen.",
         "Er produziert Autos und Busse."
       ],
       "correctAnswerIndex": 0,
@@ -609,7 +609,7 @@
         "Er bezahlt für alle Staatsangehörigen Urlaubsreisen.",
         "Er zahlt Kindergeld.",
         "Er unterstützt Museen.",
-        "Er fördert Sportler und Sportlerinnen."
+        "Er fördert Sportlerinnen und Sportler."
       ],
       "correctAnswerIndex": 0,
       "topic": "SOCIETY_AND_CULTURE",
@@ -620,7 +620,7 @@
       "text": "Welches Organ gehört nicht zu den Verfassungsorganen Deutschlands?",
       "answers": [
         "der Bundesrat",
-        "der Bundespräsident / die Bundespräsidentin",
+        "die Bundespräsidentin/der Bundespräsident",
         "die Bürgerversammlung",
         "die Regierung"
       ],
@@ -669,7 +669,7 @@
     },
     {
       "id": 52,
-      "text": "Was bedeutet „Volkssouveränität“? Alle Staatsgewalt geht vom …",
+      "text": "Was bedeutet \"Volkssouveränität\"? Alle Staatsgewalt geht vom ...",
       "answers": [
         "Volke aus.",
         "Bundestag aus.",
@@ -682,11 +682,11 @@
     },
     {
       "id": 53,
-      "text": "Was bedeutet „Rechtsstaat“ in Deutschland?",
+      "text": "Was bedeutet \"Rechtsstaat\" in Deutschland?",
       "answers": [
         "Der Staat hat Recht.",
         "Es gibt nur rechte Parteien.",
-        "Die Bürger und Bürgerinnen entscheiden über Gesetze.",
+        "Die Bürgerinnen und Bürger entscheiden über Gesetze.",
         "Der Staat muss die Gesetze einhalten."
       ],
       "correctAnswerIndex": 3,
@@ -735,25 +735,25 @@
     },
     {
       "id": 57,
-      "text": "Wer wird meistens zum Präsidenten / zur Präsidentin des Deutschen Bundestages gewählt?",
+      "text": "Wer wird meistens zur Präsidentin/zum Präsidenten des Deutschen Bundestages gewählt?",
       "answers": [
-        "der / die älteste Abgeordnete im Parlament",
-        "der Ministerpräsident / die Ministerpräsidentin des größten Bundeslandes",
-        "ein Abgeordneter / eine Abgeordnete der stärksten Fraktion",
-        "ein ehemaliger Bundeskanzler / eine ehemalige Bundeskanzlerin"
+        "die/der älteste Abgeordnete im Parlament",
+        "die Ministerpräsidentin/der Ministerpräsident des größten Bundeslandes",
+        "eine ehemalige Bundeskanzlerin/ein ehemaliger Bundeskanzler",
+        "eine Abgeordnete/ein Abgeordneter der stärksten Fraktion"
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 3,
       "topic": "DEMOCRACY_AND_STATE",
       "explanation": "Zum Präsidenten / zur Präsidentin des Deutschen Bundestages wird meistens ein Abgeordneter / eine Abgeordnete der stärksten Fraktion gewählt, da so eine Stimmenmehrheit sich leichter erreichen lässt."
     },
     {
       "id": 58,
-      "text": "Wer ernennt in Deutschland die Minister / die Ministerinnen der Bundesregierung?",
+      "text": "Wer ernennt in Deutschland die Ministerinnen/die Minister der Bundesregierung?",
       "answers": [
-        "der Präsident / die Präsidentin des Bundesverfassungsgerichtes",
-        "der Bundespräsident / die Bundespräsidentin",
-        "der Bundesratspräsident / die Bundesratspräsidentin",
-        "der Bundestagspräsident / die Bundestagspräsidentin"
+        "die Präsidentin/der Präsident des Bundesverfassungsgerichtes",
+        "die Bundespräsidentin/der Bundespräsident",
+        "die Bundesratspräsidentin/der Bundesratspräsident",
+        "die Bundestagspräsidentin/der Bundestagspräsident"
       ],
       "correctAnswerIndex": 1,
       "topic": "DEMOCRACY_AND_STATE",
@@ -761,14 +761,14 @@
     },
     {
       "id": 59,
-      "text": "Welche Parteien wurden in Deutschland 2007 zur Partei „Die Linke“?",
+      "text": "Vor wie vielen Jahren gab es erstmals eine jüdische Gemeinde auf dem Gebiet des heutigen Deutschlands?",
       "answers": [
-        "CDU und SSW",
-        "PDS und WASG",
-        "CSU und FDP",
-        "Bündnis 90/Die Grünen und SPD"
+        "vor etwa 300 Jahren",
+        "vor etwa 700 Jahren",
+        "vor etwa 1150 Jahren",
+        "vor etwa 1700 Jahren"
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 3,
       "topic": "DEMOCRACY_AND_STATE",
       "explanation": "„Die Linke“ entstand am 16. Juni 2007 durch Verschmelzung der Partei „WASG“ und der Partei „Die Linkspartei.PDS“."
     },
@@ -787,9 +787,9 @@
     },
     {
       "id": 61,
-      "text": "Was bedeutet „Volkssouveränität“?",
+      "text": "Was bedeutet \"Volkssouveränität\"?",
       "answers": [
-        "Der König / die Königin herrscht über das Volk.",
+        "Die Königin/der König herrscht über das Volk.",
         "Das Bundesverfassungsgericht steht über der Verfassung.",
         "Die Interessenverbände üben die Souveränität zusammen mit der Regierung aus.",
         "Die Staatsgewalt geht vom Volke aus."
@@ -802,10 +802,10 @@
       "id": 62,
       "text": "Wenn das Parlament eines deutschen Bundeslandes gewählt wird, nennt man das …",
       "answers": [
-        "Kommunalwahl.",
-        "Landtagswahl.",
-        "Europawahl.",
-        "Bundestagswahl."
+        "Kommunalwahl",
+        "Landtagswahl",
+        "Europawahl",
+        "Bundestagswahl"
       ],
       "correctAnswerIndex": 1,
       "topic": "DEMOCRACY_AND_STATE",
@@ -843,7 +843,7 @@
       "answers": [
         "Gesetze zu entwerfen.",
         "die Bundesregierung zu kontrollieren.",
-        "den Bundeskanzler / die Bundeskanzlerin zu wählen.",
+        "die Bundeskanzlerin/den Bundeskanzler zu wählen.",
         "das Bundeskabinett zu bilden."
       ],
       "correctAnswerIndex": 3,
@@ -852,14 +852,14 @@
     },
     {
       "id": 66,
-      "text": "Wer schrieb den Text zur deutschen Nationalhymne?",
+      "text": "Welche Städte haben die größten jüdischen Gemeinden in Deutschland?",
       "answers": [
-        "Friedrich von Schiller",
-        "Clemens Brentano",
-        "Johann Wolfgang von Goethe",
-        "Heinrich Hoffmann von Fallersleben"
+        "Berlin und München",
+        "Hamburg und Essen",
+        "Nürnberg und Stuttgart",
+        "Worms und Speyer"
       ],
-      "correctAnswerIndex": 3,
+      "correctAnswerIndex": 0,
       "topic": "SYMBOLS_AND_GEOGRAPHY",
       "explanation": ""
     },
@@ -881,7 +881,7 @@
       "text": "Warum kontrolliert der Staat in Deutschland das Schulwesen?",
       "answers": [
         "weil es in Deutschland nur staatliche Schulen gibt",
-        "weil alle Schüler und Schülerinnen einen Schulabschluss haben müssen",
+        "weil alle Schülerinnen und Schüler einen Schulabschluss haben müssen",
         "weil es in den Bundesländern verschiedene Schulen gibt",
         "weil es nach dem Grundgesetz seine Aufgabe ist"
       ],
@@ -904,12 +904,12 @@
     },
     {
       "id": 70,
-      "text": "Der deutsche Bundespräsident Gustav Heinemann gibt Helmut Schmidt 1974 die Ernennungsurkunde zum deutschen Bundeskanzler. Was gehört zu den Aufgaben des deutschen Bundespräsidenten / der deutschen Bundespräsidentin?",
+      "text": "Der deutsche Bundespräsident Gustav Heinemann gibt Helmut Schmidt 1974 die Ernennungsurkunde zum deutschen Bundeskanzler. Was gehört zu den Aufgaben der deutschen Bundespräsidentin/des deutschen Bundespräsidenten?",
       "answers": [
-        "Er / Sie führt die Regierungsgeschäfte.",
-        "Er / Sie kontrolliert die Regierungspartei.",
-        "Er / Sie wählt die Minister / Ministerinnen aus.",
-        "Er / Sie schlägt den Kanzler / die Kanzlerin zur Wahl vor."
+        "Sie/Er führt die Regierungsgeschäfte.",
+        "Sie/Er kontrolliert die Regierungspartei.",
+        "Sie/Er wählt die Ministerinnen/Minister aus.",
+        "Sie/Er schlägt die Kanzlerin/den Kanzler zur Wahl vor."
       ],
       "correctAnswerIndex": 3,
       "topic": "DEMOCRACY_AND_STATE",
@@ -918,25 +918,25 @@
     },
     {
       "id": 71,
-      "text": "Wo hält sich der deutsche Bundeskanzler / die deutsche Bundeskanzlerin am häufigsten auf? Am häufigsten ist er / sie …",
+      "text": "Wo hält sich die deutsche Bundeskanzlerin/der deutsche Bundeskanzler am häufigsten auf? Am häufigsten ist sie/er …",
       "answers": [
         "in Bonn, weil sich dort das Bundeskanzleramt und der Bundestag befinden.",
-        "in Berlin, weil sich dort das Bundeskanzleramt und der Bundestag befinden.",
-        "auf Schloss Meseberg, dem Gästehaus der Bundesregieung, um Staatsgäste zu empfangen.",
-        "auf Schloss Bellevue, dem Amtssitz des Bundespräsidenten / der Bundespräsidentin, um Staatsgäste zu empfangen."
+        "auf Schloss Meseberg, dem Gästehaus der Bundesregierung, um Staatsgäste zu empfangen.",
+        "auf Schloss Bellevue, dem Amtssitz der Bundespräsidentin/des Bundespräsidenten, um Staatsgäste zu empfangen.",
+        "in Berlin, weil sich dort das Bundeskanzleramt und der Bundestag befinden."
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 3,
       "topic": "DEMOCRACY_AND_STATE",
       "explanation": ""
     },
     {
       "id": 72,
-      "text": "Wie heißt der jetzige Bundeskanzler / die jetzige Bundeskanzlerin von Deutschland?",
+      "text": "Wie heißt die jetzige Bundeskanzlerin/der jetzige Bundeskanzler von Deutschland?",
       "answers": [
         "Gerhard Schröder",
-        "Jürgen Rüttgers",
-        "Klaus Wowereit",
-        "Angela Merkel"
+        "Angela Merkel",
+        "Ursula von der Leyen",
+        "Friedrich Merz"
       ],
       "correctAnswerIndex": 3,
       "topic": "DEMOCRACY_AND_STATE",
@@ -946,10 +946,10 @@
       "id": 73,
       "text": "Die beiden größten Fraktionen im Deutschen Bundestag heißen zurzeit …",
       "answers": [
-        "CDU/CSU und SPD.",
+        "CDU/CSU und AfD.",
         "Die Linke und Bündnis 90/Die Grünen.",
-        "FDP und SPD.",
-        "Die Linke und FDP."
+        "Bündnis 90/Die Grünen und SPD.",
+        "Die Linke und CDU/CSU."
       ],
       "correctAnswerIndex": 0,
       "topic": "DEMOCRACY_AND_STATE",
@@ -973,9 +973,9 @@
       "text": "Wie heißt Deutschlands heutiges Staatsoberhaupt?",
       "answers": [
         "Frank-Walter Steinmeier",
-        "Joachim Gauck",
-        "Norbert Lammert",
-        "Wolfgang Thierse"
+        "Bärbel Bas",
+        "Bodo Ramelow",
+        "Joachim Gauck"
       ],
       "correctAnswerIndex": 0,
       "topic": "SOCIETY_AND_CULTURE",
@@ -1048,7 +1048,7 @@
     },
     {
       "id": 81,
-      "text": "Wer wählt den Bundeskanzler / die Bundeskanzlerin in Deutschland?",
+      "text": "Wer wählt die Bundeskanzlerin/den Bundeskanzler in Deutschland?",
       "answers": [
         "der Bundesrat",
         "die Bundesversammlung",
@@ -1061,20 +1061,20 @@
     },
     {
       "id": 82,
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin der Bundesrepublik Deutschland?",
+      "text": "Wer leitet das deutsche Bundeskabinett?",
       "answers": [
-        "Premierminister / Premierministerin",
-        "Bundespräsident / Bundespräsidentin",
-        "Bundeskanzler / Bundeskanzlerin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "die Bundestagspräsidentin/der Bundestagspräsident",
+        "die Bundespräsidentin/der Bundespräsident",
+        "die Bundesratspräsidentin/der Bundesratspräsident",
+        "die Bundeskanzlerin/der Bundeskanzler"
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 3,
       "topic": "DEMOCRACY_AND_STATE",
       "explanation": "Die Regierung bzw. das Bundeskabinett besteht aus dem Bundeskanzler und den Bundesministern. Der Chef der Regierung ist damit der Bundeskanzler / die Bundeskanzlerin."
     },
     {
       "id": 83,
-      "text": "Wer wählt den deutschen Bundeskanzler / die deutsche Bundeskanzlerin?",
+      "text": "Wer wählt die deutsche Bundeskanzlerin/den deutschen Bundeskanzler?",
       "answers": [
         "das Volk",
         "die Bundesversammlung",
@@ -1087,7 +1087,7 @@
     },
     {
       "id": 84,
-      "text": "Welche Hauptaufgabe hat der deutsche Bundespräsident / die deutsche Bundespräsidentin? Er / Sie …",
+      "text": "Welche Hauptaufgabe hat die deutsche Bundespräsidentin/der deutsche Bundespräsident? Sie/Er …",
       "answers": [
         "regiert das Land.",
         "entwirft die Gesetze.",
@@ -1103,7 +1103,7 @@
       "text": "Wer bildet den deutschen Bundesrat?",
       "answers": [
         "die Abgeordneten des Bundestages",
-        "die Minister und Ministerinnen der Bundesregierung",
+        "die Ministerinnen und Minister der Bundesregierung",
         "die Regierungsvertreter der Bundesländer",
         "die Parteimitglieder"
       ],
@@ -1113,7 +1113,7 @@
     },
     {
       "id": 86,
-      "text": "Wer wählt in Deutschland den Bundespräsidenten / die Bundespräsidentin?",
+      "text": "Wer wählt in Deutschland die Bundespräsidentin/den Bundespräsidenten?",
       "answers": [
         "die Bundesversammlung",
         "der Bundesrat",
@@ -1128,10 +1128,10 @@
       "id": 87,
       "text": "Wer ist das Staatsoberhaupt der Bundesrepublik Deutschland?",
       "answers": [
-        "der Bundeskanzler / die Bundeskanzlerin",
-        "der Bundespräsident / die Bundespräsidentin",
-        "der Bundesratspräsident / die Bundesratspräsidentin",
-        "der Bundestagspräsident / die Bundestagspräsidentin"
+        "die Bundeskanzlerin/der Bundeskanzler",
+        "die Bundespräsidentin/der Bundespräsident",
+        "die Bundesratspräsidentin/der Bundesratspräsident",
+        "die Bundestagspräsidentin/der Bundestagspräsident"
       ],
       "correctAnswerIndex": 1,
       "topic": "SOCIETY_AND_CULTURE",
@@ -1142,9 +1142,9 @@
       "text": "Die parlamentarische Opposition im Deutschen Bundestag …",
       "answers": [
         "kontrolliert die Regierung.",
-        "entscheidet, wer Bundesminister / Bundesministerin wird.",
+        "entscheidet, wer Bundesministerin/Bundesminister wird.",
         "bestimmt, wer im Bundesrat sitzt.",
-        "schlägt die Regierungschefs / Regierungschefinnen der Länder vor."
+        "schlägt die Regierungschefinnen/Regierungschefs der Länder vor."
       ],
       "correctAnswerIndex": 0,
       "topic": "DEMOCRACY_AND_STATE",
@@ -1204,14 +1204,14 @@
     },
     {
       "id": 93,
-      "text": "Je mehr „Zweitstimmen“ eine Partei bei einer Bundestagswahl bekommt, desto …",
+      "text": "Je mehr \"Zweitstimmen\" eine Partei bei einer Bundestagswahl bekommt, desto …",
       "answers": [
-        "mehr Sitze erhält die Partei im Parlament.",
         "weniger Erststimmen kann sie haben.",
         "mehr Direktkandidaten der Partei ziehen ins Parlament ein.",
-        "größer ist das Risiko, eine Koalition bilden zu müssen."
+        "größer ist das Risiko, eine Koalition bilden zu müssen.",
+        "mehr Sitze erhält die Partei im Parlament."
       ],
-      "correctAnswerIndex": 0,
+      "correctAnswerIndex": 3,
       "topic": "DEMOCRACY_AND_STATE",
       "explanation": ""
     },
@@ -1243,14 +1243,14 @@
     },
     {
       "id": 96,
-      "text": "Was muss jeder deutsche Staatsbürger / jede deutsche Staatsbürgerin ab dem 16. Lebensjahr besitzen?",
+      "text": "Wie kann jemand, der den Holocaust leugnet, bestraft werden?",
       "answers": [
-        "einen Reisepass",
-        "einen Personalausweis",
-        "einen Sozialversicherungsausweis",
-        "einen Führerschein"
+        "Kürzung sozialer Leistungen",
+        "bis zu 100 Sozialstunden",
+        "gar nicht, Holocaustleugnung ist erlaubt",
+        "mit Freiheitsstrafe bis zu fünf Jahren oder mit Geldstrafe"
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 3,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
@@ -1269,14 +1269,14 @@
     },
     {
       "id": 98,
-      "text": "Wenn Abgeordnete im Deutschen Bundestag ihre Fraktion wechseln, ...",
+      "text": "Wenn Abgeordnete im Deutschen Bundestag ihre Fraktion wechseln, …",
       "answers": [
-        "kann die Regierung ihre Mehrheit verlieren.",
         "dürfen sie nicht mehr an den Sitzungen des Parlaments teilnehmen.",
-        "muss der Bundespräsident / die Bundespräsidentin zuvor sein / ihr Einverständnis geben.",
-        "dürfen die Wähler / Wählerinnen dieser Abgeordneten noch einmal wählen."
+        "kann die Regierung ihre Mehrheit verlieren.",
+        "muss die Bundespräsidentin/der Bundespräsident zuvor ihr/sein Einverständnis geben.",
+        "dürfen die Wählerinnen/Wähler dieser Abgeordneten noch einmal wählen."
       ],
-      "correctAnswerIndex": 0,
+      "correctAnswerIndex": 1,
       "topic": "DEMOCRACY_AND_STATE",
       "explanation": ""
     },
@@ -1284,10 +1284,10 @@
       "id": 99,
       "text": "Wer bezahlt in Deutschland die Sozialversicherungen?",
       "answers": [
-        "Arbeitgeber / Arbeitgeberinnen und Arbeitnehmer / Arbeitnehmerinnen",
-        "nur Arbeitnehmer / Arbeitnehmerinnen",
+        "Arbeitgeberinnen/Arbeitgeber und Arbeitnehmerinnen/Arbeitnehmer",
+        "nur Arbeitnehmerinnen/Arbeitnehmer",
         "alle Staatsangehörigen",
-        "nur Arbeitgeber / Arbeitgeberinnen"
+        "nur Arbeitgeberinnen/Arbeitgeber"
       ],
       "correctAnswerIndex": 0,
       "topic": "SOCIETY_AND_CULTURE",
@@ -1297,12 +1297,12 @@
       "id": 100,
       "text": "Was gehört nicht zur gesetzlichen Sozialversicherung?",
       "answers": [
-        "die gesetzliche Rentenversicherung",
         "die Lebensversicherung",
+        "die gesetzliche Rentenversicherung",
         "die Arbeitslosenversicherung",
         "die Pflegeversicherung"
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 0,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
@@ -1311,9 +1311,9 @@
       "text": "Gewerkschaften sind Interessenverbände der …",
       "answers": [
         "Jugendlichen.",
-        "Arbeitnehmer und Arbeitnehmerinnen.",
-        "Rentner und Renterinnen.",
-        "Arbeitgeber und Arbeitgeberinnen."
+        "Arbeitnehmerinnen und Arbeitnehmer.",
+        "Rentnerinnen und Rentner.",
+        "Arbeitgeberinnen und Arbeitgeber."
       ],
       "correctAnswerIndex": 1,
       "topic": "SOCIETY_AND_CULTURE",
@@ -1323,18 +1323,18 @@
       "id": 102,
       "text": "Womit kann man in der Bundesrepublik Deutschland geehrt werden, wenn man auf politischem, wirtschaftlichem, kulturellem, geistigem oder sozialem Gebiet eine besondere Leistung erbracht hat? Mit dem …",
       "answers": [
-        "Bundesadler",
         "Bundesverdienstkreuz",
+        "Bundesadler",
         "Vaterländischen Verdienstorden",
-        "Ehrentitel „Held der Deutschen Demokratischen Republik“"
+        "Ehrentitel \"Held der Deutschen Demokratischen Republik\""
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 0,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
     {
       "id": 103,
-      "text": "Was wird in Deutschland als „Ampelkoalition“ bezeichnet? Die Zusammenarbeit …",
+      "text": "Was wird in Deutschland als \"Ampelkoalition\" bezeichnet? Die Zusammenarbeit …",
       "answers": [
         "der Bundestagsfraktionen von CDU und CSU",
         "von SPD, FDP und Bündnis 90/Die Grünen in einer Regierung",
@@ -1360,7 +1360,7 @@
     },
     {
       "id": 105,
-      "text": "Was ist eine Aufgabe von Wahlhelfern / Wahlhelferinnen in Deutschland?",
+      "text": "Was ist eine Aufgabe von Wahlhelferinnen/Wahlhelfern in Deutschland?",
       "answers": [
         "Sie helfen alten Menschen bei der Stimmabgabe in der Wahlkabine.",
         "Sie schreiben die Wahlbenachrichtigungen vor der Wahl.",
@@ -1373,7 +1373,7 @@
     },
     {
       "id": 106,
-      "text": "In Deutschland helfen ehrenamtliche Wahlhelfer und Wahlhelferinnen bei den Wahlen. Was ist eine Aufgabe von Wahlhelfern / Wahlhelferinnen?",
+      "text": "In Deutschland helfen ehrenamtliche Wahlhelferinnen und Wahlhelfer bei den Wahlen. Was ist eine Aufgabe von Wahlhelferinnen/Wahlhelfern?",
       "answers": [
         "Sie helfen Kindern und alten Menschen beim Wählen.",
         "Sie schreiben Karten und Briefe mit der Angabe des Wahllokals.",
@@ -1399,12 +1399,12 @@
     },
     {
       "id": 108,
-      "text": "Bei einer Bundestagswahl in Deutschland darf jeder wählen, der …",
+      "text": "Bei einer Bundestagswahl in Deutschland darf jede/jeder wählen, die/der …",
       "answers": [
         "in der Bundesrepublik Deutschland wohnt und wählen möchte.",
-        "Bürger / Bürgerin der Bundesrepublik Deutschland ist und mindestens 18 Jahre alt ist.",
+        "Bürgerin/Bürger der Bundesrepublik Deutschland ist und mindestens 18 Jahre alt ist.",
         "seit mindestens 3 Jahren in der Bundesrepublik Deutschland lebt.",
-        "Bürger / Bürgerin der Bundesrepublik Deutschland ist und mindestens 21 Jahre alt ist."
+        "Bürgerin/Bürger der Bundesrepublik Deutschland ist und mindestens 21 Jahre alt ist."
       ],
       "correctAnswerIndex": 1,
       "topic": "DEMOCRACY_AND_STATE",
@@ -1438,14 +1438,14 @@
     },
     {
       "id": 111,
-      "text": "In Deutschland darf man wählen. Was bedeutet das?",
+      "text": "Welche Handlungen mit Bezug auf den Staat Israel sind in Deutschland verboten?",
       "answers": [
-        "Alle deutschen Staatsangehörigen dürfen wählen, wenn sie das Mindestalter erreicht haben.",
-        "Nur verheiratete Personen dürfen wählen.",
-        "Nur Personen mit einem festen Arbeitsplatz dürfen wählen.",
-        "Alle Einwohner und Einwohnerinnen in Deutschland müssen wählen."
+        "die Politik Israels öffentlich kritisieren",
+        "das Aufhängen einer israelischen Flagge auf dem Privatgrundstück",
+        "eine Diskussion über die Politik Israels",
+        "der öffentliche Aufruf zur Vernichtung Israels"
       ],
-      "correctAnswerIndex": 0,
+      "correctAnswerIndex": 3,
       "topic": "DEMOCRACY_AND_STATE",
       "explanation": ""
     },
@@ -1468,8 +1468,8 @@
       "answers": [
         "die meisten Stimmen bekommt.",
         "die meisten Männer mehrheitlich gewählt haben.",
-        "die meisten Stimmen bei den Arbeitern / Arbeiterinnen bekommen hat.",
-        "die meisten Erststimmen für ihren Kanzlerkandidaten / ihre Kanzlerkandidatin erhalten hat."
+        "die meisten Stimmen bei den Arbeiterinnen/Arbeitern bekommen hat.",
+        "die meisten Erststimmen für ihre Kanzlerkandidatin/ihren Kanzlerkandidaten erhalten hat."
       ],
       "correctAnswerIndex": 0,
       "topic": "DEMOCRACY_AND_STATE",
@@ -1490,7 +1490,7 @@
     },
     {
       "id": 115,
-      "text": "Was bedeutet „aktives Wahlrecht“ in Deutschland?",
+      "text": "Was bedeutet \"aktives Wahlrecht\" in Deutschland?",
       "answers": [
         "Man kann gewählt werden.",
         "Man muss wählen gehen.",
@@ -1529,12 +1529,12 @@
     },
     {
       "id": 118,
-      "text": "Was regelt das Wahlrecht in Deutschland?",
+      "text": "Wer darf bei den rund 40 jüdischen Makkabi-Sportvereinen Mitglied werden?",
       "answers": [
-        "Wer wählen darf, muss wählen.",
-        "Alle die wollen, können wählen.",
-        "Wer nicht wählt, verliert das Recht zu wählen.",
-        "Wer wählen darf, kann wählen."
+        "nur Deutsche",
+        "nur Israelis",
+        "nur religiöse Menschen",
+        "alle Menschen"
       ],
       "correctAnswerIndex": 3,
       "topic": "DEMOCRACY_AND_STATE",
@@ -1544,8 +1544,8 @@
       "id": 119,
       "text": "Wahlen in Deutschland sind frei. Was bedeutet das?",
       "answers": [
-        "Alle verurteilten Straftäter / Straftäterinnen dürfen nicht wählen.",
-        "Wenn ich wählen gehen möchte, muss mein Arbeitgeber / meine Arbeitgeberin mir frei geben.",
+        "Alle verurteilten Straftäterinnen/Straftäter dürfen nicht wählen.",
+        "Wenn ich wählen gehen möchte, muss meine Arbeitgeberin/mein Arbeitgeber mir frei geben.",
         "Jede Person kann ohne Zwang entscheiden, ob sie wählen möchte und wen sie wählen möchte.",
         "Ich kann frei entscheiden, wo ich wählen gehen möchte."
       ],
@@ -1570,7 +1570,7 @@
       "id": 121,
       "text": "Eine Partei möchte in den Deutschen Bundestag. Sie muss aber einen Mindestanteil an Wählerstimmen haben. Das heißt …",
       "answers": [
-        "5 %-Hürde.",
+        "5%-Hürde.",
         "Zulassungsgrenze.",
         "Basiswert.",
         "Richtlinie."
@@ -1594,7 +1594,7 @@
     },
     {
       "id": 123,
-      "text": "Was ist in Deutschland die „5 %-Hürde“?",
+      "text": "Was ist in Deutschland die \"5%-Hürde\"?",
       "answers": [
         "Abstimmungsregelung im Bundestag für kleine Parteien",
         "Anwesenheitskontrolle im Bundestag für Abstimmungen",
@@ -1609,10 +1609,10 @@
       "id": 124,
       "text": "Die Bundestagswahl in Deutschland ist die Wahl …",
       "answers": [
-        "des Bundeskanzlers / der Bundeskanzlerin.",
+        "der Bundeskanzlerin/des Bundeskanzlers.",
         "der Parlamente der Länder.",
         "des Parlaments für Deutschland.",
-        "des Bundespräsidenten / der Bundespräsidentin."
+        "der Bundespräsidentin/des Bundespräsidenten."
       ],
       "correctAnswerIndex": 2,
       "topic": "DEMOCRACY_AND_STATE",
@@ -1622,7 +1622,7 @@
       "id": 125,
       "text": "In einer Demokratie ist eine Funktion von regelmäßigen Wahlen, …",
       "answers": [
-        "die Bürger und Bürgerinnen zu zwingen, ihre Stimme abzugeben.",
+        "die Bürgerinnen und Bürger zu zwingen, ihre Stimme abzugeben.",
         "nach dem Willen der Wählermehrheit den Wechsel der Regierung zu ermöglichen.",
         "im Land bestehende Gesetze beizubehalten.",
         "den Armen mehr Macht zu geben."
@@ -1633,10 +1633,10 @@
     },
     {
       "id": 126,
-      "text": "Was bekommen wahlberechtigte Bürger und Bürgerinnen in Deutschland vor einer Wahl?",
+      "text": "Was bekommen wahlberechtigte Bürgerinnen und Bürger in Deutschland vor einer Wahl?",
       "answers": [
         "eine Wahlbenachrichtigung von der Gemeinde",
-        "eine Wahlerlaubnis vom Bundespräsidenten / von der Bundespräsidentin",
+        "eine Wahlerlaubnis von der Bundespräsidentin/von dem Bundespräsidenten",
         "eine Benachrichtigung von der Bundesversammlung",
         "eine Benachrichtigung vom Pfarramt"
       ],
@@ -1646,12 +1646,12 @@
     },
     {
       "id": 127,
-      "text": "Warum gibt es die 5 %-Hürde im Wahlgesetz der Bundesrepublik Deutschland? Es gibt sie, weil …",
+      "text": "Warum gibt es die 5%-Hürde im Wahlgesetz der Bundesrepublik Deutschland? Es gibt sie, weil …",
       "answers": [
         "die Programme von vielen kleinen Parteien viele Gemeinsamkeiten haben.",
-        "die Bürger und Bürgerinnen bei vielen kleinen Parteien die Orientierung verlieren können.",
+        "die Bürgerinnen und Bürger bei vielen kleinen Parteien die Orientierung verlieren können.",
         "viele kleine Parteien die Regierungsbildung erschweren.",
-        "die kleinen Parteien nicht so viel Geld haben, um die Politiker und Politikerinnen zu bezahlen."
+        "die kleinen Parteien nicht so viel Geld haben, um die Politikerinnen und Politiker zu bezahlen."
       ],
       "correctAnswerIndex": 2,
       "topic": "DEMOCRACY_AND_STATE",
@@ -1659,12 +1659,12 @@
     },
     {
       "id": 128,
-      "text": "Parlamentsmitglieder, die von den Bürgern und Bürgerinnen gewählt werden, nennt man …",
+      "text": "Parlamentsmitglieder, die von den Bürgerinnen und Bürgern gewählt werden, nennt man …",
       "answers": [
         "Abgeordnete.",
-        "Kanzler / Kanzlerinnen.",
-        "Botschafter / Botschafterinnen.",
-        "Ministerpräsidenten / Ministerpräsidentinnen."
+        "Kanzlerinnen/Kanzler.",
+        "Botschafterinnen/Botschafter.",
+        "Ministerpräsidentinnen/Ministerpräsidenten."
       ],
       "correctAnswerIndex": 0,
       "topic": "DEMOCRACY_AND_STATE",
@@ -1674,10 +1674,10 @@
       "id": 129,
       "text": "Vom Volk gewählt wird in Deutschland …",
       "answers": [
-        "der Bundeskanzler / die Bundeskanzlerin.",
-        "der Ministerpräsident / die Ministerpräsidentin eines Bundeslandes.",
+        "die Bundeskanzlerin/der Bundeskanzler.",
+        "die Ministerpräsidentin/der Ministerpräsident eines Bundeslandes.",
         "der Bundestag.",
-        "der Bundespräsident / die Bundespräsidentin."
+        "die Bundespräsidentin/der Bundespräsident."
       ],
       "correctAnswerIndex": 2,
       "topic": "SOCIETY_AND_CULTURE",
@@ -1685,7 +1685,7 @@
     },
     {
       "id": 130,
-      "text": "Welcher Stimmzettel wäre bei einer Bundestagswahl gültig?",
+      "text": "Welcher Stimmzettel wäre bei einer Bundestagswahl gültig? In Anlehnung an Bundeswahlordnung (BWO), Anlage 26",
       "answers": [
         "1",
         "2",
@@ -1699,12 +1699,12 @@
     },
     {
       "id": 131,
-      "text": "In Deutschland ist ein Bürgermeister / eine Bürgermeisterin …",
+      "text": "In Deutschland ist eine Bürgermeisterin/ein Bürgermeister …",
       "answers": [
-        "der Leiter / die Leiterin einer Schule.",
-        "der Chef / die Chefin einer Bank.",
+        "die Leiterin/der Leiter einer Schule.",
+        "die Chefin/der Chef einer Bank.",
         "das Oberhaupt einer Gemeinde.",
-        "der / die Vorsitzende einer Partei."
+        "die/der Vorsitzende einer Partei."
       ],
       "correctAnswerIndex": 2,
       "topic": "SOCIETY_AND_CULTURE",
@@ -1714,7 +1714,7 @@
       "id": 132,
       "text": "Viele Menschen in Deutschland arbeiten in ihrer Freizeit ehrenamtlich. Was bedeutet das?",
       "answers": [
-        "Sie arbeiten als Soldaten / Soldatinnen.",
+        "Sie arbeiten als Soldatinnen/Soldaten.",
         "Sie arbeiten freiwillig und unbezahlt in Vereinen und Verbänden.",
         "Sie arbeiten in der Bundesregierung.",
         "Sie arbeiten in einem Krankenhaus und verdienen dabei Geld."
@@ -1741,8 +1741,8 @@
       "text": "Man will die Buslinie abschaffen, mit der Sie immer zur Arbeit fahren. Was können Sie machen, um die Buslinie zu erhalten?",
       "answers": [
         "Ich beteilige mich an einer Bürgerinitiative für die Erhaltung der Buslinie oder gründe selber eine Initiative.",
-        "Ich werde Mitglied in einem Sportverein und trainiere Rad fahren.",
-        "Ich wende mich an das Finanzamt, weil ich als Steuerzahler / Steuerzahlerin ein Recht auf die Buslinie habe.",
+        "Ich werde Mitglied in einem Sportverein und trainiere Radfahren.",
+        "Ich wende mich an das Finanzamt, weil ich als Steuerzahlerin/Steuerzahler ein Recht auf die Buslinie habe.",
         "Ich schreibe einen Brief an das Forstamt der Gemeinde."
       ],
       "correctAnswerIndex": 0,
@@ -1756,7 +1756,7 @@
         "große Unternehmen",
         "kleine Unternehmen",
         "Selbstständige",
-        "Arbeitnehmer und Arbeitnehmerinnen"
+        "Arbeitnehmerinnen und Arbeitnehmer"
       ],
       "correctAnswerIndex": 3,
       "topic": "SOCIETY_AND_CULTURE",
@@ -1767,8 +1767,8 @@
       "text": "Sie gehen in Deutschland zum Arbeitsgericht bei …",
       "answers": [
         "falscher Nebenkostenabrechnung.",
-        "ungerechtfertigter Kündigung durch Ihren Chef / Ihre Chefin.",
-        "Problemen mit den Nachbarn / Nachbarinnen.",
+        "ungerechtfertigter Kündigung durch Ihre Chefin/Ihren Chef.",
+        "Problemen mit den Nachbarinnen/Nachbarn.",
         "Schwierigkeiten nach einem Verkehrsunfall."
       ],
       "correctAnswerIndex": 1,
@@ -1790,12 +1790,12 @@
     },
     {
       "id": 138,
-      "text": "Was kann ich in Deutschland machen, wenn mir mein Arbeitgeber / meine Arbeitgeberin zu Unrecht gekündigt hat?",
+      "text": "Was kann ich in Deutschland machen, wenn mir meine Arbeitgeberin/mein Arbeitgeber zu Unrecht gekündigt hat?",
       "answers": [
-        "weiter arbeiten und freundlich zum Chef / zur Chefin sein",
-        "ein Mahnverfahren gegen den Arbeitgeber / die Arbeitgeberin führen",
+        "weiterarbeiten und freundlich zur Chefin/zum Chef sein",
+        "ein Mahnverfahren gegen die Arbeitgeberin/den Arbeitgeber führen",
         "Kündigungsschutzklage erheben",
-        "den Arbeitgeber / die Arbeitgeberin bei der Polizei anzeigen"
+        "die Arbeitgeberin/den Arbeitgeber bei der Polizei anzeigen"
       ],
       "correctAnswerIndex": 2,
       "topic": "SOCIETY_AND_CULTURE",
@@ -1816,12 +1816,12 @@
     },
     {
       "id": 140,
-      "text": "Was macht ein Schöffe / eine Schöffin in Deutschland? Er / Sie …",
+      "text": "Was macht eine Schöffin/ein Schöffe in Deutschland? Sie/Er …",
       "answers": [
-        "entscheidet mit Richtern / Richterinnen über Schuld und Strafe.",
-        "gibt Bürgern / Bürgerinnen rechtlichen Rat.",
+        "entscheidet mit Richterinnen/Richtern über Schuld und Strafe.",
+        "gibt Bürgerinnen/Bürgern rechtlichen Rat.",
         "stellt Urkunden aus.",
-        "verteidigt den Angeklagten / die Angeklagte."
+        "verteidigt die Angeklagte/den Angeklagten."
       ],
       "correctAnswerIndex": 0,
       "topic": "SOCIETY_AND_CULTURE",
@@ -1831,10 +1831,10 @@
       "id": 141,
       "text": "Wer berät in Deutschland Personen bei Rechtsfragen und vertritt sie vor Gericht?",
       "answers": [
-        "ein Rechtsanwalt / eine Rechtsanwältin",
-        "ein Richter / eine Richterin",
-        "ein Schöffe / eine Schöffin",
-        "ein Staatsanwalt / eine Staatsanwältin"
+        "eine Rechtsanwältin/ein Rechtsanwalt",
+        "eine Richterin/ein Richter",
+        "eine Schöffin/ein Schöffe",
+        "eine Staatsanwältin/ein Staatsanwalt"
       ],
       "correctAnswerIndex": 0,
       "topic": "SOCIETY_AND_CULTURE",
@@ -1842,9 +1842,9 @@
     },
     {
       "id": 142,
-      "text": "Was ist die Hauptaufgabe eines Richters / einer Richterin in Deutschland? Ein Richter / eine Richterin …",
+      "text": "Was ist die Hauptaufgabe einer Richterin/eines Richters in Deutschland? Eine Richterin/ein Richter …",
       "answers": [
-        "vertritt Bürger und Bürgerinnen vor einem Gericht.",
+        "vertritt Bürgerinnen und Bürger vor einem Gericht.",
         "arbeitet an einem Gericht und spricht Urteile.",
         "ändert Gesetze.",
         "betreut Jugendliche vor Gericht."
@@ -1855,7 +1855,7 @@
     },
     {
       "id": 143,
-      "text": "Ein Richter / eine Richterin in Deutschland gehört zur …",
+      "text": "Eine Richterin/ein Richter in Deutschland gehört zur …",
       "answers": [
         "Judikative.",
         "Exekutive.",
@@ -1868,7 +1868,7 @@
     },
     {
       "id": 144,
-      "text": "Ein Richter / eine Richterin gehört in Deutschland zur …",
+      "text": "Eine Richterin/ein Richter gehört in Deutschland zur …",
       "answers": [
         "vollziehenden Gewalt.",
         "rechtsprechenden Gewalt.",
@@ -1881,12 +1881,12 @@
     },
     {
       "id": 145,
-      "text": "In Deutschland wird die Staatsgewalt geteilt. Für welche Staatsgewalt arbeitet ein Richter / eine Richterin? Für die …",
+      "text": "In Deutschland wird die Staatsgewalt geteilt. Für welche Staatsgewalt arbeitet eine Richterin/ein Richter? Für die …",
       "answers": [
-        "Judikative.",
-        "Exekutive.",
-        "Presse.",
-        "Legislative."
+        "Judikative",
+        "Exekutive",
+        "Presse",
+        "Legislative"
       ],
       "correctAnswerIndex": 0,
       "topic": "SOCIETY_AND_CULTURE",
@@ -1907,7 +1907,7 @@
     },
     {
       "id": 147,
-      "text": "Was ist die Arbeit eines Richters / einer Richterin in Deutschland?",
+      "text": "Was ist die Arbeit einer Richterin/eines Richters in Deutschland?",
       "answers": [
         "Deutschland regieren",
         "Recht sprechen",
@@ -1933,23 +1933,23 @@
     },
     {
       "id": 149,
-      "text": "Wer kann Gerichtsschöffe / Gerichtsschöffin in Deutschland werden?",
+      "text": "Was ist ein Beispiel für antisemitisches Verhalten?",
       "answers": [
-        "alle in Deutschland geborenen Einwohner / Einwohnerinnen über 18 Jahre",
-        "alle deutschen Staatsangehörigen älter als 24 und jünger als 70 Jahre",
-        "alle Personen, die seit mindestens 5 Jahren in Deutschland leben",
-        "nur Personen mit einem abgeschlossenen Jurastudium"
+        "ein jüdisches Fest besuchen",
+        "die israelische Regierung kritisieren",
+        "den Holocaust leugnen",
+        "gegen Juden Fußball spielen."
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 2,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": "Ein Schöffe ist in Deutschland ein ehrenamtlicher Richter. Entsprechend §31 Gerichtsverfassungsgesetz (GVG) kann nur ein deutscher Staatsbürger zum Schöffen gewählt werden. \nZusätzlich sollte ein Schöffe mindestens 25 Jahre alt sein (§33 GVG, 1), aber nicht älter als 70 Jahre alt (§ 33 GVG, 2)."
     },
     {
       "id": 150,
-      "text": "Ein Gerichtsschöffe / eine Gerichtsschöffin in Deutschland ist …",
+      "text": "Eine Gerichtsschöffin/ein Gerichtsschöffe in Deutschland ist …",
       "answers": [
-        "der Stellvertreter / die Stellvertreterin des Stadtoberhaupts.",
-        "ein ehrenamtlicher Richter / eine ehrenamtliche Richterin.",
+        "die Stellvertreterin/der Stellvertreter des Stadtoberhaupts.",
+        "eine ehrenamtliche Richterin/ein ehrenamtlicher Richter.",
         "ein Mitglied eines Gemeinderats.",
         "eine Person, die Jura studiert hat."
       ],
@@ -1962,11 +1962,11 @@
       "text": "Wer baute die Mauer in Berlin?",
       "answers": [
         "Großbritannien",
-        "die Bundesrepublik Deutschland",
         "die DDR",
+        "die Bundesrepublik Deutschland",
         "die USA"
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 1,
       "topic": "SYMBOLS_AND_GEOGRAPHY",
       "explanation": "Die DDR baute die Berliner Mauer ab August 1961."
     },
@@ -2050,7 +2050,7 @@
     },
     {
       "id": 158,
-      "text": "Das „Dritte Reich“ war eine …",
+      "text": "Das \"Dritte Reich\" war eine …",
       "answers": [
         "Diktatur.",
         "Demokratie.",
@@ -2068,7 +2068,7 @@
         "freie Wahlen",
         "Pressezensur",
         "willkürliche Verhaftungen",
-        "Verfolgung der Juden"
+        "Verfolgung von Juden"
       ],
       "correctAnswerIndex": 0,
       "topic": "HISTORY",
@@ -2154,20 +2154,20 @@
     },
     {
       "id": 166,
-      "text": "Bei welchen Demonstrationen in Deutschland riefen die Menschen „Wir sind das Volk“?",
+      "text": "Bei welchen Demonstrationen in Deutschland riefen die Menschen \"Wir sind das Volk\"?",
       "answers": [
-        "bei den Montagsdemonstrationen 1989 in der DDR",
         "beim Arbeiteraufstand 1953 in der DDR",
         "bei den Demonstrationen 1968 in der Bundesrepublik Deutschland",
-        "bei den Anti-Atomkraft-Demonstrationen 1985 in der Bundesrepublik Deutschland"
+        "bei den Anti-Atomkraft-Demonstrationen 1985 in der Bundesrepublik Deutschland",
+        "bei den Montagsdemonstrationen 1989 in der DDR"
       ],
-      "correctAnswerIndex": 0,
+      "correctAnswerIndex": 3,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
     {
       "id": 167,
-      "text": "Welche Länder wurden nach dem Zweiten Weltkrieg in Deutschland als „Alliierte Besatzungsmächte“ bezeichnet?",
+      "text": "Welche Länder wurden nach dem Zweiten Weltkrieg in Deutschland als \"Alliierte Besatzungsmächte\" bezeichnet?",
       "answers": [
         "Sowjetunion, Großbritannien, Polen, Schweden",
         "Frankreich, Sowjetunion, Italien, Japan",
@@ -2180,7 +2180,7 @@
     },
     {
       "id": 168,
-      "text": "Welches Land war keine „Alliierte Besatzungsmacht“ in Deutschland?",
+      "text": "Welches Land war keine \"Alliierte Besatzungsmacht\" in Deutschland?",
       "answers": [
         "USA",
         "Sowjetunion",
@@ -2208,12 +2208,12 @@
       "id": 170,
       "text": "Was gab es während der Zeit des Nationalsozialismus in Deutschland?",
       "answers": [
+        "das Verbot von Parteien",
         "das Recht zur freien Entfaltung der Persönlichkeit",
         "Pressefreiheit",
-        "das Verbot von Parteien",
         "den Schutz der Menschenwürde"
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 0,
       "topic": "HISTORY",
       "explanation": ""
     },
@@ -2234,10 +2234,10 @@
       "id": 172,
       "text": "In welcher Besatzungszone wurde die DDR gegründet? In der …",
       "answers": [
-        "amerikanischen Besatzungszone.",
-        "französischen Besatzungszone.",
-        "britischen Besatzungszone.",
-        "sowjetischen Besatzungszone."
+        "amerikanischen Besatzungszone",
+        "französischen Besatzungszone",
+        "britischen Besatzungszone",
+        "sowjetischen Besatzungszone"
       ],
       "correctAnswerIndex": 3,
       "topic": "HISTORY",
@@ -2311,10 +2311,10 @@
     },
     {
       "id": 178,
-      "text": "Vom Juni 1948 bis zum Mai 1949 wurden die Bürger und Bürgerinnen von West-Berlin durch eine Luftbrücke versorgt. Welcher Umstand war dafür verantwortlich?",
+      "text": "Vom Juni 1948 bis zum Mai 1949 wurden die Bürgerinnen und Bürger von West-Berlin durch eine Luftbrücke versorgt. Welcher Umstand war dafür verantwortlich?",
       "answers": [
         "Für Frankreich war eine Versorgung der West-Berliner Bevölkerung mit dem Flugzeug kostengünstiger.",
-        "Die amerikanischen Soldaten / Soldatinnen hatten beim Landtransport Angst vor Überfällen.",
+        "Die amerikanischen Soldatinnen und Soldaten hatten beim Landtransport Angst vor Überfällen.",
         "Für Großbritannien war die Versorgung über die Luftbrücke schneller.",
         "Die Sowjetunion unterbrach den gesamten Verkehr auf dem Landwege."
       ],
@@ -2364,20 +2364,20 @@
     },
     {
       "id": 182,
-      "text": "Welche Parteien wurden 1946 zwangsweise zur SED vereint, der Einheitspartei der späteren DDR?",
+      "text": "Wie heißt das jüdische Gebetshaus?",
       "answers": [
-        "KPD und SPD",
-        "SPD und CDU",
-        "CDU und FDP",
-        "KPD und CSU"
+        "Basilika",
+        "Moschee",
+        "Synagoge",
+        "Kirche"
       ],
-      "correctAnswerIndex": 0,
+      "correctAnswerIndex": 2,
       "topic": "HISTORY",
       "explanation": "Am 21./22. April 1946 fusionierten in der Sowjetischen Besatzungszone die Kommunistische Partei Deutschlands (KPD) und die Sozialdemokratische Partei Deutschlands (SPD) unter Druck der sowjetischen Besatzung zur Sozialistischen Einheitspartei Deutschlands (SED)."
     },
     {
       "id": 183,
-      "text": "Wann war in der Bundesrepublik Deutschland das „Wirtschaftswunder“?",
+      "text": "Wann war in der Bundesrepublik Deutschland das \"Wirtschaftswunder\"?",
       "answers": [
         "40er Jahre",
         "50er Jahre",
@@ -2390,25 +2390,25 @@
     },
     {
       "id": 184,
-      "text": "Was nannten die Menschen in Deutschland sehr lange „Die Stunde Null“?",
+      "text": "Auf welcher rechtlichen Grundlage wurde der Staat Israel gegründet?",
       "answers": [
-        "Damit wird die Zeit nach der Wende im Jahr 1989 bezeichnet.",
-        "Damit wurde der Beginn des Zweiten Weltkrieges bezeichnet.",
-        "Darunter verstand man das Ende des Zweiten Weltkrieges und den Beginn des Wiederaufbaus.",
-        "Damit ist die Stunde gemeint, in der die Uhr von der Sommerzeit auf die Winterzeit umgestellt wird."
+        "eine Resolution der Vereinten Nationen",
+        "ein Beschluss des Zionistenkongresses",
+        "ein Vorschlag der Bundesregierung",
+        "ein Vorschlag der UdSSR"
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 0,
       "topic": "HISTORY",
       "explanation": ""
     },
     {
       "id": 185,
-      "text": "Wofür stand der Ausdruck „Eiserner Vorhang“? Für die Abschottung …",
+      "text": "Wofür stand der Ausdruck \"Eiserner Vorhang\"? Für die Abschottung …",
       "answers": [
-        "des Warschauer Pakts gegen den Westen.",
-        "Norddeutschlands gegen Süddeutschland.",
-        "Nazi-Deutschlands gegen die Alliierten.",
-        "Europas gegen die USA."
+        "des Warschauer Pakts gegen den Westen",
+        "Norddeutschlands gegen Süddeutschland",
+        "Nazi-Deutschlands gegen die Alliierten",
+        "Europas gegen die USA"
       ],
       "correctAnswerIndex": 0,
       "topic": "HISTORY",
@@ -2433,10 +2433,10 @@
       "answers": [
         "Preußen",
         "Bundesrepublik Deutschland",
-        "DDR",
-        "„Drittes Reich“"
+        "\"Drittes Reich\"",
+        "DDR"
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 3,
       "topic": "SYMBOLS_AND_GEOGRAPHY",
       "explanation": "",
       "imageName": "q_187.png"
@@ -2547,7 +2547,7 @@
     },
     {
       "id": 196,
-      "text": "Warum nennt man die Zeit im Herbst 1989 in der DDR „Die Wende“? In dieser Zeit veränderte sich die DDR politisch …",
+      "text": "Warum nennt man die Zeit im Herbst 1989 in der DDR \"Die Wende\"? In dieser Zeit veränderte sich die DDR politisch …",
       "answers": [
         "von einer Diktatur zur Demokratie.",
         "von einer liberalen Marktwirtschaft zum Sozialismus.",
@@ -2586,7 +2586,7 @@
     },
     {
       "id": 199,
-      "text": "Mit der Abkürzung „Stasi“ meinte man in der DDR …",
+      "text": "Mit der Abkürzung \"Stasi\" meinte man in der DDR …",
       "answers": [
         "das Parlament.",
         "das Ministerium für Staatssicherheit.",
@@ -2617,7 +2617,7 @@
         "Niedersachsen, Nordrhein-Westfalen, Hessen, Schleswig-Holstein, Brandenburg",
         "Mecklenburg-Vorpommern, Brandenburg, Sachsen, Sachsen-Anhalt, Thüringen",
         "Bayern, Baden-Württemberg, Rheinland-Pfalz, Thüringen, Sachsen",
-        "Sachsen, Thüringen, Hessen, Niedersachsen, Brandenburg"
+        "Sachsen, Thüringen, Hessen, Niedersachen, Brandenburg"
       ],
       "correctAnswerIndex": 1,
       "topic": "HISTORY",
@@ -2625,7 +2625,7 @@
     },
     {
       "id": 202,
-      "text": "Zu wem gehörte die DDR im „Kalten Krieg“?",
+      "text": "Zu wem gehörte die DDR im \"Kalten Krieg\"?",
       "answers": [
         "zu den Westmächten",
         "zum Warschauer Pakt",
@@ -2653,7 +2653,7 @@
       "id": 204,
       "text": "Wie wurden die Bundesrepublik Deutschland und die DDR zu einem Staat?",
       "answers": [
-        "Die Bundesrepublik Deutschland hat die DDR besetzt.",
+        "Die Bundesrepublik hat die DDR besetzt.",
         "Die heutigen fünf östlichen Bundesländer sind der Bundesrepublik Deutschland beigetreten.",
         "Die westlichen Bundesländer sind der DDR beigetreten.",
         "Die DDR hat die Bundesrepublik Deutschland besetzt."
@@ -2677,12 +2677,12 @@
     },
     {
       "id": 206,
-      "text": "Was bedeutete im Jahr 1989 in Deutschland das Wort „Montagsdemonstration“?",
+      "text": "Woran erinnern die sogenannten „Stolpersteine“ in Deutschland?",
       "answers": [
-        "In der Bundesrepublik waren Demonstrationen nur am Montag erlaubt.",
-        "Montags waren Demonstrationen gegen das DDR-Regime.",
-        "Am ersten Montag im Monat trafen sich in der Bundesrepublik Deutschland Demonstranten.",
-        "Montags demonstrierte man in der DDR gegen den Westen."
+        "an berühmte deutsche Politikerinnen und Politiker",
+        "an die Opfer des Nationalsozialismus",
+        "an Verkehrstote",
+        "an bekannte jüdische Musiker"
       ],
       "correctAnswerIndex": 1,
       "topic": "HISTORY",
@@ -2703,9 +2703,9 @@
     },
     {
       "id": 208,
-      "text": "Was war die „Stasi“?",
+      "text": "Was war die \"Stasi\"?",
       "answers": [
-        "der Geheimdienst im „Dritten Reich“",
+        "der Geheimdienst im \"Dritten Reich\"",
         "eine berühmte deutsche Gedenkstätte",
         "der Geheimdienst der DDR",
         "ein deutscher Sportverein während des Zweiten Weltkrieges"
@@ -2718,10 +2718,10 @@
       "id": 209,
       "text": "Welches war das Wappen der Deutschen Demokratischen Republik?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 3,
       "topic": "SYMBOLS_AND_GEOGRAPHY",
@@ -2743,7 +2743,7 @@
     },
     {
       "id": 211,
-      "text": "Welcher Politiker steht für die „Ostverträge“?",
+      "text": "Welcher Politiker steht für die \"Ostverträge\"?",
       "answers": [
         "Helmut Kohl",
         "Willy Brandt",
@@ -2773,7 +2773,7 @@
       "answers": [
         "70 Millionen",
         "78 Millionen",
-        "80 Millionen",
+        "84 Millionen",
         "90 Millionen"
       ],
       "correctAnswerIndex": 2,
@@ -2795,7 +2795,7 @@
     },
     {
       "id": 215,
-      "text": "Wer wird als „Kanzler der Deutschen Einheit“ bezeichnet?",
+      "text": "Wer wird als \"Kanzler der Deutschen Einheit\" bezeichnet?",
       "answers": [
         "Gerhard Schröder",
         "Helmut Kohl",
@@ -2810,12 +2810,12 @@
       "id": 216,
       "text": "Welches Symbol ist im Plenarsaal des Deutschen Bundestages zu sehen?",
       "answers": [
-        "die Fahne der Stadt Berlin.",
-        "der Bundesadler.",
-        "der Reichsadler.",
-        "die Reichskrone."
+        "der Bundesadler",
+        "die Fahne der Stadt Berlin",
+        "der Reichsadler",
+        "die Reichskrone"
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 0,
       "topic": "DEMOCRACY_AND_STATE",
       "explanation": "",
       "imageName": "q_216.png"
@@ -2826,10 +2826,10 @@
       "answers": [
         "1919 bis 1927",
         "1933 bis 1945",
-        "1949 bis 1990",
-        "1945 bis 1961"
+        "1945 bis 1961",
+        "1949 bis 1990"
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 3,
       "topic": "HISTORY",
       "explanation": "Die DDR wurde 1949 gegründet und existierte bis zur Wiedervereinigung im Jahre 1990."
     },
@@ -2866,7 +2866,7 @@
         "an das Ende des Zweiten Weltkrieges",
         "an die Verabschiedung des Grundgesetzes",
         "an die Wiedervereinigung Deutschlands",
-        "an die Opfer des Nationalsozialismus"
+        "an die Opfer des Nationalsozialismus (Tag der Befreiung des Vernichtungslagers Auschwitz)"
       ],
       "correctAnswerIndex": 3,
       "topic": "HISTORY",
@@ -2941,10 +2941,10 @@
       "id": 226,
       "text": "Welche ist die Flagge der Europäischen Union?",
       "answers": [
-        "2",
-        "1",
-        "4",
-        "3"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 0,
       "topic": "SYMBOLS_AND_GEOGRAPHY",
@@ -2970,10 +2970,10 @@
       "answers": [
         "NATO-Osterweiterung",
         "EU-Osterweiterung",
-        "Europäische Gemeinschaft",
-        "Deutsche Wiedervereinigung"
+        "Deutsche Wiedervereinigung",
+        "Europäische Gemeinschaft"
       ],
-      "correctAnswerIndex": 3,
+      "correctAnswerIndex": 2,
       "topic": "HISTORY",
       "explanation": ""
     },
@@ -3005,11 +3005,11 @@
     },
     {
       "id": 231,
-      "text": "Was bedeutet der Begriff „europäische Integration“?",
+      "text": "Was bedeutet der Begriff \"europäische Integration\"?",
       "answers": [
-        "Damit sind amerikanische Einwanderer in Europa gemeint.",
+        "Damit sind amerikanische Einwanderinnen und Einwanderer in Europa gemeint.",
         "Der Begriff meint den Einwanderungsstopp nach Europa.",
-        "Damit sind europäische Auswanderer in den USA gemeint.",
+        "Damit sind europäische Auswanderinnen und Auswanderer in den USA gemeint.",
         "Der Begriff meint den Zusammenschluss europäischer Staaten zur EU."
       ],
       "correctAnswerIndex": 3,
@@ -3022,10 +3022,10 @@
       "answers": [
         "die Europäische Kommission",
         "die Länder, die in die EU eintreten dürfen",
-        "die europäische Verfassung",
-        "die Abgeordneten des Europäischen Parlaments"
+        "die Abgeordneten des Europäischen Parlaments",
+        "die europäische Verfassung"
       ],
-      "correctAnswerIndex": 3,
+      "correctAnswerIndex": 2,
       "topic": "DEMOCRACY_AND_STATE",
       "explanation": ""
     },
@@ -3044,7 +3044,7 @@
     },
     {
       "id": 234,
-      "text": "Wo ist der Sitz des Europäischen Parlaments?",
+      "text": "Wo ist ein Sitz des Europäischen Parlaments?",
       "answers": [
         "London",
         "Paris",
@@ -3057,7 +3057,7 @@
     },
     {
       "id": 235,
-      "text": "Der französische Staatspräsident François Mitterrand und der deutsche Bundeskanzler Helmut Kohl gedenken in Verdun gemeinsam der Toten beider Weltkriege. Welches Ziel der Europäischen Union wird bei diesem Treffen deutlich?",
+      "text": "Der damalige französische Staatspräsident François Mitterrand und der damalige deutsche Bundeskanzler Helmut Kohl gedenken in Verdun gemeinsam der Toten beider Weltkriege. Welches Ziel der Europäischen Union wird bei diesem Treffen deutlich?",
       "answers": [
         "Freundschaft zwischen England und Deutschland",
         "Reisefreiheit in alle Länder der EU",
@@ -3076,7 +3076,7 @@
         "21",
         "23",
         "25",
-        "28"
+        "27"
       ],
       "correctAnswerIndex": 3,
       "topic": "SYMBOLS_AND_GEOGRAPHY",
@@ -3084,7 +3084,7 @@
     },
     {
       "id": 237,
-      "text": "2007 wurde das 50-jährige Jubiläum der „Römischen Verträge“ gefeiert. Was war der Inhalt der Verträge?",
+      "text": "2007 wurde das 50-jährige Jubiläum der \"Römischen Verträge\" gefeiert. Was war der Inhalt der Verträge?",
       "answers": [
         "Beitritt Deutschlands zur NATO",
         "Gründung der Europäischen Wirtschaftsgemeinschaft (EWG)",
@@ -3112,10 +3112,10 @@
       "id": 239,
       "text": "Durch welche Verträge schloss sich die Bundesrepublik Deutschland mit anderen Staaten zur Europäischen Wirtschaftsgemeinschaft zusammen?",
       "answers": [
-        "durch die „Hamburger Verträge“",
-        "durch die „Römischen Verträge“",
-        "durch die „Pariser Verträge“",
-        "durch die „Londoner Verträge“"
+        "durch die \"Hamburger Verträge\"",
+        "durch die \"Römischen Verträge\"",
+        "durch die \"Pariser Verträge\"",
+        "durch die \"Londoner Verträge\""
       ],
       "correctAnswerIndex": 1,
       "topic": "SOCIETY_AND_CULTURE",
@@ -3139,11 +3139,11 @@
       "text": "Frau Seger bekommt ein Kind. Was muss sie tun, um Elterngeld zu erhalten?",
       "answers": [
         "Sie muss an ihre Krankenkasse schreiben.",
-        "Sie muss nichts tun, denn sie bekommt automatisch Elterngeld.",
         "Sie muss einen Antrag bei der Elterngeldstelle stellen.",
+        "Sie muss nichts tun, denn sie bekommt automatisch Elterngeld.",
         "Sie muss das Arbeitsamt um Erlaubnis bitten."
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 1,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
@@ -3164,12 +3164,12 @@
       "id": 243,
       "text": "Maik und Sybille wollen mit Freunden an ihrem deutschen Wohnort eine Demonstration auf der Straße abhalten. Was müssen sie vorher tun?",
       "answers": [
-        "Sie müssen nichts tun. Man darf in Deutschland jederzeit überall demonstrieren.",
         "Sie müssen die Demonstration anmelden.",
+        "Sie müssen nichts tun. Man darf in Deutschland jederzeit überall demonstrieren.",
         "Sie können gar nichts tun, denn Demonstrationen sind in Deutschland grundsätzlich verboten.",
         "Maik und Sybille müssen einen neuen Verein gründen, weil nur Vereine demonstrieren dürfen."
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 0,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
@@ -3214,14 +3214,14 @@
     },
     {
       "id": 247,
-      "text": "Eine Frau ist schwanger. Sie ist kurz vor und nach der Geburt ihres Kindes vom Gesetz besonders geschützt. Wie heißt dieser Schutz?",
+      "text": "Eine Frau ist schwanger. Sie ist kurz vor und nach der Geburt ihres Kindes vom Gesetz besonders beschützt. Wie heißt dieser Schutz?",
       "answers": [
         "Elternzeit",
-        "Geburtsvorbereitung",
         "Mutterschutz",
+        "Geburtsvorbereitung",
         "Wochenbett"
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 1,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
@@ -3281,8 +3281,8 @@
       "id": 252,
       "text": "In Deutschland …",
       "answers": [
-        "darf man zur gleichen Zeit nur mit einem Partner / einer Partnerin verheiratet sein.",
-        "kann man mehrere Ehepartner / Ehepartnerinnen gleichzeitig haben.",
+        "darf man zur gleichen Zeit nur mit einer Partnerin/einem Partner verheiratet sein.",
+        "kann man mehrere Ehepartnerinnen/Ehepartner gleichzeitig haben.",
         "darf man nicht wieder heiraten, wenn man einmal verheiratet war.",
         "darf eine Frau nicht wieder heiraten, wenn ihr Mann gestorben ist."
       ],
@@ -3305,12 +3305,12 @@
     },
     {
       "id": 254,
-      "text": "In Deutschland dürfen Ehepaare sich scheiden lassen. Meistens müssen sie dazu das „Trennungsjahr“ einhalten. Was bedeutet das?",
+      "text": "In Deutschland dürfen Ehepaare sich scheiden lassen. Meistens müssen sie dazu das \"Trennungsjahr\" einhalten. Was bedeutet das?",
       "answers": [
         "Der Scheidungsprozess dauert ein Jahr.",
-        "Mann und Frau sind ein Jahr verheiratet, dann ist die Scheidung möglich.",
+        "Die Ehegatten sind ein Jahr verheiratet, dann ist die Scheidung möglich.",
         "Das Besuchsrecht für die Kinder gilt ein Jahr.",
-        "Mann und Frau führen mindestens ein Jahr getrennt ihr eigenes Leben. Danach ist die Scheidung möglich."
+        "Die Ehegatten führen mindestens ein Jahr getrennt ihr eigenes Leben. Danach ist die Scheidung möglich."
       ],
       "correctAnswerIndex": 3,
       "topic": "SOCIETY_AND_CULTURE",
@@ -3398,10 +3398,10 @@
       "id": 261,
       "text": "Ein Mann möchte mit 30 Jahren in Deutschland sein Abitur nachholen. Wo kann er das tun? An …",
       "answers": [
-        "einer Hochschule",
-        "einem Abendgymnasium",
-        "einer Hauptschule",
-        "einer Privatuniversität"
+        "einer Hochschule.",
+        "einem Abendgymnasium.",
+        "einer Hauptschule.",
+        "einer Privatuniversität."
       ],
       "correctAnswerIndex": 1,
       "topic": "SOCIETY_AND_CULTURE",
@@ -3411,7 +3411,7 @@
       "id": 262,
       "text": "Was bedeutet in Deutschland der Grundsatz der Gleichbehandlung?",
       "answers": [
-        "Niemand darf z. B. wegen einer Behinderung benachteiligt werden.",
+        "Niemand darf z.B. wegen einer Behinderung benachteiligt werden.",
         "Man darf andere Personen benachteiligen, wenn ausreichende persönliche Gründe hierfür vorliegen.",
         "Niemand darf gegen Personen klagen, wenn sie benachteiligt wurden.",
         "Es ist für alle Gesetz, benachteiligten Gruppen jährlich Geld zu spenden."
@@ -3464,11 +3464,11 @@
       "text": "Wann beginnt die gesetzliche Nachtruhe in Deutschland?",
       "answers": [
         "wenn die Sonne untergeht",
-        "um 22 Uhr",
         "wenn die Nachbarn schlafen gehen",
-        "um 0 Uhr, Mitternacht"
+        "um 0 Uhr, Mitternacht",
+        "um 22 Uhr"
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 3,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
@@ -3487,14 +3487,14 @@
     },
     {
       "id": 268,
-      "text": "Eine junge Frau will den Führerschein machen. Sie hat Angst vor der Prüfung weil ihre Muttersprache nicht Deutsch ist. Was ist richtig?",
+      "text": "Eine junge Frau will den Führerschein machen. Sie hat Angst vor der Prüfung, weil ihre Muttersprache nicht Deutsch ist. Was ist richtig?",
       "answers": [
         "Sie muss mindestens zehn Jahre in Deutschland leben, bevor sie den Führerschein machen kann.",
-        "Sie kann die Theorie-Prüfung vielleicht in ihrer Muttersprache machen. Es gibt mehr als zehn Sprachen zur Auswahl.",
         "Wenn sie kein Deutsch kann, darf sie keinen Führerschein haben.",
-        "Sie muss den Führerschein in dem Land machen, in dem man ihre Sprache spricht."
+        "Sie muss den Führerschein in dem Land machen, in dem man ihre Sprache spricht.",
+        "Sie kann die Theorie-Prüfung vielleicht in ihrer Muttersprache machen. Es gibt mehr als zehn Sprachen zur Auswahl."
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 3,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
@@ -3503,11 +3503,11 @@
       "text": "In Deutschland haben Kinder ab dem Alter von drei Jahren bis zur Ersteinschulung einen Anspruch auf …",
       "answers": [
         "monatliches Taschengeld.",
-        "einen Kindergartenplatz.",
         "einen Platz in einem Sportverein.",
+        "einen Kindergartenplatz.",
         "einen Ferienpass."
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 2,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
@@ -3518,7 +3518,7 @@
         "für den Religionsunterricht.",
         "nur für Jugendliche.",
         "zur Weiterbildung.",
-        "nur für Rentner und Rentnerinnen."
+        "nur für Rentnerinnen und Rentner."
       ],
       "correctAnswerIndex": 2,
       "topic": "SOCIETY_AND_CULTURE",
@@ -3543,7 +3543,7 @@
       "answers": [
         "Mann und Frau sind geschieden und leben mit neuen Partnern zusammen.",
         "Zwei Frauen leben zusammen.",
-        "Ein allein erziehender Vater lebt mit seinen zwei Kindern zusammen.",
+        "Ein alleinerziehender Vater lebt mit seinen zwei Kindern zusammen.",
         "Ein Mann ist mit zwei Frauen zur selben Zeit verheiratet."
       ],
       "correctAnswerIndex": 3,
@@ -3554,7 +3554,7 @@
       "id": 273,
       "text": "Bei Erziehungsproblemen gehen Sie in Deutschland …",
       "answers": [
-        "zum Arzt / zur Ärztin.",
+        "zur Ärztin/zum Arzt.",
         "zum Gesundheitsamt.",
         "zum Einwohnermeldeamt.",
         "zum Jugendamt."
@@ -3581,9 +3581,9 @@
       "text": "Was braucht man in Deutschland für eine Ehescheidung?",
       "answers": [
         "die Einwilligung der Eltern",
-        "ein Attest eines Arztes / einer Ärztin",
+        "ein Attest einer Ärztin/eines Arztes",
         "die Einwilligung der Kinder",
-        "die Unterstützung eines Anwalts / einer Anwältin"
+        "die Unterstützung einer Anwältin/eines Anwalts"
       ],
       "correctAnswerIndex": 3,
       "topic": "SOCIETY_AND_CULTURE",
@@ -3591,12 +3591,12 @@
     },
     {
       "id": 276,
-      "text": "Was sollten Sie tun, wenn Sie von Ihrem Ansprechpartner / Ihrer Ansprechpartnerin in einer deutschen Behörde schlecht behandelt werden?",
+      "text": "Was sollten Sie tun, wenn Sie von Ihrer Ansprechpartnerin/Ihrem Ansprechpartner in einer deutschen Behörde schlecht behandelt werden?",
       "answers": [
         "Ich kann nichts tun.",
         "Ich muss mir diese Behandlung gefallen lassen.",
         "Ich drohe der Person.",
-        "Ich kann mich beim Behördenleiter / bei der Behördenleiterin beschweren."
+        "Ich kann mich bei der Behördenleiterin/beim Behördenleiter beschweren."
       ],
       "correctAnswerIndex": 3,
       "topic": "SOCIETY_AND_CULTURE",
@@ -3630,11 +3630,11 @@
     },
     {
       "id": 279,
-      "text": "In den meisten Mietshäusern in Deutschland gibt es eine „Hausordnung“. Was steht in einer solchen „Hausordnung“? Sie nennt …",
+      "text": "In den meisten Mietshäusern in Deutschland gibt es eine \"Hausordnung\". Was steht in einer solchen \"Hausordnung\"? Sie nennt …",
       "answers": [
         "Regeln für die Benutzung öffentlicher Verkehrsmittel.",
-        "alle Mieter und Mieterinnen im Haus.",
-        "Regeln, an die sich alle Bewohner und Bewohnerinnen halten müssen.",
+        "alle Mieterinnen und Mieter im Haus.",
+        "Regeln, an die sich alle Bewohnerinnen und Bewohner halten müssen.",
         "die Adresse des nächsten Ordnungsamtes."
       ],
       "correctAnswerIndex": 2,
@@ -3669,12 +3669,12 @@
     },
     {
       "id": 282,
-      "text": "Welches Ehrenamt müssen deutsche Staatsbürger / Staatsbürgerinnen übernehmen, wenn sie dazu aufgefordert werden?",
+      "text": "Welches Ehrenamt müssen deutsche Staatsbürgerinnen und Staatsbürger übernehmen, wenn sie dazu aufgefordert werden?",
       "answers": [
-        "Vereinstrainer / Vereinstrainerin",
+        "Vereinstrainerin/Vereinstrainer",
+        "Wahlhelferin/Wahlhelfer",
         "Bibliotheksaufsicht",
-        "Wahlhelfer / Wahlhelferin",
-        "Lehrer / Lehrerin"
+        "Lehrerin/Lehrer"
       ],
       "correctAnswerIndex": 2,
       "topic": "SOCIETY_AND_CULTURE",
@@ -3695,14 +3695,14 @@
     },
     {
       "id": 284,
-      "text": "Was man für die Arbeit können muss, ändert sich in der Zukunft sehr schnell. Was kann man tun?",
+      "text": "Was man für die Arbeit können muss, ändert sich in Zukunft sehr schnell. Was kann man tun?",
       "answers": [
         "Es ist egal, was man lernt.",
-        "Kinder lernen in der Schule alles, was im Beruf wichtig ist. Nach der Schule muss man nicht weiter lernen.",
         "Erwachsene müssen auch nach der Ausbildung immer weiter lernen.",
+        "Kinder lernen in der Schule alles, was im Beruf wichtig ist. Nach der Schule muss man nicht weiter lernen.",
         "Alle müssen früher aufhören zu arbeiten, weil sich alles ändert."
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 1,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
@@ -3710,21 +3710,21 @@
       "id": 285,
       "text": "Frau Frost arbeitet als fest angestellte Mitarbeiterin in einem Büro. Was muss sie nicht von ihrem Gehalt bezahlen?",
       "answers": [
-        "Umsatzsteuer",
         "Lohnsteuer",
         "Beiträge zur Arbeitslosenversicherung",
-        "Beiträge zur Renten- und Krankenversicherung"
+        "Beiträge zur Renten- und Krankenversicherung",
+        "Umsatzsteuer"
       ],
-      "correctAnswerIndex": 0,
+      "correctAnswerIndex": 3,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
     {
       "id": 286,
-      "text": "Welche Organisation in einer Firma hilft den Arbeitnehmern und Arbeitnehmerinnen bei Problemen mit dem Arbeitgeber / der Arbeitgeberin?",
+      "text": "Welche Organisation in einer Firma hilft den Arbeitnehmerinnen und Arbeitnehmern bei Problemen mit der Arbeitgeberin/dem Arbeitgeber?",
       "answers": [
         "der Betriebsrat",
-        "der Betriebsprüfer / die Betriebsprüferin",
+        "die Betriebsprüferin/der Betriebsprüfer",
         "die Betriebsgruppe",
         "das Betriebsmanagement"
       ],
@@ -3734,7 +3734,7 @@
     },
     {
       "id": 287,
-      "text": "Sie möchten bei einer Firma in Deutschland Ihr Arbeitsverhältnis beenden. Was müssen Sie beachten?",
+      "text": "Sie möchten bei einer Firma in Deutschland ihr Arbeitsverhältnis beenden. Was müssen Sie beachten?",
       "answers": [
         "die Gehaltszahlungen",
         "die Arbeitszeit",
@@ -3747,14 +3747,14 @@
     },
     {
       "id": 288,
-      "text": "Bei welchem Amt muss man in Deutschland in der Regel seinen Hund anmelden?",
+      "text": "Woraus begründet sich Deutschlands besondere Verantwortung für Israel?",
       "answers": [
-        "beim Finanzamt",
-        "beim Einwohnermeldeamt",
-        "bei der Kommune (Stadt oder Gemeinde)",
-        "beim Gesundheitsamt"
+        "aus der Mitgliedschaft in der Europäischen Union (EU)",
+        "aus den nationalsozialistischen Verbrechen gegen Juden",
+        "aus dem Grundgesetz der Bundesrepublik Deutschland",
+        "aus der christlichen Tradition"
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 1,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
@@ -3788,12 +3788,12 @@
       "id": 291,
       "text": "Warum muss man in Deutschland bei der Steuererklärung aufschreiben, ob man zu einer Kirche gehört oder nicht? Weil …",
       "answers": [
-        "das für die Statistik in Deutschland wichtig ist.",
         "es eine Kirchensteuer gibt, die an die Einkommen- und Lohnsteuer geknüpft ist.",
+        "das für die Statistik in Deutschland wichtig ist.",
         "man mehr Steuern zahlen muss, wenn man nicht zu einer Kirche gehört.",
         "die Kirche für die Steuererklärung verantwortlich ist."
       ],
-      "correctAnswerIndex": 1,
+      "correctAnswerIndex": 0,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },
@@ -3812,7 +3812,7 @@
     },
     {
       "id": 293,
-      "text": "Was ist in Deutschland ein Brauch an Ostern?",
+      "text": "Was ist in Deutschland ein Brauch zu Ostern?",
       "answers": [
         "Kürbisse vor die Tür stellen",
         "einen Tannenbaum schmücken",
@@ -3864,7 +3864,7 @@
     },
     {
       "id": 297,
-      "text": "Aus welchem Land sind die meisten Migranten / Migrantinnen nach Deutschland gekommen?",
+      "text": "Aus welchem Land sind die meisten Migrantinnen und Migranten nach Deutschland gekommen?",
       "answers": [
         "Italien",
         "Polen",
@@ -3877,7 +3877,7 @@
     },
     {
       "id": 298,
-      "text": "In der DDR lebten vor allem Migranten aus …",
+      "text": "In der DDR lebten vor allem Migrantinnen und Migranten aus …",
       "answers": [
         "Vietnam, Polen, Mosambik.",
         "Frankreich, Rumänien, Somalia.",
@@ -3890,12 +3890,12 @@
     },
     {
       "id": 299,
-      "text": "Ausländische Arbeitnehmer und Arbeitnehmerinnen, die in den 50er und 60er Jahren von der Bundesrepublik Deutschland angeworben wurden, nannte man …",
+      "text": "Ausländische Arbeitnehmerinnen und Arbeitnehmer, die in den 50er und 60er Jahren von der Bundesrepublik Deutschland angeworben wurden, nannte man …",
       "answers": [
-        "Schwarzarbeiter / Schwarzarbeiterinnen",
-        "Gastarbeiter / Gastarbeiterinnen",
-        "Zeitarbeiter / Zeitarbeiterinnen",
-        "Schichtarbeiter / Schichtarbeiterinnen"
+        "Schwarzarbeiterinnen/Schwarzarbeiter.",
+        "Gastarbeiterinnen/Gastarbeiter.",
+        "Zeitarbeiterinnen/Zeitarbeiter.",
+        "Schichtarbeiterinnen/Schichtarbeiter."
       ],
       "correctAnswerIndex": 1,
       "topic": "SOCIETY_AND_CULTURE",
@@ -3903,7 +3903,7 @@
     },
     {
       "id": 300,
-      "text": "Aus welchem Land kamen die ersten Gastarbeiter / Gastarbeiterinnen nach Deutschland?",
+      "text": "Aus welchem Land kamen die ersten Gastarbeiterinnen und Gastarbeiter in die Bundesrepublik Deutschland?",
       "answers": [
         "Italien",
         "Spanien",
@@ -3917,10 +3917,10 @@
     {
       "text": "Welches Wappen gehört zum Bundesland Baden-Württemberg?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 0,
       "topic": "FEDERAL_STATE",
@@ -3932,7 +3932,7 @@
     {
       "text": "Welches ist ein Landkreis in Baden-Württemberg?",
       "answers": [
-        "Demmin",
+        "Mecklenburgische Seenplatte",
         "Neckar-Odenwald-Kreis",
         "Nordfriesland",
         "Altötting"
@@ -4000,7 +4000,7 @@
       "id": 306
     },
     {
-      "text": "Die Landeshauptstadt von Baden-Württemberg heißt ...",
+      "text": "Die Landeshauptstadt von Baden-Württemberg heißt …",
       "answers": [
         "Heidelberg.",
         "Stuttgart.",
@@ -4029,12 +4029,12 @@
       "imageName": "q_308.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin in Baden-Württemberg?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef in Baden-Württemberg?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -4043,12 +4043,12 @@
       "id": 309
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat Baden-Württemberg nicht?",
+      "text": "Welche Ministerin/welchen Minister hat Baden-Württemberg nicht?",
       "answers": [
-        "Finanzminister / Finanzministerin",
-        "Justizminister / Justizministerin",
-        "Innenminister / Innenministerin",
-        "Außenminister / Außenministerin"
+        "Finanzministerin/Finanzminister",
+        "Justizministerin/Justizminister",
+        "Innenministerin/Innenminister",
+        "Außenministerin/Außenminister"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -4059,10 +4059,10 @@
     {
       "text": "Welches Wappen gehört zum Freistaat Bayern?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -4142,7 +4142,7 @@
       "id": 316
     },
     {
-      "text": "Die Landeshauptstadt von Bayern heißt ...",
+      "text": "Die Landeshauptstadt von Bayern heißt …",
       "answers": [
         "Ingolstadt.",
         "Regensburg.",
@@ -4171,12 +4171,12 @@
       "imageName": "q_318.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin in Bayern?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef in Bayern?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -4185,12 +4185,12 @@
       "id": 319
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat Bayern nicht?",
+      "text": "Welche Ministerin/welchen Minister hat Bayern nicht?",
       "answers": [
-        "Justizminister / Justizministerin",
-        "Außenminister / Außenministerin",
-        "Finanzminister / Finanzministerin",
-        "Innenminister / Innenministerin"
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -4201,10 +4201,10 @@
     {
       "text": "Welches Wappen gehört zum Bundesland Berlin?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -4219,7 +4219,7 @@
         "Altona",
         "Prignitz",
         "Pankow",
-        "Demmin"
+        "Mecklenburgische Seenplatte"
       ],
       "correctAnswerIndex": 2,
       "topic": "FEDERAL_STATE",
@@ -4313,12 +4313,12 @@
       "imageName": "q_328.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin des Stadtstaates Berlin?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef des Stadtstaates Berlin?",
       "answers": [
-        "Ministerpräsident / Ministerpräsidentin",
-        "Oberbürgermeister / Oberbürgermeisterin",
-        "Präsident / Präsidentin des Senats",
-        "Regierender Bürgermeister / Regierende Bürgermeisterin"
+        "Ministerpräsidentin/Ministerpräsident",
+        "Oberbürgermeisterin/Oberbürgermeister",
+        "Präsidentin/Präsident des Senates",
+        "Regierende Bürgermeisterin/Regierender Bürgermeister"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -4327,12 +4327,12 @@
       "id": 329
     },
     {
-      "text": "Welchen Senator / welche Senatorin hat Berlin nicht?",
+      "text": "Welche Senatorin/welchen Senator hat Berlin nicht?",
       "answers": [
-        "Finanzsenator / Finanzsenatorin",
-        "Innensenator / Innensenatorin",
-        "Senator / Senatorin für Außenbeziehungen",
-        "Justizsenator / Justizsenatorin"
+        "Finanzsenatorin/Finanzsenator",
+        "Innensenatorin/Innensenator",
+        "Senatorin/Senator für Außenbeziehungen",
+        "Justizsenatorin/Justizsenator"
       ],
       "correctAnswerIndex": 2,
       "topic": "FEDERAL_STATE",
@@ -4343,10 +4343,10 @@
     {
       "text": "Welches Wappen gehört zum Bundesland Brandenburg?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 0,
       "topic": "FEDERAL_STATE",
@@ -4387,11 +4387,11 @@
       "text": "Ab welchem Alter darf man in Brandenburg bei Kommunalwahlen wählen?",
       "answers": [
         "14",
-        "18",
         "16",
+        "18",
         "20"
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "BRANDENBURG",
@@ -4426,7 +4426,7 @@
       "id": 336
     },
     {
-      "text": "Die Landeshauptstadt von Brandenburg heißt ...",
+      "text": "Die Landeshauptstadt von Brandenburg heißt …",
       "answers": [
         "Potsdam.",
         "Cottbus.",
@@ -4455,12 +4455,12 @@
       "imageName": "q_338.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin in Brandenburg?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef in Brandenburg?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -4469,12 +4469,12 @@
       "id": 339
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat Brandenburg nicht?",
+      "text": "Welche Ministerin/welchen Minister hat Brandenburg nicht?",
       "answers": [
-        "Justizminister / Justizministerin",
-        "Außenminister / Außenministerin",
-        "Finanzminister / Finanzministerin",
-        "Innenminister / Innenministerin"
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -4485,10 +4485,10 @@
     {
       "text": "Welches Wappen gehört zur Freien Hansestadt Bremen?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 2,
       "topic": "FEDERAL_STATE",
@@ -4597,12 +4597,12 @@
       "imageName": "q_348.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin des Stadtstaates Bremen?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef des Stadtstaates Bremen?",
       "answers": [
-        "Ministerpräsident / Ministerpräsidentin",
-        "Erster Bürgermeister / Erste Bürgermeisterin",
-        "Präsident / Präsidentin des Senats",
-        "Regierender Bürgermeister / Regierende Bürgermeisterin"
+        "Ministerpräsidentin/Ministerpräsident",
+        "Erste Bürgermeisterin/Erster Bürgermeister",
+        "Präsidentin/Präsident des Senates",
+        "Regierende Bürgermeisterin/Regierender Bürgermeister"
       ],
       "correctAnswerIndex": 2,
       "topic": "FEDERAL_STATE",
@@ -4611,12 +4611,12 @@
       "id": 349
     },
     {
-      "text": "Welchen Senator / welche Senatorin hat Bremen nicht?",
+      "text": "Welche Senatorin/welchen Senator hat Bremen nicht?",
       "answers": [
-        "Senator / Senatorin für Außenbeziehungen",
-        "Finanzsenator / Finanzsenatorin",
-        "Justizsenator / Justizsenatorin",
-        "Innensenator / Innensenatorin"
+        "Senatorin/Senator für Außenbeziehungen",
+        "Finanzsenatorin/Finanzsenator",
+        "Justizsenatorin/Justizsenator",
+        "Innensenatorin/Innensenator"
       ],
       "correctAnswerIndex": 0,
       "topic": "FEDERAL_STATE",
@@ -4627,10 +4627,10 @@
     {
       "text": "Welches Wappen gehört zur Freien und Hansestadt Hamburg?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -4645,7 +4645,7 @@
         "Altona",
         "Hemelingen",
         "Pankow",
-        "Demmin"
+        "Mecklenburgische Seenplatte"
       ],
       "correctAnswerIndex": 0,
       "topic": "FEDERAL_STATE",
@@ -4739,12 +4739,12 @@
       "imageName": "q_358.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin des Stadtstaates Hamburg?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef des Stadtstaates Hamburg?",
       "answers": [
-        "Ministerpräsident / Ministerpräsidentin",
-        "Erster Bürgermeister / Erste Bürgermeisterin",
-        "Regierender Senator / Regierende Senatorin",
-        "Oberbürgermeister / Oberbürgermeisterin"
+        "Ministerpräsidentin/Ministerpräsident",
+        "Erste Bürgermeisterin/Erster Bürgermeister",
+        "Regierende Senatorin/Regierender Senator",
+        "Oberbürgermeisterin/Oberbürgermeister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -4753,12 +4753,12 @@
       "id": 359
     },
     {
-      "text": "Welchen Senator / welche Senatorin hat Hamburg nicht?",
+      "text": "Welche Senatorin/welchen Senator hat Hamburg nicht?",
       "answers": [
-        "Justizsenator / Justizsenatorin",
-        "Senator / Senatorin für Außenbeziehungen",
-        "Finanzsenator / Finanzsenatorin",
-        "Innensenator / Innensenatorin"
+        "Justizsenatorin/Justizsenator",
+        "Senatorin/Senator für Außenbeziehungen",
+        "Finanzsenatorin/Finanzsenator",
+        "Innensenatorin/Innensenator"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -4769,10 +4769,10 @@
     {
       "text": "Welches Wappen gehört zum Bundesland Hessen?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 0,
       "topic": "FEDERAL_STATE",
@@ -4852,7 +4852,7 @@
       "id": 366
     },
     {
-      "text": "Die Landeshauptstadt von Hessen heißt ...",
+      "text": "Die Landeshauptstadt von Hessen heißt …",
       "answers": [
         "Kassel.",
         "Darmstadt.",
@@ -4881,12 +4881,12 @@
       "imageName": "q_368.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin in Hessen?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef in Hessen?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -4895,12 +4895,12 @@
       "id": 369
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat Hessen nicht?",
+      "text": "Welche Ministerin/welchen Minister hat Hessen nicht?",
       "answers": [
-        "Justizminister / Justizministerin",
-        "Außenminister / Außenministerin",
-        "Finanzminister / Finanzministerin",
-        "Innenminister / Innenministerin"
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -4911,10 +4911,10 @@
     {
       "text": "Welches Wappen gehört zum Bundesland Mecklenburg-Vorpommern?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 2,
       "topic": "FEDERAL_STATE",
@@ -4927,7 +4927,7 @@
       "text": "Welches ist ein Landkreis in Mecklenburg-Vorpommern?",
       "answers": [
         "Prignitz",
-        "Demmin",
+        "Mecklenburgische Seenplatte",
         "Vogtlandkreis",
         "Rhein-Sieg-Kreis"
       ],
@@ -4994,7 +4994,7 @@
       "id": 376
     },
     {
-      "text": "Die Landeshauptstadt von Mecklenburg-Vorpommern heißt ...",
+      "text": "Die Landeshauptstadt von Mecklenburg-Vorpommern heißt …",
       "answers": [
         "Greifswald.",
         "Schwerin.",
@@ -5023,12 +5023,12 @@
       "imageName": "q_378.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin in Mecklenburg-Vorpommern?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef in Mecklenburg-Vorpommern?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -5037,12 +5037,12 @@
       "id": 379
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat Mecklenburg-Vorpommern nicht?",
+      "text": "Welche Ministerin/welchen Minister hat Mecklenburg-Vorpommern nicht?",
       "answers": [
-        "Justizminister / Justizministerin",
-        "Außenminister / Außenministerin",
-        "Finanzminister / Finanzministerin",
-        "Innenminister / Innenministerin"
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -5053,10 +5053,10 @@
     {
       "text": "Welches Wappen gehört zum Bundesland Niedersachsen?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 2,
       "topic": "FEDERAL_STATE",
@@ -5110,7 +5110,7 @@
     {
       "text": "Welche Farben hat die Landesflagge von Niedersachsen?",
       "answers": [
-        "rot-weiß",
+        "weiß-blau",
         "schwarz-rot-gold",
         "schwarz-gelb",
         "blau-weiß-rot"
@@ -5124,7 +5124,7 @@
     {
       "text": "Wo können Sie sich in Niedersachsen über politische Themen informieren?",
       "answers": [
-        "beim Koordinator für politische Bildung im Kultusministerium",
+        "bei der Landeszentrale für politische Bildung",
         "beim Ordnungsamt der Gemeinde",
         "bei der Verbraucherzentrale",
         "bei den Kirchen"
@@ -5165,12 +5165,12 @@
       "imageName": "q_388.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin in Niedersachsen?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef in Niedersachsen?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -5179,12 +5179,12 @@
       "id": 389
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat Niedersachsen nicht?",
+      "text": "Welche Ministerin/welchen Minister hat Niedersachsen nicht?",
       "answers": [
-        "Justizminister / Justizministerin",
-        "Außenminister / Außenministerin",
-        "Finanzminister / Finanzministerin",
-        "Innenminister / Innenministerin"
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -5195,10 +5195,10 @@
     {
       "text": "Welches Wappen gehört zum Bundesland Nordrhein-Westfalen?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -5307,12 +5307,12 @@
       "imageName": "q_398.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin in Nordrhein-Westfalen?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef in Nordrhein-Westfalen?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -5321,12 +5321,12 @@
       "id": 399
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat Nordrhein-Westfalen nicht?",
+      "text": "Welche Ministerin/welchen Minister hat Nordrhein-Westfalen nicht?",
       "answers": [
-        "Justizminister / Justizministerin",
-        "Außenminister / Außenministerin",
-        "Finanzminister / Finanzministerin",
-        "Innenminister / Innenministerin"
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -5337,10 +5337,10 @@
     {
       "text": "Welches Wappen gehört zum Bundesland Rheinland-Pfalz?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 0,
       "topic": "FEDERAL_STATE",
@@ -5449,12 +5449,12 @@
       "imageName": "q_408.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin in Rheinland-Pfalz?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef in Rheinland-Pfalz?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -5463,12 +5463,12 @@
       "id": 409
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat Rheinland-Pfalz nicht?",
+      "text": "Welche Ministerin/welchen Minister hat Rheinland-Pfalz nicht?",
       "answers": [
-        "Justizminister / Justizministerin",
-        "Außenminister / Außenministerin",
-        "Finanzminister / Finanzministerin",
-        "Innenminister / Innenministerin"
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -5479,10 +5479,10 @@
     {
       "text": "Welches Wappen gehört zum Bundesland Saarland?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -5494,7 +5494,7 @@
     {
       "text": "Welches ist ein Landkreis im Saarland?",
       "answers": [
-        "Demmin",
+        "Mecklenburgische Seenplatte",
         "Altötting",
         "Neunkirchen",
         "Rhein-Sieg-Kreis"
@@ -5591,12 +5591,12 @@
       "imageName": "q_418.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin des Saarlandes?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef des Saarlandes?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -5605,12 +5605,12 @@
       "id": 419
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat das Saarland nicht?",
+      "text": "Welche Ministerin/welchen Minister hat das Saarland nicht?",
       "answers": [
-        "Justizminister / Justizministerin",
-        "Außenminister / Außenministerin",
-        "Finanzminister / Finanzministerin",
-        "Innenminister / Innenministerin"
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -5621,10 +5621,10 @@
     {
       "text": "Welches Wappen gehört zum Freistaat Sachsen?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -5733,12 +5733,12 @@
       "imageName": "q_428.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin in Sachsen?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef in Sachsen?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -5747,12 +5747,12 @@
       "id": 429
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat Sachsen nicht?",
+      "text": "Welche Ministerin/welchen Minister hat Sachsen nicht?",
       "answers": [
-        "Justizminister / Justizministerin",
-        "Außenminister / Außenministerin",
-        "Finanzminister / Finanzministerin",
-        "Innenminister / Innenministerin"
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -5763,10 +5763,10 @@
     {
       "text": "Welches Wappen gehört zum Bundesland Sachsen-Anhalt?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -5875,12 +5875,12 @@
       "imageName": "q_438.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin in Sachsen-Anhalt?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef in Sachsen-Anhalt?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -5889,12 +5889,12 @@
       "id": 439
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat Sachsen-Anhalt nicht?",
+      "text": "Welche Ministerin/welchen Minister hat Sachsen-Anhalt nicht?",
       "answers": [
-        "Justizminister / Justizministerin",
-        "Außenminister / Außenministerin",
-        "Finanzminister / Finanzministerin",
-        "Innenminister / Innenministerin"
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -5905,10 +5905,10 @@
     {
       "text": "Welches Wappen gehört zum Bundesland Schleswig-Holstein?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 2,
       "topic": "FEDERAL_STATE",
@@ -5921,7 +5921,7 @@
       "text": "Welches ist ein Landkreis in Schleswig-Holstein?",
       "answers": [
         "Ammerland",
-        "Demmin",
+        "Mecklenburgische Seenplatte",
         "Nordfriesland",
         "Rhein-Sieg-Kreis"
       ],
@@ -5978,7 +5978,7 @@
       "answers": [
         "bei der Verbraucherzentrale",
         "beim Ordnungsamt der Gemeinde",
-        "bei der Landeszentrale für politische Bildung",
+        "beim / bei der Landesbeauftragten für politische Bildung",
         "bei den Kirchen"
       ],
       "correctAnswerIndex": 2,
@@ -6017,12 +6017,12 @@
       "imageName": "q_448.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin in Schleswig-Holstein?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef in Schleswig-Holstein?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -6031,12 +6031,12 @@
       "id": 449
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat Schleswig-Holstein nicht?",
+      "text": "Welche Ministerin/welchen Minister hat Schleswig-Holstein nicht?",
       "answers": [
-        "Justizminister / Justizministerin",
-        "Außenminister / Außenministerin",
-        "Finanzminister / Finanzministerin",
-        "Innenminister / Innenministerin"
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
@@ -6047,10 +6047,10 @@
     {
       "text": "Welches Wappen gehört zum Freistaat Thüringen?",
       "answers": [
-        "1",
-        "2",
-        "3",
-        "4"
+        "Bild 1",
+        "Bild 2",
+        "Bild 3",
+        "Bild 4"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -6091,11 +6091,11 @@
       "text": "Ab welchem Alter darf man in Thüringen bei Kommunalwahlen wählen?",
       "answers": [
         "14",
-        "18",
         "16",
+        "18",
         "20"
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
       "explanation": "",
       "federalState": "THURINGIA",
@@ -6159,12 +6159,12 @@
       "imageName": "q_458.png"
     },
     {
-      "text": "Wie nennt man den Regierungschef / die Regierungschefin in Thüringen?",
+      "text": "Wie nennt man die Regierungschefin/den Regierungschef in Thüringen?",
       "answers": [
-        "Erster Minister / Erste Ministerin",
-        "Premierminister / Premierministerin",
-        "Bürgermeister / Bürgermeisterin",
-        "Ministerpräsident / Ministerpräsidentin"
+        "Erste Ministerin/Erster Minister",
+        "Premierministerin/Premierminister",
+        "Bürgermeisterin/Bürgermeister",
+        "Ministerpräsidentin/Ministerpräsident"
       ],
       "correctAnswerIndex": 3,
       "topic": "FEDERAL_STATE",
@@ -6173,12 +6173,12 @@
       "id": 459
     },
     {
-      "text": "Welchen Minister / welche Ministerin hat Thüringen nicht?",
+      "text": "Welche Ministerin/welchen Minister hat Thüringen nicht?",
       "answers": [
-        "Justizminister / Justizministerin",
-        "Außenminister / Außenministerin",
-        "Finanzminister / Finanzministerin",
-        "Innenminister / Innenministerin"
+        "Justizministerin/Justizminister",
+        "Außenministerin/Außenminister",
+        "Finanzministerin/Finanzminister",
+        "Innenministerin/Innenminister"
       ],
       "correctAnswerIndex": 1,
       "topic": "FEDERAL_STATE",
