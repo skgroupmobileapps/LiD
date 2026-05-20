@@ -84,6 +84,9 @@ insertQuestion:
 INSERT OR REPLACE INTO QuestionEntity(id, text, answerA, answerB, answerC, answerD, correctIndex, topic, explanation, federalState, imageName)
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
+deleteAllQuestions:
+DELETE FROM QuestionEntity;
+
 -- Answer queries
 insertAnswer:
 INSERT INTO UserAnswerEntity(questionId, selectedIndex, isCorrect, timestampMs, mode)

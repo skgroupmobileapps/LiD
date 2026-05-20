@@ -38,6 +38,11 @@ private data class JsonQuestion(
  *
  * Questions are loaded from a JSON string provided via [questionsJsonProvider].
  * The JSON is parsed once and cached.
+ *
+ * **Migration note:** When the question catalogue changes, bump the SQLDelight schema
+ * version (add a new `.sqm` migration file that runs `DELETE FROM QuestionEntity;`).
+ * The existing [seedIfNeeded] logic will detect `count == 0` and re-seed automatically
+ * on the next app start, without touching any other table.
  */
 class QuestionSeeder(
     private val database: AppDatabase,
@@ -47,6 +52,19 @@ class QuestionSeeder(
     fun seedIfNeeded() {
         val count = database.appDatabaseQueries.getQuestionCount().executeAsOne()
         if (count > 0) return
+        seedQuestions()
+    }
+
+    /**
+     * Clears all questions and re-seeds from [questionsJsonProvider].
+     *
+     * Use this when you need to force an in-process catalogue refresh without a
+     * schema migration (e.g. tooling, debug builds, or integration tests).
+     * In production, prefer the SQLDelight migration approach so the platform
+     * driver handles the version upgrade atomically.
+     */
+    fun reSeed() {
+        database.appDatabaseQueries.deleteAllQuestions()
         seedQuestions()
     }
 

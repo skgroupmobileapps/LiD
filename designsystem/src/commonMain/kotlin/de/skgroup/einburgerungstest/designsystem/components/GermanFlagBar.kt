@@ -8,8 +8,6 @@ import androidx.compose.ui.unit.dp
 import de.skgroup.einburgerungstest.designsystem.theme.GermanBlack
 import de.skgroup.einburgerungstest.designsystem.theme.GermanRed
 import de.skgroup.einburgerungstest.designsystem.theme.GermanGold
-import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
-import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * German flag bar — thin horizontal black-red-gold stripe.
@@ -27,18 +25,4 @@ fun GermanFlagBar(
     }
 }
 
-@Preview
-@Composable
-private fun GermanFlagBarPreview() {
-    PreviewSurface {
-        GermanFlagBar(height = 8)
-    }
-}
 
-@Preview
-@Composable
-private fun GermanFlagBarDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        GermanFlagBar(height = 8)
-    }
-}

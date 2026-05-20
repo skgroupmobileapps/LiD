@@ -96,13 +96,19 @@ val localProperties = Properties().apply {
 android {
     namespace = "de.skgroup.einburgerungstest"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
+    val version = libs.versions.app.version.get()
+
+    buildFeatures {
+        buildConfig = true
+    }
 
     defaultConfig {
         applicationId = "de.skgroup.einburgerungstest"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 2
-        versionName = "0.8.3"
+        buildConfigField("String", "APP_VERSION", "\"${version}\"")
+        versionCode = 5
+        versionName = version
     }
     signingConfigs {
         create("release") {

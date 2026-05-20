@@ -35,7 +35,7 @@ class FeedbackViewModel(
 ) : ViewModel() {
 
     companion object {
-        private const val APP_VERSION = "1.0.0"
+        private const val APP_VERSION = BuildConfig.APP_VERSION
 
         // Replace with actual store URLs once published
         private const val GOOGLE_PLAY_URL =

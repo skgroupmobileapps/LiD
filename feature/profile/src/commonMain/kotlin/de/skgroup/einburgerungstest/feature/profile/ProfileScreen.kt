@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import de.skgroup.einburgerungstest.core.model.ExamHistoryEntry
@@ -31,10 +32,9 @@ import de.skgroup.einburgerungstest.designsystem.theme.*
 import de.skgroup.einburgerungstest.domain.usecase.ExamStats
 import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 
 // App metadata constants
-private const val APP_VERSION = "0.8.3"
+private const val APP_VERSION = BuildConfig.APP_VERSION
 private const val CATALOGUE_DATE = "Mai 2025(Latest)"
 private const val CONTACT_EMAIL = "skgroup.mobileapps@gmail.com"
 
@@ -311,7 +311,7 @@ private fun RecentExamHistorySection(examHistory: List<ExamHistoryEntry>) {
 }
 
 @Composable
-private fun ProfileSettingsCard(
+internal fun ProfileSettingsCard(
     settings: UserSettings,
     onOpenLanguageDialog: () -> Unit,
     onUpdateSettings: (UserSettings) -> Unit,
@@ -346,20 +346,13 @@ private fun ProfileSettingsCard(
 
             HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
 
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Column {
-                    Text(stringResource(Res.string.profile_dark_mode), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
-                    Text(stringResource(Res.string.profile_dark_mode_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                }
-                Switch(
-                    checked = settings.darkMode,
-                    onCheckedChange = { isChecked ->
-                        onUpdateSettings(settings.copy(darkMode = isChecked))
-                    }
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Text(stringResource(Res.string.profile_dark_mode), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                Text(stringResource(Res.string.profile_dark_mode_subtitle), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Spacer(Modifier.height(10.dp))
+                ProfileThemePicker(
+                    current = settings.themeMode,
+                    onSelect = { onUpdateSettings(settings.copy(themeMode = it)) }
                 )
             }
 
@@ -422,7 +415,7 @@ private fun ProfileSettingsCard(
 }
 
 @Composable
-private fun ProfileAboutCard() {
+internal fun ProfileAboutCard() {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
@@ -473,106 +466,50 @@ private fun ProfileAboutCard() {
     }
 }
 
-@Preview
 @Composable
-private fun ProfileScreenContentPreview() {
-    PreviewSurface {
-        ProfileScreenContent(uiState = previewProfileUiState())
+private fun ProfileThemePicker(
+    current: de.skgroup.einburgerungstest.core.model.ThemeMode,
+    onSelect: (de.skgroup.einburgerungstest.core.model.ThemeMode) -> Unit
+) {
+    val options = listOf(
+        Triple(de.skgroup.einburgerungstest.core.model.ThemeMode.LIGHT, "☀️", stringResource(Res.string.onboarding_theme_light)),
+        Triple(de.skgroup.einburgerungstest.core.model.ThemeMode.DARK, "🌙", stringResource(Res.string.onboarding_theme_dark)),
+        Triple(de.skgroup.einburgerungstest.core.model.ThemeMode.SYSTEM, "⚙️", stringResource(Res.string.onboarding_theme_system)),
+    )
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        options.forEach { (mode, icon, label) ->
+            val isSelected = current == mode
+            val borderColor = if (isSelected) MaterialTheme.colorScheme.primary
+            else MaterialTheme.colorScheme.outline.copy(alpha = 0.4f)
+            val containerColor = if (isSelected) MaterialTheme.colorScheme.primary.copy(alpha = 0.1f)
+            else MaterialTheme.colorScheme.surface
+
+            Surface(
+                modifier = Modifier.weight(1f),
+                shape = RoundedCornerShape(10.dp),
+                color = containerColor,
+                border = BorderStroke(if (isSelected) 2.dp else 1.dp, borderColor),
+                onClick = { onSelect(mode) }
+            ) {
+                Column(
+                    modifier = Modifier.padding(vertical = 10.dp, horizontal = 4.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
+                    Text(icon, style = MaterialTheme.typography.titleMedium)
+                    Text(
+                        text = label,
+                        style = MaterialTheme.typography.labelSmall,
+                        fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Normal,
+                        color = if (isSelected) MaterialTheme.colorScheme.primary
+                        else MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center
+                    )
+                }
+            }
+        }
     }
 }
-
-@Preview
-@Composable
-private fun ProfileScreenContentDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        ProfileScreenContent(uiState = previewProfileUiState())
-    }
-}
-
-@Preview
-@Composable
-private fun ProfileSettingsCardPreview() {
-    PreviewSurface {
-        ProfileSettingsCard(
-            settings = previewProfileUiState().settings,
-            onOpenLanguageDialog = {},
-            onUpdateSettings = {},
-            onResetStatistics = {}
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun ProfileSettingsCardDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        ProfileSettingsCard(
-            settings = previewProfileUiState().settings,
-            onOpenLanguageDialog = {},
-            onUpdateSettings = {},
-            onResetStatistics = {}
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun ProfileAboutCardPreview() {
-    PreviewSurface {
-        ProfileAboutCard()
-    }
-}
-
-@Preview
-@Composable
-private fun ProfileAboutCardDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        ProfileAboutCard()
-    }
-}
-
-private fun previewProfileUiState() = ProfileUiState(
-    settings = UserSettings(
-        language = Language.ENGLISH,
-        federalState = FederalState.HAMBURG,
-        darkMode = false,
-        analyticsEnabled = true,
-        hasCompletedOnboarding = true,
-        isGuest = true
-    ),
-    progress = UserProgress(
-        totalAnswered = 142,
-        totalCorrect = 103,
-        accuracy = 72.5f,
-        bookmarkCount = 12,
-        dayStreak = 11,
-        overallProgressPercent = 46.1f,
-        totalQuestionsAvailable = 310
-    ),
-    examStats = ExamStats(
-        totalAttempts = 8,
-        totalPassed = 6,
-        averageScore = 74.8f
-    ),
-    examHistory = listOf(
-        ExamHistoryEntry(
-            id = 1,
-            totalQuestions = 33,
-            correctCount = 25,
-            passed = true,
-            scorePercent = 75.8f,
-            timestampMs = 0L,
-            federalState = FederalState.HAMBURG
-        ),
-        ExamHistoryEntry(
-            id = 2,
-            totalQuestions = 33,
-            correctCount = 16,
-            passed = false,
-            scorePercent = 48.5f,
-            timestampMs = 0L,
-            federalState = FederalState.HAMBURG
-        )
-    ),
-    isLoading = false
-)

@@ -12,7 +12,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import de.skgroup.einburgerungstest.core.model.UserProgress
 import de.skgroup.einburgerungstest.designsystem.components.AppProgressBar
@@ -24,7 +23,6 @@ import de.skgroup.einburgerungstest.designsystem.theme.AccentGold
 import de.skgroup.einburgerungstest.designsystem.theme.AccentOrange
 import de.skgroup.einburgerungstest.designsystem.theme.AccentPink
 import de.skgroup.einburgerungstest.designsystem.theme.AccentPurple
-import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import de.skgroup.einburgerungstest.designsystem.theme.PrimaryGreen
 import de.skgroup.einburgerungstest.designsystem.theme.QuizCardShape
 import de.skgroup.einburgerungstest.designsystem.theme.SuccessGreen
@@ -161,7 +159,7 @@ fun HomeScreenContent(
 }
 
 @Composable
-private fun HomeOverallProgressCard(progress: UserProgress) {
+internal fun HomeOverallProgressCard(progress: UserProgress) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = QuizCardShape,
@@ -206,7 +204,7 @@ private fun HomeOverallProgressCard(progress: UserProgress) {
 }
 
 @Composable
-private fun HomeQuickActionsSection(
+internal fun HomeQuickActionsSection(
     progress: UserProgress,
     onContinueLearning: () -> Unit,
     onExamMode: () -> Unit,
@@ -277,80 +275,10 @@ private fun HomeQuickActionsSection(
     }
 }
 
-@Preview
-@Composable
-private fun HomeScreenContentPreview() {
-    PreviewSurface {
-        HomeScreenContent(uiState = HomeUiState(progress = previewHomeProgress(), isLoading = false))
-    }
-}
 
-@Preview
-@Composable
-private fun HomeScreenContentDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        HomeScreenContent(uiState = HomeUiState(progress = previewHomeProgress(), isLoading = false))
-    }
-}
 
-@Preview
-@Composable
-private fun HomeOverallProgressCardPreview() {
-    PreviewSurface {
-        HomeOverallProgressCard(progress = previewHomeProgress())
-    }
-}
 
-@Preview
-@Composable
-private fun HomeOverallProgressCardDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        HomeOverallProgressCard(progress = previewHomeProgress())
-    }
-}
 
-@Preview
-@Composable
-private fun HomeQuickActionsSectionPreview() {
-    PreviewSurface {
-        Column {
-            HomeQuickActionsSection(
-                progress = previewHomeProgress(),
-                onContinueLearning = {},
-                onExamMode = {},
-                onByTopic = {},
-                onBookmarks = {},
-                onAllQuestions = {}
-            )
-        }
-    }
-}
 
-@Preview
-@Composable
-private fun HomeQuickActionsSectionDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        Column {
-            HomeQuickActionsSection(
-                progress = previewHomeProgress(),
-                onContinueLearning = {},
-                onExamMode = {},
-                onByTopic = {},
-                onBookmarks = {},
-                onAllQuestions = {}
-            )
-        }
-    }
-}
-
-private fun previewHomeProgress() = UserProgress(
-    totalAnswered = 128,
-    totalCorrect = 96,
-    accuracy = 75f,
-    bookmarkCount = 14,
-    dayStreak = 9,
-    overallProgressPercent = 41.3f,
-    totalQuestionsAvailable = 310
-)
 
 

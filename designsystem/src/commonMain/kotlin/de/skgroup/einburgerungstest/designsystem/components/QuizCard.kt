@@ -15,9 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.foundation.isSystemInDarkTheme
 import de.skgroup.einburgerungstest.designsystem.theme.*
-import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * State of a quiz answer card.
@@ -44,7 +42,10 @@ fun QuizCard(
     onClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    val isDark = isSystemInDarkTheme()
+    // Use MaterialTheme background perceived brightness so the correct/wrong colours respect
+    // the app's own ThemeMode setting, not just the system dark-mode flag.
+    val bg = MaterialTheme.colorScheme.background
+    val isDark = (0.299f * bg.red + 0.587f * bg.green + 0.114f * bg.blue) < 0.5f
 
     val backgroundColor by animateColorAsState(
         targetValue = when (state) {
@@ -127,28 +128,4 @@ fun QuizCard(
     }
 }
 
-@Preview
-@Composable
-private fun QuizCardPreview() {
-    PreviewSurface {
-        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            QuizCard(label = "A", text = "Default answer option")
-            QuizCard(label = "B", text = "Selected answer option", state = QuizCardState.SELECTED)
-            QuizCard(label = "C", text = "Correct answer option", state = QuizCardState.CORRECT)
-            QuizCard(label = "D", text = "Wrong answer option", state = QuizCardState.WRONG)
-        }
-    }
-}
 
-@Preview
-@Composable
-private fun QuizCardDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-            QuizCard(label = "A", text = "Default answer option")
-            QuizCard(label = "B", text = "Selected answer option", state = QuizCardState.SELECTED)
-            QuizCard(label = "C", text = "Correct answer option", state = QuizCardState.CORRECT)
-            QuizCard(label = "D", text = "Wrong answer option", state = QuizCardState.WRONG)
-        }
-    }
-}

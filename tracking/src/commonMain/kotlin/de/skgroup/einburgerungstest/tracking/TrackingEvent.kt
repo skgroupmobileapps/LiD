@@ -104,9 +104,9 @@ sealed class TrackingEvent(val name: String, val params: Map<String, Any> = empt
         )
     )
 
-    data class ThemeChanged(val darkMode: Boolean) : TrackingEvent(
+    data class ThemeChanged(val themeMode: String) : TrackingEvent(
         name = "theme_changed",
-        params = mapOf("dark_mode" to darkMode)
+        params = mapOf("theme_mode" to themeMode)
     )
 
     data class LanguageChanged(val newLanguage: String) : TrackingEvent(

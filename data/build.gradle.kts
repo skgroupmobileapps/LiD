@@ -34,6 +34,10 @@ kotlin {
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
+        getByName("androidUnitTest").dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.sqldelight.sqlite.driver)
+        }
     }
 }
 

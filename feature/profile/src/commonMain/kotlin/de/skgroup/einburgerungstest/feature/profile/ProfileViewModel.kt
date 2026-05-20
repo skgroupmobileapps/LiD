@@ -75,8 +75,8 @@ class ProfileViewModel(
             if (previous.language != settings.language) {
                 trackingClient.track(TrackingEvent.LanguageChanged(settings.language.code))
             }
-            if (previous.darkMode != settings.darkMode) {
-                trackingClient.track(TrackingEvent.ThemeChanged(settings.darkMode))
+            if (previous.themeMode != settings.themeMode) {
+                trackingClient.track(TrackingEvent.ThemeChanged(settings.themeMode.name))
             }
             if (!previous.analyticsEnabled && settings.analyticsEnabled) {
                 trackingClient.track(TrackingEvent.ConsentChanged(analyticsEnabled = true))

@@ -11,10 +11,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.tooling.preview.Preview
 import de.skgroup.einburgerungstest.designsystem.theme.AccentGold
 import de.skgroup.einburgerungstest.designsystem.theme.AccentGoldDark
-import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 
@@ -114,24 +112,3 @@ fun FeedbackDialog(
     )
 }
 
-@Preview
-@Composable
-private fun FeedbackDialogPreview() {
-    PreviewSurface {
-        FeedbackDialog(
-            onSubmit = { _, _ -> },
-            onDismiss = {}
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun FeedbackDialogDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        FeedbackDialog(
-            onSubmit = { _, _ -> },
-            onDismiss = {}
-        )
-    }
-}

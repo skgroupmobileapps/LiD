@@ -12,10 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import de.skgroup.einburgerungstest.core.model.Language
-import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Reusable language picker dialog.
@@ -97,26 +95,4 @@ fun LanguagePickerDialog(
     )
 }
 
-@Preview
-@Composable
-private fun LanguagePickerDialogPreview() {
-    PreviewSurface {
-        LanguagePickerDialog(
-            currentLanguage = Language.ENGLISH,
-            onLanguageSelected = {},
-            onDismiss = {}
-        )
-    }
-}
 
-@Preview
-@Composable
-private fun LanguagePickerDialogDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        LanguagePickerDialog(
-            currentLanguage = Language.ENGLISH,
-            onLanguageSelected = {},
-            onDismiss = {}
-        )
-    }
-}

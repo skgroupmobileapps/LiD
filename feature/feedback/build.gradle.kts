@@ -44,12 +44,16 @@ kotlin {
 android {
     namespace = "de.skgroup.einburgerungstest.feature.feedback"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
+    buildFeatures {
+        buildConfig = true
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
+        buildConfigField("String", "APP_VERSION", "\"${libs.versions.app.version.get()}\"")
     }
 }
 

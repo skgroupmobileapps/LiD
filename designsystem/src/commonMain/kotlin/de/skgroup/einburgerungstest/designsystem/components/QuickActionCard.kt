@@ -12,7 +12,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import de.skgroup.einburgerungstest.designsystem.theme.PrimaryGreen
 import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
-import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Quick action card for the Home screen grid.
@@ -109,48 +108,4 @@ fun QuickActionCardSecondary(
     }
 }
 
-@Preview
-@Composable
-private fun QuickActionCardPrimaryPreview() {
-    PreviewSurface {
-        QuickActionCardPrimary(
-            title = "Continue learning",
-            subtitle = "Resume with the next unanswered question"
-        )
-    }
-}
 
-@Preview
-@Composable
-private fun QuickActionCardPrimaryDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        QuickActionCardPrimary(
-            title = "Continue learning",
-            subtitle = "Resume with the next unanswered question"
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun QuickActionCardSecondaryPreview() {
-    PreviewSurface {
-        QuickActionCardSecondary(
-            title = "Exam mode",
-            subtitle = "Simulate the full test",
-            icon = "🎓"
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun QuickActionCardSecondaryDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        QuickActionCardSecondary(
-            title = "Exam mode",
-            subtitle = "Simulate the full test",
-            icon = "🎓"
-        )
-    }
-}

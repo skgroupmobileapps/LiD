@@ -20,6 +20,14 @@
     <string name="onboarding_state_subtitle">Eyalete özgü sorular için Bundesland\'ınızı seçin</string>
     <string name="onboarding_continue">Devam</string>
     <string name="onboarding_finish">Bitir</string>
+    <string name="onboarding_theme_title">Görünüm Seçin</string>
+    <string name="onboarding_theme_subtitle">Çalışma deneyiminizi kişiselleştirin. Daha sonra Ayarlar\'dan değiştirebilirsiniz.</string>
+    <string name="onboarding_theme_light">Açık</string>
+    <string name="onboarding_theme_light_desc">Temiz ve parlak</string>
+    <string name="onboarding_theme_dark">Koyu</string>
+    <string name="onboarding_theme_dark_desc">Göze daha az yorucu</string>
+    <string name="onboarding_theme_system">Sistem</string>
+    <string name="onboarding_theme_system_desc">Cihaz ayarlarını takip eder</string>
     
     <!-- Home -->
     <string name="home_welcome">Tekrar hoş geldiniz</string>
@@ -101,8 +109,8 @@
     <string name="profile_settings">Ayarlar</string>
     <string name="profile_app_language">Uygulama Dili</string>
     <string name="profile_app_language_subtitle">Uygulama arayüzü dilini değiştirin</string>
-    <string name="profile_dark_mode">Karanlık Mod</string>
-    <string name="profile_dark_mode_subtitle">Uygulama temasını değiştir</string>
+    <string name="profile_dark_mode">Tema</string>
+    <string name="profile_dark_mode_subtitle">Uygulama görünümünü seçin</string>
     <string name="profile_analytics">Analitiği etkinleştir</string>
     <string name="profile_analytics_subtitle">Uygulamayı geliştirmek için kullanım verilerini paylaş</string>
     <string name="profile_reset_stats">İstatistikleri Sıfırla</string>

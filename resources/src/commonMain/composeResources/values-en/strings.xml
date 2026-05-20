@@ -20,6 +20,14 @@
     <string name="onboarding_state_subtitle">Select your Bundesland for state-specific questions</string>
     <string name="onboarding_continue">Continue</string>
     <string name="onboarding_finish">Finish</string>
+    <string name="onboarding_theme_title">Choose Your Look</string>
+    <string name="onboarding_theme_subtitle">Select a theme to customize your studying experience. You can always change this later in Settings.</string>
+    <string name="onboarding_theme_light">Light</string>
+    <string name="onboarding_theme_light_desc">Clean and bright</string>
+    <string name="onboarding_theme_dark">Dark</string>
+    <string name="onboarding_theme_dark_desc">Easy on the eyes</string>
+    <string name="onboarding_theme_system">System</string>
+    <string name="onboarding_theme_system_desc">Matches device settings</string>
     
     <!-- Home -->
     <string name="home_welcome">Welcome back</string>
@@ -101,8 +109,8 @@
     <string name="profile_settings">Settings</string>
     <string name="profile_app_language">App Language</string>
     <string name="profile_app_language_subtitle">Change the app interface language</string>
-    <string name="profile_dark_mode">Dark Mode</string>
-    <string name="profile_dark_mode_subtitle">Toggle app theme</string>
+    <string name="profile_dark_mode">Theme</string>
+    <string name="profile_dark_mode_subtitle">Choose app appearance</string>
     <string name="profile_analytics">Enable Analytics</string>
     <string name="profile_analytics_subtitle">Share usage data to improve the app</string>
     <string name="profile_reset_stats">Reset Statistics</string>

@@ -20,6 +20,14 @@
     <string name="onboarding_state_subtitle">Выберите вашу федеральную землю для вопросов по региону</string>
     <string name="onboarding_continue">Продолжить</string>
     <string name="onboarding_finish">Завершить</string>
+    <string name="onboarding_theme_title">Выберите внешний вид</string>
+    <string name="onboarding_theme_subtitle">Настройте оформление приложения. Вы можете изменить это в настройках.</string>
+    <string name="onboarding_theme_light">Светлая</string>
+    <string name="onboarding_theme_light_desc">Чистый и яркий</string>
+    <string name="onboarding_theme_dark">Тёмная</string>
+    <string name="onboarding_theme_dark_desc">Щадящий для глаз</string>
+    <string name="onboarding_theme_system">Системная</string>
+    <string name="onboarding_theme_system_desc">Следует настройкам устройства</string>
     
     <!-- Home -->
     <string name="home_welcome">С возвращением</string>
@@ -101,8 +109,8 @@
     <string name="profile_settings">Настройки</string>
     <string name="profile_app_language">Язык приложения</string>
     <string name="profile_app_language_subtitle">Изменить язык интерфейса</string>
-    <string name="profile_dark_mode">Тёмная тема</string>
-    <string name="profile_dark_mode_subtitle">Переключить тему приложения</string>
+    <string name="profile_dark_mode">Тема</string>
+    <string name="profile_dark_mode_subtitle">Выберите оформление приложения</string>
     <string name="profile_analytics">Включить аналитику</string>
     <string name="profile_analytics_subtitle">Поделиться данными использования для улучшения приложения</string>
     <string name="profile_reset_stats">Сбросить статистику</string>

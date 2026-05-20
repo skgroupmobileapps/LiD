@@ -21,10 +21,8 @@ import de.skgroup.einburgerungstest.core.model.Topic
 import de.skgroup.einburgerungstest.core.util.BackHandler
 import de.skgroup.einburgerungstest.core.util.Timer
 import de.skgroup.einburgerungstest.designsystem.components.*
-import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Exam question screen — NO answer checking.
@@ -163,7 +161,7 @@ fun ExamQuestionScreenContent(
 }
 
 @Composable
-private fun ExamQuestionTopBar(
+internal fun ExamQuestionTopBar(
     currentIndex: Int,
     totalQuestions: Int,
     remainingTimeMs: Long,
@@ -207,7 +205,7 @@ private fun ExamQuestionTopBar(
 }
 
 @Composable
-private fun ExamQuestionNavigationRow(
+internal fun ExamQuestionNavigationRow(
     currentIndex: Int,
     totalQuestions: Int,
     onPreviousQuestion: () -> Unit,
@@ -242,102 +240,4 @@ private fun ExamQuestionNavigationRow(
     }
 }
 
-@Preview
-@Composable
-private fun ExamQuestionScreenContentPreview() {
-    PreviewSurface {
-        ExamQuestionScreenContent(uiState = previewExamUiState())
-    }
-}
 
-@Preview
-@Composable
-private fun ExamQuestionScreenContentDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        ExamQuestionScreenContent(uiState = previewExamUiState())
-    }
-}
-
-@Preview
-@Composable
-private fun ExamQuestionTopBarPreview() {
-    PreviewSurface {
-        ExamQuestionTopBar(
-            currentIndex = 4,
-            totalQuestions = 33,
-            remainingTimeMs = 47 * 60 * 1000L,
-            onClose = {}
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun ExamQuestionTopBarDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        ExamQuestionTopBar(
-            currentIndex = 4,
-            totalQuestions = 33,
-            remainingTimeMs = 47 * 60 * 1000L,
-            onClose = {}
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun ExamQuestionNavigationRowPreview() {
-    PreviewSurface {
-        ExamQuestionNavigationRow(
-            currentIndex = 32,
-            totalQuestions = 33,
-            onPreviousQuestion = {},
-            onNextQuestion = {},
-            onFinishExam = {}
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun ExamQuestionNavigationRowDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        ExamQuestionNavigationRow(
-            currentIndex = 32,
-            totalQuestions = 33,
-            onPreviousQuestion = {},
-            onNextQuestion = {},
-            onFinishExam = {}
-        )
-    }
-}
-
-private fun previewExamUiState(): ExamUiState {
-    val questions = listOf(previewExamQuestion(), previewExamQuestion(id = 2))
-    return ExamUiState(
-        phase = ExamPhase.IN_PROGRESS,
-        session = ExamSession(
-            questions = questions,
-            answers = mutableMapOf(1 to 1),
-            startTimeMs = 0L,
-            federalState = de.skgroup.einburgerungstest.core.model.FederalState.BERLIN
-        ),
-        currentQuestionIndex = 0,
-        selectedAnswerIndex = 1,
-        remainingTimeMs = 47 * 60 * 1000L
-    )
-}
-
-private fun previewExamQuestion(id: Int = 1) = Question(
-    id = id,
-    text = "What is the role of the Bundestag in Germany?",
-    answers = listOf(
-        Answer("A", "It elects local mayors only"),
-        Answer("B", "It is the federal parliament"),
-        Answer("C", "It controls only foreign policy"),
-        Answer("D", "It appoints judges for each city")
-    ),
-    correctAnswerIndex = 1,
-    topic = Topic.DEMOCRACY_AND_STATE,
-    explanation = "The Bundestag is Germany's federal parliament."
-)

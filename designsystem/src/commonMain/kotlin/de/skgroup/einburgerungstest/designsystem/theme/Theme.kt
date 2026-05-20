@@ -14,6 +14,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import de.skgroup.einburgerungstest.core.model.ThemeMode
 
 private val LightColorScheme = lightColorScheme(
     primary = PrimaryGreen,
@@ -62,14 +63,20 @@ private val DarkColorScheme = darkColorScheme(
 /**
  * Einbürgerungstest app theme wrapping Material3.
  *
- * @param darkTheme Whether to use dark mode (defaults to system setting)
+ * @param themeMode The user's chosen theme preference
  * @param content The composable content to theme
  */
 @Composable
 fun EinbuergerungTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    themeMode: ThemeMode = ThemeMode.SYSTEM,
     content: @Composable () -> Unit
 ) {
+    val systemDark = isSystemInDarkTheme()
+    val darkTheme = when (themeMode) {
+        ThemeMode.LIGHT -> false
+        ThemeMode.DARK -> true
+        ThemeMode.SYSTEM -> systemDark
+    }
     val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
 
     MaterialTheme(
@@ -87,7 +94,7 @@ fun PreviewSurface(
     contentPadding: PaddingValues = PaddingValues(16.dp),
     content: @Composable BoxScope.() -> Unit
 ) {
-    EinbuergerungTheme(darkTheme = darkTheme) {
+    EinbuergerungTheme(themeMode = if (darkTheme) ThemeMode.DARK else ThemeMode.LIGHT) {
         Surface(
             modifier = modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background

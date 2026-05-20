@@ -1,6 +1,5 @@
 package de.skgroup.einburgerungstest
 
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -11,6 +10,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import de.skgroup.einburgerungstest.core.util.AppLocaleProvider
+import de.skgroup.einburgerungstest.core.model.ThemeMode
 import de.skgroup.einburgerungstest.data.local.QuestionSeeder
 import de.skgroup.einburgerungstest.data.repository.SettingsRepository
 import de.skgroup.einburgerungstest.designsystem.theme.EinbuergerungTheme
@@ -37,13 +37,11 @@ import de.skgroup.einburgerungstest.tracking.TrackingEvent
 import kmpexam.resources.generated.resources.*
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
-import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import org.koin.compose.koinInject
 
 /**
@@ -120,7 +118,7 @@ fun App(initialDeeplinkRoute: String? = null) {
     val navController = rememberNavController()
 
     AppLocaleProvider(language = settings.language) {
-        EinbuergerungTheme(darkTheme = settings.darkMode) {
+        EinbuergerungTheme(themeMode = settings.themeMode) {
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val currentRoute = navBackStackEntry?.destination?.route
 
@@ -169,15 +167,21 @@ fun App(initialDeeplinkRoute: String? = null) {
                         trackingClient.track(TrackingEvent.ScreenView("onboarding"))
                     }
                     OnboardingScreen(
+                        selectedTheme = settings.themeMode,
                         onLanguageChanged = { language ->
-                            // Only track the event — the language is persisted together with
-                            // federalState in onComplete. Saving here would change settings.language,
-                            // which triggers key(localeCode) in AppLocaleProvider and would recreate
-                            // the NavHost, resetting currentStep back to 0 (Welcome screen).
+                            // Save immediately so the next onboarding step is shown in the
+                            // chosen language. key(localeCode) is no longer used in
+                            // AppLocaleProvider, so this recomposition preserves currentStep.
+                            settingsRepository.saveSettings(settings.copy(language = language))
                             trackingClient.track(TrackingEvent.LanguageSelected(language.code))
                         },
                         onFederalStateChanged = { state ->
                             trackingClient.track(TrackingEvent.FederalStateSelected(state.name))
+                        },
+                        onThemeChanged = { themeMode ->
+                            // Save immediately so users see the theme change live
+                            settingsRepository.saveSettings(settings.copy(themeMode = themeMode))
+                            trackingClient.track(TrackingEvent.ThemeChanged(themeMode.name))
                         },
                         onComplete = { language, state ->
                             val currentSettings = settings.copy(
@@ -234,7 +238,7 @@ fun App(initialDeeplinkRoute: String? = null) {
                             trackingClient.track(TrackingEvent.TopicSelected(topic.name))
                             navController.navigate(LearnQuestionRoute(mode = "TOPIC", topicId = topic.name))
                         },
-                        onBookmarksClick = { /* Navigate to bookmarked questions */ },
+                        onBookmarksClick = { navController.navigate(LearnQuestionRoute(mode = "BOOKMARKS", topicId = null)) },
                         onAllQuestionsClick = {
                             navController.navigate(LearnQuestionRoute(mode = "ALL", topicId = null))
                         },
@@ -254,6 +258,7 @@ fun App(initialDeeplinkRoute: String? = null) {
                         val screenName = when (mode) {
                             "TOPIC" -> "learn_questions_topic"
                             "REVIEW" -> "learn_questions_review"
+                            "BOOKMARKS" -> "learn_questions_bookmarks"
                             else -> "learn_questions_all"
                         }
                         trackingClient.track(TrackingEvent.ScreenView(screenName))
@@ -273,6 +278,7 @@ fun App(initialDeeplinkRoute: String? = null) {
                             } else {
                                 viewModel.loadAllQuestions()
                             }
+                            "BOOKMARKS" -> viewModel.loadBookmarkedQuestions()
                             "REVIEW" -> {
                                 val ids = topicId
                                     ?.split(",")
@@ -420,7 +426,7 @@ fun App(initialDeeplinkRoute: String? = null) {
 }
 
 @Composable
-private fun AppBottomNavigationBar(
+internal fun AppBottomNavigationBar(
     currentRoute: String?,
     onNavigate: (String) -> Unit
 ) {
@@ -459,19 +465,3 @@ private fun bottomNavRoute(tab: BottomNavTab): String = when (tab) {
     BottomNavTab.PROFILE -> "profile"
 }
 
-@Preview
-@Composable
-private fun AppBottomNavigationBarPreview() {
-    PreviewSurface(contentPadding = PaddingValues()) {
-        Scaffold(
-            bottomBar = {
-                AppBottomNavigationBar(
-                    currentRoute = "learn",
-                    onNavigate = {}
-                )
-            }
-        ) { paddingValues ->
-            Surface(modifier = Modifier.padding(paddingValues)) {}
-        }
-    }
-}

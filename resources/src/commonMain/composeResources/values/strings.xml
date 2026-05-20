@@ -12,7 +12,7 @@
     <!-- Onboarding -->
     <string name="onboarding_welcome_title">Leben in Deutschland</string>
     <string name="onboarding_welcome_subtitle">Ihr persönlicher Vorbereitung für den deutschen Einbürgerungstest</string>
-    <string name="onboarding_get_started">Los geht\'s</string>
+    <string name="onboarding_get_started">Los geht's</string>
     <string name="onboarding_language_title">App-Sprache</string>
     <string name="onboarding_language_subtitle">Wählen Sie die Sprache für die App-Oberfläche</string>
     <string name="onboarding_language_footer">Die Fragen sind immer auf Deutsch. Sie können ein Wort lange drücken, um seine Übersetzung in Ihrer ausgewählten Sprache zu sehen.</string>
@@ -20,6 +20,14 @@
     <string name="onboarding_state_subtitle">Wählen Sie Ihr Bundesland für landesspezifische Fragen</string>
     <string name="onboarding_continue">Weiter</string>
     <string name="onboarding_finish">Fertig</string>
+    <string name="onboarding_theme_title">Design wählen</string>
+    <string name="onboarding_theme_subtitle">Passen Sie das Erscheinungsbild an. Sie können es jederzeit in den Einstellungen ändern.</string>
+    <string name="onboarding_theme_light">Hell</string>
+    <string name="onboarding_theme_light_desc">Klar und hell</string>
+    <string name="onboarding_theme_dark">Dunkel</string>
+    <string name="onboarding_theme_dark_desc">Augenfreundlich</string>
+    <string name="onboarding_theme_system">System</string>
+    <string name="onboarding_theme_system_desc">Geräteeinstellungen folgen</string>
     
     <!-- Home -->
     <string name="home_welcome">Willkommen zurück</string>
@@ -101,8 +109,8 @@
     <string name="profile_settings">Einstellungen</string>
     <string name="profile_app_language">App-Sprache</string>
     <string name="profile_app_language_subtitle">Sprache der App-Oberfläche ändern</string>
-    <string name="profile_dark_mode">Dunkelmodus</string>
-    <string name="profile_dark_mode_subtitle">App-Design umschalten</string>
+    <string name="profile_dark_mode">Design</string>
+    <string name="profile_dark_mode_subtitle">App-Design wählen</string>
     <string name="profile_analytics">Analysen erlauben</string>
     <string name="profile_analytics_subtitle">Nutzungsdaten für Produktverbesserungen teilen</string>
     <string name="profile_reset_stats">Statistiken zurücksetzen</string>

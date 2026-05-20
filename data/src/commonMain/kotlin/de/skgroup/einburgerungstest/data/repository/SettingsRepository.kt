@@ -2,6 +2,7 @@ package de.skgroup.einburgerungstest.data.repository
 
 import de.skgroup.einburgerungstest.core.model.FederalState
 import de.skgroup.einburgerungstest.core.model.Language
+import de.skgroup.einburgerungstest.core.model.ThemeMode
 import de.skgroup.einburgerungstest.core.model.UserSettings
 import de.skgroup.einburgerungstest.data.local.AppDatabase
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,6 +29,7 @@ class SettingsRepository(private val database: AppDatabase) {
         private const val KEY_LANGUAGE = "language"
         private const val KEY_FEDERAL_STATE = "federal_state"
         private const val KEY_DARK_MODE = "dark_mode"
+        private const val KEY_THEME_MODE = "theme_mode"
         private const val KEY_ANALYTICS_ENABLED = "analytics_enabled"
         private const val KEY_NOTIFICATIONS = "notifications_enabled"
         private const val KEY_ONBOARDING_COMPLETED = "onboarding_completed"
@@ -40,7 +42,7 @@ class SettingsRepository(private val database: AppDatabase) {
     fun saveSettings(settings: UserSettings) {
         database.appDatabaseQueries.insertSetting(KEY_LANGUAGE, settings.language.name)
         database.appDatabaseQueries.insertSetting(KEY_FEDERAL_STATE, settings.federalState.name)
-        database.appDatabaseQueries.insertSetting(KEY_DARK_MODE, settings.darkMode.toString())
+        database.appDatabaseQueries.insertSetting(KEY_THEME_MODE, settings.themeMode.name)
         database.appDatabaseQueries.insertSetting(KEY_ANALYTICS_ENABLED, settings.analyticsEnabled.toString())
         database.appDatabaseQueries.insertSetting(KEY_NOTIFICATIONS, settings.notificationsEnabled.toString())
         database.appDatabaseQueries.insertSetting(KEY_ONBOARDING_COMPLETED, settings.hasCompletedOnboarding.toString())
@@ -58,7 +60,18 @@ class SettingsRepository(private val database: AppDatabase) {
             try { FederalState.valueOf(it) } catch (_: Exception) { null }
         } ?: FederalState.BERLIN
 
-        val darkMode = getSetting(KEY_DARK_MODE)?.toBooleanStrictOrNull() ?: false
+        // Migrate from old boolean dark_mode key if theme_mode not set yet
+        val themeMode = getSetting(KEY_THEME_MODE)?.let {
+            try { ThemeMode.valueOf(it) } catch (_: Exception) { null }
+        } ?: run {
+            val legacyDark = getSetting(KEY_DARK_MODE)?.toBooleanStrictOrNull()
+            when (legacyDark) {
+                true -> ThemeMode.DARK
+                false -> ThemeMode.LIGHT
+                null -> ThemeMode.SYSTEM
+            }
+        }
+
         val analyticsEnabled = getSetting(KEY_ANALYTICS_ENABLED)?.toBooleanStrictOrNull() ?: true
         val notifications = getSetting(KEY_NOTIFICATIONS)?.toBooleanStrictOrNull() ?: true
         val onboarding = getSetting(KEY_ONBOARDING_COMPLETED)?.toBooleanStrictOrNull() ?: false
@@ -67,7 +80,7 @@ class SettingsRepository(private val database: AppDatabase) {
         return UserSettings(
             language = language,
             federalState = federalState,
-            darkMode = darkMode,
+            themeMode = themeMode,
             analyticsEnabled = analyticsEnabled,
             notificationsEnabled = notifications,
             hasCompletedOnboarding = onboarding,

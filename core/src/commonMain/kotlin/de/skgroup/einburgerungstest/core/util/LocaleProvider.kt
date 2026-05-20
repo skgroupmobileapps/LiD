@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ProvidedValue
 import androidx.compose.runtime.compositionLocalOf
-import androidx.compose.runtime.key
 import androidx.compose.runtime.remember
 import de.skgroup.einburgerungstest.core.model.Language
 
@@ -34,15 +33,14 @@ fun AppLocaleProvider(
 ) {
     val localeCode = remember(language) { language.code }
     
+    // Provide new locals — CompositionLocalProvider propagates them to all consumers via
+    // normal recomposition, so strings re-resolve without needing key() to destroy/recreate
+    // the subtree (which would wipe NavHost and onboarding step state).
     CompositionLocalProvider(
         LocalAppLanguage provides language,
-        LocalAppLocale provides localeCode
-    ) {
-        // Recreate subtree on locale change so string resources are re-resolved.
-        key(localeCode) {
-            content()
-        }
-    }
+        LocalAppLocale provides localeCode,
+        content = content
+    )
 }
 
 /**

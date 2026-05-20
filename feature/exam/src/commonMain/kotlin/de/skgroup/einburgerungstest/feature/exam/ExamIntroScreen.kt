@@ -12,11 +12,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import de.skgroup.einburgerungstest.core.model.FederalState
 import de.skgroup.einburgerungstest.designsystem.components.AppButton
-import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import de.skgroup.einburgerungstest.designsystem.theme.*
 import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 
 
 /**
@@ -90,7 +88,7 @@ fun ExamIntroScreen(
 }
 
 @Composable
-private fun ExamInfoItem(
+internal fun ExamInfoItem(
     icon: String,
     title: String,
     subtitle: String
@@ -123,42 +121,3 @@ private fun ExamInfoItem(
     }
 }
 
-@Preview
-@Composable
-private fun ExamIntroScreenPreview() {
-    PreviewSurface {
-        ExamIntroScreen(federalState = FederalState.BERLIN)
-    }
-}
-
-@Preview
-@Composable
-private fun ExamIntroScreenDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        ExamIntroScreen(federalState = FederalState.BERLIN)
-    }
-}
-
-@Preview
-@Composable
-private fun ExamInfoItemPreview() {
-    PreviewSurface {
-        ExamInfoItem(
-            icon = "📝",
-            title = "33 questions",
-            subtitle = "30 general questions plus 3 for Berlin"
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun ExamInfoItemDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        ExamInfoItem(
-            icon = "📝",
-            title = "33 questions",
-            subtitle = "30 general questions plus 3 for Berlin"
-        )
-    }
-}

@@ -186,6 +186,24 @@ class LearnViewModel(
      * Load a specific set of questions by ID for reviewing wrong exam answers.
      * No progress tracking is recorded for review sessions.
      */
+    fun loadBookmarkedQuestions() {
+        viewModelScope.launch(Dispatchers.Default) {
+            _uiState.update { it.copy(isLoading = true) }
+            val bookmarks = bookmarkUseCase.getBookmarkedQuestions()
+            _uiState.update {
+                it.copy(
+                    currentQuestions = bookmarks,
+                    bookmarkedQuestions = bookmarks,
+                    bookmarkCount = bookmarks.size,
+                    currentQuestionIndex = 0,
+                    selectedAnswerIndex = null,
+                    feedback = null,
+                    isLoading = false
+                )
+            }
+        }
+    }
+
     fun loadQuestionsForReview(questionIds: List<Int>) {
         viewModelScope.launch(Dispatchers.Default) {
             _uiState.update { it.copy(isLoading = true) }

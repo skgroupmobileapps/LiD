@@ -3,8 +3,6 @@ package de.skgroup.einburgerungstest.designsystem.components
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.FontWeight
-import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
-import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Reusable confirmation dialog following the app design system.
@@ -56,32 +54,4 @@ fun ConfirmationDialog(
     )
 }
 
-@Preview
-@Composable
-private fun ConfirmationDialogPreview() {
-    PreviewSurface {
-        ConfirmationDialog(
-            title = "Leave exam?",
-            message = "Your progress for this attempt will be lost.",
-            confirmText = "Leave",
-            dismissText = "Stay",
-            onConfirm = {},
-            onDismiss = {}
-        )
-    }
-}
 
-@Preview
-@Composable
-private fun ConfirmationDialogDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        ConfirmationDialog(
-            title = "Leave exam?",
-            message = "Your progress for this attempt will be lost.",
-            confirmText = "Leave",
-            dismissText = "Stay",
-            onConfirm = {},
-            onDismiss = {}
-        )
-    }
-}

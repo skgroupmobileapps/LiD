@@ -9,8 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.tooling.preview.Preview
-import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import de.skgroup.einburgerungstest.designsystem.theme.PrimaryGreen
 import de.skgroup.einburgerungstest.designsystem.theme.SuccessGreenLight
 import kmpexam.resources.generated.resources.*
@@ -76,24 +74,3 @@ fun StoreRedirectDialog(
     )
 }
 
-@Preview
-@Composable
-private fun StoreRedirectDialogPreview() {
-    PreviewSurface {
-        StoreRedirectDialog(
-            onRateInStore = {},
-            onDismiss = {}
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun StoreRedirectDialogDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        StoreRedirectDialog(
-            onRateInStore = {},
-            onDismiss = {}
-        )
-    }
-}

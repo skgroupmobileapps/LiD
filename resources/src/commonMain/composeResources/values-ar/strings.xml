@@ -20,6 +20,14 @@
     <string name="onboarding_state_subtitle">اختر ولايتك الاتحادية للأسئلة الخاصة بالولاية</string>
     <string name="onboarding_continue">متابعة</string>
     <string name="onboarding_finish">إنهاء</string>
+    <string name="onboarding_theme_title">اختر مظهرك</string>
+    <string name="onboarding_theme_subtitle">خصص تجربة دراستك. يمكنك تغيير ذلك لاحقًا في الإعدادات.</string>
+    <string name="onboarding_theme_light">فاتح</string>
+    <string name="onboarding_theme_light_desc">نظيف ومضيء</string>
+    <string name="onboarding_theme_dark">داكن</string>
+    <string name="onboarding_theme_dark_desc">مريح للعينين</string>
+    <string name="onboarding_theme_system">النظام</string>
+    <string name="onboarding_theme_system_desc">يتبع إعدادات الجهاز</string>
     
     <!-- Home -->
     <string name="home_welcome">مرحبًا بعودتك</string>
@@ -101,8 +109,8 @@
     <string name="profile_settings">الإعدادات</string>
     <string name="profile_app_language">لغة التطبيق</string>
     <string name="profile_app_language_subtitle">تغيير لغة واجهة التطبيق</string>
-    <string name="profile_dark_mode">الوضع الداكن</string>
-    <string name="profile_dark_mode_subtitle">تبديل مظهر التطبيق</string>
+    <string name="profile_dark_mode">المظهر</string>
+    <string name="profile_dark_mode_subtitle">اختر مظهر التطبيق</string>
     <string name="profile_analytics">تفعيل التحليلات</string>
     <string name="profile_analytics_subtitle">مشاركة بيانات الاستخدام لتحسين التطبيق</string>
     <string name="profile_reset_stats">إعادة تعيين الإحصائيات</string>

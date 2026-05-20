@@ -8,7 +8,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import de.skgroup.einburgerungstest.designsystem.theme.PreviewSurface
 import de.skgroup.einburgerungstest.designsystem.theme.ButtonShape
-import androidx.compose.ui.tooling.preview.Preview
 
 /**
  * Primary app button — filled green, rounded, full width.
@@ -76,48 +75,4 @@ fun AppOutlinedButton(
     }
 }
 
-@Preview
-@Composable
-private fun AppButtonPreview() {
-    PreviewSurface {
-        AppButton(
-            text = "Start learning",
-            trailingIcon = "›",
-            onClick = {}
-        )
-    }
-}
 
-@Preview
-@Composable
-private fun AppButtonDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        AppButton(
-            text = "Start learning",
-            trailingIcon = "›",
-            onClick = {}
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun AppOutlinedButtonPreview() {
-    PreviewSurface {
-        AppOutlinedButton(
-            text = "Review mistakes",
-            onClick = {}
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun AppOutlinedButtonDarkPreview() {
-    PreviewSurface(darkTheme = true) {
-        AppOutlinedButton(
-            text = "Review mistakes",
-            onClick = {}
-        )
-    }
-}
