@@ -2946,7 +2946,7 @@
         "Bild 3",
         "Bild 4"
       ],
-      "correctAnswerIndex": 0,
+      "correctAnswerIndex": 1,
       "topic": "SYMBOLS_AND_GEOGRAPHY",
       "explanation": "",
       "imageName": "q_226.png"
@@ -3676,7 +3676,7 @@
         "Bibliotheksaufsicht",
         "Lehrerin/Lehrer"
       ],
-      "correctAnswerIndex": 2,
+      "correctAnswerIndex": 1,
       "topic": "SOCIETY_AND_CULTURE",
       "explanation": ""
     },

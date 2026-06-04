@@ -32,6 +32,8 @@ import de.skgroup.einburgerungstest.feature.onboarding.OnboardingScreen
 import de.skgroup.einburgerungstest.feature.profile.ProfileScreen
 import de.skgroup.einburgerungstest.feature.profile.ProfileViewModel
 import de.skgroup.einburgerungstest.navigation.BottomNavTab
+import de.skgroup.einburgerungstest.navigation.decodeReviewQuestionIds
+import de.skgroup.einburgerungstest.navigation.encodeReviewQuestionIds
 import de.skgroup.einburgerungstest.tracking.TrackingClient
 import de.skgroup.einburgerungstest.tracking.TrackingEvent
 import kmpexam.resources.generated.resources.*
@@ -280,10 +282,7 @@ fun App(initialDeeplinkRoute: String? = null) {
                             }
                             "BOOKMARKS" -> viewModel.loadBookmarkedQuestions()
                             "REVIEW" -> {
-                                val ids = topicId
-                                    ?.split(",")
-                                    ?.mapNotNull { it.trim().toIntOrNull() }
-                                    ?: emptyList()
+                                val ids = decodeReviewQuestionIds(topicId)
                                 viewModel.loadQuestionsForReview(ids)
                             }
                             else -> viewModel.loadAllQuestions()
@@ -363,9 +362,9 @@ fun App(initialDeeplinkRoute: String? = null) {
                                 ExamResultScreen(
                                     result = result,
                                     onReviewWrongAnswers = {
-                                        val ids = result.wrongAnswers
-                                            .map { it.question.id }
-                                            .joinToString(",")
+                                        val ids = encodeReviewQuestionIds(
+                                            result.wrongAnswers.map { it.question.id }
+                                        )
                                         navController.navigate(
                                             LearnQuestionRoute(mode = "REVIEW", topicId = ids)
                                         )
@@ -464,4 +463,3 @@ private fun bottomNavRoute(tab: BottomNavTab): String = when (tab) {
     BottomNavTab.EXAM -> "exam_intro"
     BottomNavTab.PROFILE -> "profile"
 }
-

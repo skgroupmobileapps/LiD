@@ -222,6 +222,55 @@ class DatabaseMigrationTest {
         AppDatabase.Schema.migrate(driver, oldVersion = 1L, newVersion = 2L)
     }
 
+    /** Applies the v2 → v3 migration (executes 2.sqm). */
+    private fun applyMigrationV2toV3() {
+        AppDatabase.Schema.migrate(driver, oldVersion = 2L, newVersion = 3L)
+    }
+
+
+    /** Applies the v3 → v4 migration (executes 3.sqm). */
+    private fun applyMigrationV3toV4() {
+        AppDatabase.Schema.migrate(driver, oldVersion = 3L, newVersion = 4L)
+    }
+
+    // ── v2 → v3 migration (question 282 correct-answer fix) ──────────────────────
+
+    @Test
+    fun migrationV2toV3_clearsAllQuestions() {
+        insertSampleQuestion(id = 282)
+        assertEquals(1, questionCount())
+
+        applyMigrationV2toV3()
+
+        assertEquals(0, questionCount())
+    }
+
+    @Test
+    fun migrationV3toV4_clearsAllQuestions() {
+        insertSampleQuestion(id = 282)
+        assertEquals(1, questionCount())
+
+        applyMigrationV3toV4()
+
+        assertEquals(0, questionCount())
+    }
+
+
+    @Test
+    fun migrationV2toV3_preservesUserAnswersAndBookmarksAndSettings() {
+        insertSampleQuestion(id = 282)
+        db.appDatabaseQueries.insertAnswer(282L, 2L, 1L, 1_000L, "learn")
+        db.appDatabaseQueries.insertBookmark(questionId = 282L, timestampMs = 2_000L)
+        db.appDatabaseQueries.insertSetting(key = "federal_state", value_ = "BERLIN")
+
+        applyMigrationV2toV3()
+
+        assertEquals(0, questionCount())
+        assertEquals(1, db.appDatabaseQueries.getTotalAnswerCount().executeAsOne())
+        assertEquals(1, db.appDatabaseQueries.getBookmarkCount().executeAsOne())
+        assertEquals("BERLIN", db.appDatabaseQueries.getSetting("federal_state").executeAsOneOrNull())
+    }
+
     private fun questionCount() = db.appDatabaseQueries.getQuestionCount().executeAsOne()
 
     private fun insertSampleQuestion(id: Long) {

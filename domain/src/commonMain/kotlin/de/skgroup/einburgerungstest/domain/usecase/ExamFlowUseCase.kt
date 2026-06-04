@@ -11,6 +11,48 @@ import de.skgroup.einburgerungstest.data.repository.ProgressRepository
 import de.skgroup.einburgerungstest.data.repository.QuestionRepository
 import kotlinx.datetime.Clock
 
+internal data class ExamEvaluation(
+    val correctCount: Int,
+    val wrongAnswers: List<WrongAnswer>
+)
+
+internal fun evaluateExamAnswers(session: ExamSession): ExamEvaluation {
+    var correctCount = 0
+    val wrongAnswers = mutableListOf<WrongAnswer>()
+
+    session.questions.forEach { question ->
+        val selectedIndex = session.answers[question.id]
+        when {
+            selectedIndex == null -> {
+                wrongAnswers.add(
+                    WrongAnswer(
+                        question = question,
+                        selectedAnswerIndex = -1,
+                        correctAnswerIndex = question.correctAnswerIndex
+                    )
+                )
+            }
+            selectedIndex == question.correctAnswerIndex -> {
+                correctCount++
+            }
+            else -> {
+                wrongAnswers.add(
+                    WrongAnswer(
+                        question = question,
+                        selectedAnswerIndex = selectedIndex,
+                        correctAnswerIndex = question.correctAnswerIndex
+                    )
+                )
+            }
+        }
+    }
+
+    return ExamEvaluation(
+        correctCount = correctCount,
+        wrongAnswers = wrongAnswers
+    )
+}
+
 /**
  * Use case for managing the exam flow.
  *
@@ -54,24 +96,12 @@ class ExamFlowUseCase(
         val now = Clock.System.now().toEpochMilliseconds()
         val timeSpent = now - session.startTimeMs
 
-        var correctCount = 0
-        val wrongAnswers = mutableListOf<WrongAnswer>()
+        val evaluation = evaluateExamAnswers(session)
 
         session.questions.forEach { question ->
             val selectedIndex = session.answers[question.id]
             if (selectedIndex != null) {
                 val isCorrect = selectedIndex == question.correctAnswerIndex
-                if (isCorrect) {
-                    correctCount++
-                } else {
-                    wrongAnswers.add(
-                        WrongAnswer(
-                            question = question,
-                            selectedAnswerIndex = selectedIndex,
-                            correctAnswerIndex = question.correctAnswerIndex
-                        )
-                    )
-                }
                 // Record each answer for progress tracking
                 progressRepository.recordAnswer(
                     questionId = question.id,
@@ -83,15 +113,15 @@ class ExamFlowUseCase(
         }
 
         val totalQuestions = session.totalQuestions
-        val wrongCount = totalQuestions - correctCount
+        val wrongCount = evaluation.wrongAnswers.size
         val result = ExamResult(
             totalQuestions = totalQuestions,
-            correctCount = correctCount,
+            correctCount = evaluation.correctCount,
             wrongCount = wrongCount,
-            passed = Scoring.isPassed(correctCount, totalQuestions),
-            scorePercent = Scoring.calculateScorePercent(correctCount, totalQuestions),
+            passed = Scoring.isPassed(evaluation.correctCount, totalQuestions),
+            scorePercent = Scoring.calculateScorePercent(evaluation.correctCount, totalQuestions),
             timeSpentMs = timeSpent,
-            wrongAnswers = wrongAnswers,
+            wrongAnswers = evaluation.wrongAnswers,
             federalState = session.federalState,
             timestampMs = now
         )

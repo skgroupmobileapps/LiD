@@ -107,7 +107,7 @@ android {
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         buildConfigField("String", "APP_VERSION", "\"${version}\"")
-        versionCode = 5
+        versionCode = 6
         versionName = version
     }
     signingConfigs {

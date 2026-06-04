@@ -208,7 +208,32 @@ class LearnViewModel(
         viewModelScope.launch(Dispatchers.Default) {
             _uiState.update { it.copy(isLoading = true) }
             try {
-                val questions = learningUseCase.getQuestionsById(questionIds)
+                val normalizedIds = questionIds.mapNotNull { id ->
+                    id.takeIf { it > 0 }
+                }
+                if (normalizedIds.isEmpty()) {
+                    _uiState.update {
+                        it.copy(
+                            currentQuestions = emptyList(),
+                            currentQuestionIndex = 0,
+                            selectedAnswerIndex = null,
+                            feedback = null,
+                            isLoading = false
+                        )
+                    }
+                    return@launch
+                }
+
+                var questions = learningUseCase.getQuestionsById(normalizedIds)
+                if (questions.size != normalizedIds.size) {
+                    val byId = learningUseCase
+                        .getCandidateQuestions(federalState)
+                        .associateBy { it.id }
+                    questions = normalizedIds.mapNotNull { id ->
+                        questions.firstOrNull { it.id == id } ?: byId[id]
+                    }
+                }
+
                 _uiState.update {
                     it.copy(
                         currentQuestions = questions,

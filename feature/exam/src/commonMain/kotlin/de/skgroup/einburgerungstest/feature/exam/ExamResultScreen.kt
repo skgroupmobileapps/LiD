@@ -1,7 +1,6 @@
 package de.skgroup.einburgerungstest.feature.exam
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -9,6 +8,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -37,6 +37,7 @@ fun ExamResultScreen(
     onBackToHome: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
+    val isDark = MaterialTheme.colorScheme.background.luminance() < 0.5f
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -47,7 +48,6 @@ fun ExamResultScreen(
         Spacer(Modifier.height(32.dp))
 
         // Pass/Fail icon
-        val isDark = isSystemInDarkTheme()
         val resultEmoji = if (result.passed) "🎉" else "😔"
         // headlineLarge is large text (28sp bold) → 3:1 ratio required; both colors meet it
         // In dark mode use lighter variants for better readability on dark surfaces
@@ -151,48 +151,28 @@ private fun ExamResultStatsRow(result: ExamResult) {
 
 @Composable
 internal fun WrongAnswersSummaryCard(result: ExamResult) {
-    val isDark = isSystemInDarkTheme()
-    val cardBg = if (isDark) ErrorRedSurfaceDark else ErrorRedLight
-    val titleColor = if (isDark) androidx.compose.ui.graphics.Color(0xFFFF8A80) else ErrorRed
-    Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(12.dp),
-        colors = CardDefaults.cardColors(containerColor = cardBg),
-        border = androidx.compose.foundation.BorderStroke(1.dp, ErrorRed.copy(alpha = 0.3f))
-    ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Text("❌", style = MaterialTheme.typography.titleMedium)
-                Text(
-                    text = "${result.wrongCount} Wrong Answers",
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    color = titleColor
-                )
-            }
-            Spacer(Modifier.height(12.dp))
-
-            result.wrongAnswers.take(5).forEach { wrong ->
-                Text(
-                    text = "• Q${wrong.question.id}: ${wrong.question.text.take(60)}...",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = if (isDark) MaterialTheme.colorScheme.onBackground else MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier.padding(vertical = 2.dp)
-                )
-            }
-            if (result.wrongAnswers.size > 5) {
-                Text(
-                    text = "... and ${result.wrongAnswers.size - 5} more",
-                    style = MaterialTheme.typography.bodySmall,
-                    fontWeight = FontWeight.SemiBold,
-                    color = titleColor,
-                    modifier = Modifier.padding(top = 4.dp)
-                )
-            }
+    FeedbackCard(
+        isPositive = false,
+        title = "${result.wrongCount} Wrong Answers",
+        leadingEmoji = "❌",
+        showBorder = true
+    ) { contentColor ->
+        result.wrongAnswers.take(5).forEach { wrong ->
+            Text(
+                text = "• Q${wrong.question.id}: ${wrong.question.text.take(60)}...",
+                style = MaterialTheme.typography.bodySmall,
+                color = contentColor,
+                modifier = Modifier.padding(vertical = 2.dp)
+            )
+        }
+        if (result.wrongAnswers.size > 5) {
+            Text(
+                text = "... and ${result.wrongAnswers.size - 5} more",
+                style = MaterialTheme.typography.bodySmall,
+                fontWeight = FontWeight.SemiBold,
+                color = contentColor,
+                modifier = Modifier.padding(top = 4.dp)
+            )
         }
     }
 }
-

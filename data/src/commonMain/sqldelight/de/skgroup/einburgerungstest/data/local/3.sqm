@@ -1,0 +1,11 @@
+-- Migration: schema version 2 → 3
+-- Question 282 correct answer corrected: index 2 (Bibliotheksaufsicht) → index 1 (Wahlhelferin/Wahlhelfer).
+--
+-- Strategy: clear QuestionEntity so QuestionSeeder.seedIfNeeded() detects count = 0 and
+-- re-seeds the updated catalogue on the next app start.
+--
+-- UserAnswerEntity, BookmarkEntity, ExamHistoryEntity and SettingsEntity rows are
+-- intentionally left intact. Their foreign-key references to QuestionEntity are
+-- restored once the seeder re-inserts the questions (all original IDs are preserved).
+
+DELETE FROM QuestionEntity;
