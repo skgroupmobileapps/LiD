@@ -18,7 +18,6 @@ kotlin {
             implementation(projects.core)
             implementation(projects.data)
             implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.kotlinx.datetime)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

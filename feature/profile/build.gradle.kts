@@ -50,10 +50,6 @@ android {
     }
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
-        buildConfigField("String", "APP_VERSION", "\"${libs.versions.app.version.get()}\"")
-    }
-    buildFeatures {
-        buildConfig = true
     }
 }
 

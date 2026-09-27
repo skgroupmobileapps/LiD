@@ -34,7 +34,6 @@ import kmpexam.resources.generated.resources.*
 import org.jetbrains.compose.resources.stringResource
 
 // App metadata constants
-private const val APP_VERSION = BuildConfig.APP_VERSION
 private const val CATALOGUE_DATE = "Mai 2025(Latest)"
 private const val CONTACT_EMAIL = "skgroup.mobileapps@gmail.com"
 
@@ -429,7 +428,7 @@ internal fun ProfileAboutCard() {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(stringResource(Res.string.profile_app_version), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text(APP_VERSION, style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
+                Text(PlatformUtil.getAppVersion(), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.SemiBold)
             }
 
             Spacer(Modifier.height(12.dp))

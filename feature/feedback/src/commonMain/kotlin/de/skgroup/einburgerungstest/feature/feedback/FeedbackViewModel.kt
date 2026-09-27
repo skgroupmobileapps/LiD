@@ -35,8 +35,6 @@ class FeedbackViewModel(
 ) : ViewModel() {
 
     companion object {
-        private const val APP_VERSION = BuildConfig.APP_VERSION
-
         // Replace with actual store URLs once published
         private const val GOOGLE_PLAY_URL =
             "https://play.google.com/store/apps/details?id=de.skgroup.einburgerungstest.einbuergerungstest"
@@ -77,7 +75,7 @@ class FeedbackViewModel(
                 comment = comment,
                 language = settings.language.code,
                 federalState = settings.federalState.name,
-                appVersion = APP_VERSION,
+                appVersion = PlatformUtil.getAppVersion(),
                 platform = platform
             )
         }

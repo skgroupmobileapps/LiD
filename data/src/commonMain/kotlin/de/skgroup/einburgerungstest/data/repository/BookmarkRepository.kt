@@ -6,7 +6,7 @@ import de.skgroup.einburgerungstest.core.model.Answer
 import de.skgroup.einburgerungstest.core.model.FederalState
 import de.skgroup.einburgerungstest.core.model.Topic
 import de.skgroup.einburgerungstest.data.local.AppDatabase
-import kotlinx.datetime.Clock
+import kotlin.time.Clock
 
 /**
  * Repository for bookmark operations.

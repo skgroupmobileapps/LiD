@@ -24,7 +24,6 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
-            export(libs.kotlinx.datetime)
             export(projects.core)
             export(projects.data)
             export(projects.domain)
@@ -63,7 +62,6 @@ kotlin {
             // KotlinX
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.kotlinx.serialization.json)
-            api(libs.kotlinx.datetime)
 
             // Project modules
             api(projects.core)
@@ -98,15 +96,11 @@ android {
     compileSdk = libs.versions.android.compileSdk.get().toInt()
     val version = libs.versions.app.version.get()
 
-    buildFeatures {
-        buildConfig = true
-    }
 
     defaultConfig {
         applicationId = "de.skgroup.einburgerungstest"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        buildConfigField("String", "APP_VERSION", "\"${version}\"")
         versionCode = 6
         versionName = version
     }

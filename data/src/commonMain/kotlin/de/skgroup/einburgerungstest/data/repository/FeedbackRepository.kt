@@ -29,7 +29,7 @@ class FeedbackRepository {
                 "federalState" to federalState,
                 "appVersion" to appVersion,
                 "platform" to platform,
-                "timestampMs" to kotlinx.datetime.Clock.System.now().toEpochMilliseconds()
+                "timestampMs" to kotlin.time.Clock.System.now().toEpochMilliseconds()
             )
             firestore?.collection("feedback")?.add(data)
         } catch (_: Exception) {

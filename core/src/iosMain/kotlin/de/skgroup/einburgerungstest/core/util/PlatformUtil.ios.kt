@@ -1,6 +1,7 @@
 package de.skgroup.einburgerungstest.core.util
 
 import platform.Foundation.NSURL
+import platform.Foundation.NSBundle
 import platform.UIKit.UIApplication
 
 actual object PlatformUtil {
@@ -10,4 +11,7 @@ actual object PlatformUtil {
     }
 
     actual fun getPlatformName(): String = "ios"
+
+    actual fun getAppVersion(): String =
+        NSBundle.mainBundle.objectForInfoDictionaryKey("CFBundleShortVersionString") as? String ?: "unknown"
 }

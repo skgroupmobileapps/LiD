@@ -13,4 +13,7 @@ expect object PlatformUtil {
      * Returns the platform name: "android" or "ios".
      */
     fun getPlatformName(): String
+
+    /** Returns the installed application's version name. */
+    fun getAppVersion(): String
 }

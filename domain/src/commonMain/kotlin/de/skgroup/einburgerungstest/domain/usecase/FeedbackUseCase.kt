@@ -1,7 +1,7 @@
 package de.skgroup.einburgerungstest.domain.usecase
 
 import de.skgroup.einburgerungstest.data.repository.SettingsRepository
-import kotlinx.datetime.Clock
+import kotlin.time.Clock
 
 class FeedbackUseCase(
     private val settingsRepository: SettingsRepository,

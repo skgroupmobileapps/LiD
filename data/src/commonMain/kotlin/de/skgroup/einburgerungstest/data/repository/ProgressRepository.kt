@@ -4,9 +4,7 @@ import de.skgroup.einburgerungstest.core.model.Topic
 import de.skgroup.einburgerungstest.core.model.TopicProgress
 import de.skgroup.einburgerungstest.core.model.UserProgress
 import de.skgroup.einburgerungstest.data.local.AppDatabase
-import kotlinx.datetime.Clock
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
+import kotlin.time.Clock
 
 /**
  * Repository for tracking learning progress.
@@ -64,8 +62,7 @@ class ProgressRepository(private val database: AppDatabase) {
         var streak = 0
         var expectedDay = today
 
-        for (entry in days) {
-            val day = entry ?: continue
+        for (day in days) {
             if (day == expectedDay || day == expectedDay - 1) {
                 streak++
                 expectedDay = day - 1

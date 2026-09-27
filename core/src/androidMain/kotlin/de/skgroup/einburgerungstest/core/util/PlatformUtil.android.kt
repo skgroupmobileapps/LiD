@@ -14,4 +14,9 @@ actual object PlatformUtil {
     }
 
     actual fun getPlatformName(): String = "android"
+
+    actual fun getAppVersion(): String {
+        val context = ContextProvider.context ?: return "unknown"
+        return context.packageManager.getPackageInfo(context.packageName, 0).versionName ?: "unknown"
+    }
 }

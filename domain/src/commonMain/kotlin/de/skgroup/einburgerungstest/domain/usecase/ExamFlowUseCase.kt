@@ -9,7 +9,7 @@ import de.skgroup.einburgerungstest.core.util.Scoring
 import de.skgroup.einburgerungstest.data.repository.ExamRepository
 import de.skgroup.einburgerungstest.data.repository.ProgressRepository
 import de.skgroup.einburgerungstest.data.repository.QuestionRepository
-import kotlinx.datetime.Clock
+import kotlin.time.Clock
 
 internal data class ExamEvaluation(
     val correctCount: Int,
